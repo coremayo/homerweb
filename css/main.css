@@ -133,7 +133,7 @@ font-size: 10pt;
 }
 
 #level1 #login {
-position: absoulute;
+position: relative;
 }
 
 #level1 #login p {
