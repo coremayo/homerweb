@@ -83,5 +83,11 @@ class Main extends Controller
 		$data['content'] = 'register';
 		$this->load->view('template', $data);
 	}
+	
+	function courses()
+	{
+		$data['content'] = 'courses';
+		$this->load->view('template', $data);
+	}
 }
 ?>
