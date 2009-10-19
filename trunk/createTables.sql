@@ -304,6 +304,11 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`subscription` (
 ENGINE = InnoDB;
 
 
+--
+-- Dumping data for table `user`
+--
+INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPasswdHash`, `userRegistrationDate`) VALUES
+(1, 'me@yahoo.com', NULL, NULL, 'cffb0d21c420fdda412eab787bb5fa8e9a62bcd0', '2009-10-19');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
