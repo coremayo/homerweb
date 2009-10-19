@@ -117,13 +117,8 @@ padding: .5em .5em;
 background: url(../images/module_gradient.png) repeat-x;
 }
 
-#main #level1 div {
-float: left;
-width: 40%;
-margin-right: 3em;
-}
-
-#main #level2 div {
+#level1 div,
+#level2 div {
 float: left;
 width: 40%;
 margin-right: 3em;
