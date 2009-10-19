@@ -16,7 +16,7 @@
 	<div id="container">
 
 	<div id="header">
-		<h1>Chicago Review Courses</h1>
+		<h1 id="test">Chicago Review Courses</h1>
 		<small>"The Preferred Neurosurgery Review since 1974"</small>
 		<div id="search">
 			<small><input type="text" name="search" value="Search Keywords..." /> <input type="submit" name="submit" value="Go" /></small>
