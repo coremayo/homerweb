@@ -1,0 +1,166 @@
+html {
+background: #e1e1e1;
+}
+
+body {
+font-size: 90%;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+line-height: 1.6em;
+text-align: center;
+}
+
+ul, li, img, body, html {
+margin: 0; padding 0;
+}
+
+a {
+text-decoration: none;
+color: #2274da;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+h2 {
+background: #2274da;
+color: #ffffff;
+margin: 0;
+padding: .2em .5em;
+text-align: left;
+font-weight: normal;
+font-size: 13pt;
+border: 1px solid #2274da;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+}
+
+#container {
+text-align: left;
+width: 850px;
+margin: auto;
+}
+
+#container ul,
+#container ul li {
+list-style-type: none;
+}
+
+#header {
+position: relative;
+padding: 0 0 25px 0;
+}
+
+#header h1 {
+color: #418fef;
+font-family: "Franklin Gothic Medium";
+font-size: 22pt;
+}
+
+#header small {
+color: #b4b4b5;
+font-family: "Franklin Gothic Medium";
+font-size: 13pt;
+margin: 0em 2em;
+}
+
+#header #search {
+position: absolute;
+top: 1.3em;
+right: 0em;
+}
+
+#banner {
+height: 197px;
+margin: 0 0 30px 0;
+border: 1px solid #d1d1d1;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+color: #ffffff;
+background: url(../images/banner.jpg) no-repeat 15px 15px;
+}
+
+#banner h1 {
+padding: 1em 0 0 6em;
+font-weight: 200;
+}
+
+#banner p {
+padding: 0em 12em;
+font-weight: bold;
+}
+
+#navigation {
+overflow: hidden;
+height: 80px;
+}
+
+#navigation li {
+float: left;
+padding-left: 60px;
+}
+
+#main div {
+overflow: hidden;
+}
+
+#level1, #level2 {
+margin-bottom: 2em;
+}
+
+#level1 div,
+#level2 div {
+border: 2px solid #d0d0d0;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+padding: .5em .5em;
+background: url(../images/module_gradient.png) repeat-x;
+}
+
+#main #level1 div {
+float: left;
+width: 40%;
+margin-right: 3em;
+}
+
+#main #level2 div {
+float: left;
+width: 40%;
+margin-right: 3em;
+}
+
+#level1 div p, 
+#level2 div p {
+margin-top: .3em;
+padding: .5em .5em;
+text-align: left;
+font-size: 10pt;
+}
+
+#level1 #login {
+position: relative;
+}
+
+#level1 #login p {
+margin: 0;
+}
+
+#level1 #login #button {
+background: #2470db;
+color: #ffffff;
+position: absolute;
+right: 5em;
+font-size: 13pt;
+border: 1px solid #2470db;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+padding: 0px 10px 2px 10px;
+}
+
+#footer {
+border: 2px solid #d0d0d0;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+text-align: center;
+background: url(../images/module_gradient.png) repeat-x;
+}

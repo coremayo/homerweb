@@ -1,0 +1,1 @@
+<?php if ($type == 'invalid')	  {	  	echo 'You entered an invalid email address and/or password. Please <a href="'.base_url().'">Try Again</a>';	  }	  else	  {	  	echo 'You are unauthorized to view this page. Please <a href="'.base_url().'">Login</a';	  }?>

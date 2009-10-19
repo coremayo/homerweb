@@ -1,0 +1,113 @@
+html {
+background: #FFFFFF;
+}
+
+body {
+font-size: 90%;
+font-family: Arial, Helvetica, sans-serif;
+line-height: 1.8em;
+text-align: center;
+}
+
+ul, li, img, body, html {
+margin: 0; padding 0;
+}
+
+a {
+text-decoration: none;
+color: #000000;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+h2 {
+background: url(../images/site_admin/header_gradient.png) repeat-x;
+color: #FFFFFF;
+margin: 0;
+padding: 5px 0 5px 10px;
+text-align: left;
+font-size: 13pt;
+}
+
+#container {
+text-align: left;
+margin: auto;
+width: 100%;
+}
+
+#container ul,
+#container ul li {
+list-style-type: none;
+}
+
+#header {
+background: url(../images/site_admin/header_gradient.png) repeat-x;
+position: relative;
+padding: 0 0 25px 0;
+}
+
+#header h1 {
+color: #FFFFFF;
+font-family: Arial;
+font-size: 18pt;
+margin: 0; 
+padding: 20px 0 25px 20px;
+}
+
+#header #logout_link {
+color: #FFFFFF;
+position: absolute;
+top: 1.3em;
+right: 3em;
+}
+
+#header #logged_in_as {
+color: #FFFFFF;
+position: absolute;
+top: 1.3em;
+right: 10em;
+}
+
+#navigation {
+height: 100%;
+padding: 0;
+border: none;
+}
+
+#navigation li {
+float: left;
+padding-left: 2px;
+}
+
+#content {
+font-size: 10pt;
+height: 600px;
+}
+
+#side_navigation {
+float: left;
+border: 1px solid #d0d0d0;
+background: #E0E0E0;
+width: 200px;
+height: 500px;
+}
+
+#nav {
+padding-left: 20px;
+}
+
+#grid {
+float: right;
+width: 100%;
+padding: 10px;
+}
+
+#footer {
+text-align: center;
+}
+
+#clear {
+clear: both;
+}
