@@ -196,16 +196,4 @@ class Users_model extends Model {
 				return $row->id;
 		}
 
-
-
-		/**
-				* Determines whether the user is logged in by checking whether a session
-				* variable with the user's id has been set.
-				*
-				* @return boolean TRUE if the user is logged in, otherwise FALSE
-				*/
-		function isLoggedIn() {
-				return (strlen($this->session->userdata('userId')) > 0);
-		}
-
 }
