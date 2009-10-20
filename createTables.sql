@@ -141,6 +141,7 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`resource` (
   `resourceDescription` TEXT NULL ,
   `resourceLocation` VARCHAR(45) NULL ,
   `resourceType` ENUM('ppt', 'doc', 'txt', 'pdf', 'url') NULL ,
+  `resourceCreatedDate` DATE NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -304,11 +305,34 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`subscription` (
 ENGINE = InnoDB;
 
 
---
--- Dumping data for table `user`
---
-INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPasswdHash`, `userRegistrationDate`) VALUES
-(1, 'me@yahoo.com', NULL, NULL, 'cffb0d21c420fdda412eab787bb5fa8e9a62bcd0', '2009-10-19');
+-- -----------------------------------------------------
+-- Table `cs4911`.`announcement`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cs4911`.`announcement` ;
+
+CREATE  TABLE IF NOT EXISTS `cs4911`.`announcement` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `announcementCreatedDate` DATE NULL ,
+  `announcementTitle` VARCHAR(45) NOT NULL ,
+  `announcementMessage` VARCHAR(45) NOT NULL ,
+  `announcementFrom` INT NULL ,
+  `announcementClass` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_announcement_user` (`announcementFrom` ASC) ,
+  INDEX `fk_announcement_class` (`announcementClass` ASC) ,
+  CONSTRAINT `fk_announcement_user`
+    FOREIGN KEY (`announcementFrom` )
+    REFERENCES `cs4911`.`user` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_announcement_class`
+    FOREIGN KEY (`announcementClass` )
+    REFERENCES `cs4911`.`class` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
