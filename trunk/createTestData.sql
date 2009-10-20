@@ -1,4 +1,4 @@
-
+USE cs4911;
 --
 -- Dumping data for table `user`
 --
