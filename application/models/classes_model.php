@@ -13,34 +13,34 @@
 //+----------------+-------------+------+-----+---------+----------------+
 
 /**
-		* Classes_model class handles comm between controllers and database.
-		*/
+  * Classes_model class handles comm between controllers and database.
+  */
 class Classes_model extends model {
 
-		/**
-				* Default constructor for Classes_model class
-				*/
-		function Classes_model() {
-				parent::model();
-		}
+  /**
+    * Default constructor for Classes_model class
+    */
+  function Classes_model() {
+    parent::model();
+  }
 
-		/**
-				* Adds a new class to the database.
-				*
-				* @param Array fields for the new class. Should contain the following:
-				* <ul>
-				* <li>classTitle - String, the title of the class</li>
-				* <li>classUsers - int, id of the group that will be users</li>
-				* <li>classAdmins - int, id of the group that will be admins</li>
-				* <li>classStartDate - Date, starting date for the class</li>
-				* <li>classEndDate - Date, ending date for the class</li>
-				* <li>classSite - int, id of the site the class belongs to</li>
-				* </ul>
-				*
-				* @return boolean TRUE if the insert succeeded, otherwise an error message
-				*/
-		function addClass($classInfo) {
-		}
+  /**
+    * Adds a new class to the database.
+    *
+    * @param Array fields for the new class. Should contain the following:
+    * <ul>
+    * <li>classTitle - String, the title of the class</li>
+    * <li>classUsers - int, id of the group that will be users</li>
+    * <li>classAdmins - int, id of the group that will be admins</li>
+    * <li>classStartDate - Date, starting date for the class</li>
+    * <li>classEndDate - Date, ending date for the class</li>
+    * <li>classSite - int, id of the site the class belongs to</li>
+    * </ul>
+    *
+    * @return boolean TRUE if the insert succeeded, otherwise an error message
+    */
+  function addClass($classInfo) {
+  }
 }
 
 // Awesome SQL statement that gets info about a class
