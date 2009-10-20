@@ -2,7 +2,7 @@
 
 class Subscriptions_model extends Model {
   
-  Subscriptions_model() {
+  function Subscriptions_model() {
     parent::model();
   }
 
