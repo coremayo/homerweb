@@ -20,8 +20,8 @@
             <td><?php echo($sub->subscriptionStartDate);?></td>
             <td><?php echo($sub->subscriptionEndDate);?></td>
             <td><?php echo($this->subscriptions_model->getTimeRemaining($sub->id));?></td>
-             <?php }?>
         </tr>
+        <?php }?>
         
     </tbody>
 </table>
