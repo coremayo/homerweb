@@ -5,4 +5,9 @@ $(document).ready(function()
 				"sPaginationType": "full_numbers"
 	});
 	
+	$('#user_ann').dataTable( {
+				"aaSorting": [[ 2, "desc" ]]
+
+	});
+	
 });
