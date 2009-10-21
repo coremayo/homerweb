@@ -4,7 +4,6 @@
 			<h2>Announcements</h2>
             <br />
 
-		
         <table id="user_ann">
     <thead>
         <tr>
@@ -16,22 +15,26 @@
     <tbody>
     	<?php $result = $this->announcements_model->getStudentAnnouncements($this->users_model->getId($this->session->userdata('email')));
    		foreach ($result as $announcement) {
-		foreach ($announcement->result() as $a) {?> 
-        <tr>       
-            <td><a href="<?php echo base_url();?>student/index/<?php echo($a->id)?>"><?php echo($a->announcementTitle);?></a></td>
-            <td><?php echo($this->classes_model->getClassTitle($a->announcementClass));?></td>
-            <td><?php echo($a->announcementCreatedDate);?></td>          
-        </tr>
-        <?php }}?>
+			foreach ($announcement->result() as $a) {
+				echo '
+				<tr>       
+					<td><a href="'.base_url().'student/index/'.$a->id.'"style="color: rgb(0,0,0)"><font color="000000"><u>'.$a->announcementTitle.'</u></font></a></td>
+					<td>'.$this->classes_model->getClassTitle($a->announcementClass).'</td>
+					<td>'.$a->announcementCreatedDate.'</td>          
+				</tr>';
+        }}?>
         
     </tbody>
 </table>
 		</div>
         <div id="announcement">
-        	<h2><?php echo($topic) ?></h2>
-            <p><?php echo($message) ?></p>
-           <br /><?php echo($class) ?>
-           <br /><?php echo($date) ?>
+        <?php
+			echo '
+        	<h2>'.$topic.'</h2>
+            <p>'.$message.'</p>
+            <br/>'.$class.'
+            <br/>'.$date;
+		 ?>
             
 	</div>
 </div>

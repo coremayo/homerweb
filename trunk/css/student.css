@@ -179,23 +179,17 @@ text-align: left;
 font-size: 10pt;
 }
 
-
-#level1 #announcment {
-position: relative;
+#rightBottom {
+border-right: 1px solid #000000;
+border-bottom: 1px solid #000000;
+}
+#bottomborder {
+border-bottom: 1px solid #000000;
+border-left: 1px solid #000000;
+width: 100%;
 }
 
 
-#level1 #announcments, #announcment {
-background: #2470db;
-color: #ffffff;
-position: absolute;
-right: 5em;
-font-size: 13pt;
-border: 1px solid #2470db;
--moz-border-radius: 10px;
--webkit-border-radius: 10px;
-padding: 0px 10px 2px 10px;
-}
 
 #user_ann {
 	width: 100%;

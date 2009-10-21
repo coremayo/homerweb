@@ -15,17 +15,9 @@
 	
 	<div id="container">
 
-	<div id="header">
-		<h1 id="test">Chicago Review Courses</h1>
-		<small>"The Preferred Neurosurgery Review since 1974"</small>
-		<div id="search">
-			<small><input type="text" name="search" value="Search Keywords..." /> <input type="submit" name="submit" value="Go" /></small>
-		</div>
-	</div>
-
 	<div id="banner">
-		<h1>Lorem Ipsum Dolor</h1>
-		<p>Phasellus interdum orci eu dolor eleifend sit amet fermentum sem ultrices. Aenean accumsan erat sit amet massa fermentum sodales</p>
+		<h1>Chicago Review Courses</h1>
+		<p>The Preferred Neurosurgery Review since 1974</p>
 	</div>
 	
 	<ul id="navigation">
