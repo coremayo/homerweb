@@ -2,10 +2,9 @@
 	<div id="level1">
 		<div id="announcements">
 			<h2>Announcements</h2>
-            <?php echo $this->users_model->getId($this->session->userdata('email'))?>
-			<p>
-            Welcome to Chicago Review Courses Course Repository!
-            </p>
+            <?php $result = $this->announcements_model->getStudentAnnouncements($this->users_model->getId($this->session->userdata('email')));
+            	foreach ($result as $announcement) {
+				foreach ($announcement->result() as $a) {echo($a->announcementMessage);}}?> 
 		</div>
 
 		<div id="recent">

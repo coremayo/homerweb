@@ -19,13 +19,7 @@
             <td><?php echo($this->classes_model->getClassTitle($sub->subscriptionClass));?></td>
             <td><?php echo($sub->subscriptionStartDate);?></td>
             <td><?php echo($sub->subscriptionEndDate);?></td>
-            <td><?php $datediff = strtotime($sub->subscriptionEndDate) - strtotime(Date("l F d, Y")); 
-					if($datediff>86400)
-						echo(round($datediff /86400));
-					else if($datediff<0)
-						echo('0');
-					else
-						echo('<1');?></td>
+            <td><?php echo($this->subscriptions_model->getTimeRemaining($sub->id));?></td>
              <?php }?>
         </tr>
         
