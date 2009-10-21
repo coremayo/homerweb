@@ -14,7 +14,7 @@ INSERT INTO `site` (`id` ,`siteAdmins` ,`siteName`)
 VALUES ('1', '1', 'Chicago Review Courses');
 
 INSERT INTO `class` (`id` ,`classTitle` ,`classUsers` ,`classAdmins` ,`classStartDate` ,`classEndDate` ,`classSite`)
-VALUES ('1', 'Neuro 2009', '2', '1', '2009-10-05', '2009-10-30', '1'),
+VALUES ('1', 'Neuro 2009', '2', '1', '2009-10-05', '2010-10-30', '1'),
 		('2', 'Rar', '2', '1', '2009-10-05', '2009-10-21', '1'),
 		('3', 'Neuro 2007', '2', '1', '2006-10-05', '2007-10-25', '1');
 
@@ -24,4 +24,8 @@ VALUES ('1', '2009-10-05', '2009-10-30', '1', '2'),
 		('3', '2006-10-05', '2007-10-25', '3', '2');
 
 INSERT INTO `announcement` (`id` ,`announcementCreatedDate` ,`announcementTitle` ,`announcementMessage` ,`announcementFrom` ,`announcementClass`)
-VALUES ( '1', '2009-10-05', 'Welcome', 'Welcome to Neuro 2009!', '1', '1');
+VALUES ( '1', '2010-10-05', 'Time Machine', 'Impossible!', '1', '1'),
+( '2', '2007-10-07', 'Welcome', 'Welcome to Neuro 2009!', '1', '1'),
+( '3', '2009-10-05', 'Welcome', 'Welcome to Rar!', '1', '2'),
+( '4', '2003-10-02', 'What happens if I make this super long. Oh nooooooooooooooooooooooooooooooooooooooooooooooo', 'That topic was long!', '1', '2'),
+( '5', '2005-10-05', 'Cant See me', 'Shouldnt be able to see this!', '1', '3');
