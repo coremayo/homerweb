@@ -13,17 +13,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Course 1</td>
-            <td>st date 1</td>
-            <td>end date 1</td>
-            <td>days left 1</td>
-        </tr>
-        <tr>
-            <td>Course 2</td>
-            <td>st date 2</td>
-            <td>end date 2</td>
-            <td>days left 2</td>
+    	<?php $subs = $this->subscriptions_model->getUserSubscriptions($this->users_model->getId($this->session->userdata('email')));
+   		foreach ($subs ->result() as $sub) {?>  
+        <tr>       
+            <td><?php echo($this->classes_model->getClassTitle($sub->subscriptionClass));?></td>
+            <td><?php echo($sub->subscriptionStartDate);?></td>
+            <td><?php echo($sub->subscriptionEndDate);?></td>
+            <td><?php $datediff = strtotime($sub->subscriptionEndDate) - strtotime(Date("l F d, Y")); 
+					if($datediff>86400)
+						echo(round($datediff /86400));
+					else if($datediff<0)
+						echo('0');
+					else
+						echo('<1');?></td>
+             <?php }?>
         </tr>
         
     </tbody>
