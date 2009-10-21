@@ -14,14 +14,16 @@
     </thead>
     <tbody>
     	<?php $subs = $this->subscriptions_model->getUserSubscriptions($this->users_model->getId($this->session->userdata('email')));
-   		foreach ($subs ->result() as $sub) {?>  
+   		foreach ($subs ->result() as $sub) {
+			echo '
         <tr>       
-            <td><?php echo($this->classes_model->getClassTitle($sub->subscriptionClass));?></td>
-            <td><?php echo($sub->subscriptionStartDate);?></td>
-            <td><?php echo($sub->subscriptionEndDate);?></td>
-            <td><?php echo($this->subscriptions_model->getTimeRemaining($sub->id));?></td>
-        </tr>
-        <?php }?>
+            <td>'.$this->classes_model->getClassTitle($sub->subscriptionClass).'</td>
+            <td>'.$sub->subscriptionStartDate.'</td>
+            <td>'.$sub->subscriptionEndDate.'</td>
+            <td>'.$this->subscriptions_model->getTimeRemaining($sub->id).'</td>
+        </tr>';
+        } 
+		?>
         
     </tbody>
 </table>

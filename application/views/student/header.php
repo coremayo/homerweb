@@ -25,10 +25,6 @@
 		</div>
 	</div>
 
-	<div id="banner">
-		<h1>Lorem Ipsum Dolor</h1>
-		<p>Phasellus interdum orci eu dolor eleifend sit amet fermentum sem ultrices. Aenean accumsan erat sit amet massa fermentum sodales</p>
-	</div>
 	
 	<ul id="navigation">
 		<li><a href="<?php echo base_url();?>student/index">Home</a></li>
