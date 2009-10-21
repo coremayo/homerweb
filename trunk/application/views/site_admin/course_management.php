@@ -1,1 +1,0 @@
-<div id="courses">	<h2>Course Management</h2>	<div id="side_navigation">		<ul id="nav">			<li><a href="#">Add Courses</a></li>			<li><a href="#">Manage Existing Courses</a></li>		</ul>	</div>		<div id="content">			</div></div>
