@@ -149,16 +149,55 @@ padding: .5em .5em;
 background: url(../images/module_gradient.png) repeat-x;
 }
 
+#user_sub {
+	width: 100%;
+	margin-right: 3em;
+}
 
+#index_level1{
+margin-bottom: 2em;
+}
 
-#subs_level1 div p{
+#index_level1 #announcements, #announcement{
+border: 2px solid #d0d0d0;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+padding: .5em .5em;
+background: url(../images/module_gradient.png) repeat-x;
+}
+
+#announcements{
+float: left;
+width: 50%;
+margin-right: 3em;
+}
+
+#index_level1 div p{
 margin-top: .3em;
 padding: .5em .5em;
 text-align: left;
 font-size: 10pt;
 }
 
-#user_sub {
+
+#level1 #announcment {
+position: relative;
+}
+
+
+#level1 #announcments, #announcment {
+background: #2470db;
+color: #ffffff;
+position: absolute;
+right: 5em;
+font-size: 13pt;
+border: 1px solid #2470db;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+padding: 0px 10px 2px 10px;
+}
+
+#user_ann {
 	width: 100%;
 	margin-right: 3em;
 }
