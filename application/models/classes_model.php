@@ -15,13 +15,13 @@
 /**
   * Classes_model class handles comm between controllers and database.
   */
-class Classes_model extends model {
+class Classes_model extends Model {
 
   /**
     * Default constructor for Classes_model class
     */
   function Classes_model() {
-    parent::model();
+    parent::Model();
   }
 
   /**
@@ -40,6 +40,21 @@ class Classes_model extends model {
     * @return boolean TRUE if the insert succeeded, otherwise an error message
     */
   function addClass($classInfo) {
+  }
+  
+  
+/**
+    * Gets the class title of the class with the specified id.
+    *
+    * @param String The class's id
+    * @return String The class title
+    */
+function getClassTitle($classId) {
+    $this->db->select('classTitle');
+    $this->db->where('id', $classId);
+
+    $row = $this->db->get('class')->row();
+    return $row->classTitle;
   }
 }
 
