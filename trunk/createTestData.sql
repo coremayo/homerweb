@@ -14,10 +14,14 @@ INSERT INTO `site` (`id` ,`siteAdmins` ,`siteName`)
 VALUES ('1', '1', 'Chicago Review Courses');
 
 INSERT INTO `class` (`id` ,`classTitle` ,`classUsers` ,`classAdmins` ,`classStartDate` ,`classEndDate` ,`classSite`)
-VALUES ('1', 'Neuro 2009', '2', '1', '2009-10-05', '2009-10-30', '1');
+VALUES ('1', 'Neuro 2009', '2', '1', '2009-10-05', '2009-10-30', '1'),
+		('2', 'Rar', '2', '1', '2009-10-05', '2009-10-21', '1'),
+		('3', 'Neuro 2007', '2', '1', '2006-10-05', '2007-10-25', '1');
 
 INSERT INTO `subscription` (`id` ,`subscriptionStartDate` ,`subscriptionEndDate` ,`subscriptionClass` ,`subscriptionUser`)
-VALUES ('1', '2009-10-05', '2009-10-30', '1', '2');
+VALUES ('1', '2009-10-05', '2009-10-30', '1', '2'),
+		('2', '2009-10-05', '2009-10-21', '2', '2'),
+		('3', '2006-10-05', '2007-10-25', '3', '2');
 
 INSERT INTO `announcement` (`id` ,`announcementCreatedDate` ,`announcementTitle` ,`announcementMessage` ,`announcementFrom` ,`announcementClass`)
 VALUES ( '1', '2009-10-05', 'Welcome', 'Welcome to Neuro 2009!', '1', '1');
