@@ -3,7 +3,7 @@
 class Subscriptions_model extends Model {
   
   function Subscriptions_model() {
-    parent::model();
+    parent::Model();
   }
 
   /**
@@ -16,6 +16,40 @@ class Subscriptions_model extends Model {
     $this->db->select($fields);
     $this->db->where('subscriptionUser', $userId);
     $query = $this->db->get('subscription');
+    return $query;
+  }
+  
+  /**
+    * Get the time remaining for a given subscription id 
+    * 
+    * 
+    * 
+    */
+  
+  function getTimeRemaining($subId){
+	$sub = $this->getSubscription($subId);
+	$datediff = strtotime($sub->subscriptionEndDate) - strtotime(Date("l F d, Y")); 
+	
+	if($datediff>86400)
+		$res = round($datediff /86400);
+	else if($datediff<0)
+		$res = 0;
+	else
+		$res = 1;
+		
+	return $res;
+  }
+  
+  /**
+    * Get a subscription from a given subscription id
+    * 
+    * 
+    * 
+    */
+  function getSubscription($subId, $fields = '*') {
+    $this->db->select($fields);
+    $this->db->where('id', $subId);
+    $query = $this->db->get('subscription')->row();
     return $query;
   }
 }

@@ -46,8 +46,8 @@ class Classes_model extends Model {
 /**
     * Gets the class title of the class with the specified id.
     *
-    * @param String The class's id
-    * @return String The class title
+    * 
+    * 
     */
 function getClassTitle($classId) {
     $this->db->select('classTitle');

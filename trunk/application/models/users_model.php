@@ -144,7 +144,7 @@ class Users_model extends Model {
     $this->db->where('id', $userId);
 
     $row = $this->db->get('user')->row();
-    return $row['userLastName'];
+    return $row->userLastName;
 
   }
 
