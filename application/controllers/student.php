@@ -2,11 +2,34 @@
 
 class Student extends Controller
 {
-	function index()
+	function Student(){
+		parent::Controller();
+	}
+	
+	function index($ann = ' ')
 	{
 		if ($this->_is_authorized())
 		{
+			$data['topic'] = 'Selected Announcement';
+			$data['message'] = 'Nothing Selected';
+			$data['date'] = '';
+			$data['class'] = '';
 			$data['content'] = 'student/index';
+			if(is_numeric($ann) && $ann >= 1){
+				$data['ann'] = $ann;
+				$result = $this->announcements_model->getStudentAnnouncements($this->users_model->getId($this->session->userdata('email')));
+				foreach ($result as $announcement) {
+				foreach ($announcement->result() as $a) {
+					if($a->id == $ann){
+						$data['topic'] = $a->announcementTitle;
+						$data['message'] = $a->announcementMessage;
+						$data['date'] = $a->announcementCreatedDate;
+						$data['class'] = $this->classes_model->getClassTitle($a->announcementClass);
+						
+						break 2;
+					}
+				}}
+			}
 			$this->load->view('student/template', $data);
 		}
 	}
@@ -67,6 +90,19 @@ class Student extends Controller
 	function subscriptions()
 	{
 		$data['content'] = 'student/subscriptions';
+		$this->load->view('student/template', $data);
+	}
+	
+	function courses()
+	{
+		$data['content'] = 'student/courses';
+		$this->load->view('student/template', $data);
+	}
+	
+	function lecture($lectureNumber='rest')
+	{
+		$data['content'] = 'student/lecture';
+		$data['lectureNumber']= 'red';
 		$this->load->view('student/template', $data);
 	}
 }
