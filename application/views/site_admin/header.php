@@ -12,8 +12,6 @@
 		<script type="text/javascript" src="<?php echo base_url();?>js/site_admin.js"></script>
 		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.dataTables.js"></script>
 		<script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.core.js"></script>
-		<script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.tabs.js"></script>
-
 	</head>
 	<body>
 	
@@ -21,15 +19,40 @@
 
 	<div id="header">
 		<h1>Site Administrator Panel</h1>
-		<label id="logged_in_as">Logged in as: Site Administrator</label>
-		<a href="main/logout" id="logout_link">Logout</a>
+		<a href="<?php echo base_url();?>main/logout" id="logout_link">Logout</a>
 	</div>
 	
-	<div id="navigation">
-		<ul>
-			<li><a href="#user_management"><span>User Management</span></a></li>
-			<li><a href="#courses"><span>Course Management</span></a></li>
-			<li><a href="#registration"><span>Registration Configuration</span></a></li>
-		</ul>
-		
-		<div id="content">
+	<ul id="navigation">
+		<li class="headlink">
+			<a href="<?php echo base_url();?>site_admin/">CMS</a>
+			<ul>
+				<li><a href="<?php echo base_url();?>site_admin">Home</a></li>
+				<li><a href="<?php echo base_url();?>">View Site</a></li>
+			</ul>
+		</li>
+		<li class="headlink">
+			<a href="<?php echo base_url();?>site_admin/users_groups">Users &amp; Groups</a>
+			<ul>
+				<li><a href="<?php echo base_url();?>site_admin/users_groups/users">Users</a></li>
+				<li><a href="<?php echo base_url();?>site_admin/users_groups/groups">Groups</a></li>
+				<li><a href="<?php echo base_url();?>site_admin/users_groups/group_assingments">Group Assignments</a></li>
+			</ul>
+		</li>
+		<li class="headlink">
+			<a href="<?php echo base_url();?>site_admin/courses">Courses</a>
+			<ul>
+
+			</ul>
+		</li>
+		<li class="headlink">
+			<a href="<?php echo base_url();?>site_admin/layout">Layout</a>
+			<ul>
+				<li><a href="<?php echo base_url();?>site_admin/layout/themes">Theme Manager</a></li>
+				<li><a href="<?php echo base_url();?>site_admin/layout/stylesheets">Stylsheets</a></li>
+				<li><a href="<?php echo base_url();?>site_admin/layout/templates">Templates</a></li>
+			</ul>
+		</li>
+	</ul>
+	
+	<div id="clear"> </div>
+	
