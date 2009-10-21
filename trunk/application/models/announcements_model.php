@@ -42,7 +42,7 @@ class Announcements_model extends Model {
     */
   function getAnnouncements($annId, $fields = '*') {
 	$this->db->select($fields);
-    $this->db->where('id', $annId);
+    $this->db->where('announcementClass', $annId);
     $query = $this->db->get('announcement');
     return $query;
   }
