@@ -205,4 +205,45 @@ class Users_model extends Model {
     $row = $this->db->get('user')->row();
     return $row->id;
   }
+
+  /**
+    * Determines if the given user is a site admin for any site.
+    *
+    * @param int id of the user
+    * @return boolean TRUE if the user is a site admin for at least one site, 
+    *         FALSE otherwise or if the user does not exist
+    */
+  function isSiteAdmin($userId) {
+    $this->db->select('user.id FROM site, user, group_has_user WHERE group_has_user.group_id = site.siteAdmins AND user.id = group_has_user.user_id');
+    $query = $this->db->get();
+    return ($query->num_rows() > 0);
+  }
+
+  /**
+    * Determines if the given user is a course admin for any site.
+    *
+    * @param int id of the user
+    * @return boolean TRUE if the user is a course admin for at least one course, 
+    *         FALSE otherwise or if the user does not exist
+    */
+  function isClassAdmin($userId) {
+    $this->db->select('user.id FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id');
+    $query = $this->db->get();
+    return ($query->num_rows() > 0);
+  }
+
+  /**
+    * Determines if the given user is a lecture admin for any site.
+    *
+    * @param int id of the user
+    * @return boolean TRUE if the user is a lecture admin for at least one lecture, 
+    *         FALSE otherwise or if the user does not exist
+    */
+  function isLectureAdmin($userId) {
+    //until corey implements the lecture admin in the database schema, we can't do this :)
+    return FALSE;
+//    $this->db->select('user.id FROM lecture, user, group_has_user WHERE group_has_user.group_id = lecture.lectureAdmin AND user.id = group_has_user.user_id');
+//    $query = $this->db->get();
+//    return ($query->num_rows() > 0);
+  }
 }
