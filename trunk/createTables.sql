@@ -17,6 +17,7 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`user` (
   `userLastName` VARCHAR(45) NULL ,
   `userPasswdHash` VARCHAR(40) NOT NULL ,
   `userRegistrationDate` DATE NULL ,
+  `userActive` TINYINT(1) NOT NULL DEFAULT true ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -120,11 +121,20 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`lecture` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `lectureTopic` VARCHAR(45) NULL ,
   `lectureClass` INT NOT NULL ,
+  `lectureStartTime` DATETIME NULL ,
+  `lectureEndTime` DATETIME NULL ,
+  `lectureAdmin` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_lecture_class` (`lectureClass` ASC) ,
+  INDEX `fk_lecture_user` (`lectureAdmin` ASC) ,
   CONSTRAINT `fk_lecture_class`
     FOREIGN KEY (`lectureClass` )
     REFERENCES `cs4911`.`class` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_lecture_user`
+    FOREIGN KEY (`lectureAdmin` )
+    REFERENCES `cs4911`.`user` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
