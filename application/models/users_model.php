@@ -59,10 +59,10 @@ class Users_model extends Model {
     * @param String the user's password which will be hashed
     *        before being inserted into the database
     *
-    * @return boolean TRUE if inserting the user succeded,
+    * @return String empty string if inserting the user succeded,
     *         otherwise returns an error message.
     */
-  function addUser($userEmail, $userPasswd) {
+  function addUser($userEmail, $userPasswd, $fname, $lname) {
     // first, check that the Email is valid
     $emailRegex = '/^[A-Z0-9][A-Z0-9\._%-]*@([A-Z0-9_-]+\.)+[A-Z]{2,4}$/i';
     if (!preg_match($emailRegex, $userEmail)) {
@@ -70,9 +70,16 @@ class Users_model extends Model {
     }
 
     // then check that the password is valid
-    $passwdRegex = '/.{8,}/';
-    if (!preg_match($passwdRegex, $userPasswd)) {
-      return ('Password must be at least 8 characters.');
+    if ((strlen($userPasswd) < 5) || strlen($userPasswd > 20)) {
+      return ('Password must be between 5 and 20 characters.');
+    }
+
+    if (strlen($fname) <= 0) {
+      return ('First name is required');
+    }
+
+    if (strlen($lname) <= 0) {
+      return ('Last name is required');
     }
 
     // check if the user already exists
@@ -80,18 +87,21 @@ class Users_model extends Model {
     $query = $this->db->get('user');
     if ($query->num_rows() > 0) {
       return "User Already Exists";
+//      return "User Already Exists '" . $this->db->last_query() . "'";
     }
 
     // if all is good, add a new user
     $data = array(
-      'userEmail' => $userEmail,
-      'userPasswdHash' => sha1($userPasswd),
-      'userRegistrationDate' => date('Y-m-d')
+      'userEmail'            => $userEmail,
+      'userPasswdHash'       => sha1($userPasswd),
+      'userRegistrationDate' => date('Y-m-d'),
+      'userFirstName'        => $fname,
+      'userLastName'         => $lname
     );
     $this->db->insert('user',$data);
 
-    return TRUE;
-  }              
+    return '';
+  }
 
   /**
     * Returns the email address of the user with the given id.

@@ -40,6 +40,7 @@ class Classes_model extends Model {
     * @return boolean TRUE if the insert succeeded, otherwise an error message
     */
   function addClass($classInfo) {
+    $this->db->insert('class', $classInfo);
   }
   
   
