@@ -57,9 +57,9 @@
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">boolean</span>
+											<span class="method-result">String</span>
 										<a href="#addUser" title="details" class="method-name">addUser</a>
-											(<span class="var-type">String</span>&nbsp;<span class="var-name">$userEmail</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$userPasswd</span>)
+											(<span class="var-type">String</span>&nbsp;<span class="var-name">$userEmail</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$userPasswd</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$fname</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$lname</span>)
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
@@ -176,15 +176,15 @@
 <p class="short-description">Adds a new user to the database with the email address and password.</p>
 <p class="description"><p>Checks that the supplied email address is a valid  email address and  checks the password is at least 8 characters.</p></p>
 	<ul class="tags">
-				<li><span class="field">return:</span> TRUE if inserting the user succeded,          otherwise returns an error message.</li>
+				<li><span class="field">return:</span> empty string if inserting the user succeded,          otherwise returns an error message.</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">boolean</span>
+		<span class="method-result">String</span>
 		<span class="method-name">
 			addUser
 		</span>
-					(<span class="var-type">String</span>&nbsp;<span class="var-name">$userEmail</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$userPasswd</span>)
+					(<span class="var-type">String</span>&nbsp;<span class="var-name">$userEmail</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$userPasswd</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$fname</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$lname</span>)
 			</div>
 	
 			<ul class="parameters">
@@ -194,6 +194,12 @@
 					<li>
 				<span class="var-type">String</span>
 				<span class="var-name">$userPasswd</span><span class="var-description">: the user's password which will be hashed         before being inserted into the database</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$fname</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$lname</span>			</li>
 				</ul>
 		
 			
@@ -203,7 +209,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">authenticate</span> (line <span class="line-number">180</span>)
+		<span class="method-title">authenticate</span> (line <span class="line-number">190</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -261,7 +267,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getEmail</span> (line <span class="line-number">102</span>)
+		<span class="method-title">getEmail</span> (line <span class="line-number">112</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -291,7 +297,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getFirstName</span> (line <span class="line-number">115</span>)
+		<span class="method-title">getFirstName</span> (line <span class="line-number">125</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -321,7 +327,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getFullName</span> (line <span class="line-number">169</span>)
+		<span class="method-title">getFullName</span> (line <span class="line-number">179</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -351,7 +357,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getId</span> (line <span class="line-number">192</span>)
+		<span class="method-title">getId</span> (line <span class="line-number">202</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -381,7 +387,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getLastName</span> (line <span class="line-number">142</span>)
+		<span class="method-title">getLastName</span> (line <span class="line-number">152</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -469,7 +475,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setFirstName</span> (line <span class="line-number">130</span>)
+		<span class="method-title">setFirstName</span> (line <span class="line-number">140</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -499,7 +505,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">setLastName</span> (line <span class="line-number">157</span>)
+		<span class="method-title">setLastName</span> (line <span class="line-number">167</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -530,7 +536,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 20 Oct 2009 14:44:18 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 21 Oct 2009 20:28:21 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
