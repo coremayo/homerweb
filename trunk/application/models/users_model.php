@@ -240,10 +240,10 @@ class Users_model extends Model {
     *         FALSE otherwise or if the user does not exist
     */
   function isLectureAdmin($userId) {
-    //until corey implements the lecture admin in the database schema, we can't do this :)
-    return FALSE;
-//    $this->db->select('user.id FROM lecture, user, group_has_user WHERE group_has_user.group_id = lecture.lectureAdmin AND user.id = group_has_user.user_id');
-//    $query = $this->db->get();
-//    return ($query->num_rows() > 0);
+    $this->db->select('lectureAdmin');
+    $this->db->from('lecture');
+    $this->db->where('lectureAdmin', $userId);
+    $query = $this->db->get();
+    return ($query->num_rows() > 0);
   }
 }
