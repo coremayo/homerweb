@@ -47,7 +47,7 @@ class Users_model extends Model {
     $this->db->select($fields);
     $this->db->where('id', $userId);
 
-    $row = $this->db->get('user')->row();
+    return $this->db->get('user')->row();
   }
 
   /**
@@ -96,7 +96,8 @@ class Users_model extends Model {
       'userPasswdHash'       => sha1($userPasswd),
       'userRegistrationDate' => date('Y-m-d'),
       'userFirstName'        => $fname,
-      'userLastName'         => $lname
+      'userLastName'         => $lname,
+      'userActive'           => 1,
     );
     $this->db->insert('user',$data);
 
@@ -141,6 +142,48 @@ class Users_model extends Model {
     $data['userFirstName'] = $firstName;
     $this->db->where('id', $userId);
     $this->db->update('user', $data);
+  }
+  
+  /**
+    * Sets the user's active status to the given value.
+    *
+    * @param int Id of the user to modify
+    * @param int value to use as the user's active status
+    */
+  function setActive($userId, $status) {
+    $data['userActive'] = $status;
+    $this->db->where('id', $userId);
+    $this->db->update('user', $data);
+  }
+  
+  /**
+    * Sets the user's password to the given value.
+    *
+    * @param int Id of the user to modify
+    * @param String value to use as the user's password
+    */
+  function setPassword($userId, $pass) {
+    $data['userPasswdHash'] = sha1($pass);
+    $this->db->where('id', $userId);
+    $this->db->update('user', $data);
+    
+    //TODO: need to return error msg if password is not valid ex. too short
+    
+  }
+  
+  /**
+    * Sets the user's email address to the given value.
+    *
+    * @param int Id of the user to modify
+    * @param String value to use as the user's email address
+    */
+  function setEmail($userId, $email) {
+    $data['userEmail'] = $email;
+    $this->db->where('id', $userId);
+    $this->db->update('user', $data);
+    
+    //TODO: need to return error msg if new email address already exists. or email is invalid
+    
   }
 
   /**

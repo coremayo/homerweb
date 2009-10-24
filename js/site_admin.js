@@ -46,6 +46,22 @@ $(document).ready(function()
 		}
 	);
 	
+	
+	
+	
+	$('.pass_field_new').hide();
+	
+	$("input[name='pass_option_edit']").change(
+		function()
+		{
+			var type = $("input[name='pass_option_edit']:checked").val();
+			$('.pass_field_new').toggle();
+			$('.pass_field_keep').toggle();
+			$("input[name='pass_type_edit']").val(type);
+		}
+	);
+	
+	
 	function randomPassword(length)
 	{
 	   chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
