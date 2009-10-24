@@ -61,7 +61,7 @@ class Site_admin extends Controller
 			if ($result == '')
 			{
 				$this->session->set_flashdata('type', 'message success');
-				$this->session->set_flashdata('msg', $email.' was added successfully');
+				$this->session->set_flashdata('msg', $email.' was added successfully!');
 				
 				if ($email_option == 'on')
 				{
@@ -95,7 +95,7 @@ class Site_admin extends Controller
 				if ($result == '')
 				{
 					$this->session->set_flashdata('type', 'message success');
-					$this->session->set_flashdata('msg', $email.' was added successfully');
+					$this->session->set_flashdata('msg', $email.' was added successfully!');
 					
 					if ($email_option == 'on')
 					{
@@ -116,6 +116,40 @@ class Site_admin extends Controller
 				}
 			}
 		}
+	}
+	
+	function db_editUser()
+	{
+		$id             = $this->input->post('id');
+		$email          = $this->input->post('email');
+		$fname          = $this->input->post('fname');
+		$lname          = $this->input->post('lname');
+		$password_type  = $this->input->post('pass_type_edit');
+		$password       = $this->input->post('password');
+		$active         = $this->input->post('active_status');
+		
+		if ($active == 'on')
+		{
+			$active = 1;
+		}
+		else
+		{
+			$active = 0;
+		}
+		
+		$this->users_model->setEmail($id, $email);
+		$this->users_model->setFirstName($id, $fname);
+		$this->users_model->setLastName($id, $lname);
+		$this->users_model->setActive($id, $active);
+		
+		if ($password_type == 'new')
+		{
+			$this->users_model->setPassword($id, $password);
+		}
+		
+		$this->session->set_flashdata('type', 'message success');
+	    $this->session->set_flashdata('msg', 'The account '.$email.' was updated successfully!');
+		redirect('site_admin/users_groups/users/');
 	}
 	
 	function _is_authorized()
