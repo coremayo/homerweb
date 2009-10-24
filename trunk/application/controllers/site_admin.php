@@ -13,10 +13,11 @@ class Site_admin extends Controller
 	
 	function users_groups()
 	{
+		$page = $this->uri->segment(3, 'home');
+		
 		if ($this->_is_authorized())
 		{
-			$data['content'] = 'site_admin/users_groups_home';
-			$this->load->view('site_admin/template', $data);
+			$this->load->view('site_admin/users_groups_'.$page);
 		}
 	}
 	
@@ -38,30 +39,83 @@ class Site_admin extends Controller
 		}
 	}
 	
-	function users()
+	function db_addUser()
 	{
-		if ($this->_is_authorized())
-		{
-			$data['content'] = 'site_admin/users_groups_users';
-			$this->load->view('site_admin/template', $data);
-		}
-	}
-	
-	function add_user()
-	{
-		if ($this->_is_authorized())
-		{
-			$data['content'] = 'site_admin/users_groups_add_user';
-			$this->load->view('site_admin/template', $data);
-		}
-	}
-	
-	function add_user_db()
-	{
-		$result = $this->users_model->addUser($this->input->post('email'), $this->input->post('password'));
-		
-		redirect('site_admin/users');
+		$email          = $this->input->post('email');
+		$fname          = $this->input->post('fname');
+		$lname          = $this->input->post('lname');
+		$password_type  = $this->input->post('pass_type');
+		$password       = $this->input->post('password_'.$password_type);
+		$password_check = $this->input->post('password_check');
+		$email_option   = $this->input->post('email_option');
+		$email_subject  = $this->input->post('email_subject');
+		$email_message  = $this->input->post('email_message');
 
+		$newMsg1 = str_replace('{email}', $email, $email_message);
+		$newMsg2 = str_replace('{password}', $password, $newMsg1);
+		
+		if ($password_type == 'random')
+		{
+			$result = $this->users_model->addUser($email, $password, $fname, $lname);
+
+			if ($result == '')
+			{
+				$this->session->set_flashdata('type', 'message success');
+				$this->session->set_flashdata('msg', $email.' was added successfully');
+				
+				if ($email_option == 'on')
+				{
+					$this->email->from('chicagoboardreviewonline@gmail.com', 'Jason Faulk');
+					$this->email->to($email);
+					$this->email->subject($email_subject);
+					$this->email->message($newMsg2);
+					$this->email->send();
+				}
+				redirect('site_admin/users_groups/users/');
+			}
+			else
+			{
+				$this->session->set_flashdata('type', 'message error');
+				$this->session->set_flashdata('msg', $result);
+				redirect('site_admin/users_groups/add_user/');
+			}
+		}
+		else
+		{
+			if (($password != $password_check) || ($password == '') || ($password_check == ''))
+			{
+				$this->session->set_flashdata('type', 'message error');
+				$this->session->set_flashdata('msg', 'Passwords do not match or no password was entered');
+				redirect('site_admin/users_groups/add_user/');
+			}
+			else
+			{
+				$result = $this->users_model->addUser($email, $password, $fname, $lname);
+	
+				if ($result == '')
+				{
+					$this->session->set_flashdata('type', 'message success');
+					$this->session->set_flashdata('msg', $email.' was added successfully');
+					
+					if ($email_option == 'on')
+					{
+						$this->email->from('chicagoboardreviewonline@gmail.com', 'Jason Faulk');
+						$this->email->to($email);
+						$this->email->subject($email_subject);
+						$this->email->message($newMsg2);
+						$this->email->send();
+					}
+					
+					redirect('site_admin/users_groups/users/');
+				}
+				else
+				{
+					$this->session->set_flashdata('type', 'message error');
+					$this->session->set_flashdata('msg', $result);
+					redirect('site_admin/users_groups/add_user/');
+				}
+			}
+		}
 	}
 	
 	function _is_authorized()
@@ -70,17 +124,9 @@ class Site_admin extends Controller
 
 		if(!isset($is_logged_in) || $is_logged_in != true)
 		{
-			if (IS_AJAX)
-			{
-				$data['type'] = 'unauthorized';
-				$this->load->view('unauthorized');
-			}
-			else
-			{
-				$data['content'] = 'unauthorized';
-				$data['type'] = 'unauthorized';
-				$this->load->view('template', $data);
-			}
+			$data['content'] = 'unauthorized';
+			$data['type'] = 'unauthorized';
+			$this->load->view('template', $data);
 
 			return false;
 		}
@@ -90,17 +136,9 @@ class Site_admin extends Controller
 
 			if(!isset($has_permissions) || $has_permissions != true)
 			{
-				if (IS_AJAX)
-				{
-					$data['type'] = 'unauthorized';
-					$this->load->view('unauthorized');
-				}
-				else
-				{
-					$data['content'] = 'unauthorized';
-					$data['type'] = 'unauthorized';
-					$this->load->view('template', $data);
-				}
+				$data['content'] = 'unauthorized';
+				$data['type'] = 'unauthorized';
+				$this->load->view('template', $data);
 
 				return false;
 			}
