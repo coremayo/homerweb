@@ -7,11 +7,11 @@
 		<link rel="stylesheet" href="<?php echo base_url();?>css/site_admin.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="<?php echo base_url();?>css/demo_table.css" type="text/css" media="screen" charset="utf-8">
 		<link type="text/css" href="http://jqueryui.com/latest/themes/base/ui.all.css" rel="stylesheet" />
-		<script type="text/javascript" src="http://jqueryui.com/latest/jquery-1.3.2.js"></script>
-		<script type="text/javascript" src="<?php echo base_url();?>js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-ui-1.7.2.custom.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/site_admin.js"></script>
 		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.dataTables.js"></script>
-		<script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.core.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.delay.js"></script>
 	</head>
 	<body>
 	

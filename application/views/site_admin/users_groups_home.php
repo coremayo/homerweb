@@ -1,3 +1,5 @@
+<?php $this->load->view('site_admin/header'); ?>
+
 <div id="breadcrumb">
 	Users &amp; Groups &raquo; Home
 </div>
@@ -7,7 +9,7 @@
 		<li>
 			<img src="<?php echo base_url();?>images/site_admin/test_icon.png" alt="Users Image" />
 			<div id="description">
-				<a href="<?php echo base_url();?>site_admin/users">Users</a>
+				<a href="<?php echo base_url();?>site_admin/users_groups/users">Users</a>
 				<br>
 				<label>This is where you manage users.</label>
 			</div>
@@ -30,3 +32,5 @@
 		</li>
 	</ul>
 </div>
+
+<?php $this->load->view('site_admin/footer'); ?>
