@@ -31,8 +31,8 @@
 					<th>Title</th>
 					<th>Description</th>
 					<th>Price</th>
-					<th>Users Group</th>
-					<th>Admins Group</th>
+					<th># of Users</th>
+					<th># of Admins</th>
 					<th>Start Date</th>
 					<th>End Date</th>
 				</tr>
@@ -46,8 +46,8 @@
 						$title = $class->classTitle;
 						$desc = $class->classDesc;
 						$price = $class->classPrice;
-						$users = $class->classUsers;
-						$admins = $class->classAdmins;
+						$users = $this->classes_model->getNumUsers($class->id);
+						$admins = $this->classes_model->getNumAdmins($class->id);
 						$start = $class->classStartDate;
 						$end = $class->classEndDate;
 						

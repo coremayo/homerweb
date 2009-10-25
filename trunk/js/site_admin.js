@@ -61,6 +61,8 @@ $(document).ready(function()
 		}
 	);
 	
+	$("#start_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
+	$("#end_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
 	
 	function randomPassword(length)
 	{

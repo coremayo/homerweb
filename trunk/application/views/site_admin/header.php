@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Site Administrator Panel</title>
+		<title>Administrator Panel</title>
 		
 		<link rel="stylesheet" href="<?php echo base_url();?>css/site_admin.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="<?php echo base_url();?>css/demo_table.css" type="text/css" media="screen" charset="utf-8">
@@ -18,8 +18,10 @@
 	<div id="container">
 
 	<div id="header">
-		<h1>Site Administrator Panel</h1>
-		<a href="<?php echo base_url();?>main/logout" id="logout_link">Logout</a>
+		<h1>Administrator Panel</h1>
+		<div id="logout_link">
+			<?php echo $this->session->userdata('email');?> | <a href="<?php echo base_url();?>main/logout">Logout</a>
+		</div>
 	</div>
 	
 	<ul id="navigation">
