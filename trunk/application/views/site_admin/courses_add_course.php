@@ -1,15 +1,6 @@
-<?php $this->load->view('site_admin/header'); ?>
-
-<div id="breadcrumb">
-	<a href="<?php echo base_url();?>site_admin/courses/">Courses</a> &raquo; Add New Course
-</div>
-
-<?php if ($this->session->flashdata('type'))
-	  {
-		echo '<div class="'.$this->session->flashdata('type').'">
-			  '.$this->session->flashdata('msg').'
-			  </div>';
-	  }
+<?php 
+$data['breadcrumb'] = '<a href="'.base_url().'site_admin/courses/">Courses</a> &raquo; Add New Course';
+$this->load->view('site_admin/header', $data); 
 ?>
 
 <div id="content">
