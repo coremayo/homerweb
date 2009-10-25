@@ -1,7 +1,7 @@
 <?php $this->load->view('site_admin/header'); ?>
 
 <div id="breadcrumb">
-	Layout &raquo; Home
+	Settings &raquo; Home
 </div>
 
 <div id="content">

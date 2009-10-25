@@ -38,6 +38,40 @@ class Classes_model extends Model {
   }
   
   /**
+    * Returns the number of users assigned to a class.
+    *
+    * @param int the class id of the class to return the number of users for
+    * @return int number of users
+    */
+  function getNumUsers($classID){
+    $this->db->select('classUsers');
+    $this->db->where('id', $classID);
+    $row = $this->db->get('class')->row();
+    $user_group = $row->classUsers;
+    
+    $this->db->from('group_has_user');
+    $this->db->where('group_id', $user_group);
+    return $this->db->count_all_results();  
+  }
+  
+  /**
+    * Returns the number of admins assigned to a class.
+    *
+    * @param int the class id of the class to return the number of admins for
+    * @return int number of admins
+    */
+  function getNumAdmins($classID){
+    $this->db->select('classAdmins');
+    $this->db->where('id', $classID);
+    $row = $this->db->get('class')->row();
+    $admin_group = $row->classAdmins;
+
+    $this->db->from('group_has_user');
+    $this->db->where('group_id', $admin_group);
+    return $this->db->count_all_results();  
+  }
+  
+  /**
     * Adds a new class to the database.
     *
     * @param Array fields for the new class. Should contain the following:

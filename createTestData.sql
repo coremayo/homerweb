@@ -6,17 +6,27 @@ INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPas
 (1, 'me@yahoo.com', 'Jason', 'Faulk', 'cffb0d21c420fdda412eab787bb5fa8e9a62bcd0', '2009-10-19'),
 (2, 'robert@gmail.com', 'Robert', 'Billinghurst', SHA1( 'abc' ), '2009-10-04');
 
-INSERT INTO `group` (`id` ,`groupName`)
-VALUES (1, 'Site Admins'),
-	   (2, 'Neuro 2009 Users');
+INSERT INTO `group` (`id`, `groupName`) VALUES
+(1, 'Site Admins'),
+(2, 'Neuro 2009 Users'),
+(3, 'Rar Admins'),
+(4, 'Rar Users'),
+(5, 'Neuro 2007 Admins'),
+(6, 'Neuro 2007 Users'),
+(7, 'Neuro 2009 Admins');
+
+INSERT INTO `group_has_user` (`group_id`, `user_id`) VALUES
+(1, 1),
+(2, 1),
+(2, 2);
 
 INSERT INTO `site` (`id` ,`siteAdmins` ,`siteName`)
 VALUES ('1', '1', 'Chicago Review Courses');
 
 INSERT INTO `class` (`id`, `classTitle`, `classDesc`, `classPrice`, `classUsers`, `classAdmins`, `classStartDate`, `classEndDate`, `classSite`) VALUES
-(1, 'Neuro 2009', 'This is an example description for the neuro 2009 class.', 19.95, 2, 1, '2009-10-05', '2010-10-30', 1),
-(2, 'Rar', '', 0, 2, 1, '2009-10-05', '2009-10-21', 1),
-(3, 'Neuro 2007', '', 0, 2, 1, '2006-10-05', '2007-10-25', 1);
+(1, 'Neuro 2009', 'This is an example description for the neuro 2009 class.', 19.95, 2, 7, '2009-10-05', '2010-10-30', 1),
+(2, 'Rar', '', 0, 4, 3, '2009-10-05', '2009-10-21', 1),
+(3, 'Neuro 2007', '', 0, 6, 5, '2006-10-05', '2007-10-25', 1);
 
 INSERT INTO `subscription` (`id` ,`subscriptionStartDate` ,`subscriptionEndDate` ,`subscriptionClass` ,`subscriptionUser`)
 VALUES ('1', '2009-10-05', '2009-10-30', '1', '2'),
