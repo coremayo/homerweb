@@ -1,7 +1,7 @@
 <?php $this->load->view('site_admin/header'); ?>
 
 <div id="breadcrumb">
-	<a href="<?php echo base_url();?>site_admin/users_groups">Users &amp; Groups</a> &raquo; <a href="<?php echo base_url();?>site_admin/users_groups/users">Users</a> &raquo; Add New User
+	<a href="<?php echo base_url();?>site_admin/users/">Users</a> &raquo; Add New User
 </div>
 
 <?php if ($this->session->flashdata('type'))
@@ -91,7 +91,7 @@
 							<td></td>
 							<td height="30">
 								<button type="submit">Add User</button>
-								<button type="button" onclick="window.location.href='<?php echo base_url();?>site_admin/users_groups/users'">Cancel</button>
+								<button type="button" onclick="window.location.href='<?php echo base_url();?>site_admin/users'">Cancel</button>
 							</td>
 						</tr>
 					 </table>

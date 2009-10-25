@@ -196,7 +196,7 @@ float: left;
 padding-left: 10px;
 }
 
-#add_new_user_link {
+#add_new_user_link , #add_new_course_link {
 float: right;
 padding-bottom: 20px;
 }

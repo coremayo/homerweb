@@ -13,10 +13,10 @@ VALUES (1, 'Site Admins'),
 INSERT INTO `site` (`id` ,`siteAdmins` ,`siteName`)
 VALUES ('1', '1', 'Chicago Review Courses');
 
-INSERT INTO `class` (`id` ,`classTitle` ,`classUsers` ,`classAdmins` ,`classStartDate` ,`classEndDate` ,`classSite`)
-VALUES ('1', 'Neuro 2009', '2', '1', '2009-10-05', '2010-10-30', '1'),
-		('2', 'Rar', '2', '1', '2009-10-05', '2009-10-21', '1'),
-		('3', 'Neuro 2007', '2', '1', '2006-10-05', '2007-10-25', '1');
+INSERT INTO `class` (`id`, `classTitle`, `classDesc`, `classPrice`, `classUsers`, `classAdmins`, `classStartDate`, `classEndDate`, `classSite`) VALUES
+(1, 'Neuro 2009', 'This is an example description for the neuro 2009 class.', 19.95, 2, 1, '2009-10-05', '2010-10-30', 1),
+(2, 'Rar', '', 0, 2, 1, '2009-10-05', '2009-10-21', 1),
+(3, 'Neuro 2007', '', 0, 2, 1, '2006-10-05', '2007-10-25', 1);
 
 INSERT INTO `subscription` (`id` ,`subscriptionStartDate` ,`subscriptionEndDate` ,`subscriptionClass` ,`subscriptionUser`)
 VALUES ('1', '2009-10-05', '2009-10-30', '1', '2'),

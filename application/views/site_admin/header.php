@@ -24,32 +24,20 @@
 	
 	<ul id="navigation">
 		<li class="headlink">
-			<a href="<?php echo base_url();?>site_admin/">CMS</a>
-			<ul>
-				<li><a href="<?php echo base_url();?>site_admin">Home</a></li>
-				<li><a href="<?php echo base_url();?>">View Site</a></li>
-			</ul>
+			<a href="<?php echo base_url();?>site_admin/">Home</a>
 		</li>
 		<li class="headlink">
-			<a href="<?php echo base_url();?>site_admin/users_groups">Users &amp; Groups</a>
-			<ul>
-				<li><a href="<?php echo base_url();?>site_admin/users_groups/users">Users</a></li>
-				<li><a href="<?php echo base_url();?>site_admin/users_groups/groups">Groups</a></li>
-				<li><a href="<?php echo base_url();?>site_admin/users_groups/group_assingments">Group Assignments</a></li>
-			</ul>
+			<a href="<?php echo base_url();?>site_admin/users">Users</a>
 		</li>
 		<li class="headlink">
 			<a href="<?php echo base_url();?>site_admin/courses">Courses</a>
-			<ul>
-
-			</ul>
 		</li>
 		<li class="headlink">
-			<a href="<?php echo base_url();?>site_admin/layout">Layout</a>
+			<a href="<?php echo base_url();?>site_admin/settings">Settings</a>
 			<ul>
-				<li><a href="<?php echo base_url();?>site_admin/layout/themes">Theme Manager</a></li>
-				<li><a href="<?php echo base_url();?>site_admin/layout/stylesheets">Stylsheets</a></li>
-				<li><a href="<?php echo base_url();?>site_admin/layout/templates">Templates</a></li>
+				<li><a href="<?php echo base_url();?>site_admin/settings/themes">Theme Manager</a></li>
+				<li><a href="<?php echo base_url();?>site_admin/settings/stylesheets">Stylesheets</a></li>
+				<li><a href="<?php echo base_url();?>site_admin/settings/templates">Templates</a></li>
 			</ul>
 		</li>
 	</ul>

@@ -6,36 +6,37 @@ class Site_admin extends Controller
 	{
 		if ($this->_is_authorized())
 		{
-			$data['content'] = 'site_admin/cms_home';
-			$this->load->view('site_admin/template', $data);
+			$this->load->view('site_admin/home');
 		}
 	}
 	
-	function users_groups()
+	function users()
 	{
 		$page = $this->uri->segment(3, 'home');
 		
 		if ($this->_is_authorized())
 		{
-			$this->load->view('site_admin/users_groups_'.$page);
+			$this->load->view('site_admin/users_'.$page);
 		}
 	}
 	
 	function courses()
 	{
+		$page = $this->uri->segment(3, 'home');
+
 		if ($this->_is_authorized())
 		{
-			$data['content'] = 'site_admin/courses_home';
-			$this->load->view('site_admin/template', $data);
+			$this->load->view('site_admin/courses_'.$page);
 		}
 	}
 	
-	function layout()
+	function settings()
 	{
+		$page = $this->uri->segment(3, 'home');
+
 		if ($this->_is_authorized())
 		{
-			$data['content'] = 'site_admin/layout_home';
-			$this->load->view('site_admin/template', $data);
+			$this->load->view('site_admin/settings_'.$page);
 		}
 	}
 	
@@ -71,13 +72,13 @@ class Site_admin extends Controller
 					$this->email->message($newMsg2);
 					$this->email->send();
 				}
-				redirect('site_admin/users_groups/users/');
+				redirect('site_admin/users/');
 			}
 			else
 			{
 				$this->session->set_flashdata('type', 'message error');
 				$this->session->set_flashdata('msg', $result);
-				redirect('site_admin/users_groups/add_user/');
+				redirect('site_admin/users/add_user/');
 			}
 		}
 		else
@@ -86,7 +87,7 @@ class Site_admin extends Controller
 			{
 				$this->session->set_flashdata('type', 'message error');
 				$this->session->set_flashdata('msg', 'Passwords do not match or no password was entered');
-				redirect('site_admin/users_groups/add_user/');
+				redirect('site_admin/users/add_user/');
 			}
 			else
 			{
@@ -106,13 +107,13 @@ class Site_admin extends Controller
 						$this->email->send();
 					}
 					
-					redirect('site_admin/users_groups/users/');
+					redirect('site_admin/users/');
 				}
 				else
 				{
 					$this->session->set_flashdata('type', 'message error');
 					$this->session->set_flashdata('msg', $result);
-					redirect('site_admin/users_groups/add_user/');
+					redirect('site_admin/users/add_user/');
 				}
 			}
 		}
@@ -149,7 +150,7 @@ class Site_admin extends Controller
 		
 		$this->session->set_flashdata('type', 'message success');
 	    $this->session->set_flashdata('msg', 'The account '.$email.' was updated successfully!');
-		redirect('site_admin/users_groups/users/');
+		redirect('site_admin/users/');
 	}
 	
 	function _is_authorized()

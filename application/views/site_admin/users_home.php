@@ -1,7 +1,7 @@
 <?php $this->load->view('site_admin/header'); ?>
 
 <div id="breadcrumb">
-	<a href="<?php echo base_url();?>site_admin/users_groups">Users &amp; Groups</a> &raquo; Users
+	Users</a> &raquo; Home
 </div>
 
 <?php if ($this->session->flashdata('type'))
@@ -20,7 +20,7 @@
 	<div id="add_new_user_link">
 		<img src="<?php echo base_url();?>images/site_admin/add_user.gif" alt="Add User Image" />
 		<div id="description">
-			<a href="<?php echo base_url();?>site_admin/users_groups/add_user">Add New User</a>
+			<a href="<?php echo base_url();?>site_admin/users/add_user">Add New User</a>
 		</div>
 	</div>
 	
@@ -58,7 +58,7 @@
 						
 						echo '
 							<tr>
-								<td><a href="'.base_url().'site_admin/users_groups/edit_user/'.$user->id.'">'.$email.'</a></td>
+								<td><a href="'.base_url().'site_admin/users/edit_user/'.$user->id.'">'.$email.'</a></td>
 								<td>'.$fname.'</td>
 								<td>'.$lname.'</td>
 								<td>'.$regDate.'</td>

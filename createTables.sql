@@ -60,7 +60,9 @@ DROP TABLE IF EXISTS `cs4911`.`class` ;
 
 CREATE  TABLE IF NOT EXISTS `cs4911`.`class` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `classTitle` VARCHAR(45) NULL ,
+  `classTitle` VARCHAR(45) NULL,
+  `classDesc` text NULL,
+  `classPrice` float NOT NULL,
   `classUsers` INT NULL ,
   `classAdmins` INT NULL ,
   `classStartDate` DATE NULL ,
