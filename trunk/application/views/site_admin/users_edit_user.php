@@ -11,7 +11,7 @@ $userActive = $userInfo->userActive;
 ?>
 
 <div id="breadcrumb">
-	<a href="<?php echo base_url();?>site_admin/users_groups">Users &amp; Groups</a> &raquo; <a href="<?php echo base_url();?>site_admin/users_groups/users">Users</a> &raquo; Edit User
+	<a href="<?php echo base_url();?>site_admin/users">Users</a> &raquo; Edit User
 </div>
 
 <?php if ($this->session->flashdata('type'))
@@ -100,7 +100,7 @@ $userActive = $userInfo->userActive;
 							<td></td>
 							<td height="30">
 								<button type="submit">Save Changes</button>
-								<button type="button" onclick="window.location.href='<?php echo base_url();?>site_admin/users_groups/users'">Cancel</button>
+								<button type="button" onclick="window.location.href='<?php echo base_url();?>site_admin/users'">Cancel</button>
 							</td>
 						</tr>
 					 </table>

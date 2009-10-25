@@ -25,6 +25,19 @@ class Classes_model extends Model {
   }
 
   /**
+    * Returns an array containing all the classes in the database.
+    *
+    * @return Array All the classes in the database
+    */
+  function getAllClasses(){
+    $query=$this->db->get('class');
+    if($query->num_rows()>0){
+      // return result set as an associative array
+      return $query->result();
+    }
+  }
+  
+  /**
     * Adds a new class to the database.
     *
     * @param Array fields for the new class. Should contain the following:
