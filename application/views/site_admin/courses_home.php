@@ -1,15 +1,6 @@
-<?php $this->load->view('site_admin/header'); ?>
-
-<div id="breadcrumb">
-	Courses &raquo; Home
-</div>
-
-<?php if ($this->session->flashdata('type'))
-	  {
-		echo '<div class="'.$this->session->flashdata('type').'">
-			  '.$this->session->flashdata('msg').'
-			  </div>';
-	  }
+<?php 
+$data['breadcrumb'] = 'Courses &raquo; Home';
+$this->load->view('site_admin/header', $data); 
 ?>
 
 <div id="content">

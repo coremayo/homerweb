@@ -46,3 +46,22 @@
 	
 	<div id="clear"> </div>
 	
+	<div id="breadcrumb">
+		<?php echo $breadcrumb;?>
+	</div>
+	
+	<noscript>
+		<div class="message warning">
+			Warning: The administrator panel will not function properly with JavaScript disabled!
+		</div>
+	</noscript>
+	
+	<?php 
+	if ($this->session->flashdata('type'))
+	{
+		echo '<div class="'.$this->session->flashdata('type').'">
+		     '.$this->session->flashdata('msg').'
+		     </div>';
+	}
+	?>
+	

@@ -1,4 +1,4 @@
-<?php $this->load->view('site_admin/header'); 
+<?php 
 
 $userID = $this->uri->segment(4, 0);
 $userInfo = $this->users_model->getUserInfo($userID);
@@ -7,19 +7,8 @@ $userFName = $userInfo->userFirstName;
 $userLName = $userInfo->userLastName;
 $userRegDate = $userInfo->userRegistrationDate;
 $userActive = $userInfo->userActive;
-
-?>
-
-<div id="breadcrumb">
-	<a href="<?php echo base_url();?>site_admin/users">Users</a> &raquo; Edit User
-</div>
-
-<?php if ($this->session->flashdata('type'))
-	  {
-		echo '<div class="'.$this->session->flashdata('type').'">
-			  '.$this->session->flashdata('msg').'
-			  </div>';
-	  }
+$data['breadcrumb'] = '<a href="'.base_url().'site_admin/users">Users</a> &raquo; Edit User';
+$this->load->view('site_admin/header', $data); 
 ?>
 
 <div id="content">

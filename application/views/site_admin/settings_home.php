@@ -1,8 +1,7 @@
-<?php $this->load->view('site_admin/header'); ?>
-
-<div id="breadcrumb">
-	Settings &raquo; Home
-</div>
+<?php 
+$data['breadcrumb'] = 'Settings &raquo; Home';
+$this->load->view('site_admin/header', $data); 
+?>
 
 <div id="content">
 	
