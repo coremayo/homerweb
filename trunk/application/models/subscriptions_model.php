@@ -52,6 +52,33 @@ class Subscriptions_model extends Model {
     $query = $this->db->get('subscription')->row();
     return $query;
   }
+  
+  /**
+    * Return valid course IDs (user has active subscription). Note the format of date comparisons 
+    */
+  
+  function getValidCourseIDs($userId){
+	$this->db->select('subscriptionClass');
+    $this->db->where('subscriptionUser', $userId);
+	$this->db->where('subscriptionEndDate >', Date("Y-m-d"));
+	
+	$query = $this->db->get('subscription');
+    return $query;
+  }
+  
+  /**
+    * Determine if user has an active subscription of given course
+    */
+  
+  function isActive($userId, $classId){
+	$this->db->select('subscriptionClass');
+    $this->db->where('subscriptionUser', $userId);
+	$this->db->where('subscriptionEndDate >', Date("Y-m-d"));
+	$this->db->where('subscriptionClass', $classId);
+	
+	$query = $this->db->get('subscription');
+    return $query->num_rows()>0;
+  }
 }
 
 ?>

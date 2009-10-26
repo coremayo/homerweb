@@ -97,16 +97,31 @@ class Classes_model extends Model {
     * 
     * 
     */
-function getClassTitle($classId) {
+  
+  function getClassTitle($classId) {
     $this->db->select('classTitle');
     $this->db->where('id', $classId);
 
     $row = $this->db->get('class')->row();
     return $row->classTitle;
   }
-}
+
+  
+
+/**
+    * Gets information about a class. Will be returned in the 
+    * form of an array of objects. Can be used in the following way: <br />
+    * $subs = getClassInfo($classId); <br />
+    * foreach ($subs ->result() as $sub) { echo($sub->classStartDate); }
+    */
+  function getClassInfo($classId, $fields = '*') {
+    $this->db->select($fields);
+    $this->db->where('id', $classId);
+    $query = $this->db->get('class');
+    return $query;
+  }
 
 // Awesome SQL statement that gets info about a class
 // SELECT class.id, classTitle, classAdminsGroup.id AS classAdminsId, classAdminsGroup.groupName AS classAdminsName, classUsersGroup.id AS classUsersGroup, classUsersGroup.groupName AS classUsersName, classStartDate, classEndDate, site.id AS classSiteId, site.siteName as classSiteName FROM class LEFT JOIN cs4911.group AS classAdminsGroup ON classAdmins = classAdminsGroup.id LEFT JOIN cs4911.group AS classUsersGroup ON class.classUsers = classUsersGroup.id LEFT JOIN site ON classSite = site.id;
-
+}
 ?>

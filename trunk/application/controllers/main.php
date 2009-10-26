@@ -17,7 +17,7 @@ class Main extends Controller
 			if ($result)
 			{
 				//if($result == 'site_admin')
-				{
+				/*{
 					$data = array(
 							'email' => $this->input->post('email'),
 							'is_logged_in' => true,
@@ -25,9 +25,9 @@ class Main extends Controller
 
 					$this->session->set_userdata($data);
 					$redirect_location = 'site_admin';
-				}
+				}*/
 				/*else if($result == 'student')
-				{
+				{*/
 					$data = array(
 							'email' => $this->input->post('email'),
 							'is_logged_in' => true,
@@ -35,7 +35,7 @@ class Main extends Controller
 
 					$this->session->set_userdata($data);
 					$redirect_location = 'student';
-				}*/
+				/*}*/
 
 				if (!IS_AJAX)
 				{
