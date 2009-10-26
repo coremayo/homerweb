@@ -96,46 +96,66 @@ class Student extends Controller
 	function courses($classId = ' ', $lectureId = ' ')
 	{
 		$data['content'] = 'student/courses';
+		
 		if($classId != ' '){
-				$data['classId'] = $classId;
-				$result = $this->classes_model->getClassInfo($classId);
-				
-				// DOES THIS CLASS EXIST AND DOES THE USER HAVE ACCESS?
-				if($result->num_rows()==0 || !$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId)){
-					$this->load->view('student/template', $data); // MAKE AN ERROR PAGE LATER
-					return;
-				}
-				
-				$data['content'] = 'student/lectures';
-				foreach ($result->result() as $info) {
-						$data['classTitle'] = $info->classTitle;
-				}
-		}
-		if($lectureId != ' '){
-				$data['lectureId'] = $lectureId;
-				$result = $this->lectures_model->getLectureInfo($lectureId);
-				
-				// DOES THIS LECTURE EXIST?
-				if($result->num_rows()==0){
-					$this->load->view('student/template', $data); // MAKE AN ERROR PAGE LATER
-					return;
-				}
-				
-				foreach ($result->result() as $info) {
-					// IS IT IN THE RIGHT CLASS?
-					if($info->lectureClass != $classId){
-						$this->load->view('student/template', $data); // MAKE AN ERROR PAGE LATER
-						return;
-					}
-						$data['content'] = 'student/lecture';
-						$data['lectureTopic'] = $info->lectureTopic;
-						$data['lectureStartTime'] = $info->lectureStartTime;
-						$data['lectureEndTime'] = $info->lectureEndTime;
-						$data['lectureAdmin'] = $info->lectureAdmin;
-				}
+			$data = $this->loadClassId($data, $classId);
+			
+			if($data['content'] == 'student/courseError'){
+				$this->load->view('student/template', $data);
+				return;
+			}
+			
+			if($lectureId != ' '){
+				$data = $this->loadLectureId($data, $lectureId, $classId);		
+			}
 		}
 
 		$this->load->view('student/template', $data);
+	}
+	
+	function loadClassId($data, $classId)
+	{
+		$data['classId'] = $classId;
+		$result = $this->classes_model->getClassInfo($classId);
+				
+		// DOES THIS CLASS EXIST AND DOES THE USER HAVE ACCESS?
+		if($result->num_rows()==0 || !$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId)){
+				$data['content'] = 'student/courseError';
+				return $data;
+		}
+				
+		$data['content'] = 'student/lectures';
+		foreach ($result->result() as $info) {
+						$data['classTitle'] = $info->classTitle;
+		}
+		return $data;
+	}
+	
+	function loadLectureId($data, $lectureId, $classId)
+	{
+		$data['lectureId'] = $lectureId;
+		$result = $this->lectures_model->getLectureInfo($lectureId);
+				
+		// DOES THIS LECTURE EXIST?
+		if($result->num_rows()==0){
+			$data['content'] = 'student/lectureError';
+			return $data;
+		}
+				
+		foreach ($result->result() as $info) {
+			// IS IT IN THE RIGHT CLASS?
+			if($info->lectureClass != $classId){
+				$data['content'] = 'student/lectureError';
+				return $data;
+			}
+			$data['content'] = 'student/lecture';
+			$data['lectureTopic'] = $info->lectureTopic;
+			$data['lectureStartTime'] = $info->lectureStartTime;
+			$data['lectureEndTime'] = $info->lectureEndTime;
+			$data['lectureAdmin'] = $info->lectureAdmin;
+		}
+		
+		return $data;
 	}
 	
 	function lecture($lectureNumber='rest')
