@@ -1,6 +1,6 @@
 <div id="main">
-        <div id="level1">
-		<div id="lecture_info">
+        <div id="subs_level1">
+		<div id="subscriptions">
 			<h2>
                            <?php echo '<a href="'.base_url().'student/courses/'.$classId.'"style="color: rgb(255,255,255)"><font color="000000"><u>'.$classTitle.'</u></font></a> > '.$lectureTopic.' '
                            ?>
@@ -34,10 +34,10 @@
                         <tr></tr>
                         <tr></tr>
                         </table> 
-		<!-- </div>
-	</div> -->
-        <!-- <div id="subs_level1">
-                <div id="lecture_resources">-->
+		 </div>
+	</div>
+         <div id="subs_level1"> 
+                <div id="lecture_resources">
                         
                         <table id="lecture_notes">
                                 <thead>
@@ -66,5 +66,5 @@
                                 </tbody>
                         </table>
                  </div>
-        </div> 
+       </div> 
 </div>
