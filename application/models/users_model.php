@@ -128,7 +128,7 @@ class Users_model extends Model {
     $this->db->where('id', $userId);
 
     $row = $this->db->get('user')->row();
-    return $row['userFirstName'];
+    return $row->userFirstName;
 
   }
 
@@ -220,7 +220,7 @@ class Users_model extends Model {
     * @return String The last name of the user
     */
   function getFullName($userId) {
-    return "$this->getFirstName($userId) $this->getLastName($userId)";
+    return $this->getFirstName($userId) . " " . $this->getLastName($userId);
   }
 
   /**
