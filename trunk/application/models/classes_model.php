@@ -77,6 +77,8 @@ class Classes_model extends Model {
     * @param Array fields for the new class. Should contain the following:
     * <ul>
     * <li>classTitle - String, the title of the class</li>
+    * <li>classDesc - String, the description of the class</li>
+    * <li>classPrice - String, the price of the class</li>
     * <li>classUsers - int, id of the group that will be users</li>
     * <li>classAdmins - int, id of the group that will be admins</li>
     * <li>classStartDate - Date, starting date for the class</li>

@@ -5,6 +5,28 @@ $this->load->view('site_admin/header', $data);
 
 <div id="content">
 	<form name="add_new_course_form" action="<?php echo base_url();?>site_admin/db_addCourse" method="POST">
+	
+		<div id="course_add_admins" title="Add Users as Admins">
+			<div id="admin_table">
+				<?php
+					$data['show_all'] = '';
+					$this->load->view('site_admin/table_users', $data);
+				?>
+			</div>
+		</div>
+		
+		<div id="course_add_users" title="Add Users">
+			<div id="user_table">
+				<?php
+					$data['show_all'] = '';
+					$this->load->view('site_admin/table_users', $data);
+				?>
+			</div>
+		</div>
+		
+		<input type="hidden" name="selected_admins" value="none">
+		<input type="hidden" name="selected_users" value="none">
+		
 		<table width="700px" class="outer">
 			<tr>
 				<td>
@@ -48,10 +70,12 @@ $this->load->view('site_admin/header', $data);
 						
 						<tr>
 							<td align="right" bgcolor="#E8E8E8" width="32%">Admins</td>
+							<td><a href="#" id="add_admins">Add Admins</a></td>
 						</tr>
 						
 						<tr>
 							<td align="right" bgcolor="#E8E8E8" width="32%">Users</td>
+							<td><a href="#" id="add_users">Add Users</a></td>
 						</tr>
 						
 						<tr>

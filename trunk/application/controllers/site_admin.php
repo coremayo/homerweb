@@ -153,6 +153,81 @@ class Site_admin extends Controller
 		redirect('site_admin/users/');
 	}
 	
+	function db_addCourse()
+	{
+		$title       = $this->input->post('title');
+		$description = $this->input->post('description');
+		$price       = $this->input->post('price');
+		$start       = $this->input->post('start_date');
+		$end         = $this->input->post('end_date');
+		$admins      = explode("&", $this->input->post('selected_admins'));
+		$users       = explode("&", $this->input->post('selected_users'));
+		
+		
+		$resultAddUsersGroup = $this->groups_model->addGroup($title.' Users');
+		
+		if ($resultAddUsersGroup == '')
+		{
+			$resultAddAdminsGroup = $this->groups_model->addGroup($title.' Admins');
+			
+			if ($resultAddAdminsGroup == '')
+			{
+				$userGroupId = $this->groups_model->getGroupId($title.' Users');
+				$adminGroupId = $this->groups_model->getGroupId($title.' Admins');
+				
+				foreach ($admins as $admin)
+				{
+					$key_value = explode("=", $admin);
+					$key = $key_value[0];
+	
+					if($key != 'none')
+					{
+						$this->groups_model->addToGroup($adminGroupId, $key_value[1]);	
+					}
+				}
+	
+				foreach ($users as $user)
+				{
+					$key_value = explode("=", $user);
+					$key = $key_value[0];
+	
+					if($key != 'none')
+					{
+						$this->groups_model->addToGroup($userGroupId, $key_value[1]);		
+					}
+				}
+				
+				$data = array(
+				  'classTitle'     => $title,
+				  'classDesc'      => $description,
+				  'classPrice'     => (float)$price,
+				  'classUsers'     => $userGroupId,
+				  'classAdmins'    => $adminGroupId,
+				  'classStartDate' => $start,
+				  'classEndDate'   => $end,
+				  'classSite'      => 1,
+				);
+				
+				$this->classes_model->addClass($data);
+				$this->session->set_flashdata('type', 'message success');
+				$this->session->set_flashdata('msg', 'The course '.$title.' was created successfully!');
+				redirect('site_admin/courses/');
+			}
+			else
+			{
+				$this->session->set_flashdata('type', 'message error');
+				$this->session->set_flashdata('msg', $resultAddAdminsGroup);
+				redirect('site_admin/courses/add_course');
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('type', 'message error');
+			$this->session->set_flashdata('msg', $resultAddUsersGroup);
+			redirect('site_admin/courses/add_course');
+		}
+	}
+	
 	function _is_authorized()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
