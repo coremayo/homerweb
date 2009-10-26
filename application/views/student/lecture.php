@@ -9,7 +9,7 @@
                 </tr>
                 <tr>
                 <td id="rightBottom">Topic: </td>
-                <td id="bottomborder">Data</td>
+                <td id="bottomborder"><?php echo $lectureTopic ?></td>
                 </tr>
                 <tr>
                 <td id="rightBottom">Instructor: </td>

@@ -10,4 +10,8 @@ $(document).ready(function()
 
 	});
 	
+	$('#user_courses').dataTable( {
+				"aaSorting": [[ 2, "desc" ]]
+	});
+	
 });
