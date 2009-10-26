@@ -18,7 +18,7 @@ class Groups_model extends Model {
     * Adds a new group to the database.
     *
     * @param String Name of the new group.
-    * @return boolean TRUE if the operation succeeded, otherwise error message
+    * @return String '' if the operation succeeded, otherwise error message
     */
   function addGroup($groupName) {
     //INSERT INTO cs4911.group (groupName) VALUES ('gt_site_admin');
@@ -30,10 +30,22 @@ class Groups_model extends Model {
     }
     $data['groupName'] = $groupName;
     $this->db->insert('cs4911.group', $data);
-    return TRUE;
+    return '';
   }
 
+
+  function getGroupId($groupName) {
+    $this->db->where('groupName', $groupName);
+    $this->db->select('id');
+    $row = $this->db->get('group')->row();
+    return $row->id;
+    
+  }
+  
   function addToGroup($groupId, $userId) {
+    $data['group_id'] = $groupId;
+    $data['user_id'] = $userId;
+    $this->db->insert('cs4911.group_has_user', $data);
   }
 
   function removeFromGroup($groupId, $userId) {
