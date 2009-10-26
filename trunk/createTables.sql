@@ -63,6 +63,7 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`class` (
   `classTitle` VARCHAR(45) NULL,
   `classDesc` text NULL,
   `classPrice` float NOT NULL,
+  `classSubLength` INT NOT NULL,
   `classUsers` INT NULL ,
   `classAdmins` INT NULL ,
   `classStartDate` DATE NULL ,
