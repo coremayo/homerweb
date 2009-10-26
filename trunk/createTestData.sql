@@ -2,9 +2,11 @@ USE cs4911;
 --
 -- Dumping data for table `user`
 --
-INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPasswdHash`, `userRegistrationDate`) VALUES
-(1, 'me@yahoo.com', 'Jason', 'Faulk', 'cffb0d21c420fdda412eab787bb5fa8e9a62bcd0', '2009-10-19'),
-(2, 'robert@gmail.com', 'Robert', 'Billinghurst', SHA1( 'abc' ), '2009-10-04');
+
+INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPasswdHash`, `userRegistrationDate`, `userActive`) VALUES
+(1, 'me@yahoo.com', 'Jason', 'Faulk', 'cffb0d21c420fdda412eab787bb5fa8e9a62bcd0', '2009-10-19', 1),
+(2, 'robert@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-10-04', 1),
+(3, 'jonny@gmail.com', 'Jonny', 'L', 'cd863cad8b0b08b0fb64979298ed9ad7ea5c73bb', '2009-10-26', 1);
 
 INSERT INTO `group` (`id`, `groupName`) VALUES
 (1, 'Site Admins'),
@@ -31,7 +33,10 @@ INSERT INTO `class` (`id`, `classTitle`, `classDesc`, `classPrice`, `classUsers`
 INSERT INTO `subscription` (`id` ,`subscriptionStartDate` ,`subscriptionEndDate` ,`subscriptionClass` ,`subscriptionUser`)
 VALUES ('1', '2009-10-05', '2009-10-30', '1', '2'),
 		('2', '2009-10-05', '2009-10-28', '2', '2'),
-		('3', '2006-10-05', '2007-10-25', '3', '2');
+		('3', '2006-10-05', '2007-10-25', '3', '2'),
+		('4', '2009-10-05', '2009-10-30', '1', '3'),
+		('5', '2009-10-05', '2009-10-28', '2', '3'),
+		('6', '2006-10-05', '2007-10-25', '3', '3');
 
 INSERT INTO `announcement` (`id` ,`announcementCreatedDate` ,`announcementTitle` ,`announcementMessage` ,`announcementFrom` ,`announcementClass`)
 VALUES ( '1', '2010-10-05', 'Time Machine', 'Impossible!', '1', '1'),
