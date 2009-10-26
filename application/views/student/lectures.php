@@ -1,6 +1,6 @@
 <div id="main">
 	<div id="subs_level1">
-		<div id="subscriptions">
+		<div id="lecture_list">
 			<h2><?php echo $classTitle?> Lectures</h2>
             <br />
                 <table id="user_courses">

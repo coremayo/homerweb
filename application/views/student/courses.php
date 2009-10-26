@@ -1,6 +1,6 @@
 <div id="main">
 	<div id="subs_level1">
-		<div id="subscriptions">
+		<div id="course_list">
 			<h2>Courses</h2>
             <br />
             <table id="user_courses">
