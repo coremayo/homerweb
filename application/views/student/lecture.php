@@ -5,7 +5,8 @@
             <table>
                 <tr>
                 <td id="rightBottom">Date: </td>
-                <td id="bottomborder">Data</td>
+                <td id="bottomborder">
+                </td>
                 </tr>
                 <tr>
                 <td id="rightBottom">Topic: </td>
