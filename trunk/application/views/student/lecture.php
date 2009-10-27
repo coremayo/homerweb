@@ -8,16 +8,17 @@
                         </h2>
                         <table>
                         <tr>
+                        <td id="rightBottom">Topic: </td>
+                        <td id="bottomborder"><?php echo $lectureTopic ?></td>
+                        </tr>
+                        <tr>
                         <td id="rightBottom">Date: </td>
-                        <td id="bottomborder">
-                        <?php 
-                                echo date('D, F d, Y | h:i:s A', strtotime($lectureStartTime))." - ".date('h:i:s A', strtotime($lectureEndTime));
-                        ?>
+                        <td id="bottomborder"><?php echo date('D, F d, Y', strtotime($lectureStartTime)); ?>
                         </td>
                         </tr>
                         <tr>
-                        <td id="rightBottom">Topic: </td>
-                        <td id="bottomborder"><?php echo $lectureTopic ?></td>
+                        <td id="rightBottom">Time: </td>
+                        <td id="bottomborder"> <?php echo date('h:i:s A', strtotime($lectureStartTime))."  -  ".date('h:i:s A', strtotime($lectureEndTime)) ?>; </td>
                         </tr>
                         <tr>
                         <td id="rightBottom">Instructor: </td>
@@ -49,13 +50,13 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td> Lecture.pdf </d>
-                                    <td> Lecture Notes </d>
+                                    <td> Lecture_p1.pdf </d>
+                                    <td> Part one of the lecture notes </d>
                                     <td> 10/08/2009 </td>
                                 </tr>
                                 <tr>
-                                    <td> Sample.pdf </d>
-                                    <td> Sample Notes </d>
+                                    <td> Sample_problems.pdf </d>
+                                    <td> Sample problems from with answers </d>
                                     <td> 10/08/2009 </td>
                                 </tr>
                                 <tr>
