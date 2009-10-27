@@ -87,9 +87,19 @@ class Student extends Controller
 		redirect('main');
 	}
 	
-	function subscriptions()
+	function subscriptions($subDir = ' ', $id = ' ')
 	{
 		$data['content'] = 'student/subscriptions';
+		if($subDir != ' ')
+			$data['content'] = 'student/'.$subDir;
+		if($id != ' '){
+			if($this->subscriptions_model->userHasSub($this->users_model->getId($this->session->userdata('email')), $id))
+				$data['id'] = $id;
+			else{
+				$data['content'] = 'student/notFound';
+				$data['subject'] = 'Subscription';
+			}
+		}
 		$this->load->view('student/template', $data);
 	}
 	
@@ -120,7 +130,8 @@ class Student extends Controller
 				
 		// DOES THIS CLASS EXIST AND DOES THE USER HAVE ACCESS?
 		if($result->num_rows()==0 || !$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId)){
-				$data['content'] = 'student/courseError';
+				$data['content'] = 'student/notFound';
+				$data['subject'] = 'Course';
 				return $data;
 		}
 				
@@ -138,14 +149,16 @@ class Student extends Controller
 				
 		// DOES THIS LECTURE EXIST?
 		if($result->num_rows()==0){
-			$data['content'] = 'student/lectureError';
+			$data['content'] = 'student/notFound';
+			$data['subject'] = 'Lecture';
 			return $data;
 		}
 				
 		foreach ($result->result() as $info) {
 			// IS IT IN THE RIGHT CLASS?
 			if($info->lectureClass != $classId){
-				$data['content'] = 'student/lectureError';
+				$data['content'] = 'student/notFound';
+				$data['subject'] = 'Lecture';
 				return $data;
 			}
 			$data['content'] = 'student/lecture';

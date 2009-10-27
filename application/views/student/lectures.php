@@ -3,7 +3,7 @@
 		<div id="lecture_list">
 			<h2><?php echo $classTitle?> Lectures</h2>
             <br />
-                <table id="user_courses">
+                <table id="user_lectures">
                     <thead>
                         <tr>
                             <th>Topic</th>
