@@ -79,6 +79,20 @@ class Subscriptions_model extends Model {
 	$query = $this->db->get('subscription');
     return $query->num_rows()>0;
   }
+  
+  /**
+    * Determine if user has a subscription of given course (can be old subscription)
+    */
+  
+  function userHasSub($userId, $classId){
+	$this->db->select('subscriptionClass');
+    $this->db->where('subscriptionUser', $userId);
+	$this->db->where('subscriptionClass', $classId);
+	
+	$query = $this->db->get('subscription');
+    return $query->num_rows()>0;
+  }
+  
 }
 
 ?>

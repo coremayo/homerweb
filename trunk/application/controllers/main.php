@@ -26,7 +26,7 @@ class Main extends Controller
 					$this->session->set_userdata($data);
 					$redirect_location = 'site_admin';
 				}
-				/*else if($result == 'student')
+				else if($result == 'student')
 				{*/
 					$data = array(
 							'email' => $this->input->post('email'),

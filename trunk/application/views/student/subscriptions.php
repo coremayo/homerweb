@@ -3,9 +3,11 @@
 		<div id="subscriptions">
 			<h2>Subscriptions</h2>
         <br>
-        <table id="user_sub">
+        <p><a href="javascript:void(0)" id="extend">Extend Selected</a></p>
+        <table class = "display" id="user_sub">
     <thead>
         <tr>
+        	<th>ID</th>
             <th>Course</th>
             <th>Start Date</th>
             <th>End Date</th>
@@ -16,7 +18,8 @@
     	<?php $subs = $this->subscriptions_model->getUserSubscriptions($this->users_model->getId($this->session->userdata('email')));
    		foreach ($subs ->result() as $sub) {
 			echo '
-        <tr>       
+        <tr> 
+			<td>'.$sub->id.'</td>
             <td>'.$this->classes_model->getClassTitle($sub->subscriptionClass).'</td>
             <td>'.$sub->subscriptionStartDate.'</td>
             <td>'.$sub->subscriptionEndDate.'</td>

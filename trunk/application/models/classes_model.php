@@ -107,6 +107,22 @@ class Classes_model extends Model {
     $row = $this->db->get('class')->row();
     return $row->classTitle;
   }
+  
+  function getClassPrice($classId) {
+    $this->db->select('classPrice');
+    $this->db->where('id', $classId);
+
+    $row = $this->db->get('class')->row();
+    return $row->classPrice;
+  }
+  
+  function getClassSubLength($classId) {
+    $this->db->select('classSubLength');
+    $this->db->where('id', $classId);
+
+    $row = $this->db->get('class')->row();
+    return $row->classSubLength;
+  }
 
   
 
