@@ -196,7 +196,12 @@ width: 100%;
 	margin-right: 3em;
 }
 
-#user_courses, #lecture_notes, #user_lectures {
+#user_courses, #user_lecture_resources, #user_lectures {
 	width: 100%;
 	margin-right: 3em;
+}
+
+#lecture_info {
+	padding-top: 5px;
+	padding-bottom: 20px;
 }
