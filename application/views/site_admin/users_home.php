@@ -4,7 +4,7 @@ $this->load->view('site_admin/header', $data);
 ?>
 
 <div id="content">
-	<h2>Current Users</h2>
+	<h2>All Users</h2>
 	<hr>
 	<br>
 	

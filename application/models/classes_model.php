@@ -124,19 +124,51 @@ class Classes_model extends Model {
     return $row->classSubLength;
   }
 
-  
 
-/**
+  function setTitle($classId, $title) {
+    $data['classTitle'] = $title;
+    $this->db->where('id', $classId);
+    $this->db->update('class', $data);
+  }
+  
+  function setDesc($classId, $desc) {
+    $data['classDesc'] = $desc;
+    $this->db->where('id', $classId);
+    $this->db->update('class', $data);
+  }
+  
+  function setPrice($classId, $price) {
+    $data['classPrice'] = $price;
+    $this->db->where('id', $classId);
+    $this->db->update('class', $data);
+  }
+  
+  function setSubLength($classId, $length) {
+    $data['classSubLength'] = $length;
+    $this->db->where('id', $classId);
+    $this->db->update('class', $data);
+  }
+  
+  function setStartDate($classId, $start) {
+    $data['classStartDate'] = $start;
+    $this->db->where('id', $classId);
+    $this->db->update('class', $data);
+  }
+  
+  function setEndDate($classId, $end) {
+    $data['classEndDate'] = $end;
+    $this->db->where('id', $classId);
+    $this->db->update('class', $data);
+  }
+
+  /**
     * Gets information about a class. Will be returned in the 
-    * form of an array of objects. Can be used in the following way: <br />
-    * $subs = getClassInfo($classId); <br />
-    * foreach ($subs ->result() as $sub) { echo($sub->classStartDate); }
+    * form of an array of objects.
     */
   function getClassInfo($classId, $fields = '*') {
     $this->db->select($fields);
     $this->db->where('id', $classId);
-    $query = $this->db->get('class');
-    return $query;
+    return $this->db->get('class')->row();
   }
 
 // Awesome SQL statement that gets info about a class

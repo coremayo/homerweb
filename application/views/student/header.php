@@ -5,13 +5,13 @@
 		<title>Chicago Board Review</title>
 		
 		<link rel="stylesheet" href="<?php echo base_url();?>css/student.css" type="text/css" media="screen" charset="utf-8">
-		<link rel="stylesheet" href="<?php echo base_url();?>css/cupertino/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="<?php echo base_url();?>css/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8">
         <link rel="stylesheet" href="<?php echo base_url();?>css/demo_table.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.3.2.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-ui-1.7.2.custom.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url();?>js/student.js"></script> <!temp>
-        <script type="text/javascript" src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script> <!temp>
+        <script type="text/javascript" src="<?php echo base_url();?>js/student.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
 	</head>
 	<body>
 	
