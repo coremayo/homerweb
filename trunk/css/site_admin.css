@@ -243,6 +243,9 @@ color: #55917A;
 padding: 0;
 }
 /*----------------------------------------------------*/
+#admin_table {
+width: 771px;
+}
 
 #footer {
 text-align: center;

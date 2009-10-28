@@ -1,5 +1,4 @@
 var admin_table;
-var user_table;
 
 $(document).ready(function() 
 {
@@ -7,10 +6,6 @@ $(document).ready(function()
 			function() { $('ul', this).css('display', 'block'); },
 			function() { $('ul', this).css('display', 'none'); });
 	
-	user_table = $('#user_table').dataTable( {
-				"bJQueryUI": true,
-				"sPaginationType": "full_numbers"
-	});
 	
 	admin_table = $('#admin_table').dataTable( {
 				"bJQueryUI": true,
@@ -83,7 +78,7 @@ $(document).ready(function()
 	$("#course_add_admins").dialog({
 			bgiframe: true,
 			height: 500,
-			width: 1015,
+			width: 800,
 			modal: true,
 			resizable: false,
 			draggable: false,
@@ -115,49 +110,6 @@ $(document).ready(function()
 	});
 	
 	
-	$("#course_add_users").dialog({
-			bgiframe: true,
-			height: 500,
-			width: 1015,
-			modal: true,
-			resizable: false,
-			draggable: false,
-			autoOpen: false,
-			buttons: {
-				'Cancel': function() {
-					$(this).dialog('close');
-				},
-				'Add Users': function() {
-
-					var data = $('input', user_table.fnGetNodes()).serialize();
-
-					if (data == '')
-					{
-						$("input[name='selected_users']").val('none');
-					}
-					else
-					{
-						$("input[name='selected_users']").val(data);
-					}
-
-					$(this).dialog('close');
-				}}
-	});
-	
-	$('#add_users').click(function(data)
-	{
-		$("#course_add_users").dialog("open");
-	});
-
-
-	$("#user_table input[name='select_user_all']").change
-	(
-		function()
-		{
-			$('td input', user_table.fnGetNodes()).attr({checked: 'checked'});
-		}
-	);
-	
 	$("#admin_table input[name='select_user_all']").change
 	(
 		function()
@@ -166,7 +118,8 @@ $(document).ready(function()
 		}
 	);
 	
-
+	$("#edit_course_tabs").tabs();
+	
 	function randomPassword(length)
 	{
 	   chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";

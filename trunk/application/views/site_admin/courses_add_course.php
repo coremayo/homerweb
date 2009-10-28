@@ -15,17 +15,7 @@ $this->load->view('site_admin/header', $data);
 			</div>
 		</div>
 		
-		<div id="course_add_users" title="Add Users">
-			<div id="user_table">
-				<?php
-					$data['show_all'] = '';
-					$this->load->view('site_admin/table_users', $data);
-				?>
-			</div>
-		</div>
-		
 		<input type="hidden" name="selected_admins" value="none">
-		<input type="hidden" name="selected_users" value="none">
 		
 		<table width="700px" class="outer">
 			<tr>
@@ -69,14 +59,15 @@ $this->load->view('site_admin/header', $data);
 						</tr>
 						
 						<tr>
-							<td align="right" bgcolor="#E8E8E8" width="32%">Admins</td>
-							<td><a href="#" id="add_admins">Add Admins</a></td>
+							<td align="right" bgcolor="#E8E8E8" width="32%">Subscription Length<span class="red">*</span></td>
+							<td width ="68%"><input id="subscription_length" type="text" name="subscription_length" size="10" maxlength"10" class="input"> days</td>
 						</tr>
 						
 						<tr>
-							<td align="right" bgcolor="#E8E8E8" width="32%">Users</td>
-							<td><a href="#" id="add_users">Add Users</a></td>
+							<td align="right" bgcolor="#E8E8E8" width="32%">Course Admins</td>
+							<td><a href="#" id="add_admins">Add Course Admins</a></td>
 						</tr>
+						
 						
 						<tr>
 							<td></td>

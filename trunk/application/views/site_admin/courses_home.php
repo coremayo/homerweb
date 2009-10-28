@@ -4,7 +4,7 @@ $this->load->view('site_admin/header', $data);
 ?>
 
 <div id="content">
-	<h2>Current Courses</h2>
+	<h2>All Courses</h2>
 	<hr>
 	<br>
 

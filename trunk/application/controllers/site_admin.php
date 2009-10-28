@@ -160,9 +160,8 @@ class Site_admin extends Controller
 		$price       = $this->input->post('price');
 		$start       = $this->input->post('start_date');
 		$end         = $this->input->post('end_date');
+		$sub_length  = $this->input->post('subscription_length');
 		$admins      = explode("&", $this->input->post('selected_admins'));
-		$users       = explode("&", $this->input->post('selected_users'));
-		
 		
 		$resultAddUsersGroup = $this->groups_model->addGroup($title.' Users');
 		
@@ -185,22 +184,12 @@ class Site_admin extends Controller
 						$this->groups_model->addToGroup($adminGroupId, $key_value[1]);	
 					}
 				}
-	
-				foreach ($users as $user)
-				{
-					$key_value = explode("=", $user);
-					$key = $key_value[0];
-	
-					if($key != 'none')
-					{
-						$this->groups_model->addToGroup($userGroupId, $key_value[1]);		
-					}
-				}
 				
 				$data = array(
 				  'classTitle'     => $title,
 				  'classDesc'      => $description,
 				  'classPrice'     => (float)$price,
+				  'classSubLength' => $sub_length,
 				  'classUsers'     => $userGroupId,
 				  'classAdmins'    => $adminGroupId,
 				  'classStartDate' => $start,
@@ -226,6 +215,29 @@ class Site_admin extends Controller
 			$this->session->set_flashdata('msg', $resultAddUsersGroup);
 			redirect('site_admin/courses/add_course');
 		}
+	}
+	
+	function db_editCourseInfo()
+	{
+		$id          = $this->input->post('id');
+		$title       = $this->input->post('title');
+		$description = $this->input->post('description');
+		$price       = $this->input->post('price');
+		$start       = $this->input->post('start_date');
+		$end         = $this->input->post('end_date');
+		$sub_length  = $this->input->post('subscription_length');
+
+		$this->classes_model->setTitle($id, $title);
+		$this->classes_model->setDesc($id, $description);
+		$this->classes_model->setPrice($id, $price);
+		$this->classes_model->setStartDate($id, $start);
+		$this->classes_model->setEndDate($id, $end);
+		$this->classes_model->setSubLength($id, $sub_length);
+		
+		$this->session->set_flashdata('type', 'message success');
+		$this->session->set_flashdata('msg', 'The course information for '.$title.' was updated successfully!');
+		redirect('site_admin/courses/edit_course/'.$id);
+			
 	}
 	
 	function _is_authorized()
