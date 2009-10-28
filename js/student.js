@@ -46,8 +46,6 @@ $(document).ready(function()
 		var aData = oTable.fnGetData( iRow );
 		window.location = "./subscriptions/extensions/" + aData[0];
 	} );
-
-
 	
 });
 

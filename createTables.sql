@@ -152,7 +152,7 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`resource` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `resourceTitle` VARCHAR(45) NULL ,
   `resourceDescription` TEXT NULL ,
-  `resourceLocation` VARCHAR(45) NULL ,
+  `resourceLocation` VARCHAR(300) NULL ,
   `resourceType` ENUM('ppt', 'doc', 'txt', 'pdf', 'url') NULL ,
   `resourceCreatedDate` DATE NULL ,
   PRIMARY KEY (`id`) )

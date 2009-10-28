@@ -4,7 +4,7 @@
 			<h2>
                            <?php echo '<a href="'.base_url().'student/courses/'.$classId.'"style="color: rgb(255,255,255)"><font color="000000"><u>'.$classTitle.'</u></font></a> > '.$lectureTopic.' '
                            ?>
-                                Lecture
+                                Lecture Resources
                         </h2>
                         <table>
                         <tr>
@@ -22,21 +22,19 @@
                         </tr>
                         <tr>
                         <td id="rightBottom">Instructor: </td>
-                        <td id="bottomborder"><?php echo $lectureAdmin ?></td>
+                        <td id="bottomborder"><?php echo $this->users_model->getFullName($lectureAdmin) ?></td>
                         </tr>
-                        <?php
-                                $lectureInfo = $this->lectures_model->getClassLectures($classId);
-                                echo    '<tr>
-                                        <td colspan="2" align="center">                                Notes | 
-                                                <a href="'.base_url().'student/courses/'.$classId.'/3">Slides & Videos</a> |
-                                                <a href="'.base_url().'student/courses/'.$classId.'/3">QBank</td>
-                                        </tr>';
-                        ?>
+                        <?php 
+                                $data['lectureID'] = $lectureID;
+                                $this->load->view('student/lectureResources', $data);
+                         ?>
                         <tr></tr>
                         <tr></tr>
                         </table> 
 		 </div>
 	</div>
+<<<<<<< .mine
+=======
          <div id="subs_level1"> 
                 <div id="lecture_resources">
                         
@@ -68,4 +66,5 @@
                         </table>
                  </div>
        </div> 
+>>>>>>> .r68
 </div>

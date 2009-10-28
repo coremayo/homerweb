@@ -108,7 +108,7 @@ class Student extends Controller
 		$data['content'] = 'student/courses';
 		
 		if($classId != ' '){
-			$data = $this->loadClassId($data, $classId);
+			$data = $this->_loadClassId($data, $classId);
 			
 			if($data['content'] == 'student/courseError'){
 				$this->load->view('student/template', $data);
@@ -116,14 +116,14 @@ class Student extends Controller
 			}
 			
 			if($lectureId != ' '){
-				$data = $this->loadLectureId($data, $lectureId, $classId);		
+				$data = $this->_loadLectureId($data, $lectureId, $classId);		
 			}
 		}
 
 		$this->load->view('student/template', $data);
 	}
 	
-	function loadClassId($data, $classId)
+	function _loadClassId($data, $classId)
 	{
 		$data['classId'] = $classId;
 		$result = $this->classes_model->getClassInfo($classId);
@@ -142,7 +142,7 @@ class Student extends Controller
 		return $data;
 	}
 	
-	function loadLectureId($data, $lectureId, $classId)
+	function _loadLectureId($data, $lectureId, $classId)
 	{
 		$data['lectureId'] = $lectureId;
 		$result = $this->lectures_model->getLectureInfo($lectureId);
@@ -166,6 +166,7 @@ class Student extends Controller
 			$data['lectureStartTime'] = $info->lectureStartTime;
 			$data['lectureEndTime'] = $info->lectureEndTime;
 			$data['lectureAdmin'] = $info->lectureAdmin;
+			$data['lectureID'] = $lectureId;
 		}
 		
 		return $data;
@@ -176,9 +177,7 @@ class Student extends Controller
 		$data['content'] = 'student/lecture';
 		$data['lectureNumber']= 'red';
 		$this->load->view('student/template', $data);
-	}
-	
-	
+	}	
 }
 
 ?>

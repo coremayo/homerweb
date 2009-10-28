@@ -34,5 +34,29 @@ class Lectures_model extends Model {
     return $query;
   }
 
+  /**
+    * Gets all the resources pertaining to some lecture ID
+    *
+    *
+    *
+    */
+  function getLectureResources($lectureId) {
+    $this->db->select('resource_id FROM lecture_has_resource WHERE lecture_id ='.$lectureId);
+    $query = $this->db->get();
+    return $query->result();
+    }
+    
+    /**
+    * Gets information about resources pertaining to the lecture. 
+    * 
+    *@return an array of object resource IDs
+    */
+  function getResourceInfo($resourceId) {
+    $this->db->select('*');
+    $this->db->where('id', $resourceId);
+    $query = $this->db->get('resource');
+    return $query->result();
+  }
+    
 }
 ?>
