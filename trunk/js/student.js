@@ -31,6 +31,10 @@ $(document).ready(function()
 				"aaSorting": [[ 2, "desc" ]]
 	});
 	
+	$('#user_lecture_resources').dataTable( {
+				"aaSorting": [[ 2, "desc" ]]
+	});
+	
 	/* Add a click handler to the rows - this could be used as a callback */
 	$("#user_sub tbody").click(function(event) {
 		$(oTable.fnSettings().aoData).each(function (){

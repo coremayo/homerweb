@@ -2,12 +2,12 @@
 
 	$result = $this->lectures_model->getLectureResources($lectureID);
 
-	echo '<table id="lecture_notes">
+	echo '<table id="user_lecture_resources">
 			<thead>
 				<tr>
-					<th>Filename</th>
-					<th>Description</th>
-					<th>Date Posted</th>
+					<th><u> Filename </u></th>
+					<th><u> Description </u></th>
+					<th><u> Date Posted </u></th>
 				</tr>
 			</thead>
 			<tbody>';

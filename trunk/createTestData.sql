@@ -54,8 +54,12 @@ VALUES ('1', 'Brain Tumors', '1', '2009-10-27 02:15:09', '2009-10-27 02:50:14', 
 
 INSERT INTO `resource` (`id`, `resourceTitle`, `resourceDescription`, `resourceLocation`, `resourceType`, `resourceCreatedDate`) VALUES
 (1, 'syllabus', 'The syllabus for the class.', 'http://localhost/homerweb/resources/Neuro 2009/Brain Explosions/syllabus.pdf', 'pdf', '2009-10-27'),
-(2, 'lecture_notes', 'Notes for this lecture', 'http://localhost/homerweb/resources/Neuro 2009/Brain Explosions/lecture_notes.pdf', 'pdf', '2009-10-27');
+(2, 'lecture_notes', 'Notes for this lecture', 'http://localhost/homerweb/resources/Neuro 2009/Brain Explosions/lecture_notes.pdf', 'pdf', '2009-10-27'),
+(3, 'sample_presentation', 'A sample lecture presentation', 'http://localhost/homerweb/resources/Neuro 2009/Brain Explosions/sample_presentation.pptx', 'pptx', '2009-10-28'),
+(4, 'sample_video', 'A test video. See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neuro 2009/Brain Explosions/sample_video.wmv', 'wmv', '2009-10-28');
 
 INSERT INTO `lecture_has_resource` (`lecture_id`, `resource_id`) VALUES
 (3, 1),
-(3, 2);
+(3, 2),
+(3, 3),
+(3, 4);
