@@ -16,15 +16,14 @@
                      <?php $result = $this->subscriptions_model->getValidCourseIDs($this->users_model->getId($this->session->userdata('email')));
                      foreach ($result ->result() as $res) {
 						$classInfo = $this->classes_model->getClassInfo($res->subscriptionClass);
-   					 foreach ($classInfo ->result() as $info) {
                         echo '
                         <tr>       
-                            <td><a href="'.base_url().'student/courses/'.$info->id.'"style="color: rgb(0,0,0)"><font color="000000"><u>'.$info->classTitle.'</u></font></a></td>
-                            <td>'.$info->classDesc.'</td>
-                            <td>'.$info->classStartDate.'</td>
-                            <td>'.$info->classEndDate.'</td>
+                            <td><a href="'.base_url().'student/courses/'.$classInfo->id.'"style="color: rgb(0,0,0)"><font color="000000"><u>'.$classInfo->classTitle.'</u></font></a></td>
+                            <td>'.$classInfo->classDesc.'</td>
+                            <td>'.$classInfo->classStartDate.'</td>
+                            <td>'.$classInfo->classEndDate.'</td>
                         </tr>';
-                        } }
+                        }
                         ?>
                    </tbody>
               </table>
