@@ -118,7 +118,7 @@ border: 2px solid #d0d0d0;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 padding: .5em .5em;
-background: url(../images/module_gradient.png) repeat-x;
+background: #FFFFFF url(../images/module_gradient.png) repeat-x;
 }
 
 #level1 div p, 
@@ -146,7 +146,7 @@ border: 2px solid #d0d0d0;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 padding: .5em .5em;
-background: url(../images/module_gradient.png) repeat-x;
+background: #FFFFFF url(../images/module_gradient.png) repeat-x;
 }
 
 #user_sub {
@@ -163,7 +163,7 @@ border: 2px solid #d0d0d0;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 padding: .5em .5em;
-background: url(../images/module_gradient.png) repeat-x;
+background: #FFFFFF url(../images/module_gradient.png) repeat-x;
 }
 
 #announcements{
