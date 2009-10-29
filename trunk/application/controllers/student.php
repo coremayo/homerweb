@@ -2,6 +2,7 @@
 
 class Student extends Controller
 {
+																 
 	function Student(){
 		parent::Controller();
 	}
@@ -93,14 +94,35 @@ class Student extends Controller
 		if($subDir != ' ')
 			$data['content'] = 'student/'.$subDir;
 		if($id != ' '){
-			if($this->subscriptions_model->userHasSub($this->users_model->getId($this->session->userdata('email')), $id))
+			if($this->subscriptions_model->userHasSub($this->users_model->getId($this->session->userdata('email')), $id)){
 				$data['id'] = $id;
+				$sub = $this->subscriptions_model->getSubscription($id);
+				$data['extendedDate'] = $this->_getExtendedDate($sub);
+			}
 			else{
 				$data['content'] = 'student/notFound';
 				$data['subject'] = 'Subscription';
 			}
 		}
 		$this->load->view('student/template', $data);
+	}
+	
+	function _getExtendedDate($sub){
+		$userId = $this->users_model->getId($this->session->userdata('email'));
+		$subClass = $sub->subscriptionClass;
+		$subLength = $this->classes_model->getClassSubLength($sub->subscriptionClass);
+		
+		$endDate = strtotime($sub->subscriptionEndDate);
+		if(strtotime($endDate) - strtotime(Date("l F d, Y")) < 0);
+			$endDate = strtotime(Date("l F d, Y"));
+		$endDate += 24 * 60 * 60 * $subLength; // Add $subLength days
+		$newDate = date("Y-m-d", $endDate);
+
+		return $newDate;
+	}
+	
+	function extend(){
+		
 	}
 	
 	function courses($classId = ' ', $lectureId = ' ')
@@ -110,7 +132,7 @@ class Student extends Controller
 		if($classId != ' '){
 			$data = $this->_loadClassId($data, $classId);
 			
-			if($data['content'] == 'student/courseError'){
+			if($data['content'] == 'student/notFound'){
 				$this->load->view('student/template', $data);
 				return;
 			}
@@ -129,16 +151,14 @@ class Student extends Controller
 		$result = $this->classes_model->getClassInfo($classId);
 				
 		// DOES THIS CLASS EXIST AND DOES THE USER HAVE ACCESS?
-		if($result->num_rows()==0 || !$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId)){
+		if(is_null($result) || !$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId)){
 				$data['content'] = 'student/notFound';
 				$data['subject'] = 'Course';
 				return $data;
 		}
 				
 		$data['content'] = 'student/lectures';
-		foreach ($result->result() as $info) {
-						$data['classTitle'] = $info->classTitle;
-		}
+		$data['classTitle'] = $result->classTitle;
 		return $data;
 	}
 	
