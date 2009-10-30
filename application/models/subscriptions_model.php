@@ -60,7 +60,7 @@ class Subscriptions_model extends Model {
   function getValidCourseIDs($userId){
 	$this->db->select('subscriptionClass');
     $this->db->where('subscriptionUser', $userId);
-	$this->db->where('subscriptionEndDate >', Date("Y-m-d"));
+	$this->db->where('subscriptionEndDate >=', Date("Y-m-d"));
 	
 	$query = $this->db->get('subscription');
     return $query;
@@ -73,7 +73,7 @@ class Subscriptions_model extends Model {
   function isActive($userId, $classId){
 	$this->db->select('subscriptionClass');
     $this->db->where('subscriptionUser', $userId);
-	$this->db->where('subscriptionEndDate >', Date("Y-m-d"));
+	$this->db->where('subscriptionEndDate >=', Date("Y-m-d"));
 	$this->db->where('subscriptionClass', $classId);
 	
 	$query = $this->db->get('subscription');
