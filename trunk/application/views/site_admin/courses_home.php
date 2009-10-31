@@ -1,26 +1,35 @@
-<?php 
-$data['breadcrumb'] = 'Courses &raquo; Home';
-$this->load->view('site_admin/header', $data); 
+<?php
+	include 'table_constants.php';
+	$data['breadcrumb'] = 'Courses &raquo; Home';
+	$this->load->view('site_admin/header', $data); 
 ?>
+
+<script>
+	var coursesTable;
+	
+	$(document).ready(function() 
+	{
+		coursesTable = $('#coursesTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+	});
+</script>
 
 <div id="content">
 	<h2>All Courses</h2>
 	<hr>
 	<br>
 
-	<div id="add_new_course_link">
-		<img src="<?php echo base_url();?>images/site_admin/add_user.gif" alt="Add Course Image" />
-		<div id="description">
-			<a href="<?php echo base_url();?>site_admin/courses/add_course">Add New Course</a>
-		</div>
-	</div>
+	<button type="button" class="addButton" id="addNewCourseButton" onclick="window.location.href='<?php echo base_url();?>site_admin/courses/add_course'">Add New Course</button>
 
-	<div id="table">
-		<?php 
-			$data['show_all'] = '';
-			$this->load->view('site_admin/table_courses', $data);
-		?>
-	</div>
+	<?php 
+		$data['ID'] = 'coursesTable';
+		$data['TABLE'] = array(SHOW_ALL_COURSES, null);
+		$data['FIELDS'] = TITLE_FIELD | DESC_FIELD | PRICE_FIELD | SUBLENGTH_FIELD | USERS_FIELD | ADMINS_FIELD | STARTDATE_FIELD | ENDDATE_FIELD;
+		$this->load->view('site_admin/table', $data);
+	?>
 </div>
 
 <?php $this->load->view('site_admin/footer'); ?>

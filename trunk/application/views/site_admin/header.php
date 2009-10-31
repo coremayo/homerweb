@@ -8,9 +8,9 @@
 		<link rel="stylesheet" href="<?php echo base_url();?>css/demo_table.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.3.2.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-ui-1.7.2.custom.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url();?>js/site_admin.js"></script>
 		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.delay.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/site_admin.js"></script>
 	</head>
 	<body>
 	
@@ -42,8 +42,6 @@
 			</ul>
 		</li>
 	</ul>
-	
-	<div id="clear"> </div>
 	
 	<div id="breadcrumb">
 		<?php echo $breadcrumb;?>

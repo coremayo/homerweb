@@ -1,15 +1,32 @@
 <?php 
-
-$userID = $this->uri->segment(4, 0);
-$userInfo = $this->users_model->getUserInfo($userID);
-$userEmail = $userInfo->userEmail;
-$userFName = $userInfo->userFirstName;
-$userLName = $userInfo->userLastName;
-$userRegDate = $userInfo->userRegistrationDate;
-$userActive = $userInfo->userActive;
-$data['breadcrumb'] = '<a href="'.base_url().'site_admin/users">Users</a> &raquo; Edit User';
-$this->load->view('site_admin/header', $data); 
+	$userID = $this->uri->segment(4, 0);
+	$userInfo = $this->users_model->getUserInfo($userID);
+	
+	$data['breadcrumb'] = '<a href="'.base_url().'site_admin/users">Users</a> &raquo; Edit User';
+	$this->load->view('site_admin/header', $data); 
 ?>
+
+<script>
+	$(document).ready(function() 
+	{
+	
+		$('.pass_field_new').hide();
+	
+		$("input[name='pass_option_edit']").change(
+			function()
+			{
+				var type = $("input[name='pass_option_edit']:checked").val();
+				$('.pass_field_new').toggle();
+				$('.pass_field_keep').toggle();
+				$("input[name='pass_type_edit']").val(type);
+			}
+		);
+	
+		$("#start_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
+		$("#end_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
+	});
+	
+</script>
 
 <div id="content">
 	<form name="edit_user_form" action="<?php echo base_url();?>site_admin/db_editUser/" method="POST">
@@ -23,7 +40,7 @@ $this->load->view('site_admin/header', $data);
 						</tr>
 	
 						<tr>
-							<td colspan="2" class="note" bgcolor="#E8E8E8">Edit '<?php echo $userEmail;?>'s account</td>
+							<td colspan="2" class="note" bgcolor="#E8E8E8">Edit '<?php echo $userInfo->userEmail;?>'s account</td>
 						<tr>
 	
 						<tr height="10px">
@@ -32,17 +49,17 @@ $this->load->view('site_admin/header', $data);
 	
 						<tr>
 							<td align="right" bgcolor="#E8E8E8" width="32%">Email Address</td>
-							<td width ="68%"><input type="text" name="email" size="35" maxlength"50" class="input" value="<?php echo $userEmail;?>"></td>
+							<td width ="68%"><input type="text" name="email" size="35" maxlength"50" class="input" value="<?php echo $userInfo->userEmail;?>"></td>
 						</tr>
 	
 						<tr>
 							<td align="right" bgcolor="#E8E8E8" width="32%">First Name</td>
-							<td width ="68%"><input type="text" name="fname" size="35" maxlength"50" class="input" value="<?php echo $userFName;?>"></td>
+							<td width ="68%"><input type="text" name="fname" size="35" maxlength"50" class="input" value="<?php echo $userInfo->userFirstName;?>"></td>
 						</tr>
 	
 						<tr>
 							<td align="right" bgcolor="#E8E8E8" width="32%">Last Name</td>
-							<td width ="68%"><input type="text" name="lname" size="35" maxlength"50" class="input" value="<?php echo $userLName;?>"></td>
+							<td width ="68%"><input type="text" name="lname" size="35" maxlength"50" class="input" value="<?php echo $userInfo->userLastName;?>"></td>
 						</tr>
 	
 						<tr>
@@ -69,7 +86,7 @@ $this->load->view('site_admin/header', $data);
 							<td align="right" bgcolor="#E8E8E8" width="32%">Active Status</td>
 							<td width ="68%">
 								<p><input type="checkbox" name="active_status" 
-									<?php if ($userActive)
+									<?php if ($userInfo->userActive)
 											  {
 												echo 'checked';
 											  }
@@ -82,7 +99,7 @@ $this->load->view('site_admin/header', $data);
 						
 						<tr>
 							<td align="right" bgcolor="#E8E8E8" width="32%">Registration Date</td>
-							<td width ="68%"><p><?php echo $userRegDate;?></p></td>
+							<td width ="68%"><p><?php echo $userInfo->userRegistrationDate;?></p></td>
 						</tr>
 						
 						<tr>
