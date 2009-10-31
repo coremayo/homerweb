@@ -93,6 +93,42 @@ class Classes_model extends Model {
   }
   
   
+  function getAllAdmins($classID) {
+    $this->db->select('classAdmins');
+    $this->db->where('id', $classID);
+    $row = $this->db->get('class')->row();
+    $admin_group = $row->classAdmins;
+
+    $this->db->from('group_has_user');
+    $this->db->where('group_id', $admin_group);
+    $this->db->get();
+    
+    $this->db->from('user');
+    $this->db->where('group_id', $admin_group);
+    $this->db->join('group_has_user', 'group_has_user.user_id = user.id');
+    
+    $query = $this->db->get();
+    return $query->result();
+  }
+  
+  function getAllStudents($classID) {
+    $this->db->select('classUsers');
+    $this->db->where('id', $classID);
+    $row = $this->db->get('class')->row();
+    $users_group = $row->classUsers;
+
+    $this->db->from('group_has_user');
+    $this->db->where('group_id', $users_group);
+    $this->db->get();
+
+    $this->db->from('user');
+    $this->db->where('group_id', $users_group);
+    $this->db->join('group_has_user', 'group_has_user.user_id = user.id');
+
+    $query = $this->db->get();
+    return $query->result();
+  }
+  
 /**
     * Gets the class title of the class with the specified id.
     *

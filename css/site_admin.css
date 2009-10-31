@@ -14,16 +14,27 @@ color: #000000;
 }
 
 button {
+font-size: 13px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+padding: 5px 5px 5px 5px;
 background-color: #CCCCCC;
 color: black;
-padding: 5px;
 margin-right: 10px;
-margin-top: 15px;
 }
 
 button:hover {
-background-color: #666666;
+background-color: #333333;
 color: white;
+}
+
+.addButton {
+padding: 10px 10px 10px 40px;
+background-repeat: no-repeat;
+background-position: 2px center;
+background-image: url('../images/site_admin/add_icon.gif');
+margin-bottom: 10px;
+margin-right: 0;
+float: right;
 }
 
 .red {
@@ -205,12 +216,7 @@ float: left;
 padding-left: 10px;
 }
 
-#add_new_user_link , #add_new_course_link {
-float: right;
-padding-bottom: 20px;
-}
-
-/* --- Users & Group >> Users >> Add New User Form ---*/
+/* --- All Forms ---*/
 .outter {
 background-color:#F5FAF9;
 }
@@ -243,9 +249,6 @@ color: #55917A;
 padding: 0;
 }
 /*----------------------------------------------------*/
-#admin_table {
-width: 771px;
-}
 
 #footer {
 text-align: center;
