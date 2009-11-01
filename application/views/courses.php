@@ -1,12 +1,9 @@
-<?php 
-$bool = false;
-if($bool){
-						for ($i = 1; $i <= 10; $i++)
-						{
-							echo '<h2>This is the courses page'.$i.'</h2>';
-						}
-	}
-else {
-	echo 'not true';
-	}
-?>	
+<div id="main">
+<script type="text/javascript"> javascript:changeClass('courseNav'); </script>
+	<div id="level1">
+		<div id="Courses">
+			<h2>Filler</h2>
+		</div>
+
+	</div>
+</div>
