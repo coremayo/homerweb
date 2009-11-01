@@ -20,9 +20,11 @@
 		<p>The Preferred Neurosurgery Review since 1974</p>
 	</div>
 	
-	<ul id="navigation">
-		<li><a href="<?php echo base_url();?>main">Home</a></li>
-		<li><a href="<?php echo base_url();?>main/courses">Courses</a></li>
-		<li><a href="<?php echo base_url();?>main/qbank">QBank</a></li>
-		<li><a href="<?php echo base_url();?>main/about">About</a></li>
-	</ul>
+	<div id="navigation">
+		<li><a class="tab" href="<?php echo base_url();?>main" id="mainNav">Home</a></li>
+		<li><a class="tab" href="<?php echo base_url();?>main/courses" id="courseNav">Courses</a></li>
+		<li><a class="tab" href="<?php echo base_url();?>main/qbank" id="qbankNav">QBank</a></li>
+		<li><a class="tab" href="<?php echo base_url();?>main/about" id="aboutNav">About</a></li>
+	</div>
+
+    

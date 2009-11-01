@@ -35,4 +35,9 @@ $(document).ready(function()
 		e.preventDefault();
 		alert("test clicked");
 	});
+	
 });
+
+function changeClass(id){
+document.getElementById(id).setAttribute("class", "activetab");
+}
