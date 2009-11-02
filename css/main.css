@@ -173,13 +173,13 @@ a.tab, a.tab:visited {
 }
 
 a.tab:hover {
-  background: #418fef;
-  border-color: #418fef #418fef #418fef #418fef;
-  color: #ffe0ff;
+  background: #2274da;
+  border-color: #2274da #2274da #2274da #2274da;
+  color: #FFFFFF;
 }
 
 a.activetab{
-  background: #418fef;
-  border-color: #418fef #418fef #418fef #418fef;
-  color: #ffe0ff;
+  background: #2274da;
+  border-color: #2274da #2274da #2274da #2274da;
+  color: #FFFFFF;
 }
