@@ -163,7 +163,7 @@ a.tab, a.activetab {
   text-decoration: none;
   top: 3px;
   font-weight: normal;
-  font-size: 14pt;
+  font-size: 12pt;
   z-index: 100;
   background: #C6C6C6 url(../images/tab_gradient.png) repeat-x;
 }

@@ -20,20 +20,33 @@
 	<div id="header">
 		<h1 id="test">Chicago Review Courses</h1>
 		<small>"The Preferred Neurosurgery Review since 1974"</small>
-		<div id="search">
-			<small><input type="text" name="search" value="Search Keywords..." /> <input type="submit" name="submit" value="Go" /></small>
-		</div>
 	</div>
 
 	
 	<ul id="navigation">
-		<li><a href="<?php echo base_url();?>student/index">Home</a></li>
-		<li><a href="<?php echo base_url();?>student/courses">Courses</a></li>
-		<li><a href="<?php echo base_url();?>student/qbank">QBank</a></li>
-		<li><a href="<?php echo base_url();?>student/subscriptions">Subscriptions</a></li>
+		<li><a class="tab" href="<?php echo base_url();?>student/index">Home</a></li>
+		<li><a class="tab" href="<?php echo base_url();?>student/courses">Courses</a></li>
+		<li><a class="tab" href="<?php echo base_url();?>student/qbank">QBank</a></li>
+		<li><a class="tab" href="<?php echo base_url();?>student/subscriptions">Subscriptions</a></li>
         <form id="logout" action="<?php echo base_url();?>student/logout" method="post">
+			<?php
+				$isSiteAdmin = $this->session->userdata('is_site_admin');
+				$isClassAdmin = $this->session->userdata('is_class_admin');
+				$isLectureAdmin = $this->session->userdata('is_lecture_admin');
+				
+				/*echo 'site '.$isSiteAdmin.'<br>';
+				echo 'class '.$isClassAdmin.'<br>';
+				echo 'lecture '.$isLectureAdmin.'<br>';
+				*/
+				
+				if($isSiteAdmin || $isClassAdmin || $isLectureAdmin)
+				{
+					echo '<button type="button" onclick="window.location.href=\''.base_url().'site_admin/\'">Admin Panel</button>';
+				}
+			
+			?>
 			<input type="submit" value="Logout" id="logout_button">
-			</form>
+		</form>
 	</ul>
     
     
