@@ -31,12 +31,12 @@ INSERT INTO `class` (`id`, `classTitle`, `classDesc`, `classPrice`, `classSubLen
 (3, 'Neuro 2007', '', 29.99, 120, 6, 5, '2006-10-05', '2007-10-25', 1);
 
 INSERT INTO `subscription` (`id` ,`subscriptionStartDate` ,`subscriptionEndDate` ,`subscriptionClass` ,`subscriptionUser`)
-VALUES ('1', '2009-10-05', '2009-10-30', '1', '2'),
-		('2', '2009-10-05', '2009-10-28', '2', '2'),
-		('3', '2006-10-05', '2007-10-25', '3', '2'),
-		('4', '2009-10-05', '2009-10-30', '1', '3'),
-		('5', '2009-10-05', '2009-10-28', '2', '3'),
-		('6', '2006-10-05', '2007-10-25', '3', '3');
+VALUES ('1', '2009-10-05', '2009-11-30', '1', '2'),
+		('2', '2009-10-05', '2009-11-28', '2', '2'),
+		('3', '2006-10-05', '2007-11-25', '3', '2'),
+		('4', '2009-10-05', '2009-11-30', '1', '3'),
+		('5', '2009-10-05', '2009-11-28', '2', '3'),
+		('6', '2006-10-05', '2007-11-25', '3', '3');
 
 INSERT INTO `announcement` (`id` ,`announcementCreatedDate` ,`announcementTitle` ,`announcementMessage` ,`announcementFrom` ,`announcementClass`)
 VALUES ( '1', '2010-10-05', 'Time Machine', 'Impossible!', '1', '1'),
