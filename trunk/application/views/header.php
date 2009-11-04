@@ -21,10 +21,10 @@
 	</div>
 	
 	<div id="navigation">
-		<li><a class="tab" href="<?php echo base_url();?>main" id="mainNav">Home</a></li>
-		<li><a class="tab" href="<?php echo base_url();?>main/courses" id="courseNav">Courses</a></li>
-		<li><a class="tab" href="<?php echo base_url();?>main/qbank" id="qbankNav">QBank</a></li>
-		<li><a class="tab" href="<?php echo base_url();?>main/about" id="aboutNav">About</a></li>
+		<a class="tab" href="<?php echo base_url();?>main" id="mainNav">Home</a>
+		<a class="tab" href="<?php echo base_url();?>main/courses" id="courseNav">Courses</a>
+		<a class="tab" href="<?php echo base_url();?>main/qbank" id="qbankNav">QBank</a>
+		<a class="tab" href="<?php echo base_url();?>main/about" id="aboutNav">About</a>
 	</div>
 
     

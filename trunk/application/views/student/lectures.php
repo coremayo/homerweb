@@ -1,4 +1,5 @@
 <div id="main">
+<script type="text/javascript"> javascript:changeClass('coursesNav'); </script>
 	<div id="subs_level1">
 		<div id="lecture_list">
 			<h2><?php echo $classTitle?> Lectures</h2>
