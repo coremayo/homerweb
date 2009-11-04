@@ -1,4 +1,5 @@
 <div id="main">
+<script type="text/javascript"> javascript:changeClass('annNav'); </script>
 	<div id="index_level1">
 		<div id="announcements">
 			<h2>Announcements</h2>

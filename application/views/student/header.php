@@ -24,10 +24,10 @@
 
 	
 	<ul id="navigation">
-		<li><a class="tab" href="<?php echo base_url();?>student/index">Home</a></li>
-		<li><a class="tab" href="<?php echo base_url();?>student/courses">Courses</a></li>
-		<li><a class="tab" href="<?php echo base_url();?>student/qbank">QBank</a></li>
-		<li><a class="tab" href="<?php echo base_url();?>student/subscriptions">Subscriptions</a></li>
+		<a class="tab" href="<?php echo base_url();?>student/index" id="annNav">Home</a>
+		<a class="tab" href="<?php echo base_url();?>student/courses" id="coursesNav">Courses</a>
+		<a class="tab" href="<?php echo base_url();?>student/qbank">QBank</a>
+		<a class="tab" href="<?php echo base_url();?>student/subscriptions" id="subNav">Subscriptions</a>
         <form id="logout" action="<?php echo base_url();?>student/logout" method="post">
 			<?php
 				$isSiteAdmin = $this->session->userdata('is_site_admin');

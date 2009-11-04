@@ -1,4 +1,5 @@
 <div id="main">
+<script type="text/javascript"> javascript:changeClass('subNav'); </script>
 	<div id="subs_level1">
 		<div id="extensions">
 			<h2>Extensions</h2>
