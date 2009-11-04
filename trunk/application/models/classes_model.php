@@ -111,6 +111,7 @@ class Classes_model extends Model {
     return $query->result();
   }
   
+  
   function getAllStudents($classID) {
     $this->db->select('classUsers');
     $this->db->where('id', $classID);

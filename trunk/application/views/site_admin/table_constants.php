@@ -8,6 +8,8 @@
 	if (!defined('SHOW_ALL_COURSES'))			define('SHOW_ALL_COURSES', 4);
 	if (!defined('SHOW_ADMINS_IN_COURSE'))		define('SHOW_ADMINS_IN_COURSE', 5);
 	if (!defined('SHOW_STUDENTS_IN_COURSE'))	define('SHOW_STUDENTS_IN_COURSE', 6);
+	if (!defined('SHOW_ADMINS_NOT_IN_COURSE'))	define('SHOW_ADMINS_NOT_IN_COURSE', 7);
+	if (!defined('SHOW_STUDENTS_NOT_IN_COURSE'))define('SHOW_STUDENTS_NOT_IN_COURSE', 8);
 	
 	/*------------------------------\
 	|  User Fields                  | 
