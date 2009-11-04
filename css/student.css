@@ -93,11 +93,7 @@ font-weight: bold;
 #navigation {
 overflow: hidden;
 height: 80px;
-}
-
-#navigation li {
-float: left;
-padding-left: 60px;
+padding-left: 0;
 }
 
 #logout{
@@ -204,4 +200,39 @@ width: 100%;
 #lecture_info {
 	padding-top: 5px;
 	padding-bottom: 20px;
+}
+
+a.tab, a.activetab {
+  float: left;
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+  border-bottom-width: 0px;
+  border-color: #c2c2c2 #c2c2c2 #c2c2c2 #c2c2c2;
+  -moz-border-radius: .75em .75em 0em 0em;
+  border-radius-topleft: .75em;
+  border-radius-topright: .75em;
+  padding: 4px 1em 4px 1em;
+  position: relative;
+  text-decoration: none;
+  top: 3px;
+  font-weight: normal;
+  font-size: 12pt;
+  z-index: 100;
+  background: #C6C6C6 url(../images/tab_gradient.png) repeat-x;
+}
+
+a.tab, a.tab:visited {
+  color: #000000;
+}
+
+a.tab:hover {
+  background: #2274da;
+  border-color: #2274da #2274da #2274da #2274da;
+  color: #FFFFFF;
+}
+
+a.activetab{
+  background: #2274da;
+  border-color: #2274da #2274da #2274da #2274da;
+  color: #FFFFFF;
 }

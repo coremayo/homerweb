@@ -57,28 +57,7 @@ class Student extends Controller
 		}
 		else
 		{
-			$has_permissions = $this->session->userdata('is_student');
-
-			if(!isset($has_permissions) || $has_permissions != true)
-			{
-				if (IS_AJAX)
-				{
-					$data['type'] = 'unauthorized';
-					$this->load->view('unauthorized');
-				}
-				else
-				{
-					$data['content'] = 'unauthorized';
-					$data['type'] = 'unauthorized';
-					$this->load->view('template', $data);
-				}
-
-				return false;
-			}
-			else
-			{
-				return true; 
-			}
+			return true; 
 		}
 	}
 	
@@ -90,21 +69,24 @@ class Student extends Controller
 	
 	function subscriptions($subDir = ' ', $id = ' ')
 	{
-		$data['content'] = 'student/subscriptions';
-		if($subDir != ' ')
-			$data['content'] = 'student/'.$subDir;
-		if($id != ' '){
-			if($this->subscriptions_model->userHasSub($this->users_model->getId($this->session->userdata('email')), $id)){
-				$data['id'] = $id;
-				$sub = $this->subscriptions_model->getSubscription($id);
-				$data['extendedDate'] = $this->_getExtendedDate($sub);
+		if ($this->_is_authorized())
+		{
+			$data['content'] = 'student/subscriptions';
+			if($subDir != ' ')
+				$data['content'] = 'student/'.$subDir;
+			if($id != ' '){
+				if($this->subscriptions_model->userHasSub($this->users_model->getId($this->session->userdata('email')), $id)){
+					$data['id'] = $id;
+					$sub = $this->subscriptions_model->getSubscription($id);
+					$data['extendedDate'] = $this->_getExtendedDate($sub);
+				}
+				else{
+					$data['content'] = 'student/notFound';
+					$data['subject'] = 'Subscription';
+				}
 			}
-			else{
-				$data['content'] = 'student/notFound';
-				$data['subject'] = 'Subscription';
-			}
+			$this->load->view('student/template', $data);
 		}
-		$this->load->view('student/template', $data);
 	}
 	
 	function _getExtendedDate($sub){
@@ -127,22 +109,25 @@ class Student extends Controller
 	
 	function courses($classId = ' ', $lectureId = ' ')
 	{
-		$data['content'] = 'student/courses';
-		
-		if($classId != ' '){
-			$data = $this->_loadClassId($data, $classId);
-			
-			if($data['content'] == 'student/notFound'){
-				$this->load->view('student/template', $data);
-				return;
+		if ($this->_is_authorized())
+		{
+			$data['content'] = 'student/courses';
+	
+			if($classId != ' '){
+				$data = $this->_loadClassId($data, $classId);
+	
+				if($data['content'] == 'student/notFound'){
+					$this->load->view('student/template', $data);
+					return;
+				}
+	
+				if($lectureId != ' '){
+					$data = $this->_loadLectureId($data, $lectureId, $classId);		
+				}
 			}
-			
-			if($lectureId != ' '){
-				$data = $this->_loadLectureId($data, $lectureId, $classId);		
-			}
+	
+			$this->load->view('student/template', $data);
 		}
-
-		$this->load->view('student/template', $data);
 	}
 	
 	function _loadClassId($data, $classId)
@@ -194,9 +179,12 @@ class Student extends Controller
 	
 	function lecture($lectureNumber='rest')
 	{
-		$data['content'] = 'student/lecture';
-		$data['lectureNumber']= 'red';
-		$this->load->view('student/template', $data);
+		if ($this->_is_authorized())
+		{
+			$data['content'] = 'student/lecture';
+			$data['lectureNumber']= 'red';
+			$this->load->view('student/template', $data);
+		}
 	}	
 }
 

@@ -16,26 +16,19 @@ class Main extends Controller
 
 			if ($result)
 			{
-				//if($result == 'site_admin')
-				{
-					$data = array(
-							'email' => $this->input->post('email'),
-							'is_logged_in' => true,
-							'is_site_admin' => true);
+				$userID = $this->users_model->getId($this->input->post('email'));
+				$isSiteAdmin = $this->users_model->isSiteAdmin($userID);
+				$isClassAdmin = $this->users_model->isClassAdmin($userID);
+				$isLectureAdmin = $this->users_model->isLectureAdmin($userID);
+				
+				$data = array('email' => $this->input->post('email'),
+							  'is_logged_in' => true,
+							  'is_site_admin' => $isSiteAdmin,
+							  'is_class_admin' => $isClassAdmin,
+							  'is_lecture_admin' => $isLectureAdmin);
 
-					$this->session->set_userdata($data);
-					$redirect_location = 'site_admin';
-				}
-				/*else if($result == 'student')
-				{
-					$data = array(
-							'email' => $this->input->post('email'),
-							'is_logged_in' => true,
-							'is_student' => true);
-
-					$this->session->set_userdata($data);
-					$redirect_location = 'student';
-				}*/
+				$this->session->set_userdata($data);
+				$redirect_location = 'student';
 
 				if (!IS_AJAX)
 				{
