@@ -28,6 +28,11 @@
 					{
 						$rows = $this->classes_model->getAllStudents($optionID);
 						$tableType = USERS;
+					}
+					else if($display == SHOW_ADMINS_NOT_IN_COURSE)
+					{
+						$rows = $this->classes_model->getNonAdmins($optionID);
+						$tableType = USERS;
 					}					
 					
 					if ($tableType == USERS)

@@ -195,7 +195,7 @@
 			<div id="addCourseAdminDialog" title="Add Course Admins">
 				<?php
 					$dialogData['ID'] = 'addCourseAdminDialogTable';
-					$dialogData['TABLE'] = array(SHOW_ALL_USERS, null);
+					$dialogData['TABLE'] = array(SHOW_ADMINS_NOT_IN_COURSE, $courseID);
 					$dialogData['FIELDS'] = SELECT_FIELD | EMAIL_FIELD | FNAME_FIELD | LNAME_FIELD;
 					$this->load->view('site_admin/table', $dialogData);
 				?>
