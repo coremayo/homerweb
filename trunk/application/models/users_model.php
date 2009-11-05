@@ -257,9 +257,15 @@ class Users_model extends Model {
     *         FALSE otherwise or if the user does not exist
     */
   function isSiteAdmin($userId) {
-    $this->db->select('user.id FROM site, user, group_has_user WHERE group_has_user.group_id = site.siteAdmins AND user.id = group_has_user.user_id');
-    $query = $this->db->get();
-    return ($query->num_rows() > 0);
+    $regEx = '/^[0-9]+$/';
+    // first check that the user id only contains numbers
+    if  (!preg_match($regEx, $userId)) {
+      return false;
+    } else {
+      $this->db->select("user.id FROM site, user, group_has_user WHERE group_has_user.group_id = site.siteAdmins AND user.id = group_has_user.user_id AND user_id = $userId");
+      $query = $this->db->get();
+      return ($query->num_rows() > 0);
+    }
   }
 
   /**
@@ -270,9 +276,15 @@ class Users_model extends Model {
     *         FALSE otherwise or if the user does not exist
     */
   function isClassAdmin($userId) {
-    $this->db->select('user.id FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id');
-    $query = $this->db->get();
-    return ($query->num_rows() > 0);
+    $regEx = '/^[0-9]+$/';
+    // first check that the user id only contains numbers
+    if  (!preg_match($regEx, $userId)) {
+      return false;
+    } else {
+      $this->db->select("user.id FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id AND user_id = $userId");
+      $query = $this->db->get();
+      return ($query->num_rows() > 0);
+    }
   }
 
   /**
