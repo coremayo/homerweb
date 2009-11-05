@@ -4,7 +4,7 @@
 		<div id="announcements">
 			<h2>Announcements</h2>
             <br />
-
+<?php echo 'class admin = '.$this->users_model->isClassAdmin(2); ?>
         <table id="user_ann">
     <thead>
         <tr>

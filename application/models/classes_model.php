@@ -210,5 +210,20 @@ class Classes_model extends Model {
 
 // Awesome SQL statement that gets info about a class
 // SELECT class.id, classTitle, classAdminsGroup.id AS classAdminsId, classAdminsGroup.groupName AS classAdminsName, classUsersGroup.id AS classUsersGroup, classUsersGroup.groupName AS classUsersName, classStartDate, classEndDate, site.id AS classSiteId, site.siteName as classSiteName FROM class LEFT JOIN cs4911.group AS classAdminsGroup ON classAdmins = classAdminsGroup.id LEFT JOIN cs4911.group AS classUsersGroup ON class.classUsers = classUsersGroup.id LEFT JOIN site ON classSite = site.id;
+
+
+
+
+  /**
+    * returns all users who are not course admins in this course;
+    */
+  function getNonAdmins($courseID) {
+  }
+
+  /**
+    * returns all users who are not students in this course;
+    */
+  function getNonStudents($courseID) {
+  } 
 }
 ?>
