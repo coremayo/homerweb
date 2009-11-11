@@ -53,6 +53,10 @@ $(document).ready(function()
 	
 });
 
+function changeClass(id){
+document.getElementById(id).setAttribute("class", "activetab");
+}
+
 /* Get the rows which are currently selected */
 function fnGetSelected( oTableLocal )
 {

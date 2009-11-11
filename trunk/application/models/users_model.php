@@ -114,7 +114,7 @@ class Users_model extends Model {
     $this->db->where('id', $userId);
     $this->db->select('userEmail');
     $row = $this->db->get('user')->row();
-    return $row['userEmail'];
+    return $row->userEmail;
   }
 
   /**
@@ -142,6 +142,41 @@ class Users_model extends Model {
     $data['userFirstName'] = $firstName;
     $this->db->where('id', $userId);
     $this->db->update('user', $data);
+  }
+  
+  
+  /**
+    * Sets the user's confirmation code and expiration date to the given value.
+    *
+    * @param String email of the user to modify
+    * @param String value to use as the user's confirmation code
+    */
+  function setConfirmationCode($userEmail, $conCode, $expDate) {
+    $data['userConCodeHash'] = sha1($conCode);
+	$data['userConCodeExpDate'] = $expDate;
+    $this->db->where('userEmail', $userEmail);
+    $this->db->update('user', $data);
+  }
+  /**
+    * Checks whether the given code is valid.
+    *
+    * @param String code of confirmation code to check
+    * @return int return user id if valid, otherwise return NULL
+    */
+  function verifyConfirmationCode($code){
+	if($code != NULL){
+		$query = $this->db->query('SELECT userConCodeExpDate, userEmail, id FROM user WHERE userConCodeHash = \''.sha1($code).'\'');
+		if ($query->num_rows() > 0){
+			// Check if the date is still valid
+			if(strtotime(Date("Y-m-d H:i:s")) <= strtotime($query->row()->userConCodeExpDate)){
+				// Reset code and date
+				$this->setConfirmationCode($query->row()->userEmail, NULL, NULL);
+				return $query->row()->id;
+			}
+		}
+	}
+	
+	return NULL;
   }
   
   /**
@@ -246,7 +281,10 @@ class Users_model extends Model {
     $this->db->where('userEmail', $userEmail);
     $this->db->select('id');
     $row = $this->db->get('user')->row();
-    return $row->id;
+	if($row != NULL)
+   		return $row->id;
+	else
+		return NULL;
   }
 
   /**

@@ -18,6 +18,8 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`user` (
   `userPasswdHash` VARCHAR(40) NOT NULL ,
   `userRegistrationDate` DATE NULL ,
   `userActive` TINYINT(1) NOT NULL DEFAULT true ,
+  `userConCodeHash` VARCHAR(40) NULL ,
+  `userConCodeExpDate` DATETIME NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 

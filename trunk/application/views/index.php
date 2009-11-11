@@ -18,7 +18,7 @@
 			<p>Password <br><input type="password" name="password" id="password" class="required" /></p>
 			<p><input type="submit" value="Login" id="login_button"></p>
 			</form>
-			<p><small><a href="#">Forgot Password?</a> | <a href="<?php echo base_url();?>register">Register Here</a></small></p>
+			<p><small><a href="<?php echo base_url();?>forgotPassword">Forgot Password?</a> | <a href="<?php echo base_url();?>register">Register Here</a></small></p>
 		</div>
 	</div>
 	<div id="level2">
