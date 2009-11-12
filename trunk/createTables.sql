@@ -66,20 +66,20 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`class` (
   `classDesc` text NULL,
   `classPrice` float NOT NULL,
   `classSubLength` INT NOT NULL,
-  `classUsers` INT NULL ,
+--  `classUsers` INT NULL ,
   `classAdmins` INT NULL ,
   `classStartDate` DATE NULL ,
   `classEndDate` DATE NULL ,
   `classSite` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_class_users_group` (`classUsers` ASC) ,
+--  INDEX `fk_class_users_group` (`classUsers` ASC) ,
   INDEX `fk_class_admins_group` (`classAdmins` ASC) ,
   INDEX `fk_class_site` (`classSite` ASC) ,
-  CONSTRAINT `fk_class_users_group`
-    FOREIGN KEY (`classUsers` )
-    REFERENCES `cs4911`.`group` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+--  CONSTRAINT `fk_class_users_group`
+--    FOREIGN KEY (`classUsers` )
+--    REFERENCES `cs4911`.`group` (`id` )
+--    ON DELETE NO ACTION
+--    ON UPDATE NO ACTION,
   CONSTRAINT `fk_class_admins_group`
     FOREIGN KEY (`classAdmins` )
     REFERENCES `cs4911`.`group` (`id` )
