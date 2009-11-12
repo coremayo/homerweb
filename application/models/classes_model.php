@@ -1,16 +1,4 @@
 <?php
-//mysql> desc class;
-//+----------------+-------------+------+-----+---------+----------------+
-//| Field          | Type        | Null | Key | Default | Extra          |
-//+----------------+-------------+------+-----+---------+----------------+
-//| id             | int(11)     | NO   | PRI | NULL    | auto_increment | 
-//| classTitle     | varchar(45) | YES  |     | NULL    |                | 
-//| classUsers     | int(11)     | YES  | MUL | NULL    |                | 
-//| classAdmins    | int(11)     | YES  | MUL | NULL    |                | 
-//| classStartDate | date        | YES  |     | NULL    |                | 
-//| classEndDate   | date        | YES  |     | NULL    |                | 
-//| classSite      | int(11)     | NO   | MUL | NULL    |                | 
-//+----------------+-------------+------+-----+---------+----------------+
 
 /**
   * Classes_model class handles comm between controllers and database.
@@ -43,15 +31,13 @@ class Classes_model extends Model {
     * @param int the class id of the class to return the number of users for
     * @return int number of users
     */
-  function getNumUsers($classID){
-    $this->db->select('classUsers');
-    $this->db->where('id', $classID);
-    $row = $this->db->get('class')->row();
-    $user_group = $row->classUsers;
-    
-    $this->db->from('group_has_user');
-    $this->db->where('group_id', $user_group);
-    return $this->db->count_all_results();  
+  function getNumUsers($classId){
+    $this->db->select('s.id');
+    $this->db->from('subscription s');
+    $this->db->where('s.subscriptionClass', $classId);
+    $this->db->where('subscriptionStartDate <= CURRENT_DATE()');
+    $this->db->where('subscriptionEndDate >= CURRENT_DATE()');
+    return $this->db->count_all_results();
   }
   
   /**
@@ -60,9 +46,9 @@ class Classes_model extends Model {
     * @param int the class id of the class to return the number of admins for
     * @return int number of admins
     */
-  function getNumAdmins($classID){
+  function getNumAdmins($classId){
     $this->db->select('classAdmins');
-    $this->db->where('id', $classID);
+    $this->db->where('id', $classId);
     $row = $this->db->get('class')->row();
     $admin_group = $row->classAdmins;
 
@@ -79,7 +65,6 @@ class Classes_model extends Model {
     * <li>classTitle - String, the title of the class</li>
     * <li>classDesc - String, the description of the class</li>
     * <li>classPrice - String, the price of the class</li>
-    * <li>classUsers - int, id of the group that will be users</li>
     * <li>classAdmins - int, id of the group that will be admins</li>
     * <li>classStartDate - Date, starting date for the class</li>
     * <li>classEndDate - Date, ending date for the class</li>
@@ -93,9 +78,9 @@ class Classes_model extends Model {
   }
   
   
-  function getAllAdmins($classID) {
+  function getAllAdmins($classId) {
     $this->db->select('classAdmins');
-    $this->db->where('id', $classID);
+    $this->db->where('id', $classId);
     $row = $this->db->get('class')->row();
     $admin_group = $row->classAdmins;
 
@@ -112,22 +97,16 @@ class Classes_model extends Model {
   }
   
   
-  function getAllStudents($classID) {
-    $this->db->select('classUsers');
-    $this->db->where('id', $classID);
-    $row = $this->db->get('class')->row();
-    $users_group = $row->classUsers;
-
-    $this->db->from('group_has_user');
-    $this->db->where('group_id', $users_group);
-    $this->db->get();
-
-    $this->db->from('user');
-    $this->db->where('group_id', $users_group);
-    $this->db->join('group_has_user', 'group_has_user.user_id = user.id');
-
-    $query = $this->db->get();
-    return $query->result();
+  function getAllStudents($classId) {
+    $this->db->select('u.*');
+    $this->db->from('subscription s');
+    $this->db->from('user u');
+    $this->db->where('u.id = s.subscriptionUser');
+    $this->db->where('s.subscriptionClass', $classId);
+    $this->db->where('s.subscriptionStartDate <= CURRENT_DATE()');
+    $this->db->where('s.subscriptionEndDate >= CURRENT_DATE()');
+    $this->db->group_by('u.id');
+    return $this->db->get()->result();
   }
   
 /**
@@ -208,7 +187,34 @@ class Classes_model extends Model {
     return $this->db->get('class')->row();
   }
 
-// Awesome SQL statement that gets info about a class
-// SELECT class.id, classTitle, classAdminsGroup.id AS classAdminsId, classAdminsGroup.groupName AS classAdminsName, classUsersGroup.id AS classUsersGroup, classUsersGroup.groupName AS classUsersName, classStartDate, classEndDate, site.id AS classSiteId, site.siteName as classSiteName FROM class LEFT JOIN cs4911.group AS classAdminsGroup ON classAdmins = classAdminsGroup.id LEFT JOIN cs4911.group AS classUsersGroup ON class.classUsers = classUsersGroup.id LEFT JOIN site ON classSite = site.id;
+  /**
+    * Gets all the user ids that are students in the course and are not admins in that same course.
+    *
+    * @param int The course id to lookup
+    */
+  function getNonAdmins($courseId) {
+    $this->db->select('s.subscriptionUser AS id');
+    $this->db->from('subscription s');
+    $this->db->where('s.subscriptionClass', $courseId);
+    $this->db->where('s.subscriptionStartDate <= CURRENT_DATE()');
+    $this->db->where('s.subscriptionEndDate >= CURRENT_DATE()');
+    $this->db->where('s.subscriptionUser NOT IN (SELECT g.user_id FROM group_has_user g, class c WHERE c.id = s.subscriptionClass AND g.group_id = c.classAdmins)');
+    return $this->db->get();
+  }
+
+  /**
+    * Gets all the user id's of admins who aren't students in a given course
+    *
+    * @param int The course id to lookup
+    */
+  function getNonStudents($courseId) {
+    $this->db->select('g.user_id AS id');
+    $this->db->from('group_has_user g');
+    $this->db->from('class c');
+    $this->db->where('c.id', $courseId);
+    $this->db->where('g.group_id = c.classAdmins');
+    $this->db->where('g.user_id NOT IN (SELECT s.subscriptionUser FROM subscription s WHERE s.subscriptionClass = c.id AND s.subscriptionStartDate <= CURRENT_DATE() AND s.subscriptionEndDate >= CURRENT_DATE())');
+    return $this->db->get();
+  }
 }
 ?>
