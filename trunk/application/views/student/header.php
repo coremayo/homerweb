@@ -28,6 +28,7 @@
 		<a class="tab" href="<?php echo base_url();?>student/courses" id="coursesNav">Courses</a>
 		<a class="tab" href="<?php echo base_url();?>student/qbank">QBank</a>
 		<a class="tab" href="<?php echo base_url();?>student/subscriptions" id="subNav">Subscriptions</a>
+        <a class="tab" href="<?php echo base_url();?>student/settings" id="SettingsNav">Account Settings</a>
         <form id="logout" action="<?php echo base_url();?>student/logout" method="post">
 			<?php
 				$isSiteAdmin = $this->session->userdata('is_site_admin');
@@ -48,5 +49,6 @@
 			<input type="submit" value="Logout" id="logout_button">
 		</form>
 	</ul>
-    
+    <div class="navBar"></div>
+    <div class="tabMain">
     

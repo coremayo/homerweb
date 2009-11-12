@@ -185,6 +185,15 @@ class Student extends Controller
 			$data['lectureNumber']= 'red';
 			$this->load->view('student/template', $data);
 		}
+	}
+	
+	function settings()
+	{
+		if ($this->_is_authorized())
+		{
+			$data['content'] = 'student/settings';
+			$this->load->view('student/template', $data);
+		}
 	}	
 }
 

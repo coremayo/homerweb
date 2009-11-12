@@ -24,7 +24,7 @@
                         
                         <tr>
 							<td align="right" bgcolor="#addbf0" width="25%">Subscription End</td>
-							<td width ="5%"><?php echo $sub->subscriptionEndDate?></td>
+							<td width ="75%"><?php echo $sub->subscriptionEndDate?></td>
 						</tr>
                         
                         <tr>
@@ -41,7 +41,7 @@
                         
                         <tr>
 							<td align="right" bgcolor="#addbf0" width="25%">Extend</td>
-							<td width ="5%"><?php echo $this->classes_model->getClassSubLength($sub->subscriptionClass)?> Days</td>
+							<td width ="75%"><?php echo $this->classes_model->getClassSubLength($sub->subscriptionClass)?> Days</td>
 						</tr>
                         
                         <tr>

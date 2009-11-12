@@ -83,14 +83,13 @@ font-weight: bold;
 
 #navigation {
 overflow: hidden;
-height: 80px;
 }
 
 #main div {
 overflow: hidden;
 }
 
-#level1, #level2 {
+#level1{
 margin-bottom: 2em;
 }
 
@@ -108,8 +107,7 @@ background: #FFFFFF url(../images/module_gradient.png) repeat-x;
 #level1 div,
 #level2 div {
 float: left;
-width: 40%;
-margin-right: 3em;
+width: 45%;
 }
 
 #level1 div p, 
@@ -122,10 +120,16 @@ font-size: 10pt;
 
 #level1 #login {
 position: relative;
+margin-left: 3em;
+}
+
+#level2 #image {
+position: relative;
+margin-left: 3em;
 }
 
 #level1 #login p {
-margin: 0;
+margin: 0em;
 }
 
 #level1 #login #button {
@@ -183,3 +187,25 @@ a.activetab{
   border-color: #2274da #2274da #2274da #2274da;
   color: #FFFFFF;
 }
+
+div.tabMain {
+  background-color: #e1e1e1;
+  border: 2px solid #000000;
+  border-color: #2274da #2274da #2274da #2274da;
+  -moz-border-radius: .0em .0em .5em .5em;
+  padding: 1em;
+  position: relative;
+  z-index: 101;
+  margin-bottom: 2em;
+}
+
+div.navBar {
+  background-color: #2274da;
+  border: 2px solid #000000;
+  border-color: #2274da #2274da #2274da #2274da;
+  -moz-border-radius: .0em .5em .0em .0em;
+  padding: .5em;
+  position: relative;
+  z-index: 101;
+}
+
