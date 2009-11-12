@@ -194,7 +194,22 @@ class Student extends Controller
 			$data['content'] = 'student/settings';
 			$this->load->view('student/template', $data);
 		}
-	}	
+	}
+	
+	function submitSettings()
+	{
+		if ($this->_is_authorized())
+		{
+			$email =  $this->input->post('email');
+    		$fname =  $this->input->post('fname');
+			$lname =  $this->input->post('lname');
+			$passwd =  $this->input->post('pass');
+	
+			$data['content'] = 'student/settings';
+			$this->load->view('student/template', $data);
+		}
+	}
+	
 }
 
 ?>

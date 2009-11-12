@@ -99,5 +99,11 @@ class Main extends Controller
 		$this->load->view('template', $data);
 	}
 	
+	function qbank()
+	{
+		$data['content'] = 'qbank';
+		$this->load->view('template', $data);
+	}
+	
 }
 ?>
