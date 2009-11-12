@@ -35,6 +35,18 @@ $(document).ready(function()
 				"aaSorting": [[ 2, "desc" ]]
 	});
 	
+	$("#settings_form").validate( {
+		rules: {
+			pass: {
+              minlength:5,
+              maxlength:20
+             },
+            repass: {
+               equalTo: "#pass"
+             }
+
+		}});
+	
 	/* Add a click handler to the rows - this could be used as a callback */
 	$("#user_sub tbody").click(function(event) {
 		$(oTable.fnSettings().aoData).each(function (){

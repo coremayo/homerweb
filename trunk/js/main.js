@@ -15,6 +15,8 @@ $(document).ready(function()
 		}
 	});
 	
+	$("#forgotPassword_form").validate();
+	
 	
 //	$("#registration_form").validate({
 //		submitHandler: function(e) {
