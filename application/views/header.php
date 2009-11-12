@@ -26,5 +26,8 @@
 		<a class="tab" href="<?php echo base_url();?>main/qbank" id="qbankNav">QBank</a>
 		<a class="tab" href="<?php echo base_url();?>main/about" id="aboutNav">About</a>
 	</div>
+    <div class="navBar"></div>
+    <div class="tabMain">
+    
 
     

@@ -92,7 +92,6 @@ font-weight: bold;
 
 #navigation {
 overflow: hidden;
-height: 80px;
 padding-left: 0;
 }
 
@@ -102,19 +101,6 @@ float: right;
 
 #main div {
 overflow: hidden;
-}
-
-#level1, #level2 {
-margin-bottom: 2em;
-}
-
-#level1 div,
-#level2 div {
-border: 2px solid #d0d0d0;
--moz-border-radius: 10px;
--webkit-border-radius: 10px;
-padding: .5em .5em;
-background: #FFFFFF url(../images/module_gradient.png) repeat-x;
 }
 
 #level1 div p, 
@@ -133,28 +119,13 @@ text-align: center;
 background: url(../images/module_gradient.png) repeat-x;
 }
 
-#subs_level1 {
-margin-bottom: 2em;
-}
-
-#subs_level1 {
-border: 2px solid #d0d0d0;
--moz-border-radius: 10px;
--webkit-border-radius: 10px;
-padding: .5em .5em;
-background: #FFFFFF url(../images/module_gradient.png) repeat-x;
-}
 
 #user_sub {
 	width: 100%;
 	margin-right: 3em;
 }
 
-#index_level1{
-margin-bottom: 2em;
-}
-
-#index_level1 #announcements, #announcement{
+#level1 div, #level2 div, #subs_level1, #settings_level1, #index_level1 #announcements, #announcement{
 border: 2px solid #d0d0d0;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
@@ -235,4 +206,25 @@ a.activetab{
   background: #2274da;
   border-color: #2274da #2274da #2274da #2274da;
   color: #FFFFFF;
+}
+
+div.tabMain {
+  background-color: #e1e1e1;
+  border: 2px solid #000000;
+  border-color: #2274da #2274da #2274da #2274da;
+  -moz-border-radius: .0em .0em .5em .5em;
+  padding: 1em;
+  position: relative;
+  z-index: 101;
+  margin-bottom: 2em;
+}
+
+div.navBar {
+  background-color: #2274da;
+  border: 2px solid #000000;
+  border-color: #2274da #2274da #2274da #2274da;
+  -moz-border-radius: .0em .5em .0em .0em;
+  padding: .5em;
+  position: relative;
+  z-index: 101;
 }
