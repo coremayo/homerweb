@@ -47,40 +47,8 @@ $(document).ready(function()
 
 		}});
 	
-	/* Add a click handler to the rows - this could be used as a callback */
-	$("#user_sub tbody").click(function(event) {
-		$(oTable.fnSettings().aoData).each(function (){
-			$(this.nTr).removeClass('row_selected');
-		});
-		$(event.target.parentNode).addClass('row_selected');
-	});
-	
-	/* Add a click handler for the extend row */
-	$('#extend').click( function() {
-		var anSelected = fnGetSelected( oTable );
-		var iRow = oTable.fnGetPosition( anSelected[0] );
-		var aData = oTable.fnGetData( iRow );
-		window.location = "./subscriptions/extensions/" + aData[0];
-	} );
-	
 });
 
 function changeClass(id){
 document.getElementById(id).setAttribute("class", "activetab");
-}
-
-/* Get the rows which are currently selected */
-function fnGetSelected( oTableLocal )
-{
-	var aReturn = new Array();
-	var aTrs = oTableLocal.fnGetNodes();
-	
-	for ( var i=0 ; i<aTrs.length ; i++ )
-	{
-		if ( $(aTrs[i]).hasClass('row_selected') )
-		{
-			aReturn.push( aTrs[i] );
-		}
-	}
-	return aReturn;
 }
