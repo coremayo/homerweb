@@ -4,8 +4,8 @@
 		<div id="settings">
         	<?php $id = $this->users_model->getId($this->session->userdata('email')) ?>
 			<h2>Profile</h2>
-            
-            <form id="settings_form" action="<?php echo base_url();?>student/settings" method="post">
+<?php if ($error) {echo("<div style=\"color:red\">$error</div>");} ?>
+            <form id="settings_form" action="<?php echo base_url();?>student/updateProfile" method="post">
             <table width="700px" class="outer">
 			<tr>
 				<td>
