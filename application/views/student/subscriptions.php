@@ -4,7 +4,6 @@
 		<div id="subscriptions">
 			<h2>Subscriptions</h2>
         <br>
-        <p><a href="javascript:void(0)" id="extend">Extend Selected</a></p>
         <table class = "display" id="user_sub">
     <thead>
         <tr>
@@ -13,6 +12,7 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Days Left</th>
+            <th>Extend</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +25,7 @@
             <td>'.$sub->subscriptionStartDate.'</td>
             <td>'.$sub->subscriptionEndDate.'</td>
             <td>'.$this->subscriptions_model->getTimeRemaining($sub->id).'</td>
+			<td><button type="button" onclick="window.location.href=\''.base_url().'student/subscriptions/extensions/'.$sub->id.'\'">Extend</button></td>
         </tr>';
         } 
 		?>
