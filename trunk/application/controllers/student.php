@@ -191,23 +191,77 @@ class Student extends Controller
 	{
 		if ($this->_is_authorized())
 		{
+			$data['error'] = '';
 			$data['content'] = 'student/settings';
 			$this->load->view('student/template', $data);
 		}
 	}
 	
-	function submitSettings()
+	function updateProfile()
 	{
 		if ($this->_is_authorized())
 		{
+			$id = $this->users_model->getId($this->session->userdata('email'));
 			$email =  $this->input->post('email');
-    		$fname =  $this->input->post('fname');
-			$lname =  $this->input->post('lname');
+    		$fname =  $this->input->post('fName');
+			$lname =  $this->input->post('lName');
 			$passwd =  $this->input->post('pass');
-	
-			$data['content'] = 'student/settings';
-			$this->load->view('student/template', $data);
+			$repasswd =  $this->input->post('repass');
+			
+			$data['error'] = $this->_validateProfile($email, $fname, $lname);
+			
+			if($data['error'] == ''){
+				// If either password is entered, validate
+				if($passwd != '' || $repasswd != ''){
+					$data['error'] = $this->_validatePassword($passwd, $repasswd);
+					if($data['error'] == ''){
+						$this->users_model->setPassword($id, $passwd);
+						$data['error'] = 'Password changed successfully';
+					}
+				}
+				
+				$this->users_model->setLastName($id, $lname);
+				$this->users_model->setFirstName($id, $fname);
+				$this->users_model->setEmail($id, $email);
+				// Also need to update the session data
+				$this->session->set_userdata('email', $email);
+			}
+		
+				$data['content'] = 'student/settings';
+				$this->load->view('student/template', $data);
 		}
+	}
+	
+	function _validateProfile($userEmail, $fname, $lname) {
+		// first, check that the Email is valid
+		$emailRegex = '/^[A-Z0-9][A-Z0-9\._%-]*@([A-Z0-9_-]+\.)+[A-Z]{2,4}$/i';
+		if (!preg_match($emailRegex, $userEmail)) {
+		  return ('Invalid Email Address');
+		}
+	
+		if (strlen($fname) <= 0) {
+		  return ('First name is required');
+		}
+	
+		if (strlen($lname) <= 0) {
+		  return ('Last name is required');
+		}
+		
+		return '';
+	}
+	
+	function _validatePassword($pass, $repass){
+		// check that the password is valid
+		if ((strlen($pass) < 5) || strlen($pass > 20)) {
+		  return ('Password must be between 5 and 20 characters.');
+		}
+		
+		if ($pass != $repass) {
+		  return ('Passwords must match.');
+		}
+		
+		return '';
+		
 	}
 	
 }
