@@ -190,7 +190,6 @@ class Site_admin extends Controller
 				  'classDesc'      => $description,
 				  'classPrice'     => (float)$price,
 				  'classSubLength' => $sub_length,
-				  'classUsers'     => $userGroupId,
 				  'classAdmins'    => $adminGroupId,
 				  'classStartDate' => $start,
 				  'classEndDate'   => $end,
