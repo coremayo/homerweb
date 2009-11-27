@@ -213,6 +213,13 @@ class Users_model extends Model {
     * @param String value to use as the user's email address
     */
   function setEmail($userId, $email) {
+	// check if the email already exists
+    $this->db->where('userEmail', $email);
+	$this->db->where('id !=', $userId);
+    $query = $this->db->get('user');
+    if ($query->num_rows() > 0) {
+      return "Email Already Exists";
+    }
     $data['userEmail'] = $email;
     $this->db->where('id', $userId);
     $this->db->update('user', $data);

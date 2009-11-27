@@ -211,6 +211,15 @@ class Student extends Controller
 			$data['error'] = $this->_validateProfile($email, $fname, $lname);
 			
 			if($data['error'] == ''){
+				
+				$this->users_model->setLastName($id, $lname);
+				$this->users_model->setFirstName($id, $fname);
+				$data['error'] = $this->users_model->setEmail($id, $email);
+				// Also need to update the session data
+				if($data['error'] == ''){
+						$this->session->set_userdata('email', $email);
+				}
+				
 				// If either password is entered, validate
 				if($passwd != '' || $repasswd != ''){
 					$data['error'] = $this->_validatePassword($passwd, $repasswd);
@@ -219,12 +228,6 @@ class Student extends Controller
 						$data['error'] = 'Password changed successfully';
 					}
 				}
-				
-				$this->users_model->setLastName($id, $lname);
-				$this->users_model->setFirstName($id, $fname);
-				$this->users_model->setEmail($id, $email);
-				// Also need to update the session data
-				$this->session->set_userdata('email', $email);
 			}
 		
 				$data['content'] = 'student/settings';
