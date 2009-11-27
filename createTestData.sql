@@ -9,7 +9,8 @@ INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPas
 (3, 'jonny@gmail.com', 'Jonny', 'L', 'cd863cad8b0b08b0fb64979298ed9ad7ea5c73bb', '2009-10-26', 1),
 (4, 'robertAdmin@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
 (5, 'robertCAdmin@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
-(6, 'robertLAdmin@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1);
+(6, 'robertLAdmin@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
+(7, 'david@test.com', 'David', 'Laborde', 'cfadc7dc40efa15e1bfa4ab8c2680cb81c6b9c0e', '2009-11-27', 1);
 
 
 INSERT INTO `group` (`id`, `groupName`) VALUES
@@ -20,7 +21,7 @@ INSERT INTO `group` (`id`, `groupName`) VALUES
 
 INSERT INTO `group_has_user` (`group_id`, `user_id`) VALUES
 (1, 1),
-(1, 4),
+(1, 7),
 (2, 1),
 (2, 2),
 (2, 5),
