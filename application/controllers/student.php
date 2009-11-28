@@ -201,6 +201,7 @@ class Student extends Controller
 	{
 		if ($this->_is_authorized())
 		{
+			// Get form data
 			$id = $this->users_model->getId($this->session->userdata('email'));
 			$email =  $this->input->post('email');
     		$fname =  $this->input->post('fName');
@@ -208,63 +209,53 @@ class Student extends Controller
 			$passwd =  $this->input->post('pass');
 			$repasswd =  $this->input->post('repass');
 			
-			$data['error'] = $this->_validateProfile($email, $fname, $lname);
-			
-			if($data['error'] == ''){
-				
-				$this->users_model->setLastName($id, $lname);
-				$this->users_model->setFirstName($id, $fname);
-				$data['error'] = $this->users_model->setEmail($id, $email);
-				// Also need to update the session data
-				if($data['error'] == ''){
-						$this->session->set_userdata('email', $email);
-				}
-				
-				// If either password is entered, validate
-				if($passwd != '' || $repasswd != ''){
-					$data['error'] = $this->_validatePassword($passwd, $repasswd);
-					if($data['error'] == ''){
-						$this->users_model->setPassword($id, $passwd);
-						$data['error'] = 'Password changed successfully';
-					}
-				}
+			// Set Validation Rules
+			$this->load->helper(array('form', 'url'));
+			$this->load->library('form_validation');	
+			$this->form_validation->set_rules('fName', 'First Name', 'required');
+			$this->form_validation->set_rules('lName', 'Last Name', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
+			if($passwd != '' || $repasswd != ''){ // Dont check passwords if blank
+				$this->form_validation->set_rules('pass', 'Password', 'required|matches[repass]|min_length[5]|max_length[20]');
+				$this->form_validation->set_rules('repass', 'Password Confirmation', 'required');
 			}
-		
+			
+			// Run Validation
+			if ($this->form_validation->run() == FALSE)
+			{
 				$data['content'] = 'student/settings';
 				$this->load->view('student/template', $data);
+				return;
+			}
+			
+			// Update Database
+			$this->users_model->setLastName($id, $lname);
+			$this->users_model->setFirstName($id, $fname);
+			if($passwd != ''){ // Dont update password if blank
+				$this->users_model->setPassword($id, $passwd);
+			}
+			$this->users_model->setEmail($id, $email);
+
+			// Also need to update the session data
+			$this->session->set_userdata('email', $email);
+		
+			$data['content'] = 'student/settings';
+			$this->load->view('student/template', $data);
 		}
 	}
 	
-	function _validateProfile($userEmail, $fname, $lname) {
-		// first, check that the Email is valid
-		$emailRegex = '/^[A-Z0-9][A-Z0-9\._%-]*@([A-Z0-9_-]+\.)+[A-Z]{2,4}$/i';
-		if (!preg_match($emailRegex, $userEmail)) {
-		  return ('Invalid Email Address');
+	function email_check($email)
+	{
+		$id = $this->users_model->getId($this->session->userdata('email'));
+		if (!$this->users_model->isValidEmail($id, $email))
+		{
+			$this->form_validation->set_message('email_check', 'That email is already being used.');
+			return FALSE;
 		}
-	
-		if (strlen($fname) <= 0) {
-		  return ('First name is required');
+		else
+		{
+			return TRUE;
 		}
-	
-		if (strlen($lname) <= 0) {
-		  return ('Last name is required');
-		}
-		
-		return '';
-	}
-	
-	function _validatePassword($pass, $repass){
-		// check that the password is valid
-		if ((strlen($pass) < 5) || strlen($pass > 20)) {
-		  return ('Password must be between 5 and 20 characters.');
-		}
-		
-		if ($pass != $repass) {
-		  return ('Passwords must match.');
-		}
-		
-		return '';
-		
 	}
 	
 }
