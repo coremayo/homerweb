@@ -206,6 +206,14 @@ class Users_model extends Model {
     
   }
   
+  function isValidEmail($userId, $email) {
+	// check if the email already exists
+    $this->db->where('userEmail', $email);
+	$this->db->where('id !=', $userId);
+    $query = $this->db->get('user');
+    return ($query->num_rows() == 0);
+  }
+  
   /**
     * Sets the user's email address to the given value.
     *
