@@ -29,6 +29,7 @@
 </script>
 
 <div id="content">
+<?php echo validation_errors(); ?>
 	<form name="edit_user_form" action="<?php echo base_url();?>site_admin/db_editUser/" method="POST">
 		<input type="hidden" name="id" value="<?php echo $userID;?>">
 		<table width="700px" class="outer">
