@@ -244,6 +244,24 @@ class Site_admin extends Controller
 		$start       = $this->input->post('start_date');
 		$end         = $this->input->post('end_date');
 		$sub_length  = $this->input->post('subscription_length');
+		
+		// Set Validation Rules
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');	
+		$this->form_validation->set_rules('title', 'Title', 'required|callback_title_check['.$id.']');
+		$this->form_validation->set_rules('price', 'Price', 'required|numeric');
+		$this->form_validation->set_rules('start_date', 'Start Date', 'required');
+		$this->form_validation->set_rules('end_date', 'End Date', 'required|callback_end_check['.$start.']');
+		$this->form_validation->set_rules('subscription_length', 'Subscription Length', 'required|integer');
+
+		
+		// Run Validation
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('type', 'message error');
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('site_admin/courses/edit_course/'.$id);
+		}
 
 		$this->classes_model->setTitle($id, $title);
 		$this->classes_model->setDesc($id, $description);
@@ -294,6 +312,32 @@ class Site_admin extends Controller
 		if (!$this->users_model->isValidEmail($id, $email))
 		{
 			$this->form_validation->set_message('email_check', 'That email is already being used.');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+	}
+	
+	function title_check($title, $id)
+	{
+		if (!$this->classes_model->isValidTitle($id, $title))
+		{
+			$this->form_validation->set_message('title_check', 'That title is already being used.');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+	}
+	
+	function end_check($end, $start)
+	{
+		if (strtotime($start) > strtotime($end))
+		{
+			$this->form_validation->set_message('end_check', 'Start Date must occur before End Date.');
 			return FALSE;
 		}
 		else
