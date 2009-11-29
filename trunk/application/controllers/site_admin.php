@@ -138,6 +138,25 @@ class Site_admin extends Controller
 			$active = 0;
 		}
 		
+		// Set Validation Rules
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');	
+		$this->form_validation->set_rules('fname', 'First Name', 'required');
+		$this->form_validation->set_rules('lname', 'Last Name', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check['.$id.']');
+		if ($password_type == 'new')
+		{
+			$this->form_validation->set_rules('password', 'Password', 'required|min_length[5]|max_length[20]');
+		}
+		
+		// Run Validation
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('type', 'message error');
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('site_admin/users/edit_user/'.$id);
+		}
+		
 		$this->users_model->setEmail($id, $email);
 		$this->users_model->setFirstName($id, $fname);
 		$this->users_model->setLastName($id, $lname);
@@ -267,6 +286,19 @@ class Site_admin extends Controller
 			{
 				return true; 
 			}
+		}
+	}
+	
+	function email_check($email, $id)
+	{
+		if (!$this->users_model->isValidEmail($id, $email))
+		{
+			$this->form_validation->set_message('email_check', 'That email is already being used.');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
 		}
 	}
 }
