@@ -32,7 +32,8 @@
 					else if($display == SHOW_ADMINS_NOT_IN_COURSE)
 					{
 						//$rows = $this->classes_model->getNonAdmins($optionID);
-						$rows = $this->users_model->getAllUsers();
+						//$rows = $this->users_model->getAllUsers();
+						$rows = $this->classes_model->getNonCourseAdmins($optionID);
 						$tableType = USERS;
 					}					
 					

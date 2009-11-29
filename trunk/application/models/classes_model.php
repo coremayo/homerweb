@@ -210,6 +210,21 @@ class Classes_model extends Model {
     $this->db->where('s.subscriptionUser NOT IN (SELECT g.user_id FROM group_has_user g, class c WHERE c.id = s.subscriptionClass AND g.group_id = c.classAdmins)');
     return $this->db->get();
   }
+  
+   /**
+    * Gets all the user ids that are not course admins in the course.
+    *
+    * @param int The course id to lookup
+    */
+  function getNonCourseAdmins($classId) {
+	$this->db->select('u.*');
+    $this->db->from('user u');
+	$this->db->where('u.id NOT IN(SELECT g.user_id FROM group_has_user g, class c WHERE c.id = '.$classId.' AND g.group_id = c.classAdmins)');
+    
+	$query = $this->db->get();
+    return $query->result();
+  }
+
 
   /**
     * Gets all the user id's of admins who aren't students in a given course
@@ -224,6 +239,7 @@ class Classes_model extends Model {
     $this->db->where('g.group_id = c.classAdmins');
     $this->db->where('g.user_id NOT IN (SELECT s.subscriptionUser FROM subscription s WHERE s.subscriptionClass = c.id AND s.subscriptionStartDate <= CURRENT_DATE() AND s.subscriptionEndDate >= CURRENT_DATE())');
     return $this->db->get();
+	
   }
 }
 ?>
