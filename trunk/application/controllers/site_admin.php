@@ -182,6 +182,24 @@ class Site_admin extends Controller
 		$sub_length  = $this->input->post('subscription_length');
 		$admins      = explode("&", $this->input->post('selected_admins'));
 		
+		// Set Validation Rules
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');	
+		$this->form_validation->set_rules('title', 'Title', 'required|callback_title_check');
+		$this->form_validation->set_rules('price', 'Price', 'required|numeric');
+		$this->form_validation->set_rules('start_date', 'Start Date', 'required');
+		$this->form_validation->set_rules('end_date', 'End Date', 'required|callback_end_check['.$start.']');
+		$this->form_validation->set_rules('subscription_length', 'Subscription Length', 'required|integer');
+
+		
+		// Run Validation
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('type', 'message error');
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('site_admin/courses/add_course/');
+		}
+		
 		$resultAddUsersGroup = $this->groups_model->addGroup($title.' Users');
 		
 		if ($resultAddUsersGroup == '')
@@ -322,7 +340,7 @@ class Site_admin extends Controller
 	
 	function title_check($title, $id)
 	{
-		if (!$this->classes_model->isValidTitle($id, $title))
+		if (!$this->classes_model->isValidTitle($title, $id))
 		{
 			$this->form_validation->set_message('title_check', 'That title is already being used.');
 			return FALSE;
