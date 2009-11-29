@@ -109,13 +109,14 @@ class Classes_model extends Model {
     return $this->db->get()->result();
   }
   
-  function isValidTitle($id, $title){
+  function isValidTitle($title, $id){
 	  // check if the title already exists
     $this->db->where('classTitle', $title);
 	$this->db->where('id !=', $id);
     $query = $this->db->get('class');
     return ($query->num_rows() == 0);
   }
+ 
   
 /**
     * Gets the class title of the class with the specified id.
