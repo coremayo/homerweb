@@ -54,10 +54,13 @@
 											if (data == '')
 											{
 												$("input[name='selected_admins']").val('none');
+
 											}
 											else
 											{
 												$("input[name='selected_admins']").val(data);
+												document.addAdmin.submit();
+												
 											}
 	
 											$(this).dialog('close');
@@ -181,7 +184,10 @@
 	</div>
 	
 	<div id="courseAdminsTab">
-		<form action="<?php echo base_url();?>site_admin/db_editCourseAdmins" method="POST">
+		<form name="addAdmin" action="<?php echo base_url();?>site_admin/db_editCourseAdmins" method="POST">
+        	<input type="hidden" name="id" value="<?php echo $courseID;?>">
+        	<input type="hidden" name="classID" value="<?php echo $courseInfo->classAdmins;?>">
+            <input type="hidden" name="selected_admins" value="none">
 
 			<button type="button" class="addButton" id="addCourseAdminButton">Add Course Admin</button>
 			

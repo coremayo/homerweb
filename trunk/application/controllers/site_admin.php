@@ -199,17 +199,12 @@ class Site_admin extends Controller
 			$this->session->set_flashdata('msg', validation_errors());
 			redirect('site_admin/courses/add_course/');
 		}
-		
-		$resultAddUsersGroup = $this->groups_model->addGroup($title.' Users');
-		
-		if ($resultAddUsersGroup == '')
-		{
-			$resultAddAdminsGroup = $this->groups_model->addGroup($title.' Admins');
+
+		$resultAddAdminsGroup = $this->groups_model->addGroup($title.' Admins');
 			
-			if ($resultAddAdminsGroup == '')
-			{
-				$userGroupId = $this->groups_model->getGroupId($title.' Users');
-				$adminGroupId = $this->groups_model->getGroupId($title.' Admins');
+		if ($resultAddAdminsGroup == '')
+		{
+			$adminGroupId = $this->groups_model->getGroupId($title.' Admins');
 				
 				foreach ($admins as $admin)
 				{
@@ -237,18 +232,11 @@ class Site_admin extends Controller
 				$this->session->set_flashdata('type', 'message success');
 				$this->session->set_flashdata('msg', 'The course '.$title.' was created successfully!');
 				redirect('site_admin/courses/');
-			}
-			else
-			{
-				$this->session->set_flashdata('type', 'message error');
-				$this->session->set_flashdata('msg', $resultAddAdminsGroup);
-				redirect('site_admin/courses/add_course');
-			}
 		}
 		else
 		{
 			$this->session->set_flashdata('type', 'message error');
-			$this->session->set_flashdata('msg', $resultAddUsersGroup);
+			$this->session->set_flashdata('msg', $resultAddAdminsGroup);
 			redirect('site_admin/courses/add_course');
 		}
 	}
@@ -291,7 +279,30 @@ class Site_admin extends Controller
 		$this->session->set_flashdata('type', 'message success');
 		$this->session->set_flashdata('msg', 'The course information for '.$title.' was updated successfully!');
 		redirect('site_admin/courses/edit_course/'.$id);
+		
+		
 			
+	}
+	
+	function db_editCourseAdmins(){
+		$id          = $this->input->post('id');
+		$classID     = $this->input->post('classID');
+		$admins      = explode("&", $this->input->post('selected_admins'));
+		
+		foreach ($admins as $admin)
+		{
+			$key_value = explode("=", $admin);
+			$key = $key_value[0];
+	
+			if($key != 'none')
+			{
+				$this->groups_model->addToGroup($classID, $key_value[1]);	
+			}
+		}
+		
+		$this->session->set_flashdata('type', 'message success');
+		$this->session->set_flashdata('msg', 'Course Admins updated successfully!');
+		redirect('site_admin/courses/edit_course/'.$id);
 	}
 	
 	function _is_authorized()
