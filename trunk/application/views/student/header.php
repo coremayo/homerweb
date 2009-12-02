@@ -18,18 +18,23 @@
 	<div id="container">
 
 	<div id="header">
+    	<div id="UserEmail">
+    		<?php echo $this->session->userdata('email');?> |
+            <a href="<?php echo base_url();?>student/logout" style="color: rgb(0,0,0)"><font color="000000"><u>logout</u></a>
+    	</div>
 		<h1 id="test">Chicago Review Courses</h1>
+        
 		<small>"The Preferred Neurosurgery Review since 1974"</small>
+        
 	</div>
 
-	
 	<ul id="navigation">
 		<a class="tab" href="<?php echo base_url();?>student/index" id="annNav">Home</a>
 		<a class="tab" href="<?php echo base_url();?>student/courses" id="coursesNav">Courses</a>
 		<a class="tab" href="<?php echo base_url();?>student/qbank">QBank</a>
 		<a class="tab" href="<?php echo base_url();?>student/subscriptions" id="subNav">Subscriptions</a>
         <a class="tab" href="<?php echo base_url();?>student/settings" id="SettingsNav">Edit Profile</a>
-        <form id="logout" action="<?php echo base_url();?>student/logout" method="post">
+        
 			<?php
 				$isSiteAdmin = $this->session->userdata('is_site_admin');
 				$isClassAdmin = $this->session->userdata('is_class_admin');
@@ -42,12 +47,11 @@
 				
 				if($isSiteAdmin || $isClassAdmin || $isLectureAdmin)
 				{
-					echo '<button type="button" onclick="window.location.href=\''.base_url().'site_admin/\'">Admin Panel</button>';
+					echo '<button type="button" id="adminPanel" onclick="window.location.href=\''.base_url().'site_admin/\'">Admin Panel</button>';
 				}
 			
 			?>
-			<input type="submit" value="Logout" id="logout_button">
-		</form>
+
 	</ul>
     <div class="navBar"></div>
     <div class="tabMain">

@@ -256,19 +256,31 @@ class Classes_model extends Model {
 	* @return list of course's info
   	*/
   function getCoursesAdminOf($userId){
-	  $this->db->select("class.* FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id AND user_id = $userId");
+	  $this->db->select('class.* FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id AND user_id = '.$userId.'');
 	  return $this->db->get()->result();
   }
   
-  /**
+    /**
   	* Get all the courses that the user is a lecture admin for
 	* 
 	* @param int user ID
 	* @return list of course's info
   	*/
   function getCoursesLectureAdminOf($userId){
-	  $this->db->select("class.* FROM class, lecture WHERE lecture.lectureClass = class.id AND lecture.lectureAdmin = $userId");
+	  $this->db->select('class.* FROM class, lecture WHERE lecture.lectureClass = class.id AND lecture.lectureAdmin = '.$userId.'');
 	  return $this->db->get()->result();
   }
+  
+  // THIS WORKS, BUT DONT KNOW IF IT IS NECESSARY
+  /**
+  	* Get all the courses that the user is a lecture admin for, excluding courses he has an active subscription
+	* 
+	* @param int user ID
+	* @return list of course's info
+  	*/
+ /* function getCoursesLectureAdminOf($userId){
+	  $this->db->select('class.* FROM class, lecture WHERE lecture.lectureClass = class.id AND lecture.lectureAdmin = '.$userId.' AND class.id NOT IN(SELECT s.subscriptionClass FROM subscription s WHERE s.subscriptionUser = '.$userId.' AND s.subscriptionEndDate >= '.Date("Y-m-d").')');
+	  return $this->db->get()->result();
+  }*/
 }
 ?>

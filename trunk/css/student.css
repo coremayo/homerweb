@@ -48,7 +48,7 @@ list-style-type: none;
 
 #header {
 position: relative;
-padding: 0 0 25px 0;
+padding: 0 0 15px 0;
 }
 
 #header h1 {
@@ -90,12 +90,16 @@ padding: 0em 12em;
 font-weight: bold;
 }
 
+#UserEmail {
+text-align:right
+}
+
 #navigation {
 overflow: hidden;
 padding-left: 0;
 }
 
-#logout{
+#logout, #adminPanel{
 float: right;
 }
 
