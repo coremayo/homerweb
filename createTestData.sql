@@ -10,7 +10,8 @@ INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPas
 (4, 'robertAdmin@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
 (5, 'robertCAdmin@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
 (6, 'robertLAdmin@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
-(7, 'david@test.com', 'David', 'Laborde', 'cfadc7dc40efa15e1bfa4ab8c2680cb81c6b9c0e', '2009-11-27', 1);
+(7, 'david@test.com', 'David', 'Laborde', 'cfadc7dc40efa15e1bfa4ab8c2680cb81c6b9c0e', '2009-11-27', 1),
+(8, 'robertCombo@gmail.com', 'Robert', 'Billinghurst', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1);
 
 
 INSERT INTO `group` (`id`, `groupName`) VALUES
@@ -24,7 +25,8 @@ INSERT INTO `group_has_user` (`group_id`, `user_id`) VALUES
 (1, 4),
 (1, 7),
 (2, 5),
-(3, 5);
+(3, 5),
+(4, 8);
 
 INSERT INTO `site` (`id` ,`siteAdmins` ,`siteName`)
 VALUES ('1', '1', 'Chicago Review Courses');
@@ -52,7 +54,7 @@ VALUES ( '1', '2010-10-05', 'Time Machine', 'Impossible!', '1', '1'),
 INSERT INTO `lecture` (`id`, `lectureTopic`, `lectureClass`, `lectureStartTime`, `lectureEndTime`, `lectureAdmin`) 
 VALUES ('1', 'Brain Tumors', '1', '2009-10-27 02:15:09', '2009-10-27 02:50:14', '1'),
 ('2', 'Brain Bleeding', '1', '2009-10-28 06:15:09', '2009-10-28 06:50:14', '1'),
-('3', 'Brain Explosions', '1', '2009-10-28 07:15:09', '2009-10-28 08:50:14', '6'),
+('3', 'Brain Explosions', '1', '2009-10-28 07:15:09', '2009-10-28 08:50:14', '8'),
 ('4', 'Rar Fundamentals', '2', '2009-10-19 07:15:09', '2009-10-19 08:50:14', '6'),
 ('5', 'Dusty Brain', '3', '2006-12-19 07:15:09', '2006-12-19 08:50:14', '1');
 
