@@ -14,17 +14,30 @@
                      </tr>
                  </thead>
                  <tbody>
-                     <?php $result = $this->subscriptions_model->getValidCourseIDs($this->users_model->getId($this->session->userdata('email')));
-                     foreach ($result ->result() as $res) {
+                     <?php
+					 $id = $this->users_model->getId($this->session->userdata('email'));
+					 if($this->session->userdata('is_site_admin')){
+						 $result = $this->classes_model->getAllClasses();
+						 foreach ($result as $classInfo) {
+							$coursesData['courses'] = $classInfo;
+						 	$this->load->view('student/coursesTable', $coursesData);
+						 }
+					 }
+					 else{
+						 $result = $this->subscriptions_model->getValidCourseIDs($id);
+                     foreach ($result as $res) {
 						$classInfo = $this->classes_model->getClassInfo($res->subscriptionClass);
-                        echo '
-                        <tr>       
-                            <td><a href="'.base_url().'student/courses/'.$classInfo->id.'"style="color: rgb(0,0,0)"><font color="000000"><u>'.$classInfo->classTitle.'</u></font></a></td>
-                            <td>'.$classInfo->classDesc.'</td>
-                            <td>'.$classInfo->classStartDate.'</td>
-                            <td>'.$classInfo->classEndDate.'</td>
-                        </tr>';
+							$coursesData['courses'] = $classInfo;
+                        	$this->load->view('student/coursesTable', $coursesData);
                         }
+					 }
+					 if($this->session->userdata('is_class_admin')){
+						 $result = $this->classes_model->getCoursesAdminOf($id);
+						 foreach ($result as $classInfo) {
+							$coursesData['courses'] = $classInfo;
+						 	$this->load->view('student/coursesTable', $coursesData);
+						 }
+					 }
                         ?>
                    </tbody>
               </table>

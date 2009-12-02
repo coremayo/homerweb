@@ -81,7 +81,7 @@ class Subscriptions_model extends Model {
 	$this->db->where('subscriptionEndDate >=', Date("Y-m-d"));
 	
 	$query = $this->db->get('subscription');
-    return $query;
+    return $query->result();
   }
   
   /**
