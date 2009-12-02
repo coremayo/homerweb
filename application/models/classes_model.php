@@ -149,6 +149,13 @@ class Classes_model extends Model {
     return $row->classSubLength;
   }
 
+  function getClassStartDate($classId) {
+    $this->db->select('classStartDate');
+    $this->db->where('id', $classId);
+
+    $row = $this->db->get('class')->row();
+    return $row->classStartDate;
+  }
 
   function setTitle($classId, $title) {
     $data['classTitle'] = $title;

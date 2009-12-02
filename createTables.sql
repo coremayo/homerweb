@@ -348,6 +348,25 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`announcement` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `cs4911`.`payment`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cs4911`.`payment` ;
+
+CREATE TABLE IF NOT EXISTS `cs4911`.`payment` (
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `txn_id` VARCHAR(45) ,
+    `item_number` INT ,
+    `mc_gross` DECIMAL(9,2) ,
+    `mc_currency` VARCHAR(45) ,
+    `payer_email` VARCHAR(45) ,
+    `payment_date` DATETIME ,
+    `paypalVerified` ENUM('Y', 'N') ,
+    `autoApproved` ENUM('Y', 'N') ,
+    `paymentUser` INT ,
+    PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
