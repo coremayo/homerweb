@@ -136,7 +136,7 @@ class Student extends Controller
 		$result = $this->classes_model->getClassInfo($classId);
 				
 		// DOES THIS CLASS EXIST AND DOES THE USER HAVE ACCESS?
-		if(is_null($result) || !$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId)){
+		if(is_null($result) || (!$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId) && !$this->session->userdata('is_site_admin'))){
 				$data['content'] = 'student/notFound';
 				$data['subject'] = 'Course';
 				return $data;

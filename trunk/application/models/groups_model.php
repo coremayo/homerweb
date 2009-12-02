@@ -69,6 +69,8 @@ class Groups_model extends Model {
     $this->db->where('group_id', $groupId);
     return $this->db->get('group_has_user');
   }
+  
+  
 }
 
 ?>
