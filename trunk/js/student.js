@@ -17,6 +17,19 @@ $(document).ready(function()
 				
 				
 	});
+	oTable = $('#purchase_courses').dataTable( {
+				"aoColumns": [ 
+			/* Class ID */   { "bSearchable": false,
+			                   "bVisible":    false },
+			/* Course Title */  null,
+			/*   Start Date */  null,
+		  /*     End Date */  null],
+				"bJQueryUI": true,
+				"sPaginationType": "full_numbers"
+				
+				
+				
+	});
 	
 	$('#user_ann').dataTable( {
 				"aaSorting": [[ 2, "desc" ]],
