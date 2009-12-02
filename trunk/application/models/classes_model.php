@@ -259,5 +259,16 @@ class Classes_model extends Model {
 	  $this->db->select("class.* FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id AND user_id = $userId");
 	  return $this->db->get()->result();
   }
+  
+  /**
+  	* Get all the courses that the user is a lecture admin for
+	* 
+	* @param int user ID
+	* @return list of course's info
+  	*/
+  function getCoursesLectureAdminOf($userId){
+	  $this->db->select("class.* FROM class, lecture WHERE lecture.lectureClass = class.id AND lecture.lectureAdmin = $userId");
+	  return $this->db->get()->result();
+  }
 }
 ?>

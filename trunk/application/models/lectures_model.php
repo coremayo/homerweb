@@ -57,6 +57,8 @@ class Lectures_model extends Model {
     $query = $this->db->get('resource');
     return $query->result();
   }
+  
+
     
 }
 ?>
