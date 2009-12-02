@@ -132,11 +132,12 @@ class Student extends Controller
 	
 	function _loadClassId($data, $classId)
 	{
+		$id = $this->users_model->getId($this->session->userdata('email'));
 		$data['classId'] = $classId;
 		$result = $this->classes_model->getClassInfo($classId);
 				
 		// DOES THIS CLASS EXIST AND DOES THE USER HAVE ACCESS?
-		if(is_null($result) || (!$this->subscriptions_model->isActive($this->users_model->getId($this->session->userdata('email')), $classId) && !$this->session->userdata('is_site_admin'))){
+		if(is_null($result) || (!$this->subscriptions_model->isActive($id, $classId) && !$this->session->userdata('is_site_admin') && !$this->users_model->isAdminOf($id, $classId))){
 				$data['content'] = 'student/notFound';
 				$data['subject'] = 'Course';
 				return $data;

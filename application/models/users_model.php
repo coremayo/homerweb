@@ -354,4 +354,23 @@ class Users_model extends Model {
     $query = $this->db->get();
     return ($query->num_rows() > 0);
   }
+  
+  /**
+    * Determines if the given user is a course admin or lecture admin for the given course.
+    *
+    * @param int id of the user, int id of class
+    * @return boolean TRUE if the user is a lecture or course admin for the course, 
+    *         FALSE otherwise or if the user does not exist
+    */
+  function isAdminOf($userId, $classId) {
+    $this->db->select('lectureAdmin');
+    $this->db->from('lecture');
+    $this->db->where('lectureAdmin', $userId);
+    $query = $this->db->get();
+	
+	$this->db->select("user.id FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id AND user_id = $userId AND class.id = $classId");
+    $query2 = $this->db->get();
+	  
+    return ($query->num_rows() > 0 || $query2->num_rows() > 0);
+  }
 }

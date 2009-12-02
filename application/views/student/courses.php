@@ -38,6 +38,13 @@
 						 	$this->load->view('student/coursesTable', $coursesData);
 						 }
 					 }
+					 if($this->session->userdata('is_lecture_admin')){
+						 $result = $this->classes_model->getCoursesLectureAdminOf($id);
+						 foreach ($result as $classInfo) {
+							$coursesData['courses'] = $classInfo;
+						 	$this->load->view('student/coursesTable', $coursesData);
+						 }
+					 }
                         ?>
                    </tbody>
               </table>
