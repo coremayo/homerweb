@@ -4,8 +4,15 @@ class Main extends Controller
 {
 	function index()
 	{
-		$data['content'] = 'index';
-		$this->load->view('template', $data);
+		if (!$this->_is_logged_in())
+		{
+			$data['content'] = 'index';
+			$this->load->view('template', $data);
+		}
+		else
+		{
+			redirect("student");
+		}
 	}
 	
 	function login()
@@ -67,7 +74,7 @@ class Main extends Controller
 
 		if($is_logged_in)
 		{
-			echo "already logged in";
+			//echo "already logged in";
 			return true;
 		}
 		else
