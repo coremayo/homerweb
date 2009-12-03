@@ -20,7 +20,7 @@
 	<div id="header">
     	<div id="UserEmail">
     		<?php echo $this->session->userdata('email');?> |
-            <a href="<?php echo base_url();?>student/logout" style="color: rgb(0,0,0)"><font color="000000"><u>logout</u></a>
+            <a href="<?php echo base_url();?>student/logout" style="color: rgb(0,0,0)"><font color="000000"><u>Logout</u></a>
     	</div>
 		<h1 id="test">Chicago Review Courses</h1>
         
