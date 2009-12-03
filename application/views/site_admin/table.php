@@ -35,7 +35,18 @@
 						//$rows = $this->users_model->getAllUsers();
 						$rows = $this->classes_model->getNonCourseAdmins($optionID);
 						$tableType = USERS;
-					}					
+					}
+					else if($display == SHOW_STUDENTS_NOT_IN_COURSE)
+					{
+						//$rows = $this->classes_model->getNonAdmins($optionID);
+						$rows = $this->users_model->getAllUsers();
+						$tableType = USERS;
+					}
+					else if($display == SHOW_SCHEDULE_IN_COURSE)
+					{
+						$rows = $this->classes_model->getSchedule($optionID);
+						$tableType = SCHEDULE;
+					}			
 					
 					if ($tableType == USERS)
 					{
@@ -56,6 +67,14 @@
 						if ($FIELDS & ADMINS_FIELD) 	echo '<th># of Admins</th>';
 						if ($FIELDS & STARTDATE_FIELD)  echo '<th>Start Date</th>';
 						if ($FIELDS & ENDDATE_FIELD)    echo '<th>End Date</th>';
+					}
+					else if ($tableType == SCHEDULE)
+					{
+						if ($FIELDS & TYPE_FIELD)  		echo '<th>Type</th>';
+						if ($FIELDS & TOPIC_FIELD)  	echo '<th>Topic</th>';
+						if ($FIELDS & STARTTIME_FIELD)  echo '<th>Start Time</th>';
+						if ($FIELDS & ENDTIME_FIELD)  	echo '<th>End Time</th>';
+						if ($FIELDS & ADMIN_FIELD)      echo '<th>Lecture Admin</th>';
 					}
 				?>
 			</tr>
@@ -94,6 +113,14 @@
 						if ($FIELDS & ADMINS_FIELD) 	echo '<td>'.$this->classes_model->getNumAdmins($row->id).'</td>';
 						if ($FIELDS & STARTDATE_FIELD)  echo '<td>'.$row->classStartDate.'</td>';
 						if ($FIELDS & ENDDATE_FIELD)    echo '<td>'.$row->classEndDate.'</td>';
+					}
+					else if ($tableType == SCHEDULE)
+					{
+						if ($FIELDS & TYPE_FIELD)       echo '<td>'.$row->type.'</td>';
+						if ($FIELDS & TOPIC_FIELD)  	echo '<td><a href="'.base_url().'site_admin/courses/edit_schedule/'.$row->id.'">'.$row->lectureTopic.'</a></td>';
+						if ($FIELDS & STARTTIME_FIELD)  echo '<td>'.$row->lectureStartTime.'</td>';
+						if ($FIELDS & ENDTIME_FIELD)  	echo '<td>'.$row->lectureEndTime.'</td>';
+						if ($FIELDS & ADMIN_FIELD)      echo '<td><a href="'.base_url().'site_admin/users/edit_user/'.$row->lectureAdmin.'">'.$this->users_model->getFullName($row->lectureAdmin).'</a></td>';
 					}
 	
 					echo '</tr>';

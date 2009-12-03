@@ -18,19 +18,108 @@
 		
 		$("#end_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
 		$("#start_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
+		$("#eday").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
+		$("#sday").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
 		
+		addStudentDialogTable = $('#addStudentDialogTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+		
+		studentTable = $('#studentTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+		
+		$("#addStudentDialog").dialog
+		({
+			bgiframe: true,
+			height: 500,
+			width: 800,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			autoOpen: false,
+			buttons: 
+			{
+				'Cancel'			:	function() 
+										{
+											$(this).dialog('close');
+										}
+				,			
+				'Add Students'	:	function() 
+										{
+											var data = $('input', addStudentDialogTable.fnGetNodes()).serialize();
+	
+											if (data == '')
+											{
+												$("input[name='selected_students']").val('none');
+
+											}
+											else
+											{
+												$("input[name='selected_students']").val(data);
+												document.addStudent.submit();
+												
+											}
+	
+											$(this).dialog('close');
+										}
+			}
+		});
+		
+		$('#addStudentButton').click
+		(
+			function(data)
+			{
+				$("#addStudentDialog").dialog("open");
+			}
+		);
+		
+		$("#addStudentDialog input[name='select_user_all']").change
+		(
+			function()
+			{
+				if ($("#addStudentDialog input[name='select_user_all']").attr('checked'))
+				{
+					$('td input', addStudentDialogTable.fnGetNodes()).attr({checked: 'checked'});
+				}
+				else
+				{
+					$('td input', addStudentDialogTable.fnGetNodes()).attr({checked: ''});
+				}
+			}
+		)
+		
+		$("#studentsTable input[name='select_user_all']").change
+		(
+			function()
+			{
+				if ($("#studentsTable input[name='select_user_all']").attr('checked'))
+				{
+					$('td input', studentsTable.fnGetNodes()).attr({checked: 'checked'});
+				}
+				else
+				{
+					$('td input', studentsTable.fnGetNodes()).attr({checked: ''});
+				}
+			}
+		)
+
 		addCourseAdminDialogTable = $('#addCourseAdminDialogTable').dataTable( 
 		{
 			"bJQueryUI": true,
 			"sPaginationType": "full_numbers"
 		});
-		
+
 		courseAdminsTable = $('#courseAdminsTable').dataTable( 
 		{
 			"bJQueryUI": true,
 			"sPaginationType": "full_numbers"
 		});
-		
+
 		$("#addCourseAdminDialog").dialog
 		({
 			bgiframe: true,
@@ -47,10 +136,10 @@
 											$(this).dialog('close');
 										}
 				,			
-				'Add Course Admins'	:	function() 
+				'Add Students'	:	function() 
 										{
 											var data = $('input', addCourseAdminDialogTable.fnGetNodes()).serialize();
-	
+
 											if (data == '')
 											{
 												$("input[name='selected_admins']").val('none');
@@ -60,14 +149,14 @@
 											{
 												$("input[name='selected_admins']").val(data);
 												document.addAdmin.submit();
-												
+
 											}
-	
+
 											$(this).dialog('close');
 										}
 			}
 		});
-		
+
 		$('#addCourseAdminButton').click
 		(
 			function(data)
@@ -75,7 +164,7 @@
 				$("#addCourseAdminDialog").dialog("open");
 			}
 		);
-		
+
 		$("#addCourseAdminDialog input[name='select_user_all']").change
 		(
 			function()
@@ -90,7 +179,7 @@
 				}
 			}
 		)
-		
+
 		$("#courseAdminsTable input[name='select_user_all']").change
 		(
 			function()
@@ -105,6 +194,48 @@
 				}
 			}
 		)
+		
+		
+		
+		scheduleTable = $('#scheduleTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+		
+		$('#addItemButton').click
+		(
+			function(data)
+			{
+				$("#addItemDialog").dialog("open");
+			}
+		);
+		
+		$("#addItemDialog").dialog
+		({
+			bgiframe: true,
+			height: 400,
+			width: 500,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			autoOpen: false,
+			buttons: 
+			{
+				'Cancel'			:	function() 
+										{
+											$(this).dialog('close');
+										}
+				,			
+				'Add Item'	:	function() 
+										{
+											document.addItem.submit();
+											$(this).dialog('close');
+										}
+			}
+		});
+		
+		
 	});
 </script>
 
@@ -115,7 +246,7 @@
 		<li><a href="#courseInformationTab">Course Information</a></li>
 		<li><a href="#courseAdminsTab">Course Admins</a></li>
 		<li><a href="#studentTab">Students</a></li>
-		<li><a href="#lecturesTab">Lectures</a></li>
+		<li><a href="#scheduleTab">Schedule</a></li>
 	</ul>
 	
 	<div id="courseInformationTab">
@@ -210,12 +341,102 @@
 	</div>
 	
 	<div id="studentTab">
+		<form name="addStudent" action="<?php echo base_url();?>site_admin/db_editCourseStudents" method="POST">
+			<input type="hidden" name="id" value="<?php echo $courseID;?>">
+			<input type="hidden" name="classID" value="<?php echo $courseInfo->classAdmins;?>">
+			<input type="hidden" name="selected_students" value="none">
 
-		
+			<button type="button" class="addButton" id="addStudentButton">Add Student</button>
+
+			<?php
+				$data['ID'] = 'studentTable';
+				$data['TABLE'] = array(SHOW_STUDENTS_IN_COURSE, $courseID);
+				$data['FIELDS'] = SELECT_FIELD | EMAIL_FIELD | FNAME_FIELD | LNAME_FIELD | REGDATE_FIELD | ACTIVE_FIELD;
+				$this->load->view('site_admin/table', $data);
+			?>
+
+			<div id="addStudentDialog" title="Add Students">
+				<?php
+					$dialogData['ID'] = 'addStudentDialogTable';
+					$dialogData['TABLE'] = array(SHOW_STUDENTS_NOT_IN_COURSE, $courseID);
+					$dialogData['FIELDS'] = SELECT_FIELD | EMAIL_FIELD | FNAME_FIELD | LNAME_FIELD;
+					$this->load->view('site_admin/table', $dialogData);
+				?>
+			</div>
+		</form>
 	</div>
 	
-	<div id="lecturesTab">
+	<div id="scheduleTab">
+		<button type="button" class="addButton" id="addItemButton">Add Items</button>
 
+		<?php
+			$data['ID'] = 'scheduleTable';
+			$data['TABLE'] = array(SHOW_SCHEDULE_IN_COURSE, $courseID);
+			$data['FIELDS'] = TOPIC_FIELD | STARTTIME_FIELD | ENDTIME_FIELD | ADMIN_FIELD;
+			$this->load->view('site_admin/table', $data);
+		?>
+
+		<div id="addItemDialog" title="Add Item">
+			<form name="addItem" action="<?php echo base_url();?>site_admin/db_editCourseSchedule" method="POST">
+				<table width="400px" class="outer">
+					<tr>
+						<td>
+							<table class="text" border="0" cellpadding="4" cellspacing="3" width="100%">
+								<tr height="40px">
+									<td colspan="2" class="formHeading">Add New Item</td>
+								</tr>
+	
+								<tr height="10px">
+									<td colspan="2"></td>
+								</tr>
+	
+								<tr>
+									<td align="right" bgcolor="#E8E8E8" width="32%">Topic</td>
+									<td width ="68%"><input type="text" name="topic" size="35" maxlength"50" class="input"></td>
+								</tr>
+								
+								<tr>
+									<td align="right" bgcolor="#E8E8E8" width="32%">Lecture Admin</td>
+									<td width ="68%"><input type="text" name="topic" size="35" maxlength"50" class="input"></td>
+								</tr>
+	
+								<tr>
+									<td align="right" bgcolor="#E8E8E8" width="32%">Start Time</td>
+									<td width ="68%">
+										Date: <input id="sday" type="text" name="sday" size="20" maxlength"20" class="input">
+										<br>
+										<br>
+										Time: <input id="stime_hr" type="text" name="stime_hr" size="2" maxlength"2" class="input"> 
+										: <input id="stime_min" type="text" name="stime_min" size="2" maxlength"2" class="input">
+
+										<select name="stime_am_pm">
+											<option value="AM" selected>AM</option
+											<option value="PM">PM</option>
+										</select>
+									</td>
+								</tr>
+	
+								<tr>
+									<td align="right" bgcolor="#E8E8E8" width="32%">End Time</td>
+									<td width ="68%">
+										Date: <input id="eday" type="text" name="eday" size="20" maxlength"20" class="input">
+										<br>
+										<br>
+										Time: <input id="etime_hr" type="text" name="etime_hr" size="2" maxlength"2" class="input"> 
+										: <input id="etime_min" type="text" name="etime_min" size="2" maxlength"2" class="input">
+
+										<select name="etime_am_pm">
+											<option value="AM" selected>AM</option
+											<option value="PM">PM</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
 	</div>
 </div>
 
