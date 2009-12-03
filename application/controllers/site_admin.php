@@ -57,6 +57,21 @@ class Site_admin extends Controller
 		$newMsg1 = str_replace('{email}', $email, $email_message);
 		$newMsg2 = str_replace('{password}', $password, $newMsg1);
 		
+		// Set Validation Rules
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
+		$this->form_validation->set_rules('fname', 'First Name', 'required');
+		$this->form_validation->set_rules('lname', 'Last Name', 'required');
+		
+		// Run Validation
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('type', 'message error');
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('site_admin/users/add_user/');
+		}
+		
 		if ($password_type == 'random')
 		{
 			$result = $this->users_model->addUser($email, $password, $fname, $lname);
@@ -85,10 +100,12 @@ class Site_admin extends Controller
 		}
 		else
 		{
-			if (($password != $password_check) || ($password == '') || ($password_check == ''))
+			$this->form_validation->set_rules('password_'.$password_type, 'Password', 'required|matches[password_check]|min_length[5]|max_length[20]');
+		$this->form_validation->set_rules('password_check', 'Password Confirmation', 'required');
+			if ($this->form_validation->run() == FALSE)
 			{
 				$this->session->set_flashdata('type', 'message error');
-				$this->session->set_flashdata('msg', 'Passwords do not match or no password was entered');
+				$this->session->set_flashdata('msg', validation_errors());
 				redirect('site_admin/users/add_user/');
 			}
 			else

@@ -63,24 +63,6 @@ class Users_model extends Model {
     *         otherwise returns an error message.
     */
   function addUser($userEmail, $userPasswd, $fname, $lname) {
-    // first, check that the Email is valid
-    $emailRegex = '/^[A-Z0-9][A-Z0-9\._%-]*@([A-Z0-9_-]+\.)+[A-Z]{2,4}$/i';
-    if (!preg_match($emailRegex, $userEmail)) {
-      return ('Invalid Email Address');
-    }
-
-    // then check that the password is valid
-    if ((strlen($userPasswd) < 5) || strlen($userPasswd > 20)) {
-      return ('Password must be between 5 and 20 characters.');
-    }
-
-    if (strlen($fname) <= 0) {
-      return ('First name is required');
-    }
-
-    if (strlen($lname) <= 0) {
-      return ('Last name is required');
-    }
 
     // check if the user already exists
     $this->db->where('userEmail', $userEmail);
