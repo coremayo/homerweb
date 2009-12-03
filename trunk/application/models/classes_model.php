@@ -25,6 +25,13 @@ class Classes_model extends Model {
     }
   }
   
+  function getSchedule($classId){
+    $this->db->select('*');
+    $this->db->from('lecture');
+    $this->db->where('lectureClass', $classId);
+    return $this->db->get()->result();
+  }
+  
   /**
     * Returns the number of users assigned to a class.
     *
@@ -215,7 +222,7 @@ class Classes_model extends Model {
     $this->db->where('s.subscriptionStartDate <= CURRENT_DATE()');
     $this->db->where('s.subscriptionEndDate >= CURRENT_DATE()');
     $this->db->where('s.subscriptionUser NOT IN (SELECT g.user_id FROM group_has_user g, class c WHERE c.id = s.subscriptionClass AND g.group_id = c.classAdmins)');
-    return $this->db->get();
+    return $this->db->get()->result();
   }
   
    /**
@@ -245,7 +252,7 @@ class Classes_model extends Model {
     $this->db->where('c.id', $courseId);
     $this->db->where('g.group_id = c.classAdmins');
     $this->db->where('g.user_id NOT IN (SELECT s.subscriptionUser FROM subscription s WHERE s.subscriptionClass = c.id AND s.subscriptionStartDate <= CURRENT_DATE() AND s.subscriptionEndDate >= CURRENT_DATE())');
-    return $this->db->get();
+    return $this->db->get()->result();
 	
   }
   

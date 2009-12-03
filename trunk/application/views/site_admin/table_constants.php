@@ -4,12 +4,14 @@
 	\------------------------------*/
 	if (!defined('USERS'))						define('USERS', 1);
 	if (!defined('COURSES'))					define('COURSES', 2);
+	if (!defined('SCHEDULE'))					define('SCHEDULE', 10);
 	if (!defined('SHOW_ALL_USERS')) 			define('SHOW_ALL_USERS', 3);
 	if (!defined('SHOW_ALL_COURSES'))			define('SHOW_ALL_COURSES', 4);
 	if (!defined('SHOW_ADMINS_IN_COURSE'))		define('SHOW_ADMINS_IN_COURSE', 5);
 	if (!defined('SHOW_STUDENTS_IN_COURSE'))	define('SHOW_STUDENTS_IN_COURSE', 6);
 	if (!defined('SHOW_ADMINS_NOT_IN_COURSE'))	define('SHOW_ADMINS_NOT_IN_COURSE', 7);
 	if (!defined('SHOW_STUDENTS_NOT_IN_COURSE'))define('SHOW_STUDENTS_NOT_IN_COURSE', 8);
+	if (!defined('SHOW_SCHEDULE_IN_COURSE'))    define('SHOW_SCHEDULE_IN_COURSE', 9);
 	
 	/*------------------------------\
 	|  User Fields                  | 
@@ -22,7 +24,7 @@
 	if (!defined('ACTIVE_FIELD')) 	define('ACTIVE_FIELD', 32);
 	
 	/*------------------------------\
-	|  Course Fields                  | 
+	|  Course Fields                | 
 	\------------------------------*/
 	if (!defined('SELECT_FIELD')) 		define('SELECT_FIELD', 1);
 	if (!defined('TITLE_FIELD')) 		define('TITLE_FIELD', 2);
@@ -32,4 +34,13 @@
 	if (!defined('USERS_FIELD')) 		define('USERS_FIELD', 32);
 	if (!defined('ADMINS_FIELD')) 		define('ADMINS_FIELD', 64);
 	if (!defined('STARTDATE_FIELD')) 	define('STARTDATE_FIELD', 128);
-	if (!defined('ENDDATE_FIELD')) 	define('ENDDATE_FIELD', 256);
+	if (!defined('ENDDATE_FIELD')) 	    define('ENDDATE_FIELD', 256);
+	
+	/*------------------------------\
+	|  Schedule Fields              | 
+	\------------------------------*/
+	if (!defined('TOPIC_FIELD')) 		define('TOPIC_FIELD', 1);
+	if (!defined('STARTTIME_FIELD')) 	define('STARTTIME_FIELD', 2);
+	if (!defined('ENDTIME_FIELD')) 		define('ENDTIME_FIELD', 4);
+	if (!defined('ADMIN_FIELD')) 		define('ADMIN_FIELD', 8);
+	if (!defined('TYPE_FIELD')) 		define('TYPE_FIELD', 16);

@@ -1,5 +1,7 @@
 <?php
 
+include '/application/views/site_admin/table_constants.php';
+
 class Site_admin extends Controller
 {
 	function index()
@@ -301,8 +303,35 @@ class Site_admin extends Controller
 		}
 		
 		$this->session->set_flashdata('type', 'message success');
-		$this->session->set_flashdata('msg', 'Course Admins updated successfully!');
+		$this->session->set_flashdata('msg', 'Course Admins added successfully!');
 		redirect('site_admin/courses/edit_course/'.$id);
+	}
+	
+	function db_editCourseStudents()
+	{
+		$id           = $this->input->post('id');
+		$classID      = $this->input->post('classID');
+		$students     = explode("&", $this->input->post('selected_students'));
+		
+		foreach ($students as $student)
+		{
+			$key_value = explode("=", $student);
+			$key = $key_value[0];
+
+			if($key != 'none')
+			{
+				//$this->groups_model->addToGroup($classID, $key_value[1]);	
+			}
+		}
+
+		$this->session->set_flashdata('type', 'message success');
+		$this->session->set_flashdata('msg', 'Course Students added successfully!');
+		redirect('site_admin/courses/edit_course/'.$id);
+	}
+	
+	function db_editCourseSchedule()
+	{
+		echo "called db_editCourseSchedule";
 	}
 	
 	function _is_authorized()
