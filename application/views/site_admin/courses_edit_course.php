@@ -2,6 +2,7 @@
 	include 'table_constants.php';
 	
 	$courseID = $this->uri->segment(4, 0);
+	$selected = $this->uri->segment(5, 0);
 	$courseInfo = $this->classes_model->getClassInfo($courseID);
 
 	$data['breadcrumb'] = '<a href="'.base_url().'site_admin/courses/">Courses</a> &raquo; Edit Course';
@@ -14,7 +15,7 @@
 	
 	$(document).ready(function() 
 	{
-		$('#tabs').tabs();
+		$('#tabs').tabs({ selected: <?php echo $selected ?> });
 		
 		$("#end_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
 		$("#start_date").datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
@@ -136,7 +137,7 @@
 											$(this).dialog('close');
 										}
 				,			
-				'Add Students'	:	function() 
+				'Add Admin'	:	function() 
 										{
 											var data = $('input', addCourseAdminDialogTable.fnGetNodes()).serialize();
 
