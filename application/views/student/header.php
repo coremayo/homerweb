@@ -31,7 +31,6 @@
 	<ul id="navigation">
 		<a class="tab" href="<?php echo base_url();?>student/index" id="annNav">Home</a>
 		<a class="tab" href="<?php echo base_url();?>student/courses" id="coursesNav">Courses</a>
-		<a class="tab" href="<?php echo base_url();?>student/qbank">QBank</a>
 		<a class="tab" href="<?php echo base_url();?>student/subscriptions" id="subNav">Subscriptions</a>
         <a class="tab" href="<?php echo base_url();?>student/settings" id="SettingsNav">Edit Profile</a>
         

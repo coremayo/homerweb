@@ -1,6 +1,6 @@
 <?php
 
-include '/application/views/site_admin/table_constants.php';
+include 'application/views/site_admin/table_constants.php';
 
 class Site_admin extends Controller
 {
@@ -337,7 +337,7 @@ class Site_admin extends Controller
 
 			if($key != 'none')
 			{
-				//$this->groups_model->addToGroup($classID, $key_value[1]);	
+				$this->subscriptions_model->addSub($key_value[1], $classID);	
 			}
 		}
 
