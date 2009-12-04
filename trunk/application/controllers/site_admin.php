@@ -297,10 +297,7 @@ class Site_admin extends Controller
 		
 		$this->session->set_flashdata('type', 'message success');
 		$this->session->set_flashdata('msg', 'The course information for '.$title.' was updated successfully!');
-		redirect('site_admin/courses/edit_course/'.$id);
-		
-		
-			
+		redirect('site_admin/courses/edit_course/'.$id.'/0');
 	}
 	
 	function db_editCourseAdmins(){
@@ -321,7 +318,7 @@ class Site_admin extends Controller
 		
 		$this->session->set_flashdata('type', 'message success');
 		$this->session->set_flashdata('msg', 'Course Admins added successfully!');
-		redirect('site_admin/courses/edit_course/'.$id);
+		redirect('site_admin/courses/edit_course/'.$id.'/1');
 	}
 	
 	function db_editCourseStudents()
@@ -343,7 +340,7 @@ class Site_admin extends Controller
 
 		$this->session->set_flashdata('type', 'message success');
 		$this->session->set_flashdata('msg', 'Course Students added successfully!');
-		redirect('site_admin/courses/edit_course/'.$id);
+		redirect('site_admin/courses/edit_course/'.$id.'/2');
 	}
 	
 	function db_editCourseSchedule()
