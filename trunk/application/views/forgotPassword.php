@@ -1,7 +1,6 @@
 <div id="main">
 	<h1>Forgot Password</h2>
 	<p>The forgot password page provides you with a means to reset a forgotten password. Remember to check your email after submitting. </p>
-	<p><small><a href="#">Privacy Concerns</a> | <a href="#">FAQ's</a></small></p>
 	
 	<form id="forgotPassword_form" action="<?php echo base_url();?>forgotPassword/confirmEmail" method="post">
 		<h2>Email Confirmation</h2>
