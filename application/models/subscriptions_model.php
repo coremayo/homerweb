@@ -179,6 +179,21 @@ class Subscriptions_model extends Model {
     }
     return $subId;
   }
+  
+  /**
+ 	* Get a list of subscriptions of students subscriped to the course
+  	*/
+  
+  function getAllStudentSubscriptions($classID){
+	  
+	  $this->db->select('s.id as subID, u.id, u.userFirstName, u.userLastName, u.userEmail, s.subscriptionEndDate, s.subscriptionStartDate');
+	  $this->db->from('subscription s');
+	  $this->db->where('s.subscriptionClass', $classID);
+   	  $this->db->join('user u', 's.subscriptionUser = u.id');
+	  
+	  $query = $this->db->get();
+      return $query->result();
+  }
 }
 
 ?>

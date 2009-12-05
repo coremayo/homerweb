@@ -100,8 +100,10 @@ class Site_admin extends Controller
 		}
 		else
 		{
+			// Set up Password validation
 			$this->form_validation->set_rules('password_'.$password_type, 'Password', 'required|matches[password_check]|min_length[5]|max_length[20]');
 		$this->form_validation->set_rules('password_check', 'Password Confirmation', 'required');
+			// Check valication
 			if ($this->form_validation->run() == FALSE)
 			{
 				$this->session->set_flashdata('type', 'message error');
