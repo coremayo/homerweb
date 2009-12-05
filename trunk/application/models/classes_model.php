@@ -257,6 +257,20 @@ class Classes_model extends Model {
   }
   
   /**
+    * Gets all the user id's of users who aren't students or admins in a given course
+    *
+    * @param int The course id to lookup
+    */
+  function getNonStudentsAdmins($courseId) {
+    $this->db->select('*');
+    $this->db->from('user u');
+    $this->db->where('u.id NOT IN (SELECT s.subscriptionUser FROM subscription s WHERE s.subscriptionClass = '.$courseId.')');
+	$this->db->where('u.id NOT IN (SELECT g.user_id FROM group_has_user g, class c WHERE c.id = '.$courseId.' AND g.group_id = c.classAdmins)');
+    return $this->db->get()->result();
+	
+  }
+  
+  /**
   	* Get all the courses that the user is a course admin for
 	* 
 	* @param int user ID

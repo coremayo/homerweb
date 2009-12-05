@@ -26,27 +26,25 @@
 					}
 					else if($display == SHOW_STUDENTS_IN_COURSE)
 					{
-						$rows = $this->classes_model->getAllStudents($optionID);
-						$tableType = USERS;
+						$rows = $this->subscriptions_model->getAllStudentSubscriptions($optionID);
+						$tableType = SUBSCRIPTIONS;
 					}
 					else if($display == SHOW_ADMINS_NOT_IN_COURSE)
 					{
-						//$rows = $this->classes_model->getNonAdmins($optionID);
-						//$rows = $this->users_model->getAllUsers();
 						$rows = $this->classes_model->getNonCourseAdmins($optionID);
 						$tableType = USERS;
 					}
 					else if($display == SHOW_STUDENTS_NOT_IN_COURSE)
 					{
 						//$rows = $this->classes_model->getNonAdmins($optionID);
-						$rows = $this->users_model->getAllUsers();
+						$rows = $this->classes_model->getNonStudentsAdmins($optionID);
 						$tableType = USERS;
 					}
 					else if($display == SHOW_SCHEDULE_IN_COURSE)
 					{
 						$rows = $this->classes_model->getSchedule($optionID);
 						$tableType = SCHEDULE;
-					}			
+					}
 					
 					if ($tableType == USERS)
 					{
@@ -75,6 +73,17 @@
 						if ($FIELDS & STARTTIME_FIELD)  echo '<th>Start Time</th>';
 						if ($FIELDS & ENDTIME_FIELD)  	echo '<th>End Time</th>';
 						if ($FIELDS & ADMIN_FIELD)      echo '<th>Lecture Admin</th>';
+					}
+					else if ($tableType == SUBSCRIPTIONS)
+					{
+						if ($FIELDS & SELECT_FIELD)  echo '<th><input type="checkbox" name="select_user_all"></th>';
+						if ($FIELDS & SUB_FIELD)   echo '<th>Subscription ID</th>';
+						if ($FIELDS & EMAIL_FIELD)   echo '<th>Email Address</th>';
+						if ($FIELDS & FNAME_FIELD)   echo '<th>First Name</th>';
+						if ($FIELDS & LNAME_FIELD)   echo '<th>Last Name</th>';
+						if ($FIELDS & STARTDATE_FIELD) echo '<th>Start Date</th>';
+						if ($FIELDS & ENDDATE_FIELD) echo '<th>End Date</th>';
+						if ($FIELDS & SUB_ACTIVE_FIELD)  echo '<th>Subscription Active Status</th>';
 					}
 				?>
 			</tr>
@@ -121,6 +130,26 @@
 						if ($FIELDS & STARTTIME_FIELD)  echo '<td>'.$row->lectureStartTime.'</td>';
 						if ($FIELDS & ENDTIME_FIELD)  	echo '<td>'.$row->lectureEndTime.'</td>';
 						if ($FIELDS & ADMIN_FIELD)      echo '<td><a href="'.base_url().'site_admin/users/edit_user/'.$row->lectureAdmin.'">'.$this->users_model->getFullName($row->lectureAdmin).'</a></td>';
+					}
+					else if ($tableType == SUBSCRIPTIONS)
+					{
+						if ($FIELDS & SELECT_FIELD)  echo '<td><input type="checkbox" name="select_user" value="'.$row->id.'"></td>';
+						if ($FIELDS & SUB_FIELD)	 echo '<td>'.$row->subID.'</td>';
+						if ($FIELDS & EMAIL_FIELD)   echo '<td>'.$row->userEmail.'</td>';
+						if ($FIELDS & FNAME_FIELD)   echo '<td>'.$row->userFirstName.'</td>';
+						if ($FIELDS & LNAME_FIELD)   echo '<td>'.$row->userLastName.'</td>';
+						if ($FIELDS & STARTDATE_FIELD) echo '<td>'.$row->subscriptionStartDate.'</td>';
+						if ($FIELDS & ENDDATE_FIELD) echo '<td>'.$row->subscriptionEndDate.'</td>';
+						if ($FIELDS & SUB_ACTIVE_FIELD)
+						{
+							if (strtotime($row->subscriptionEndDate) >= strtotime(Date("l F d, Y")))
+								$img = 'active_icon.gif';
+							else
+								$img = 'inactive_icon.gif';
+	
+							echo '<td><img src="'.base_url().'images/site_admin/'.$img.'"/></td>';
+						}
+						
 					}
 	
 					echo '</tr>';

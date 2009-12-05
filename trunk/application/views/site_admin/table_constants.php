@@ -5,6 +5,7 @@
 	if (!defined('USERS'))						define('USERS', 1);
 	if (!defined('COURSES'))					define('COURSES', 2);
 	if (!defined('SCHEDULE'))					define('SCHEDULE', 10);
+	if (!defined('SUBSCRIPTIONS'))					define('SUBSCRIPTIONS', 11);
 	if (!defined('SHOW_ALL_USERS')) 			define('SHOW_ALL_USERS', 3);
 	if (!defined('SHOW_ALL_COURSES'))			define('SHOW_ALL_COURSES', 4);
 	if (!defined('SHOW_ADMINS_IN_COURSE'))		define('SHOW_ADMINS_IN_COURSE', 5);
@@ -44,3 +45,15 @@
 	if (!defined('ENDTIME_FIELD')) 		define('ENDTIME_FIELD', 4);
 	if (!defined('ADMIN_FIELD')) 		define('ADMIN_FIELD', 8);
 	if (!defined('TYPE_FIELD')) 		define('TYPE_FIELD', 16);
+	
+	/*------------------------------\
+	|  Subscription Fields                  | 
+	\------------------------------*/
+	if (!defined('SELECT_FIELD')) 	define('SELECT_FIELD', 1);
+	if (!defined('SUB_FIELD')) 		define('SUB_FIELD', 2);
+	if (!defined('EMAIL_FIELD')) 	define('EMAIL_FIELD', 4);
+	if (!defined('FNAME_FIELD')) 	define('FNAME_FIELD', 8);
+	if (!defined('LNAME_FIELD')) 	define('LNAME_FIELD', 16);
+	if (!defined('STARTDATE_FIELD'))	define('STARTDATE_FIELD', 32);
+	if (!defined('ENDDATE_FIELD'))	define('ENDDATE_FIELD', 64);
+	if (!defined('SUB_ACTIVE_FIELD')) 	define('SUB_ACTIVE_FIELD', 128);

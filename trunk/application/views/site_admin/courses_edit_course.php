@@ -50,7 +50,7 @@
 											$(this).dialog('close');
 										}
 				,			
-				'Add Students'	:	function() 
+				'Add Subscriptions'	:	function() 
 										{
 											var data = $('input', addStudentDialogTable.fnGetNodes()).serialize();
 	
@@ -246,7 +246,7 @@
 	<ul>
 		<li><a href="#courseInformationTab">Course Information</a></li>
 		<li><a href="#courseAdminsTab">Course Admins</a></li>
-		<li><a href="#studentTab">Students</a></li>
+		<li><a href="#studentTab">Subscriptions</a></li>
 		<li><a href="#scheduleTab">Schedule</a></li>
 	</ul>
 	
@@ -347,16 +347,16 @@
 			<input type="hidden" name="classID" value="<?php echo $courseInfo->id;?>">
 			<input type="hidden" name="selected_students" value="none">
 
-			<button type="button" class="addButton" id="addStudentButton">Add Student</button>
+			<button type="button" class="addButton" id="addStudentButton">Add Subscription</button>
 
 			<?php
 				$data['ID'] = 'studentTable';
 				$data['TABLE'] = array(SHOW_STUDENTS_IN_COURSE, $courseID);
-				$data['FIELDS'] = SELECT_FIELD | EMAIL_FIELD | FNAME_FIELD | LNAME_FIELD | REGDATE_FIELD | ACTIVE_FIELD;
+				$data['FIELDS'] = SELECT_FIELD | EMAIL_FIELD | FNAME_FIELD | LNAME_FIELD | STARTDATE_FIELD | ENDDATE_FIELD | SUB_ACTIVE_FIELD;
 				$this->load->view('site_admin/table', $data);
 			?>
 
-			<div id="addStudentDialog" title="Add Students">
+			<div id="addStudentDialog" title="Add Subscriptions">
 				<?php
 					$dialogData['ID'] = 'addStudentDialogTable';
 					$dialogData['TABLE'] = array(SHOW_STUDENTS_NOT_IN_COURSE, $courseID);
@@ -412,7 +412,7 @@
 
 										<select name="stime_am_pm">
 											<option value="AM" selected>AM</option
-											<option value="PM">PM</option>
+											><option value="PM">PM</option>
 										</select>
 									</td>
 								</tr>
@@ -428,7 +428,7 @@
 
 										<select name="etime_am_pm">
 											<option value="AM" selected>AM</option
-											<option value="PM">PM</option>
+											><option value="PM">PM</option>
 										</select>
 									</td>
 								</tr>
