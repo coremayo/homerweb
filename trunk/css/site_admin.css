@@ -119,14 +119,6 @@ li.headlink a {
 text-decoration: none;
 }
 
-li.headlink ul {
-display: none;
-}
-
-li.headlink:hover ul {
-display: block;
-}
-
 #navigation, #navigation ul { 
 list-style: none; 
 overflow: hidden;
@@ -154,26 +146,6 @@ padding-left: 25px;
 #navigation a { 
 color: black; 
 } 
-
-#navigation ul li a:hover { 
-text-decoration: none; 
-}
-
-#navigation li.headlink ul { 
-display: none; 
-border-left: 1px black solid; 
-border-right: 1px black solid;
-border-bottom: 1px black solid;
-text-align: left;
-/*background-image: url(bg.gif); 
-background-position: bottom;*/ 
-}
-
-#navigation li.headlink:hover ul { 
-display: block;
-position: absolute;
-background-color: #E8E8E8; 
-}
 
 #navigation li.headlink ul li a { 
 padding: 15px; 
