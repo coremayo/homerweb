@@ -5,6 +5,64 @@ class Subscriptions_model extends Model {
   function Subscriptions_model() {
     parent::Model();
   }
+ 
+	/**
+	  * Set subscription start date of given subscription
+	  * 
+	  * @param int sub id of sub to update
+	  * @param date to set
+	  */
+	  function setStartDate($subID, $date){
+		  $data['subscriptionStartDate'] = $date;
+    	  $this->db->where('id', $subID);
+    	  $this->db->update('subscription', $data);
+	  }
+	  
+	  /**
+	  * Set subscription end date of given subscription
+	  * 
+	  * @param int sub id of sub to update
+	  * @param date to set
+	  */
+	  function setEndDate($subID, $date){
+		  $data['subscriptionEndDate'] = $date;
+    	  $this->db->where('id', $subID);
+    	  $this->db->update('subscription', $data);
+	  }
+	  
+	  /**
+	  * Extend subscription end date of given subscription
+	  * 
+	  * @param int sub id of sub to update
+	  * @param date to set
+	  */
+	  function extendEndDate($subID, $days){
+		   $this->db->select('subscriptionEndDate');
+      	  $this->db->from('subscription');
+      	  $this->db->where('id', $subID);
+		  $endDate = $this->db->get()->row()->subscriptionEndDate;
+		  
+		  $data['subscriptionEndDate'] = date('Y-m-d', strtotime("$endDate +$days day"));;
+    	  $this->db->where('id', $subID);
+    	  $this->db->update('subscription', $data);
+	  }
+	  
+	  /**
+	  * Extend subscription start date of given subscription
+	  * 
+	  * @param int sub id of sub to update
+	  * @param date to set
+	  */
+	  function extendStartDate($subID, $days){
+		   $this->db->select('subscriptionStartDate');
+      	  $this->db->from('subscription');
+      	  $this->db->where('id', $subID);
+		  $startDate = $this->db->get()->row()->subscriptionStartDate;
+		  
+		  $data['subscriptionStartDate'] = date('Y-m-d', strtotime("$startDate +$days day"));;
+    	  $this->db->where('id', $subID);
+    	  $this->db->update('subscription', $data);
+	  }
 
   /**
     * Gets information about a user's subscriptions. Will be returned in the 
@@ -115,20 +173,39 @@ class Subscriptions_model extends Model {
     * Add a subscription for a given user and course. If the course is in the 
     * future, the sub will begin on the start day of the course. If not, the 
     * sub will start immediately.  If the user has a current subscription for 
-    * the course, a new one will be added with a start date of the day after 
-    * his current subscription ends.
+    * the course, that subscription will be extended if the end date is in the future,
+    * or renewed if it is expired
     */
   function addSub($userId, $classId) {
+	  
+	 // find the length of the sub
+    $this->db->select('classSubLength');
+    $this->db->where('id', $classId);
+    $row = $this->db->get('class')->row();
+    $subLength = $row->classSubLength;
 
-    // check if the user already has a current subscription
-    if(($subId = $this->hasCurrentSub($userId, $classId)) >  0) {
-
-      // then just extend the current sub
-      $this->db->select('subscriptionEndDate');
+    // check if the user already has a subscription
+    if(($subId = $this->hasSub($userId, $classId)) >  0) {
+	  $this->db->select('subscriptionEndDate');
       $this->db->from('subscription');
       $this->db->where('id', $subId);
-      $startDate = $this->db->get()->row()->subscriptionEndDate;
-      $startDate = date('Y-m-d', strtotime("$startDate +1 day"));
+	  $endDate = $this->db->get()->row()->subscriptionEndDate;
+	  
+	  // If the end date is in the future, extend the subscription's end date
+	  if($endDate > date('Y-m-d')){
+		  $data['subscriptionEndDate'] = date('Y-m-d', strtotime("$endDate +$subLength days"));
+		  $this->db->where('id', $subId);
+		  $this->db->update('subscription', $data);
+		  return;
+	  }
+	  else{// Otherwise make today the start date and extend it
+		  $data['subscriptionStartDate'] = date('Y-m-d');
+		  $startDate = date('Y-m-d');
+		  $data['subscriptionEndDate'] = date('Y-m-d', strtotime("$startDate +$subLength days"));
+		  $this->db->where('id', $subId);
+		  $this->db->update('subscription', $data);
+		  return;
+	  }
       
     } else { // we are going to create a new sub
 
@@ -145,12 +222,6 @@ class Subscriptions_model extends Model {
     }
 
     $sub['subscriptionStartDate'] = $startDate;
-
-    // find the length of the sub
-    $this->db->select('classSubLength');
-    $this->db->where('id', $classId);
-    $row = $this->db->get('class')->row();
-    $subLength = $row->classSubLength;
 
     $sub['subscriptionEndDate'] = date('Y-m-d', strtotime("$startDate +$subLength days"));
     $sub['subscriptionClass'] = $classId;
@@ -170,6 +241,25 @@ class Subscriptions_model extends Model {
     $this->db->where('subscriptionClass', $classId);
     $this->db->where('subscriptionStartDate <= CURRENT_DATE');
     $this->db->where('subscriptionEndDate >= CURRENT_DATE');
+    $query = $this->db->get();
+    
+    if ($query->num_rows() > 0) {
+      $subId = $query->row()->id;
+    } else {
+      $subId = -1;
+    }
+    return $subId;
+  }
+  
+    /**
+    * Checks whether the given user has a subscription for the given course (does not have to be current) 
+    * If so, returns the subscription id; otherwise returns a negative value.
+    */
+  function hasSub($userId, $classId) {
+    $this->db->select('id');
+    $this->db->from('subscription');
+    $this->db->where('subscriptionUser', $userId);
+    $this->db->where('subscriptionClass', $classId);
     $query = $this->db->get();
     
     if ($query->num_rows() > 0) {
