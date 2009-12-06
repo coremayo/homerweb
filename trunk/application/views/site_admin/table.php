@@ -82,7 +82,7 @@
 						if ($FIELDS & LNAME_FIELD)   echo '<th>Last Name</th>';
 						if ($FIELDS & STARTDATE_FIELD) echo '<th>Start Date</th>';
 						if ($FIELDS & ENDDATE_FIELD) echo '<th>End Date</th>';
-						if ($FIELDS & SUB_ACTIVE_FIELD)  echo '<th>Subscription Active Status</th>';
+						if ($FIELDS & SUB_ACTIVE_FIELD)  echo '<th>Expiration Status</th>';
 					}
 				?>
 			</tr>

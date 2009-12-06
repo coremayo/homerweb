@@ -178,9 +178,48 @@
 		(
 			function(data)
 			{
-				$("#addCourseAdminDialog").dialog("open");
+					$("#addCourseAdminDialog").dialog("open");
 			}
 		);
+		
+		$('#deleteCourseAdminButton').click
+		(
+			function(data)
+			{
+				var data = $('input', courseAdminsTable.fnGetNodes()).serialize();
+				
+				if (data == '')
+				{
+					$("#alert").dialog("open");
+				}
+				else
+				{
+					$("input[name='selected_admins']").val(data);
+					document.deleteAdmin.submit();
+				}
+			}
+		);
+		
+		$("#alert").dialog
+		({
+			bgiframe: true,
+			height: 100,
+			width: 200,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			autoOpen: false,
+			title: 'Warning:',
+			buttons: 
+			{
+				'OK'			:	function() 
+										{
+											$(this).dialog('close');
+										}
+
+			}
+			
+		});
 
 		$("#addCourseAdminDialog input[name='select_user_all']").change
 		(
@@ -214,10 +253,15 @@
 		
 		$('#editSelectedButton').click
 		( 	
-			function(data)
-			{
+		 function(data){
+			var x = $('input', studentTable.fnGetNodes()).serialize();
+			if (x == ''){
+				$("#alert").dialog("open");
+			}
+			else{
 				$("#editSubDialog").dialog("open");
 			}
+		 }
 		);
 		
 		$("#editSubDialog").dialog
@@ -388,8 +432,8 @@
         	<input type="hidden" name="id" value="<?php echo $courseID;?>">
         	<input type="hidden" name="classID" value="<?php echo $courseInfo->classAdmins;?>">
             <input type="hidden" name="selected_admins" value="none">
-
-			<button type="button" class="addButton" id="addCourseAdminButton">Add Course Admin</button>
+            <button type="button" class="addButton" id="addCourseAdminButton">Add Course Admin</button>
+			<button type="button" class="deleteButton" id="deleteCourseAdminButton">Remove Course Admin</button>
 			
 			<?php
 				$data['ID'] = 'courseAdminsTable';
@@ -407,6 +451,14 @@
 				?>
 			</div>
 		</form>
+        <form name="deleteAdmin" action="<?php echo base_url();?>site_admin/db_deleteCourseAdmins" method="POST">
+        	<input type="hidden" name="id" value="<?php echo $courseID;?>">
+            <input type="hidden" name="classID" value="<?php echo $courseInfo->classAdmins;?>">
+            <input type="hidden" name="selected_admins" value="none">
+        </form>
+        <div id="alert">
+            <p>Nothing was selected</p>
+        </div>
 	</div>
 	
 	<div id="studentTab">
@@ -416,7 +468,7 @@
 			<input type="hidden" name="selected_students" value="none">
 			
 			<button type="button" class="addButton" id="addStudentButton">Add Subscription</button>
-            <button type="button" class="addButton" id="editSelectedButton">Edit Selected</button>
+            <button type="button" class="editButton" id="editSelectedButton">Edit Selected</button>
 
 			<?php
 				$data['ID'] = 'studentTable';
