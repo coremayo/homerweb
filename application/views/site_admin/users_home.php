@@ -8,6 +8,20 @@
 
 	$(document).ready(function() 
 	{
+		var button1 = $('#addNewUserFromFileButton');
+		<?php echo 'var loc = \''.base_url().'uploader\';' ?>
+		new AjaxUpload(button1,{
+		action: loc,
+		data: {type: 'excel'},
+		onSubmit : function(){
+			this.disable();
+		},
+		onComplete: function(file, response){
+			this.enable();
+			window.location = 'users';
+		}
+	});
+		
 		usersTable = $('#usersTable').dataTable( 
 		{
 			"bJQueryUI": true,
@@ -37,6 +51,7 @@
 	<hr>
 	<br>
 	
+	<button type="button" class="addButton" id="addNewUserFromFileButton">Add Users From Excel File</button>
 	<button type="button" class="addButton" id="addNewUserButton" onclick="window.location.href='<?php echo base_url();?>site_admin/users/add_user'">Add New User</button>
 	
 	<?php
