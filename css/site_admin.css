@@ -31,9 +31,29 @@ color: white;
 padding: 10px 10px 10px 40px;
 background-repeat: no-repeat;
 background-position: 2px center;
-background-image: url('../images/site_admin/add_icon.gif');
+background-image: url('../images/site_admin/add_icon2.gif');
 margin-bottom: 10px;
 margin-right: 0;
+float: right;
+}
+
+.deleteButton {
+padding: 10px 10px 10px 40px;
+background-repeat: no-repeat;
+background-position: 2px center;
+background-image: url('../images/site_admin/delete_icon.png');
+margin-bottom: 10px;
+margin-right: 10px;
+float: right;
+}
+
+.editButton {
+padding: 10px 10px 10px 40px;
+background-repeat: no-repeat;
+background-position: 2px center;
+background-image: url('../images/site_admin/edit_icon.png');
+margin-bottom: 10px;
+margin-right: 10px;
 float: right;
 }
 

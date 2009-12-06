@@ -49,6 +49,9 @@ class Groups_model extends Model {
   }
 
   function removeFromGroup($groupId, $userId) {
+	  $this->db->where('group_has_user.group_id', $groupId);
+	  $this->db->where('group_has_user.user_id', $userId);
+	  $this->db->delete('group_has_user'); 
   }
 
   /**
