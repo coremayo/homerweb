@@ -350,6 +350,11 @@ class Site_admin extends Controller
 		echo "called db_editCourseSchedule";
 	}
 	
+	function db_editSettingsMain()
+	{
+		echo "called db_editSettingsMain";
+	}
+	
 	function _is_authorized()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');

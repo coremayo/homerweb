@@ -6,11 +6,14 @@
 		<link type="text/css" href="<?php echo base_url();?>css/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 		<link rel="stylesheet" href="<?php echo base_url();?>css/site_admin.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="<?php echo base_url();?>css/demo_table.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="<?php echo base_url();?>css/farbtastic.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.3.2.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-ui-1.7.2.custom.min.js"></script>
 		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/jquery.delay.js"></script>
 		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/site_admin.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/ajaxupload.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo base_url();?>js/farbtastic.js"></script>
 	</head>
 	<body>
 	
@@ -35,11 +38,9 @@
 		</li>
 		<li class="headlink">
 			<a href="<?php echo base_url();?>site_admin/settings">Settings</a>
-			<ul>
-				<li><a href="<?php echo base_url();?>site_admin/settings/themes">Theme Manager</a></li>
-				<li><a href="<?php echo base_url();?>site_admin/settings/stylesheets">Stylesheets</a></li>
-				<li><a href="<?php echo base_url();?>site_admin/settings/templates">Templates</a></li>
-			</ul>
+		</li>
+		<li align="right" class="headlink">
+			<a href="<?php echo base_url();?>student">Student View</a>
 		</li>
 	</ul>
 	
