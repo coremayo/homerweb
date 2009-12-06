@@ -323,7 +323,7 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/1');
 	}
 	
-	function db_editCourseStudents()
+	function db_addCourseSubscriptions()
 	{
 		$id           = $this->input->post('id');
 		$classID      = $this->input->post('classID');
@@ -341,7 +341,56 @@ class Site_admin extends Controller
 		}
 
 		$this->session->set_flashdata('type', 'message success');
-		$this->session->set_flashdata('msg', 'Course Students added successfully!');
+		$this->session->set_flashdata('msg', 'Course Subscriptions added successfully!');
+		redirect('site_admin/courses/edit_course/'.$id.'/2');
+	}
+	
+	function db_editCourseSubscriptions()
+	{
+		$id           = $this->input->post('id');
+		$students     = explode("&", $this->input->post('selected_subs'));
+		$edit_type  = $this->input->post('edit_option');
+		$setStart = $this->input->post('setStart');
+		$setEnd = $this->input->post('setEnd');
+		$extStart = $this->input->post('extStart');
+		$extEnd = $this->input->post('extEnd');
+		if($edit_type == 'date'){
+			foreach ($students as $student)
+			{
+				$key_value = explode("=", $student);
+				$key = $key_value[0];
+	
+				if($key != 'none')
+				{
+					if($setStart != ''){
+						$this->subscriptions_model->setStartDate($key_value[1], $setStart);
+					}
+					if($setEnd != ''){
+						$this->subscriptions_model->setEndDate($key_value[1], $setEnd);
+					}
+				}
+			}
+		}
+		else if($edit_type == 'days'){
+			foreach ($students as $student)
+			{
+				$key_value = explode("=", $student);
+				$key = $key_value[0];
+	
+				if($key != 'none')
+				{
+					if($extStart != ''){
+						$this->subscriptions_model->extendStartDate($key_value[1], $extStart);
+					}
+					if($extEnd != ''){
+						$this->subscriptions_model->extendEndDate($key_value[1], $extEnd);
+					}
+				}
+			}
+		}
+		
+		$this->session->set_flashdata('type', 'message success');
+		$this->session->set_flashdata('msg', 'Course Subscriptions edited successfully!');
 		redirect('site_admin/courses/edit_course/'.$id.'/2');
 	}
 	

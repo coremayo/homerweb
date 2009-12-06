@@ -220,6 +220,12 @@ font-size: 18px;
 color: #55917A;
 padding: 0;
 }
+
+.ui-datepicker
+{
+z-index: 1050; /* must be > than popup editor (1002) */
+}
+
 /*----------------------------------------------------*/
 
 #footer {

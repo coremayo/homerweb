@@ -36,8 +36,7 @@
 					}
 					else if($display == SHOW_STUDENTS_NOT_IN_COURSE)
 					{
-						//$rows = $this->classes_model->getNonAdmins($optionID);
-						$rows = $this->classes_model->getNonStudentsAdmins($optionID);
+						$rows = $this->classes_model->getNonCourseAdmins($optionID);
 						$tableType = USERS;
 					}
 					else if($display == SHOW_SCHEDULE_IN_COURSE)
@@ -133,7 +132,7 @@
 					}
 					else if ($tableType == SUBSCRIPTIONS)
 					{
-						if ($FIELDS & SELECT_FIELD)  echo '<td><input type="checkbox" name="select_user" value="'.$row->id.'"></td>';
+						if ($FIELDS & SELECT_FIELD)  echo '<td><input type="checkbox" name="select_user" value="'.$row->subID.'"></td>';
 						if ($FIELDS & SUB_FIELD)	 echo '<td>'.$row->subID.'</td>';
 						if ($FIELDS & EMAIL_FIELD)   echo '<td>'.$row->userEmail.'</td>';
 						if ($FIELDS & FNAME_FIELD)   echo '<td>'.$row->userFirstName.'</td>';

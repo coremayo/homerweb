@@ -264,7 +264,7 @@ class Classes_model extends Model {
   function getNonStudentsAdmins($courseId) {
     $this->db->select('*');
     $this->db->from('user u');
-    $this->db->where('u.id NOT IN (SELECT s.subscriptionUser FROM subscription s WHERE s.subscriptionClass = '.$courseId.')');
+    //$this->db->where('u.id NOT IN (SELECT s.subscriptionUser FROM subscription s WHERE s.subscriptionClass = '.$courseId.')');
 	$this->db->where('u.id NOT IN (SELECT g.user_id FROM group_has_user g, class c WHERE c.id = '.$courseId.' AND g.group_id = c.classAdmins)');
     return $this->db->get()->result();
 	
