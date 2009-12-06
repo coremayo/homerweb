@@ -20,7 +20,14 @@
 	
 		foreach($info as $i)
     	{
-			echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+			if ($i->resourceType == "wmv")
+			{
+				echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+			}
+			else
+			{
+				echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+			}
 			echo '<td>'.$i->resourceDescription.'</td>';
 			echo '<td>'.$i->resourceCreatedDate.'</td>';
 		}
