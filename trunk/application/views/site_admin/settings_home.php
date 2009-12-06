@@ -151,9 +151,10 @@ $(document).ready(function(){
 	
 	
 	var button1 = $('#banner_button');
-	<?php echo 'var loc = \''.base_url().'uploadfile\';' ?>
+	<?php echo 'var loc = \''.base_url().'uploader\';' ?>
 	new AjaxUpload(button1,{
 		action: loc,
+		data: {type: 'images'},
 		onSubmit : function(){
 			this.disable();
 		},
@@ -173,9 +174,10 @@ $(document).ready(function(){
 	});
 	
 	var button2 = $('#module_button');
-	<?php echo 'var loc = \''.base_url().'uploadfile\';' ?>
+	<?php echo 'var loc = \''.base_url().'uploader\';' ?>
 	new AjaxUpload(button2,{
 		action: loc,
+		data: {type: 'images'},
 		onSubmit : function(){
 			this.disable();
 		},
@@ -195,9 +197,10 @@ $(document).ready(function(){
 	});
 	
 	var button3 = $('#footer_button');
-	<?php echo 'var loc = \''.base_url().'uploadfile\';' ?>
+	<?php echo 'var loc = \''.base_url().'uploader\';' ?>
 	new AjaxUpload(button3,{
 		action: loc,
+		data: {type: 'images'},
 		onSubmit : function(){
 			this.disable();
 		},
@@ -217,9 +220,10 @@ $(document).ready(function(){
 	});
 	
 	var button4 = $('#inactive_tab_button');
-	<?php echo 'var loc = \''.base_url().'uploadfile\';' ?>
+	<?php echo 'var loc = \''.base_url().'uploader\';' ?>
 	new AjaxUpload(button4,{
 		action: loc,
+		data: {type: 'images'},
 		onSubmit : function(){
 			this.disable();
 		},
