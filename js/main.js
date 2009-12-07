@@ -17,8 +17,11 @@ $(document).ready(function()
 	
 	$("#forgotPassword_form").validate();
 	
+	$('#public_courses').dataTable( {
+				"aaSorting": [[ 2, "desc" ]]
+	});
 });
-
+	
 function changeClass(id){
 document.getElementById(id).setAttribute("class", "activetab");
 }

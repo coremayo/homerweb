@@ -47,7 +47,7 @@ $(document).ready(function()
 	$('#user_lecture_resources').dataTable( {
 				"aaSorting": [[ 2, "desc" ]]
 	});
-	
+		
 	$("#settings_form").validate( {
 		rules: {
 			pass: {
