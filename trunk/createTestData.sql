@@ -33,8 +33,10 @@ VALUES ('1', '1', 'Chicago Review Courses');
 
 INSERT INTO `class` (`id`, `classTitle`, `classDesc`, `classPrice`, `classSubLength`, `classAdmins`, `classStartDate`, `classEndDate`, `classSite`) VALUES
 (1, 'Neuro 2009', 'This is an example description for the neuro 2009 class.', 19.95, 60, 2, '2009-10-05', '2010-10-30', 1),
-(2, 'Rar', '', 15.99, 70, 3, '2009-10-05', '2009-10-28', 1),
-(3, 'Neuro 2007', '', 29.99, 120, 4, '2006-10-05', '2007-10-25', 1);
+(2, 'Rar', 'Rar class description', 15.99, 70, 3, '2009-10-05', '2009-10-28', 1),
+(3, 'Neuro 2007', 'example description for Neuro 2007', 29.99, 120, 1, '2006-10-05', '2007-10-25', 1),
+(4, 'Brain 2009', 'example description for Brain 2009', 59.99, 30, 1, '2009-10-05', '2009-10-25', 1),
+(5, 'Upcoming 2009', 'example description for Upcoming 2009', 79.99, 20, 1, '2010-01-05', '2010-01-25', 1);
 
 INSERT INTO `subscription` (`id` ,`subscriptionStartDate` ,`subscriptionEndDate` ,`subscriptionClass` ,`subscriptionUser`)
 VALUES ('1', '2009-10-05', '2019-11-30', '1', '2'),

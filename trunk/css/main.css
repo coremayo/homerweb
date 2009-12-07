@@ -93,7 +93,7 @@ overflow: hidden;
 margin-bottom: 2em;
 }
 
-#level1 div, #level2 div, #about_level1 div, #qbank_level1 div{
+#level1 div, #level2 div, #about_level1 div, #qbank_level1 div, #courses_lvl1{
 
 border: 2px solid #d0d0d0;
 -moz-border-radius: 10px;
@@ -207,3 +207,7 @@ div.navBar {
   z-index: 101;
 }
 
+#public_courses {
+  width: 100%;
+  margin-right: 3em;
+}
