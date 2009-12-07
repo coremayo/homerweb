@@ -4,7 +4,7 @@
 		$result = $this->classes_model->getAllClasses();
 		$currentDate = date('Y-m-d');
 		
-		function dateDiff($currentDate, $classStartDate, $classEndDate)
+		function compare_Dates($currentDate, $classStartDate, $classEndDate)
 		{
 			$today = strtotime($currentDate);
 			$compare_StartDate = strtotime($classStartDate);
@@ -43,7 +43,7 @@
 					<?php 	
 						foreach ($result as $classInfo)
 						{
-							if (dateDiff($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "UPCOMING")
+							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "UPCOMING")
 							{
 								echo	'<tr>      
 										<td>'.$classInfo->classTitle.'</td>
@@ -77,7 +77,7 @@
 					<?php 	
 						foreach ($result as $classInfo)
 						{
-							if (dateDiff($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "CURRENT")
+							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "CURRENT")
 							{
 								echo	'<tr>      
 										<td>'.$classInfo->classTitle.'</td>
@@ -111,7 +111,7 @@
 					<?php 	
 						foreach ($result as $classInfo)
 						{
-							if (dateDiff($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "ARCHIVE")
+							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "ARCHIVE")
 							{
 								echo	'<tr>      
 										<td>'.$classInfo->classTitle.'</td>
