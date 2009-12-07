@@ -48,6 +48,7 @@
 					if ($tableType == USERS)
 					{
 						if ($FIELDS & SELECT_FIELD)  echo '<th><input type="checkbox" name="select_user_all"></th>';
+						if ($FIELDS & RADIO_FIELD)  echo '<th></th>';
 						if ($FIELDS & EMAIL_FIELD)   echo '<th>Email Address</th>';
 						if ($FIELDS & FNAME_FIELD)   echo '<th>First Name</th>';
 						if ($FIELDS & LNAME_FIELD)   echo '<th>Last Name</th>';
@@ -97,6 +98,7 @@
 					if ($tableType == USERS)
 					{
 						if ($FIELDS & SELECT_FIELD)  echo '<td><input type="checkbox" name="select_user" value="'.$row->id.'"></td>';
+						if ($FIELDS & RADIO_FIELD)  echo '<td><input type="radio" name="select_user" value="'.$row->id.'"></td>';
 						if ($FIELDS & EMAIL_FIELD)   echo '<td><a href="'.base_url().'site_admin/users/edit_user/'.$row->id.'">'.$row->userEmail.'</a></td>';
 						if ($FIELDS & FNAME_FIELD)   echo '<td>'.$row->userFirstName.'</td>';
 						if ($FIELDS & LNAME_FIELD)   echo '<td>'.$row->userLastName.'</td>';

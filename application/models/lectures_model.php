@@ -58,6 +58,16 @@ class Lectures_model extends Model {
     return $query->result();
   }
   
+  function addLecture($topic, $course, $adminID, $stime, $etime){
+	$lecture['lectureTopic'] = $topic;
+	$lecture['lectureClass'] = $course;
+   	$lecture['lectureAdmin'] = $adminID;
+    $lecture['lectureStartTime'] = date('Y-m-d H:i:s', strtotime("$stime"));
+	$lecture['lectureEndTime'] = date('Y-m-d H:i:s', strtotime("$etime")); 
+
+    $this->db->insert('lecture', $lecture);
+  }
+  
 
     
 }
