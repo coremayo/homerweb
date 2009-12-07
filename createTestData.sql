@@ -32,11 +32,13 @@ INSERT INTO `site` (`id` ,`siteAdmins` ,`siteName`)
 VALUES ('1', '1', 'Chicago Review Courses');
 
 INSERT INTO `class` (`id`, `classTitle`, `classDesc`, `classPrice`, `classSubLength`, `classAdmins`, `classStartDate`, `classEndDate`, `classSite`) VALUES
-(1, 'Neuro 2009', 'This is an example description for the neuro 2009 class.', 19.95, 60, 2, '2009-10-05', '2010-10-30', 1),
-(2, 'Rar', 'Rar class description', 15.99, 70, 3, '2009-10-05', '2009-10-28', 1),
-(3, 'Neuro 2007', 'example description for Neuro 2007', 29.99, 120, 1, '2006-10-05', '2007-10-25', 1),
-(4, 'Brain 2009', 'example description for Brain 2009', 59.99, 30, 1, '2009-10-05', '2009-10-25', 1),
-(5, 'Upcoming 2009', 'example description for Upcoming 2009', 79.99, 20, 1, '2010-01-05', '2010-01-25', 1);
+(1, 'Neuro 2009', 'This is an example description for the Neuro 2009 class.', 19.95, 60, 2, '2009-10-05', '2010-10-30', 1),
+(2, 'Rar', 'This is an example description for the Rar class.', 15.99, 70, 3, '2009-9-15', '2009-10-28', 1),
+(3, 'Neuro 2007', 'This is an example description for the Neuro 2007 class.', 29.99, 120, 1, '2006-7-24', '2007-10-03', 1),
+(4, 'Brain 2009', 'This is an example description for the Brain 2009 class.', 59.99, 30, 1, '2009-011-12', '2009-12-04', 1),
+(5, 'Upcoming 2009', 'This is an example description for the Upcoming 2009 class.', 79.99, 20, 1, '2010-01-05', '2010-01-25', 1),
+(6, 'Cancer 2010', 'This is an example description for the Cancer 2010 class.', 69.99, 20, 1, '2010-02-14', '2010-03-22', 1),
+(7, 'Neurology 2009', 'This is an example description for the Neurology 2010 class.', 49.99, 20, 1, '2009-09-08', '2010-06-15', 1);
 
 INSERT INTO `subscription` (`id` ,`subscriptionStartDate` ,`subscriptionEndDate` ,`subscriptionClass` ,`subscriptionUser`)
 VALUES ('1', '2009-10-05', '2019-11-30', '1', '2'),

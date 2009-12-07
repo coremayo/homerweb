@@ -17,7 +17,15 @@ $(document).ready(function()
 	
 	$("#forgotPassword_form").validate();
 	
-	$('#public_courses').dataTable( {
+	$('#public_upcoming_courses').dataTable( {
+				"aaSorting": [[ 2, "desc" ]]
+	});
+	
+	$('#public_current_courses').dataTable( {
+				"aaSorting": [[ 2, "desc" ]]
+	});
+	
+	$('#public_archive_courses').dataTable( {
 				"aaSorting": [[ 2, "desc" ]]
 	});
 });
