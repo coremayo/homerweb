@@ -50,6 +50,12 @@
 			"sPaginationType": "full_numbers"
 		});
 		
+		selectLectureAdminDialogTable = $('#selectLectureAdminDialogTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+		
 		$("#addStudentDialog").dialog
 		({
 			bgiframe: true,
@@ -307,6 +313,24 @@
 			
 		});
 		
+		$('#deleteSubButton').click
+		(
+			function(data)
+			{
+				var data = $('input', studentTable.fnGetNodes()).serialize();
+				
+				if (data == '')
+				{
+					$("#alert").dialog("open");
+				}
+				else
+				{
+					$("input[name='selected_subs']").val(data);
+					document.deleteSub.submit();
+				}
+			}
+		);
+		
 		
 		scheduleTable = $('#scheduleTable').dataTable( 
 		{
@@ -345,6 +369,50 @@
 										}
 			}
 		});
+		
+		$("#selectLectureAdminDialog").dialog
+		({
+			bgiframe: true,
+			height: 500,
+			width: 800,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			autoOpen: false,
+			buttons: 
+			{
+				'Cancel'			:	function() 
+										{
+											$(this).dialog('close');
+										}
+				,			
+				'Add Admin'	:	function() 
+										{
+											var data = $('input', selectLectureAdminDialogTable.fnGetNodes()).serialize();
+
+											if (data == '')
+											{
+												$("input[name='selected_admins']").val('none');
+
+											}
+											else
+											{
+												$("input[name='selected_admins']").val(data);
+
+											}
+
+											$(this).dialog('close');
+										}
+			}
+		});
+
+		$('#selectLectureAdminButton').click
+		(
+			function(data)
+			{
+					$("#selectLectureAdminDialog").dialog("open");
+			}
+		);
 		
 		
 	});
@@ -468,7 +536,8 @@
 			<input type="hidden" name="selected_students" value="none">
 			
 			<button type="button" class="addButton" id="addStudentButton">Add Subscription</button>
-            <button type="button" class="editButton" id="editSelectedButton">Edit Selected</button>
+            <button type="button" class="editButton" id="editSelectedButton">Edit Subscriptions</button>
+            <button type="button" class="deleteButton" id="deleteSubButton">Delete Subscriptions</button>
 
 			<?php
 				$data['ID'] = 'studentTable';
@@ -478,6 +547,8 @@
 			?>
 
 			<div id="addStudentDialog" title="Add Subscriptions">
+            	<p>Course and lecture admins for this course will not be displayed in this list</p>
+                <p>If a user already has a subscription, it will be extended</p>
 				<?php
 					$dialogData['ID'] = 'addStudentDialogTable';
 					$dialogData['TABLE'] = array(SHOW_STUDENTS_NOT_IN_COURSE, $courseID);
@@ -544,6 +615,11 @@
 				</table>
 			</form>
 		</div>
+        
+        <form name="deleteSub" action="<?php echo base_url();?>site_admin/db_deleteCourseSubscriptions" method="POST">
+        	<input type="hidden" name="id" value="<?php echo $courseID;?>">
+            <input type="hidden" name="selected_subs" value="none">
+        </form>
 	</div>
 	
 	<div id="scheduleTab">
@@ -557,7 +633,9 @@
 		?>
 
 		<div id="addItemDialog" title="Add Item">
-			<form name="addItem" action="<?php echo base_url();?>site_admin/db_editCourseSchedule" method="POST">
+			<form name="addItem" action="<?php echo base_url();?>site_admin/db_addCourseItem" method="POST">
+            <input type="hidden" name="selected_admins" value="none">
+            <input type="hidden" name="id" value="<?php echo $courseID;?>">
 				<table width="400px" class="outer">
 					<tr>
 						<td>
@@ -577,17 +655,17 @@
 								
 								<tr>
 									<td align="right" bgcolor="#E8E8E8" width="32%">Lecture Admin</td>
-									<td width ="68%"><input type="text" name="topic" size="35" maxlength"50" class="input"></td>
+									<td><button type="button" id="selectLectureAdminButton">Select Admin</button></td>
 								</tr>
 	
 								<tr>
 									<td align="right" bgcolor="#E8E8E8" width="32%">Start Time</td>
 									<td width ="68%">
-										Date: <input id="sday" type="text" name="sday" size="20" maxlength"20" class="input">
+										Date: <input id="sday" type="text" name="sday" size="10" maxlength="10" class="input">
 										<br>
 										<br>
-										Time: <input id="stime_hr" type="text" name="stime_hr" size="2" maxlength"2" class="input"> 
-										: <input id="stime_min" type="text" name="stime_min" size="2" maxlength"2" class="input">
+										Time: <input id="stime_hr" type="text" name="stime_hr" size="2" maxlength="2" class="input"> 
+										: <input id="stime_min" type="text" name="stime_min" size="2" maxlength="2" class="input">
 
 										<select name="stime_am_pm">
 											<option value="AM" selected>AM</option
@@ -599,11 +677,11 @@
 								<tr>
 									<td align="right" bgcolor="#E8E8E8" width="32%">End Time</td>
 									<td width ="68%">
-										Date: <input id="eday" type="text" name="eday" size="20" maxlength"20" class="input">
+										Date: <input id="eday" type="text" name="eday" size="10" maxlength="10" class="input">
 										<br>
 										<br>
-										Time: <input id="etime_hr" type="text" name="etime_hr" size="2" maxlength"2" class="input"> 
-										: <input id="etime_min" type="text" name="etime_min" size="2" maxlength"2" class="input">
+										Time: <input id="etime_hr" type="text" name="etime_hr" size="2" maxlength="2" class="input"> 
+										: <input id="etime_min" type="text" name="etime_min" size="2" maxlength="2" class="input">
 
 										<select name="etime_am_pm">
 											<option value="AM" selected>AM</option
@@ -615,8 +693,17 @@
 						</td>
 					</tr>
 				</table>
+                <div id="selectLectureAdminDialog" title="Select Lecture Admin">
+        <?php
+					$dialogData['ID'] = 'selectLectureAdminDialogTable';
+					$dialogData['TABLE'] = array(SHOW_ALL_USERS, $courseID);
+					$dialogData['FIELDS'] = RADIO_FIELD | EMAIL_FIELD | FNAME_FIELD | LNAME_FIELD;
+					$this->load->view('site_admin/table', $dialogData);
+				?>
+         </div>
 			</form>
 		</div>
+        
 	</div>
 </div>
 

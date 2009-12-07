@@ -23,6 +23,7 @@
 	if (!defined('LNAME_FIELD')) 	define('LNAME_FIELD', 8);
 	if (!defined('REGDATE_FIELD'))	define('REGDATE_FIELD', 16);
 	if (!defined('ACTIVE_FIELD')) 	define('ACTIVE_FIELD', 32);
+	if (!defined('RADIO_FIELD')) 	define('RADIO_FIELD', 64);
 	
 	/*------------------------------\
 	|  Course Fields                | 

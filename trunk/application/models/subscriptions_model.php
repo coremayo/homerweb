@@ -271,6 +271,16 @@ class Subscriptions_model extends Model {
   }
   
   /**
+  	* Delete specified subscription
+	*
+	*@param int sub id
+	*/
+  function deleteSubscription($subID){
+	  $this->db->where('subscription.id', $subID);
+	  $this->db->delete('subscription'); 
+  }
+  
+  /**
  	* Get a list of subscriptions of students subscriped to the course
   	*/
   

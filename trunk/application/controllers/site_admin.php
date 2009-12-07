@@ -415,6 +415,81 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/2');
 	}
 	
+	function db_deleteCourseSubscriptions()
+	{
+		$id           = $this->input->post('id');
+		$students     = explode("&", $this->input->post('selected_subs'));
+		
+		foreach ($students as $student)
+			{
+				$key_value = explode("=", $student);
+				$key = $key_value[0];
+	
+				if($key != 'none')
+				{
+					$this->subscriptions_model->deleteSubscription($key_value[1]);
+				}
+			}
+			
+		$this->session->set_flashdata('type', 'message success');
+		$this->session->set_flashdata('msg', 'Course Subscriptions deleted successfully!');
+		redirect('site_admin/courses/edit_course/'.$id.'/2');
+	}
+	
+	function db_addCourseItem()
+	{
+		$id           = $this->input->post('id');
+		$topic           = $this->input->post('topic');
+		$sday           = $this->input->post('sday');
+		$stime_hr           = $this->input->post('stime_hr');
+		$stime_min           = $this->input->post('stime_min');
+		$stime_am_pm           = $this->input->post('stime_am_pm');
+		$eday           = $this->input->post('eday');
+		$etime_hr           = $this->input->post('etime_hr');
+		$etime_min           = $this->input->post('etime_min');
+		$etime_am_pm           = $this->input->post('etime_am_pm');
+		$admins     = explode("&", $this->input->post('selected_admins'));
+		
+		if($stime_am_pm=='PM') $stime_hr += 12;
+		if($etime_am_pm=='PM') $etime_hr += 12;
+		$stime = $stime_hr.':'.$stime_min.':00';
+		$etime = $etime_hr.':'.$etime_min.':00';
+		
+		$stime = $sday.' '.$stime;
+		$etime = $eday.' '.$etime;
+		
+		// Set Validation Rules
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('topic', 'Topic', 'required');
+		
+		// Run Validation
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('type', 'message error');
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('site_admin/courses/edit_course/'.$id.'/3');
+		}
+		
+		foreach ($admins as $admin)
+			{
+				$key_value = explode("=", $admin);
+				$key = $key_value[0];
+	
+				if($key != 'none')
+				{
+					$this->lectures_model->addLecture($topic, $id, $key_value[1], $stime, $etime);
+				}
+				else{
+					$this->lectures_model->addLecture($topic, $id, NULL, $stime, $etime);
+				}
+			}
+			
+		$this->session->set_flashdata('type', 'message success');
+		$this->session->set_flashdata('msg', 'Course Item added successfully!');
+		redirect('site_admin/courses/edit_course/'.$id.'/3');
+	}
+	
 	function db_editCourseSchedule()
 	{
 		echo "called db_editCourseSchedule";
