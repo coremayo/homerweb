@@ -13,7 +13,7 @@
 	$(document).ready(function() 
 	{
 		$('#tabs').tabs({ selected: <?php echo $selected ?> });
-	}
+	});
 </script>
 
 <h2>Edit Schedule '<?php echo $lectureInfo->lectureTopic;?>'</h2>
