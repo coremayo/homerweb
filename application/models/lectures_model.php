@@ -12,12 +12,12 @@ class Lectures_model extends Model {
     * Gets information about a lecture. Will be returned in the 
     * form of an array of objects. Can be used in the following way: <br />
     * $subs = getLectureInfo($lectureId); <br />
-    * foreach ($subs ->result() as $sub) { echo($sub->id); }
+    * echo $sub->id; }
     */
   function getLectureInfo($lectureId, $fields = '*') {
     $this->db->select($fields);
     $this->db->where('id', $lectureId);
-    $query = $this->db->get('lecture');
+    $query = $this->db->get('lecture')->row();
     return $query;
   }
   
