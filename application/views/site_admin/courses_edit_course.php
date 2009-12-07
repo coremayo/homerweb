@@ -38,99 +38,8 @@
 			}
 		);
 		
-		addStudentDialogTable = $('#addStudentDialogTable').dataTable( 
-		{
-			"bJQueryUI": true,
-			"sPaginationType": "full_numbers"
-		});
+		<!-- Course Admin tables, dailogs, and buttons -->
 		
-		studentTable = $('#studentTable').dataTable( 
-		{
-			"bJQueryUI": true,
-			"sPaginationType": "full_numbers"
-		});
-		
-		selectLectureAdminDialogTable = $('#selectLectureAdminDialogTable').dataTable( 
-		{
-			"bJQueryUI": true,
-			"sPaginationType": "full_numbers"
-		});
-		
-		$("#addStudentDialog").dialog
-		({
-			bgiframe: true,
-			height: 500,
-			width: 800,
-			modal: true,
-			resizable: false,
-			draggable: false,
-			autoOpen: false,
-			buttons: 
-			{
-				'Cancel'			:	function() 
-										{
-											$(this).dialog('close');
-										}
-				,			
-				'Add Subscriptions'	:	function() 
-										{
-											var data = $('input', addStudentDialogTable.fnGetNodes()).serialize();
-	
-											if (data == '')
-											{
-												$("input[name='selected_students']").val('none');
-
-											}
-											else
-											{
-												$("input[name='selected_students']").val(data);
-												document.addStudent.submit();
-												
-											}
-	
-											$(this).dialog('close');
-										}
-			}
-		});
-		
-		$('#addStudentButton').click
-		(
-			function(data)
-			{
-				$("#addStudentDialog").dialog("open");
-			}
-		);
-		
-		$("#addStudentDialog input[name='select_user_all']").change
-		(
-			function()
-			{
-				if ($("#addStudentDialog input[name='select_user_all']").attr('checked'))
-				{
-					$('td input', addStudentDialogTable.fnGetNodes()).attr({checked: 'checked'});
-				}
-				else
-				{
-					$('td input', addStudentDialogTable.fnGetNodes()).attr({checked: ''});
-				}
-			}
-		)
-		
-		$("#studentTable input[name='select_user_all']").change
-		(
-			function()
-			{
-				if ($("#studentTable input[name='select_user_all']").attr('checked'))
-				{
-					$('td input', studentTable.fnGetNodes()).attr({checked: 'checked'});
-				}
-				else
-				{
-					$('td input', studentTable.fnGetNodes()).attr({checked: ''});
-				}
-			}
-		)
-
 		addCourseAdminDialogTable = $('#addCourseAdminDialogTable').dataTable( 
 		{
 			"bJQueryUI": true,
@@ -179,54 +88,7 @@
 										}
 			}
 		});
-
-		$('#addCourseAdminButton').click
-		(
-			function(data)
-			{
-					$("#addCourseAdminDialog").dialog("open");
-			}
-		);
 		
-		$('#deleteCourseAdminButton').click
-		(
-			function(data)
-			{
-				var data = $('input', courseAdminsTable.fnGetNodes()).serialize();
-				
-				if (data == '')
-				{
-					$("#alert").dialog("open");
-				}
-				else
-				{
-					$("input[name='selected_admins']").val(data);
-					document.deleteAdmin.submit();
-				}
-			}
-		);
-		
-		$("#alert").dialog
-		({
-			bgiframe: true,
-			height: 100,
-			width: 200,
-			modal: true,
-			resizable: false,
-			draggable: false,
-			autoOpen: false,
-			title: 'Warning:',
-			buttons: 
-			{
-				'OK'			:	function() 
-										{
-											$(this).dialog('close');
-										}
-
-			}
-			
-		});
-
 		$("#addCourseAdminDialog input[name='select_user_all']").change
 		(
 			function()
@@ -256,19 +118,85 @@
 				}
 			}
 		)
-		
-		$('#editSelectedButton').click
-		( 	
-		 function(data){
-			var x = $('input', studentTable.fnGetNodes()).serialize();
-			if (x == ''){
-				$("#alert").dialog("open");
+
+		$('#addCourseAdminButton').click
+		(
+			function(data)
+			{
+					$("#addCourseAdminDialog").dialog("open");
 			}
-			else{
-				$("#editSubDialog").dialog("open");
-			}
-		 }
 		);
+		
+		$('#deleteCourseAdminButton').click
+		(
+			function(data)
+			{
+				var data = $('input', courseAdminsTable.fnGetNodes()).serialize();
+				
+				if (data == '')
+				{
+					$("#alert").dialog("open");
+				}
+				else
+				{
+					$("input[name='selected_admins']").val(data);
+					document.deleteAdmin.submit();
+				}
+			}
+		);
+		
+		<!-- Student and subscription tables, dailogs, and buttons -->
+		
+		addStudentDialogTable = $('#addStudentDialogTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+		
+		studentTable = $('#studentTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+		
+		
+		
+		$("#addStudentDialog").dialog
+		({
+			bgiframe: true,
+			height: 500,
+			width: 800,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			autoOpen: false,
+			buttons: 
+			{
+				'Cancel'			:	function() 
+										{
+											$(this).dialog('close');
+										}
+				,			
+				'Add Subscriptions'	:	function() 
+										{
+											var data = $('input', addStudentDialogTable.fnGetNodes()).serialize();
+	
+											if (data == '')
+											{
+												$("input[name='selected_students']").val('none');
+
+											}
+											else
+											{
+												$("input[name='selected_students']").val(data);
+												document.addStudent.submit();
+												
+											}
+	
+											$(this).dialog('close');
+										}
+			}
+		});
 		
 		$("#editSubDialog").dialog
 		({
@@ -313,6 +241,36 @@
 			
 		});
 		
+		$("#addStudentDialog input[name='select_user_all']").change
+		(
+			function()
+			{
+				if ($("#addStudentDialog input[name='select_user_all']").attr('checked'))
+				{
+					$('td input', addStudentDialogTable.fnGetNodes()).attr({checked: 'checked'});
+				}
+				else
+				{
+					$('td input', addStudentDialogTable.fnGetNodes()).attr({checked: ''});
+				}
+			}
+		)
+		
+		$("#studentTable input[name='select_user_all']").change
+		(
+			function()
+			{
+				if ($("#studentTable input[name='select_user_all']").attr('checked'))
+				{
+					$('td input', studentTable.fnGetNodes()).attr({checked: 'checked'});
+				}
+				else
+				{
+					$('td input', studentTable.fnGetNodes()).attr({checked: ''});
+				}
+			}
+		)
+		
 		$('#deleteSubButton').click
 		(
 			function(data)
@@ -330,6 +288,58 @@
 				}
 			}
 		);
+
+		$('#addStudentButton').click
+		(
+			function(data)
+			{
+				$("#addStudentDialog").dialog("open");
+			}
+		);
+		
+		$('#editSelectedButton').click
+		( 	
+		 function(data){
+			var x = $('input', studentTable.fnGetNodes()).serialize();
+			if (x == ''){
+				$("#alert").dialog("open");
+			}
+			else{
+				$("#editSubDialog").dialog("open");
+			}
+		 }
+		);
+		
+		<!-- Alert dailog -->
+		
+		$("#alert").dialog
+		({
+			bgiframe: true,
+			height: 100,
+			width: 200,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			autoOpen: false,
+			title: 'Warning:',
+			buttons: 
+			{
+				'OK'			:	function() 
+										{
+											$(this).dialog('close');
+										}
+
+			}
+			
+		});
+		
+		<!-- Schedule and lecture tables, dailogs, and buttons -->
+		
+		selectLectureAdminDialogTable = $('#selectLectureAdminDialogTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
 		
 		
 		scheduleTable = $('#scheduleTable').dataTable( 
@@ -337,14 +347,6 @@
 			"bJQueryUI": true,
 			"sPaginationType": "full_numbers"
 		});
-		
-		$('#addItemButton').click
-		(
-			function(data)
-			{
-				$("#addItemDialog").dialog("open");
-			}
-		);
 		
 		$("#addItemDialog").dialog
 		({
@@ -405,6 +407,14 @@
 										}
 			}
 		});
+		
+		$('#addItemButton').click
+		(
+			function(data)
+			{
+				$("#addItemDialog").dialog("open");
+			}
+		);
 
 		$('#selectLectureAdminButton').click
 		(
@@ -636,7 +646,8 @@
 			<form name="addItem" action="<?php echo base_url();?>site_admin/db_addCourseItem" method="POST">
             <input type="hidden" name="selected_admins" value="none">
             <input type="hidden" name="id" value="<?php echo $courseID;?>">
-				<table width="400px" class="outer">
+            
+            <table width="400px" class="outer">
 					<tr>
 						<td>
 							<table class="text" border="0" cellpadding="4" cellspacing="3" width="100%">
@@ -693,14 +704,15 @@
 						</td>
 					</tr>
 				</table>
-                <div id="selectLectureAdminDialog" title="Select Lecture Admin">
-        <?php
+            
+            <div id="selectLectureAdminDialog" title="Select Lecture Admin">
+        		<?php
 					$dialogData['ID'] = 'selectLectureAdminDialogTable';
 					$dialogData['TABLE'] = array(SHOW_ALL_USERS, $courseID);
 					$dialogData['FIELDS'] = RADIO_FIELD | EMAIL_FIELD | FNAME_FIELD | LNAME_FIELD;
 					$this->load->view('site_admin/table', $dialogData);
 				?>
-         </div>
+         	</div>
 			</form>
 		</div>
         
