@@ -129,6 +129,7 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`lecture` (
   `lectureStartTime` DATETIME NULL ,
   `lectureEndTime` DATETIME NULL ,
   `lectureAdmin` INT NULL ,
+  `eventType` ENUM('Lecture', 'Other') DEFAULT 'Lecture',
   PRIMARY KEY (`id`) ,
   INDEX `fk_lecture_class` (`lectureClass` ASC) ,
   INDEX `fk_lecture_user` (`lectureAdmin` ASC) ,
@@ -364,6 +365,19 @@ CREATE TABLE IF NOT EXISTS `cs4911`.`payment` (
     `paypalVerified` ENUM('Y', 'N') ,
     `autoApproved` ENUM('Y', 'N') ,
     `paymentUser` INT ,
+    PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cs4911`.`settings`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cs4911`.`settings` ;
+
+CREATE TABLE IF NOT EXISTS `cs4911`.`settings` (
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `key` VARCHAR(45) NOT NULL UNIQUE ,
+    `value` VARCHAR (500) ,
     PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
