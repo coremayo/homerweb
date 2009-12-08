@@ -154,26 +154,25 @@ class Student extends Controller
 		$result = $this->lectures_model->getLectureInfo($lectureId);
 				
 		// DOES THIS LECTURE EXIST?
-		if($result->num_rows()==0){
+		if($result==NULL){
 			$data['content'] = 'student/notFound';
 			$data['subject'] = 'Lecture';
 			return $data;
 		}
 				
-		foreach ($result->result() as $info) {
-			// IS IT IN THE RIGHT CLASS?
-			if($info->lectureClass != $classId){
-				$data['content'] = 'student/notFound';
-				$data['subject'] = 'Lecture';
-				return $data;
-			}
-			$data['content'] = 'student/lecture';
-			$data['lectureTopic'] = $info->lectureTopic;
-			$data['lectureStartTime'] = $info->lectureStartTime;
-			$data['lectureEndTime'] = $info->lectureEndTime;
-			$data['lectureAdmin'] = $info->lectureAdmin;
-			$data['lectureID'] = $lectureId;
+		// IS IT IN THE RIGHT CLASS?
+		if($result->lectureClass != $classId){
+			$data['content'] = 'student/notFound';
+			$data['subject'] = 'Lecture';
+			return $data;
 		}
+			
+		$data['content'] = 'student/lecture';
+		$data['lectureTopic'] = $result->lectureTopic;
+		$data['lectureStartTime'] = $result->lectureStartTime;
+		$data['lectureEndTime'] = $result->lectureEndTime;
+		$data['lectureAdmin'] = $result->lectureAdmin;
+		$data['lectureID'] = $lectureId;
 		
 		return $data;
 	}
