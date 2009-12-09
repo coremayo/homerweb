@@ -4,7 +4,7 @@
 	<div id="subs_level1">
 		<div id="subscriptions">
       <h2>Purchase Course</h2>
-      <p>You are about to purchase the following course:</p>
+      <p>You are about to purchase a subscription to the following course:</p>
       <h3><?php echo $classInfo->classTitle; ?></h3>
       <ul style="list-style-type: circle;">
         <li><?php echo $classInfo->classDesc; ?></li>
