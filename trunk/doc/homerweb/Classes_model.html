@@ -26,7 +26,7 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Classes_model class handles comm between controllers and database.</p>
 		<p class="notes">
-			Located in <a class="field" href="_classes_model.php.html">/classes_model.php</a> (line <span class="field">18</span>)
+			Located in <a class="field" href="_classes_model.php.html">/classes_model.php</a> (line <span class="field">6</span>)
 		</p>
 		
 				
@@ -49,7 +49,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																								<div class="method-definition">
+																																																																																																																																																																																																																																								<div class="method-definition">
 					<img src="../media/images/Constructor.png" alt=" "/>
 											<span class="method-result">Classes_model</span>
 										<a href="#Classes_model" title="details" class="method-name">Classes_model</a>
@@ -63,9 +63,153 @@
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">void</span>
+											<span class="method-result">Array</span>
+										<a href="#getAllAdmins" title="details" class="method-name">getAllAdmins</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getAllClasses" title="details" class="method-name">getAllClasses</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getAllStudents" title="details" class="method-name">getAllStudents</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getClassInfo" title="details" class="method-name">getClassInfo</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, [<span class="var-type">Array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">String</span>
+										<a href="#getClassPrice" title="details" class="method-name">getClassPrice</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">String</span>
+										<a href="#getClassStartDate" title="details" class="method-name">getClassStartDate</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">int</span>
+										<a href="#getClassSubLength" title="details" class="method-name">getClassSubLength</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">String</span>
 										<a href="#getClassTitle" title="details" class="method-name">getClassTitle</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$classId</span>)
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">list</span>
+										<a href="#getCoursesAdminOf" title="details" class="method-name">getCoursesAdminOf</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">list</span>
+										<a href="#getCoursesLectureAdminOf" title="details" class="method-name">getCoursesLectureAdminOf</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">list</span>
+										<a href="#getCoursesLectureOrCourseAdminOf" title="details" class="method-name">getCoursesLectureOrCourseAdminOf</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getNonAdmins" title="details" class="method-name">getNonAdmins</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$courseId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getNonCourseAdmins" title="details" class="method-name">getNonCourseAdmins</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getNonStudents" title="details" class="method-name">getNonStudents</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$courseId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getNonStudentsAdmins" title="details" class="method-name">getNonStudentsAdmins</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$courseId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">int</span>
+										<a href="#getNumAdmins" title="details" class="method-name">getNumAdmins</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">int</span>
+										<a href="#getNumUsers" title="details" class="method-name">getNumUsers</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">Array</span>
+										<a href="#getSchedule" title="details" class="method-name">getSchedule</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#isValidTitle" title="details" class="method-name">isValidTitle</a>
+											(<span class="var-type">String</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setDesc" title="details" class="method-name">setDesc</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$desc</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setEndDate" title="details" class="method-name">setEndDate</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$end</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setPrice" title="details" class="method-name">setPrice</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$price</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setStartDate" title="details" class="method-name">setStartDate</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$start</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setSubLength" title="details" class="method-name">setSubLength</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$length</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setTitle" title="details" class="method-name">setTitle</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$title</span>)
 									</div>
 											</div>
 		</div>
@@ -87,7 +231,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Constructor.png" />
-		<span class="method-title">Constructor Classes_model</span> (line <span class="line-number">23</span>)
+		<span class="method-title">Constructor Classes_model</span> (line <span class="line-number">11</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -109,7 +253,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">addClass</span> (line <span class="line-number">42</span>)
+		<span class="method-title">addClass</span> (line <span class="line-number">89</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -129,34 +273,758 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type">Array</span>
-				<span class="var-name">$classInfo</span><span class="var-description">: fields for the new class. Should contain the following:  <ul><li>classTitle - String, the title of the class</li><li>classUsers - int, id of the group that will be users</li><li>classAdmins - int, id of the group that will be admins</li><li>classStartDate - Date, starting date for the class</li><li>classEndDate - Date, ending date for the class</li><li>classSite - int, id of the site the class belongs to</li></ul></span>			</li>
+				<span class="var-name">$classInfo</span><span class="var-description">: fields for the new class. Should contain the following:  <ul><li>classTitle - String, the title of the class</li><li>classDesc - String, the description of the class</li><li>classPrice - String, the price of the class</li><li>classAdmins - int, id of the group that will be admins</li><li>classStartDate - Date, starting date for the class</li><li>classEndDate - Date, ending date for the class</li><li>classSite - int, id of the site the class belongs to</li></ul></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAllAdmins" id="getAllAdmins"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAllAdmins</span> (line <span class="line-number">99</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a list of admins for the given class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of the user id's for those who are admins in a class</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getAllAdmins
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: Id of the class queried</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAllClasses" id="getAllClasses"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAllClasses</span> (line <span class="line-number">20</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array containing all the classes in the database.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> All the classes in the database</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getAllClasses
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAllStudents" id="getAllStudents"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAllStudents</span> (line <span class="line-number">123</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a list of students who are in a given class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of the user id's who are current students in the class</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getAllStudents
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: Id of the class queried</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetClassInfo" id="getClassInfo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getClassInfo</span> (line <span class="line-number">287</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets information about a class. Will be returned in the  form of an array of objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of information about the specified class</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getClassInfo
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, [<span class="var-type">Array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: id of the class to query</span>			</li>
+					<li>
+				<span class="var-type">Array</span>
+				<span class="var-name">$fields</span><span class="var-description">: list of fields to return information about</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetClassPrice" id="getClassPrice"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getClassPrice</span> (line <span class="line-number">171</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the price of the specified class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> price of the specified class</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">String</span>
+		<span class="method-name">
+			getClassPrice
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: Id of the class to query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetClassStartDate" id="getClassStartDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getClassStartDate</span> (line <span class="line-number">199</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the starting date for the specified class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> starting date of the specified class</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">String</span>
+		<span class="method-name">
+			getClassStartDate
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: Id of the class to query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetClassSubLength" id="getClassSubLength"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getClassSubLength</span> (line <span class="line-number">185</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the length of the default subscription for the specified class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> length in days of the default subscription</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getClassSubLength
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: Id of the class to query</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodgetClassTitle" id="getClassTitle"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getClassTitle</span> (line <span class="line-number">53</span>)
+		<span class="method-title">getClassTitle</span> (line <span class="line-number">157</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the class title of the class with the specified id.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the title of the class</li>
+			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">void</span>
+		<span class="method-result">String</span>
 		<span class="method-name">
 			getClassTitle
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$classId</span>)
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$classId</span>			</li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: Id of the class to query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCoursesAdminOf" id="getCoursesAdminOf"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCoursesAdminOf</span> (line <span class="line-number">364</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get all the courses that the user is a course admin for.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of course's info</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">list</span>
+		<span class="method-name">
+			getCoursesAdminOf
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCoursesLectureAdminOf" id="getCoursesLectureAdminOf"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCoursesLectureAdminOf</span> (line <span class="line-number">375</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get all the courses that the user is a lecture admin for.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of course's info</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">list</span>
+		<span class="method-name">
+			getCoursesLectureAdminOf
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCoursesLectureOrCourseAdminOf" id="getCoursesLectureOrCourseAdminOf"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCoursesLectureOrCourseAdminOf</span> (line <span class="line-number">386</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get all the courses that the user is a lecture or course admin for</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of course's info</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">list</span>
+		<span class="method-name">
+			getCoursesLectureOrCourseAdminOf
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNonAdmins" id="getNonAdmins"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getNonAdmins</span> (line <span class="line-number">300</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all the user ids that are students in the class and are not admins  in that same course.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of user id's that are students but not admins</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getNonAdmins
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$courseId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$courseId</span><span class="var-description">: The course id to lookup</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNonCourseAdmins" id="getNonCourseAdmins"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getNonCourseAdmins</span> (line <span class="line-number">316</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all the user ids that are not course admins in the course.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of user id's that are not admins</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getNonCourseAdmins
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: The course id to lookup</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNonStudents" id="getNonStudents"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getNonStudents</span> (line <span class="line-number">332</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all the user id's of admins who aren't students in a given course.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of id's for admins who aren't also students</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getNonStudents
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$courseId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$courseId</span><span class="var-description">: The course id to lookup</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNonStudentsAdmins" id="getNonStudentsAdmins"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getNonStudentsAdmins</span> (line <span class="line-number">349</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all the user id's of users who aren't students or admins in a given course.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of id's who aren't students or admins</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getNonStudentsAdmins
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$courseId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$courseId</span><span class="var-description">: The course id to lookup</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNumAdmins" id="getNumAdmins"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getNumAdmins</span> (line <span class="line-number">62</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the number of admins assigned to a class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of admins</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getNumAdmins
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: the class id of the class to return the number of admins for</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNumUsers" id="getNumUsers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getNumUsers</span> (line <span class="line-number">47</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the number of users assigned to a class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of users</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getNumUsers
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: the class id of the class to return the number of users for</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetSchedule" id="getSchedule"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getSchedule</span> (line <span class="line-number">34</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets all the lectures in a particular class.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> lectures of the class queried</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Array</span>
+		<span class="method-name">
+			getSchedule
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: id of the class to query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisValidTitle" id="isValidTitle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">isValidTitle</span> (line <span class="line-number">142</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether the given title already exists in the database.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True if the class title already exists, otherwise false</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isValidTitle
+		</span>
+					(<span class="var-type">String</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$title</span><span class="var-description">: class title to query for in the database</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: id of class to exclude in the search</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetDesc" id="setDesc"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setDesc</span> (line <span class="line-number">225</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the description of a class to the specified value.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDesc
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$desc</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: id of the class to modify</span>			</li>
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$desc</span><span class="var-description">: new value for the class's description</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetEndDate" id="setEndDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setEndDate</span> (line <span class="line-number">273</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the end date of a class to the specified value.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEndDate
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$end</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: id of the class to modify</span>			</li>
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$end</span><span class="var-description">: new value fo the class's end date</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetPrice" id="setPrice"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setPrice</span> (line <span class="line-number">237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the price of a class to the specified value.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPrice
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$price</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: id of the class to modify</span>			</li>
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$price</span><span class="var-description">: new value for the class's price</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStartDate" id="setStartDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setStartDate</span> (line <span class="line-number">261</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the start date for a class to the specified value.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStartDate
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$start</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: id of the class to modify</span>			</li>
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$start</span><span class="var-description">: new value for the class's start date</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetSubLength" id="setSubLength"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setSubLength</span> (line <span class="line-number">249</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the default subscription length of a class.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setSubLength
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$length</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: id of the class to modify</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$length</span><span class="var-description">: new value for the class's default subscription length</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetTitle" id="setTitle"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setTitle</span> (line <span class="line-number">213</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the title of a class to the specified value.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTitle
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$title</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: Id of the class to modify</span>			</li>
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$title</span><span class="var-description">: new value for the class's title</span>			</li>
 				</ul>
 		
 			
@@ -167,7 +1035,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 22 Oct 2009 14:49:17 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Tue, 08 Dec 2009 22:46:11 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

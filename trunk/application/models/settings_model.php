@@ -1,11 +1,21 @@
 <?php
 
+/**
+ * Handles getting and setting values of application settings in the form of 
+ * key value pairs.
+ */
 class Settings_model extends Model {
 
   function Settings_model() {
     parent::Model();
   }
 
+  /**
+   * Gets the value associated with a given key.
+   *
+   * @param String key
+   * @return String value for that key if it exists, otherwise false
+   */
   function getValue($key) {
     $this->db->select('value');
     $this->db->from('settings');
@@ -18,6 +28,12 @@ class Settings_model extends Model {
     }
   }
 
+  /**
+   * Sets the value for key. If the key doesn't exist, it is created.
+   *
+   * @param String key
+   * @param String value
+   */
   function setValue($key, $value) {
     $data['key'] = $key;
     $data['value'] = $value;
@@ -28,6 +44,11 @@ class Settings_model extends Model {
     }
   }
 
+  /**
+   * Deletes a key, if it exists.
+   *
+   * @param String key
+   */
   function deleteKey($key) {
     if ($this->hasKey($key)) {
       $this->db->where('key', $key);
@@ -35,6 +56,12 @@ class Settings_model extends Model {
     }
   }
 
+  /**
+   * Determines whether a key exists.
+   *
+   * @param String key
+   * @return true if the key exists, otherwise false
+   */
   function hasKey($key) {
     $this->db->select('COUNT(*) count');
     $this->db->from('settings');

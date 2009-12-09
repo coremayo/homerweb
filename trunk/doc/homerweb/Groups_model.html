@@ -49,7 +49,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																								<div class="method-definition">
+																																																																<div class="method-definition">
 					<img src="../media/images/Constructor.png" alt=" "/>
 											<span class="method-result">Groups_model</span>
 										<a href="#Groups_model" title="details" class="method-name">Groups_model</a>
@@ -57,7 +57,7 @@
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
-											<span class="method-result">boolean</span>
+											<span class="method-result">String</span>
 										<a href="#addGroup" title="details" class="method-name">addGroup</a>
 											(<span class="var-type">String</span>&nbsp;<span class="var-name">$groupName</span>)
 									</div>
@@ -65,7 +65,13 @@
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
 										<a href="#addToGroup" title="details" class="method-name">addToGroup</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">int</span>
+										<a href="#getGroupId" title="details" class="method-name">getGroupId</a>
+											(<span class="var-type">String</span>&nbsp;<span class="var-name">$groupName</span>)
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
@@ -77,7 +83,7 @@
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
 										<a href="#removeFromGroup" title="details" class="method-name">removeFromGroup</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
 									</div>
 											</div>
 		</div>
@@ -127,11 +133,11 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Adds a new group to the database.</p>
 	<ul class="tags">
-				<li><span class="field">return:</span> TRUE if the operation succeeded, otherwise error message</li>
+				<li><span class="field">return:</span> '' if the operation succeeded, otherwise error message</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">boolean</span>
+		<span class="method-result">String</span>
 		<span class="method-name">
 			addGroup
 		</span>
@@ -151,36 +157,67 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">addToGroup</span> (line <span class="line-number">36</span>)
+		<span class="method-title">addToGroup</span> (line <span class="line-number">55</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds the given user to the given group.</p>
 	
 	<div class="method-signature">
 		<span class="method-result">void</span>
 		<span class="method-name">
 			addToGroup
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$groupId</span>			</li>
+				<span class="var-type">int</span>
+				<span class="var-name">$groupId</span><span class="var-description">: group id</span>			</li>
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$userId</span>			</li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetGroupId" id="getGroupId"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getGroupId</span> (line <span class="line-number">41</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the id of the group with the specified name.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Group id</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getGroupId
+		</span>
+					(<span class="var-type">String</span>&nbsp;<span class="var-name">$groupName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$groupName</span><span class="var-description">: Group name</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodgetGroupMembers" id="getGroupMembers"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getGroupMembers</span> (line <span class="line-number">49</span>)
+		<span class="method-title">getGroupMembers</span> (line <span class="line-number">80</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -206,27 +243,28 @@
 			
 	</div>
 <a name="methodremoveFromGroup" id="removeFromGroup"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">removeFromGroup</span> (line <span class="line-number">39</span>)
+		<span class="method-title">removeFromGroup</span> (line <span class="line-number">67</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Removes the given user from the given group.</p>
 	
 	<div class="method-signature">
 		<span class="method-result">void</span>
 		<span class="method-name">
 			removeFromGroup
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$groupId</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$groupId</span>			</li>
+				<span class="var-type">int</span>
+				<span class="var-name">$groupId</span><span class="var-description">: group id</span>			</li>
 					<li>
 				<span class="var-type"></span>
 				<span class="var-name">$userId</span>			</li>
@@ -240,7 +278,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 22 Oct 2009 14:49:17 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Tue, 08 Dec 2009 22:46:11 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

@@ -24,8 +24,9 @@
 					</div>
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handles adding and managing user subscriptions.</p>
 		<p class="notes">
-			Located in <a class="field" href="_subscriptions_model.php.html">/subscriptions_model.php</a> (line <span class="field">3</span>)
+			Located in <a class="field" href="_subscriptions_model.php.html">/subscriptions_model.php</a> (line <span class="field">6</span>)
 		</p>
 		
 				
@@ -48,7 +49,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																<div class="method-definition">
+																																																																																																																																																								<div class="method-definition">
 					<img src="../media/images/Constructor.png" alt=" "/>
 											<span class="method-result">Subscriptions_model</span>
 										<a href="#Subscriptions_model" title="details" class="method-name">Subscriptions_model</a>
@@ -57,20 +58,98 @@
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
+										<a href="#addSub" title="details" class="method-name">addSub</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#deleteSubscription" title="details" class="method-name">deleteSubscription</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#extendEndDate" title="details" class="method-name">extendEndDate</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$days</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#extendStartDate" title="details" class="method-name">extendStartDate</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$days</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#getAllStudentSubscriptions" title="details" class="method-name">getAllStudentSubscriptions</a>
+											(<span class="var-type">class</span>&nbsp;<span class="var-name">$classID</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#getPossibleSubscriptions" title="details" class="method-name">getPossibleSubscriptions</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
 										<a href="#getSubscription" title="details" class="method-name">getSubscription</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$subId</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
+											(<span class="var-type">subscription</span>&nbsp;<span class="var-name">$subId</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
 										<a href="#getTimeRemaining" title="details" class="method-name">getTimeRemaining</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$subId</span>)
+											(<span class="var-type">subscription</span>&nbsp;<span class="var-name">$subId</span>)
 									</div>
 																<div class="method-definition">
 					<img src="../media/images/Method.png" alt=" "/>
 											<span class="method-result">void</span>
 										<a href="#getUserSubscriptions" title="details" class="method-name">getUserSubscriptions</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, [<span class="var-type">Array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#getValidCourseIDs" title="details" class="method-name">getValidCourseIDs</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#hasCurrentSub" title="details" class="method-name">hasCurrentSub</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#hasSub" title="details" class="method-name">hasSub</a>
+											(<span class="var-type">user</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">class</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#isActive" title="details" class="method-name">isActive</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setEndDate" title="details" class="method-name">setEndDate</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$date</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setStartDate" title="details" class="method-name">setStartDate</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$date</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#userHasSub" title="details" class="method-name">userHasSub</a>
+											(<span class="var-type">user</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">class</span>&nbsp;<span class="var-name">$classId</span>)
 									</div>
 											</div>
 		</div>
@@ -92,7 +171,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Constructor.png" />
-		<span class="method-title">Constructor Subscriptions_model</span> (line <span class="line-number">5</span>)
+		<span class="method-title">Constructor Subscriptions_model</span> (line <span class="line-number">8</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -108,12 +187,184 @@
 		
 			
 	</div>
+<a name="methodaddSub" id="addSub"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">addSub</span> (line <span class="line-number">189</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a subscription for a given user and course. If the course is in the</p>
+<p class="description"><p>future, the sub will begin on the start day of the course. If not, the  sub will start immediately.  If the user has a current subscription for  the course, that subscription will be extended if the end date is in the future,  or renewed if it is expired</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addSub
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user id</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: class id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddeleteSubscription" id="deleteSubscription"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">deleteSubscription</span> (line <span class="line-number">290</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete specified subscription</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteSubscription
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$subID</span><span class="var-description">: sub id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodextendEndDate" id="extendEndDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">extendEndDate</span> (line <span class="line-number">42</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Extend subscription end date of given subscription</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			extendEndDate
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$days</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$subID</span><span class="var-description">: sub id of sub to update</span>			</li>
+					<li>
+				<span class="var-type">date</span>
+				<span class="var-name">$days</span><span class="var-description">: to set</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodextendStartDate" id="extendStartDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">extendStartDate</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Extend subscription start date of given subscription</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			extendStartDate
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$days</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$subID</span><span class="var-description">: sub id of sub to update</span>			</li>
+					<li>
+				<span class="var-type">date</span>
+				<span class="var-name">$days</span><span class="var-description">: to set</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAllStudentSubscriptions" id="getAllStudentSubscriptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAllStudentSubscriptions</span> (line <span class="line-number">300</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a list of subscriptions of students subscriped to the course</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getAllStudentSubscriptions
+		</span>
+					(<span class="var-type">class</span>&nbsp;<span class="var-name">$classID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">class</span>
+				<span class="var-name">$classID</span><span class="var-description">: id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPossibleSubscriptions" id="getPossibleSubscriptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getPossibleSubscriptions</span> (line <span class="line-number">89</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a list of course id's for which the given student has never subscribed.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getPossibleSubscriptions
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$userId</span>			</li>
+				</ul>
+		
+			
+	</div>
 <a name="methodgetSubscription" id="getSubscription"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getSubscription</span> (line <span class="line-number">49</span>)
+		<span class="method-title">getSubscription</span> (line <span class="line-number">127</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -124,13 +375,13 @@
 		<span class="method-name">
 			getSubscription
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$subId</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
+					(<span class="var-type">subscription</span>&nbsp;<span class="var-name">$subId</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$subId</span>			</li>
+				<span class="var-type">subscription</span>
+				<span class="var-name">$subId</span><span class="var-description">: id</span>			</li>
 					<li>
 				<span class="var-type"></span>
 				<span class="var-name">$fields</span>			</li>
@@ -143,7 +394,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getTimeRemaining</span> (line <span class="line-number">29</span>)
+		<span class="method-title">getTimeRemaining</span> (line <span class="line-number">108</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -154,13 +405,13 @@
 		<span class="method-name">
 			getTimeRemaining
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$subId</span>)
+					(<span class="var-type">subscription</span>&nbsp;<span class="var-name">$subId</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$subId</span>			</li>
+				<span class="var-type">subscription</span>
+				<span class="var-name">$subId</span><span class="var-description">: id</span>			</li>
 				</ul>
 		
 			
@@ -170,7 +421,7 @@
 	
 	<div class="method-header">
 		<img src="../media/images/Method.png" />
-		<span class="method-title">getUserSubscriptions</span> (line <span class="line-number">15</span>)
+		<span class="method-title">getUserSubscriptions</span> (line <span class="line-number">79</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -182,16 +433,224 @@
 		<span class="method-name">
 			getUserSubscriptions
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$userId</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, [<span class="var-type">Array</span>&nbsp;<span class="var-name">$fields</span> = <span class="var-default">'*'</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$userId</span>			</li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user id</span>			</li>
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$fields</span>			</li>
+				<span class="var-type">Array</span>
+				<span class="var-name">$fields</span><span class="var-description">: list of subscription fields</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetValidCourseIDs" id="getValidCourseIDs"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getValidCourseIDs</span> (line <span class="line-number">139</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return valid course IDs (user has active subscription). Note the format of date comparisons</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getValidCourseIDs
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhasCurrentSub" id="hasCurrentSub"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">hasCurrentSub</span> (line <span class="line-number">246</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether the given user has a current subscription for the given course.</p>
+<p class="description"><p>If so, returns the subscription id; otherwise returns a negative value.</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			hasCurrentSub
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user id</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: class id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhasSub" id="hasSub"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">hasSub</span> (line <span class="line-number">270</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether the given user has a subscription for the given course (does not have to be current)  If so, returns the subscription id; otherwise returns a negative value.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			hasSub
+		</span>
+					(<span class="var-type">user</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">class</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">user</span>
+				<span class="var-name">$userId</span><span class="var-description">: id</span>			</li>
+					<li>
+				<span class="var-type">class</span>
+				<span class="var-name">$classId</span><span class="var-description">: id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisActive" id="isActive"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">isActive</span> (line <span class="line-number">154</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine if user has an active subscription of given course</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			isActive
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: user id</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$classId</span><span class="var-description">: class id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetEndDate" id="setEndDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setEndDate</span> (line <span class="line-number">30</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set subscription end date of given subscription.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setEndDate
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$date</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$subID</span><span class="var-description">: sub id of sub to update</span>			</li>
+					<li>
+				<span class="var-type">date</span>
+				<span class="var-name">$date</span><span class="var-description">: to set</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStartDate" id="setStartDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setStartDate</span> (line <span class="line-number">18</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set subscription start date of given subscription.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setStartDate
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$subID</span>, <span class="var-type">date</span>&nbsp;<span class="var-name">$date</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$subID</span><span class="var-description">: sub id of sub to update</span>			</li>
+					<li>
+				<span class="var-type">date</span>
+				<span class="var-name">$date</span><span class="var-description">: to set</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoduserHasSub" id="userHasSub"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">userHasSub</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine if user has a subscription of given course (can be old subscription)</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			userHasSub
+		</span>
+					(<span class="var-type">user</span>&nbsp;<span class="var-name">$userId</span>, <span class="var-type">class</span>&nbsp;<span class="var-name">$classId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">user</span>
+				<span class="var-name">$userId</span><span class="var-description">: id</span>			</li>
+					<li>
+				<span class="var-type">class</span>
+				<span class="var-name">$classId</span><span class="var-description">: id</span>			</li>
 				</ul>
 		
 			
@@ -202,7 +661,7 @@
 
 	
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 22 Oct 2009 14:49:17 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Tue, 08 Dec 2009 22:46:11 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
