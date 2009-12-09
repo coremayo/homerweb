@@ -130,6 +130,7 @@
     	<form name="addItem" action="<?php echo base_url();?>site_admin/db_editCourseItem" method="POST">
         <input type="hidden" name="selected_admins" value="none">
         <input type="hidden" name="id" value="<?php echo $lectureID;?>">
+        <input type="hidden" name="courseId" value="<?php echo $lectureInfo->lectureClass;?>">
         <?php
 			$start = $lectureInfo->lectureStartTime;
 			$end = $lectureInfo->lectureEndTime;
