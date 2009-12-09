@@ -2,7 +2,8 @@
 $(document).ready(function(){
 	$('#videoLink').click(function()
 	{
-		alert("javascript newb");
+		//alert("javascript newb");
+		//window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\');
 	});
 });
 
@@ -32,8 +33,8 @@ $(document).ready(function(){
     	{
 			if ($i->resourceType == "wmv")
 			{
-				//echo '<td><a id="videoLink" href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
-				echo '<td><a id="videoLink">link</a></td>';
+				echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+				//echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 			}
 			else
 			{
