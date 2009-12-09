@@ -124,7 +124,7 @@ DROP TABLE IF EXISTS `cs4911`.`lecture` ;
 
 CREATE  TABLE IF NOT EXISTS `cs4911`.`lecture` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `lectureTopic` VARCHAR(45) NULL ,
+  `lectureTopic` VARCHAR(60) NULL ,
   `lectureClass` INT NOT NULL ,
   `lectureStartTime` DATETIME NULL ,
   `lectureEndTime` DATETIME NULL ,
@@ -329,8 +329,8 @@ DROP TABLE IF EXISTS `cs4911`.`announcement` ;
 CREATE  TABLE IF NOT EXISTS `cs4911`.`announcement` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `announcementCreatedDate` DATE NULL ,
-  `announcementTitle` VARCHAR(45) NOT NULL ,
-  `announcementMessage` VARCHAR(45) NOT NULL ,
+  `announcementTitle` VARCHAR(60) NOT NULL ,
+  `announcementMessage` VARCHAR(150) NOT NULL ,
   `announcementFrom` INT NULL ,
   `announcementClass` INT NULL ,
   PRIMARY KEY (`id`) ,
