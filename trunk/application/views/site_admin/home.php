@@ -5,18 +5,19 @@ $this->load->view('site_admin/header', $data);
 
 <div id="content">
 	<ul>
+    <?php if($siteAdmin){echo '
 		<li>
-			<img src="<?php echo base_url();?>images/site_admin/test_icon.png" alt="Users Image" />
+			<img src="'.base_url().'images/site_admin/test_icon.png" alt="Users Image" />
 			<div id="description">
-				<a href="<?php echo base_url();?>site_admin/users">Users</a>
+				<a href="'.base_url().'site_admin/users">Users</a>
 				<br>
 				<label>
 					This is where you can manage user accounts.
 					<br>
-					Subitems: <a href="<?php echo base_url();?>site_admin/users/add_users">Add User</a>
+					Subitems: <a href="'.base_url().'site_admin/users/add_users">Add User</a>
 				</label>
 			</div>
-		</li>
+		</li>';}?>
 		<li>
 			<img src="<?php echo base_url();?>images/site_admin/test_icon.png" alt="Courses Image" />
 			<div id="description">
@@ -29,18 +30,19 @@ $this->load->view('site_admin/header', $data);
 				</label>
 			</div>
 		</li>
+        <?php if($siteAdmin){echo '
 		<li>
-			<img src="<?php echo base_url();?>images/site_admin/test_icon.png" alt="Settings Image" />
+			<img src="'.base_url().'images/site_admin/test_icon.png" alt="Settings Image" />
 			<div id="description">
-				<a href="<?php echo base_url();?>site_admin/settings">Settings</a>
+				<a href="'.base_url().'site_admin/settings">Settings</a>
 				<br>
 				<label>
 					Manage all settings including themes, colors, images and other option for the site here.
 					<br>
-					Subitems: <a href="<?php echo base_url();?>site_admin/settings/themes">Theme Manager</a>, <a href="<?php echo base_url();?>site_admin/settings/stylesheets">Stylesheets</a>, <a href="<?php echo base_url();?>site_admin/settings/templates">Templates</a>
+					Subitems: <a href="'.base_url().'site_admin/settings/themes">Theme Manager</a>, <a href="'.base_url().'site_admin/settings/stylesheets">Stylesheets</a>, <a href="'.base_url().'site_admin/settings/templates">Templates</a>
 				</label>
 			</div>
-		</li>
+		</li>';}?>
 	</ul>
 </div>
 

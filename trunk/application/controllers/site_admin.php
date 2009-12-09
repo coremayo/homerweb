@@ -6,40 +6,52 @@ class Site_admin extends Controller
 {
 	function index()
 	{
-		if ($this->_is_authorized())
+		if ($this->_is_authorized() && ($this->_is_anAdmin()))
 		{
-			$this->load->view('site_admin/home');
+			$data['siteAdmin'] = $this->_is_siteAdmin();
+			$this->load->view('site_admin/home', $data);
 		}
+		else
+			$this->_unauthorizedPage();
 	}
 	
 	function users()
 	{
 		$page = $this->uri->segment(3, 'home');
 		
-		if ($this->_is_authorized())
+		if ($this->_is_authorized() && ($this->_is_siteAdmin()))
 		{
-			$this->load->view('site_admin/users_'.$page);
+			$data['siteAdmin'] = $this->_is_siteAdmin();
+			$this->load->view('site_admin/users_'.$page, $data);
 		}
+		else
+			$this->_unauthorizedPage();
 	}
 	
 	function courses()
 	{
 		$page = $this->uri->segment(3, 'home');
 
-		if ($this->_is_authorized())
+		if ($this->_is_authorized() && ($this->_is_anAdmin()))
 		{
-			$this->load->view('site_admin/courses_'.$page);
+			$data['siteAdmin'] = $this->_is_siteAdmin();
+			$this->load->view('site_admin/courses_'.$page, $data);
 		}
+		else
+			$this->_unauthorizedPage();
 	}
 	
 	function settings()
 	{
 		$page = $this->uri->segment(3, 'home');
 
-		if ($this->_is_authorized())
+		if ($this->_is_authorized() && ($this->_is_siteAdmin()))
 		{
-			$this->load->view('site_admin/settings_'.$page);
+			$data['siteAdmin'] = $this->_is_siteAdmin();
+			$this->load->view('site_admin/settings_'.$page, $data);
 		}
+		else
+			$this->_unauthorizedPage();
 	}
 	
 	function db_addUser()
@@ -504,31 +516,38 @@ class Site_admin extends Controller
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
 
-		if(!isset($is_logged_in) || $is_logged_in != true)
-		{
-			$data['content'] = 'unauthorized';
-			$data['type'] = 'unauthorized';
-			$this->load->view('template', $data);
+		return (isset($is_logged_in) && $is_logged_in == true);
+	}
+	
+	function _is_siteAdmin()
+	{
 
-			return false;
-		}
-		else
-		{
-			$has_permissions = $this->session->userdata('is_site_admin');
+		$has_permissions = $this->session->userdata('is_site_admin');
 
-			if(!isset($has_permissions) || $has_permissions != true)
-			{
-				$data['content'] = 'unauthorized';
-				$data['type'] = 'unauthorized';
-				$this->load->view('template', $data);
+		return (isset($has_permissions) && $has_permissions == true);
 
-				return false;
-			}
-			else
-			{
-				return true; 
-			}
-		}
+	}
+	
+	function _is_anAdmin()
+	{
+
+		$has_permissions = $this->session->userdata('is_class_admin');
+		$has_permissions2 = $this->session->userdata('is_lecture_admin');
+		$has_permissions3 = $this->session->userdata('is_site_admin');
+
+		return ((isset($has_permissions) && $has_permissions == true) || (isset($has_permissions2) && $has_permissions2 == true) || (isset($has_permissions3) && $has_permissions3 == true));
+
+	}
+	
+	function _is_lectureAdmin()
+	{
+
+	}
+	
+	function _unauthorizedPage()
+	{
+		$data['siteAdmin'] = $this->_is_siteAdmin();
+		$this->load->view('site_admin/unauthorized', $data);
 	}
 	
 	function email_check($email, $id)
