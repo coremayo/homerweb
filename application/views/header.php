@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Chicago Board Review</title>
 		
-		<link rel="stylesheet" href="<?php echo base_url();?>css/main.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="<?php echo base_url();?>css/main.css" media="screen"> 
 		<link rel="stylesheet" href="<?php echo base_url();?>css/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="<?php echo base_url();?>css/demo_table.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.3.2.min.js"></script>

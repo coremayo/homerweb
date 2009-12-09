@@ -559,7 +559,62 @@ class Site_admin extends Controller
 	
 	function db_editSettingsMain()
 	{
-		echo "called db_editSettingsMain";
+		$main_banner_image = $this->input->post('banner_image');
+		$main_banner_border = $this->input->post('banner_border');
+		$main_banner_text_color = $this->input->post('banner_text_color');
+		$main_banner_text = $this->input->post('banner_text');
+		$main_background_color = $this->input->post('background_color');
+		$main_header_color = $this->input->post('header_color');
+		$main_header_text_color = $this->input->post('header_text_color');
+		$main_header_border = $this->input->post('header_border');
+		$main_module_background_color = $this->input->post('module_background_color');
+		$main_module_background_image = $this->input->post('module_background_image');
+		$main_footer_border = $this->input->post('footer_border');
+		$main_footer_background_image = $this->input->post('footer_background_image');
+		$main_inactive_tab_background_color = $this->input->post('inactive_tab_background_color');
+		$main_inactive_tab_background_image = $this->input->post('inactive_tab_background_image');
+		$main_inactive_tab_border = $this->input->post('inactive_tab_border');
+		$main_inactive_tab_text_color = $this->input->post('inactive_tab_text_color');
+		$main_inactive_tab_hover_border = $this->input->post('inactive_tab_hover_border');
+		$main_inactive_tab_hover_background  = $this->input->post('inactive_tab_hover_background');
+		$main_inactive_tab_hover_text_color = $this->input->post('inactive_tab_hover_text_color');
+		$main_active_tab_background = $this->input->post('active_tab_background');
+		$main_active_tab_border = $this->input->post('active_tab_border');
+		$main_active_tab_text_color = $this->input->post('active_tab_text_color');
+		$main_tab_content_border = $this->input->post('tab_content_border');
+		$main_about_us = $this->input->post('about_us');
+		$main_qbank = $this->input->post('qbank');
+		
+		
+		$this->settings_model->setValue('main_banner_image', $main_banner_image);
+		$this->settings_model->setValue('main_banner_border', $main_banner_border);
+		$this->settings_model->setValue('main_banner_text_color', $main_banner_text_color);
+		$this->settings_model->setValue('main_banner_text', $main_banner_text);
+		$this->settings_model->setValue('main_background_color', $main_background_color);
+		$this->settings_model->setValue('main_header_color', $main_header_color);
+		$this->settings_model->setValue('main_header_text_color', $main_header_text_color);
+		$this->settings_model->setValue('main_header_border', $main_header_border);
+		$this->settings_model->setValue('main_module_background_color', $main_module_background_color);
+		$this->settings_model->setValue('main_module_background_image', $main_module_background_image);
+		$this->settings_model->setValue('main_footer_border', $main_footer_border);
+		$this->settings_model->setValue('main_footer_background_image', $main_footer_background_image);
+		$this->settings_model->setValue('main_inactive_tab_background_color', $main_inactive_tab_background_color);
+		$this->settings_model->setValue('main_inactive_tab_background_image', $main_inactive_tab_background_image);
+		$this->settings_model->setValue('main_inactive_tab_border', $main_inactive_tab_border);
+		$this->settings_model->setValue('main_inactive_tab_text_color', $main_inactive_tab_text_color);
+		$this->settings_model->setValue('main_inactive_tab_hover_border', $main_inactive_tab_hover_border);
+		$this->settings_model->setValue('main_inactive_tab_hover_background', $main_inactive_tab_hover_background);
+		$this->settings_model->setValue('main_inactive_tab_hover_text_color', $main_inactive_tab_hover_text_color);
+		$this->settings_model->setValue('main_active_tab_background', $main_active_tab_background);
+		$this->settings_model->setValue('main_active_tab_border', $main_active_tab_border);
+		$this->settings_model->setValue('main_active_tab_text_color', $main_active_tab_text_color);
+		$this->settings_model->setValue('main_tab_content_border', $main_tab_content_border);
+		$this->settings_model->setValue('main_about_us', $main_about_us);
+		$this->settings_model->setValue('main_qbank', $main_qbank);
+		
+		$this->session->set_flashdata('type', 'message success');
+		$this->session->set_flashdata('msg', 'Main page theme updated successfully!');
+		redirect('site_admin/settings/');
 	}
 	
 	function _is_authorized()
