@@ -7,6 +7,9 @@ class ForgotPassword extends Controller {
     $this->load->library('session');
   }
 
+  /*
+   * Set initial data and load the Forgot Password page
+   */
   function index()
 	{
 		$data['formData'] = '';
@@ -15,7 +18,11 @@ class ForgotPassword extends Controller {
 		$this->load->view('template', $data);
 	}
 	
-	// There should probably be a secret question/answer, otherwise need to confirm it is a person (captcha, etc...)
+	/*
+	 *	Test to see if the given email is in the database. If it is, generate a random confirmation code and email it to
+	 *  the user's email address. Set the confirmation code and an expiration date in the database.
+	 *	If the email is not in the database, print an error
+	 */
 	function confirmEmail()
 	{
 		$email =  $this->input->post('email');
@@ -49,6 +56,13 @@ class ForgotPassword extends Controller {
 		}
 	}
 	
+	/*
+	 * Test if the given confirmation code is valid, and if it is, create a random password, reset the user's password,
+	 * and email them the randomly created password. Redirect them to a page that informs of a success.
+	 * If the code is not valid, redirect to a page that tells them the code is expired.
+	 *
+	 * @param int confirmation code
+	 */
 	function confirm($code = ' ')
 	{
 		$id = $this->users_model->verifyConfirmationCode($code);
