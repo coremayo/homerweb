@@ -10,10 +10,9 @@ class Purchase extends Controller {
 
   function buy($classId = '') {
     if($classId) {
-//      echo "You are purchasing class #$classId";
-      $data['content'] = 'purchase';
+      $data['content'] = 'student/purchase';
       $data['classId'] = $classId;
-      $this->load->view('template', $data);
+      $this->load->view('student/template', $data);
     }
   }
 
