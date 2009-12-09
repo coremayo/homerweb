@@ -349,5 +349,13 @@ class Users_model extends Model {
  
     return ($query->num_rows() > 0 || $query2->num_rows() > 0);
   }
+  
+  function isCourseAdminOf($userId, $classId) {
+	
+	$this->db->select("user.id FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id AND user_id = $userId AND class.id = $classId");
+    $query2 = $this->db->get();
+	  
+    return ($query2->num_rows() > 0);
+  }
 }
 ?>
