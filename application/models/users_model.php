@@ -342,6 +342,7 @@ class Users_model extends Model {
     $this->db->select('lectureAdmin');
     $this->db->from('lecture');
     $this->db->where('lectureAdmin', $userId);
+	$this->db->where('lectureClass', $classId);
     $query = $this->db->get();
 
     $this->db->select("user.id FROM class, user, group_has_user WHERE group_has_user.group_id = class.classAdmins AND user.id = group_has_user.user_id AND user_id = $userId AND class.id = $classId");
