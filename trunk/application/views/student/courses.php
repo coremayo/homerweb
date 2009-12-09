@@ -15,30 +15,20 @@
                  </thead>
                  <tbody>
                      <?php
-					 $id = $this->users_model->getId($this->session->userdata('email'));
 					 if($this->session->userdata('is_site_admin')){
 						 $result = $this->classes_model->getAllClasses();
 						 foreach ($result as $classInfo) {
-							$coursesData['courses'] = $classInfo;
-						 	$this->load->view('student/coursesTable', $coursesData);
+							 $coursesData['courses'] = $classInfo;
+						 	 $this->load->view('student/coursesTable', $coursesData);
 						 }
-					 }
-					 else{
-						 $result = $this->subscriptions_model->getValidCourseIDs($id);
-                     foreach ($result as $res) {
-						$classInfo = $this->classes_model->getClassInfo($res->subscriptionClass);
-							$coursesData['courses'] = $classInfo;
-                        	$this->load->view('student/coursesTable', $coursesData);
-                        }
-					 }
-					 if($this->session->userdata('is_class_admin') || $this->session->userdata('is_lecture_admin')){
-						 $result = $this->classes_model->getCoursesLectureOrCourseAdminOf($id);
-						 foreach ($result as $classInfo) {
-							$coursesData['courses'] = $classInfo;
-						 	$this->load->view('student/coursesTable', $coursesData);
-						 }
-					 }
-					 
+					 } else {
+             $userId = $this->users_model->getId($this->session->userdata('email'));
+             $result = $this->classes_model->getClassInfoForUser($userId);
+             foreach ($result as $classInfo) {
+               $data['courses'] = $classInfo;
+               $this->load->view('student/coursesTable', $data);
+             }
+           }
                         ?>
                    </tbody>
               </table>
