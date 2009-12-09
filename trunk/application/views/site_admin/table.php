@@ -19,6 +19,11 @@
 						$rows = $this->classes_model->getAllClasses();
 						$tableType = COURSES;
 					}
+					else if($display == SHOW_ALL_ADMIN_COURSES)
+					{
+						$rows = $this->classes_model->getCoursesLectureOrCourseAdminOf($optionID);
+						$tableType = COURSES;
+					}
 					else if($display == SHOW_ADMINS_IN_COURSE)
 					{
 						$rows = $this->classes_model->getAllAdmins($optionID);

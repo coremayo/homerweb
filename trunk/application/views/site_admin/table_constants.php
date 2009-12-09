@@ -13,6 +13,7 @@
 	if (!defined('SHOW_ADMINS_NOT_IN_COURSE'))	define('SHOW_ADMINS_NOT_IN_COURSE', 7);
 	if (!defined('SHOW_STUDENTS_NOT_IN_COURSE'))define('SHOW_STUDENTS_NOT_IN_COURSE', 8);
 	if (!defined('SHOW_SCHEDULE_IN_COURSE'))    define('SHOW_SCHEDULE_IN_COURSE', 9);
+	if (!defined('SHOW_ALL_ADMIN_COURSES'))    define('SHOW_ALL_ADMIN_COURSES', 12);
 	
 	/*------------------------------\
 	|  User Fields                  | 

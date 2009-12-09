@@ -1,7 +1,13 @@
 <?php 
 	include 'table_constants.php';
+	if(!$siteAdmin){
+		$data['siteAdmin'] = $siteAdmin;
+		$this->load->view('site_admin/unauthorized', $data);
+		return;
+	}
 	$data['breadcrumb'] = '<a href="'.base_url().'site_admin/courses/">Courses</a> &raquo; Add New Course';
-	$this->load->view('site_admin/header', $data); 
+	$this->load->view('site_admin/header', $data);
+	
 ?>
 
 <script>
