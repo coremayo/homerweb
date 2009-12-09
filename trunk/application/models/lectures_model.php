@@ -110,5 +110,30 @@ class Lectures_model extends Model {
 	$this->db->where('lectureAdmin', $userId);
     return $this->db->get()->num_rows() > 0;
   }
+  
+  function addResource($lectureId, $title, $desc, $loc, $type){
+    
+    //make sure type is a vaild type in the enum in db first
+    
+    $resource['resourceTitle'] = $title;
+    $resource['resourceDescription'] = $desc;
+    $resource['resourceLocation'] = $loc;
+    $resource['resourceType'] = $type;
+    $resource['resourceCreatedDate'] = date('Y-m-d');
+
+    $this->db->insert('resource', $resource);
+    
+    $this->db->select('id');
+    $this->db->where('resourceTitle', $title);
+    $this->db->where('resourceDescription', $desc);
+    $this->db->where('resourceLocation', $loc);
+    $this->db->where('resourceType', $type);
+    $this->db->where('resourceCreatedDate', date('Y-m-d'));
+    $row = $this->db->get('resource')->row();
+    
+    $lecture_resource['lecture_id'] = $lectureId;
+    $lecture_resource['resource_id'] = $row->id;
+    $this->db->insert('lecture_has_resource', $lecture_resource);
+  }
 }
 ?>

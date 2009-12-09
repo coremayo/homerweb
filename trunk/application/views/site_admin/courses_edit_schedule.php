@@ -4,13 +4,6 @@
 	$lectureID = $this->uri->segment(4, 0);
 	$selected = $this->uri->segment(5, 0);
 	$lectureInfo = $this->lectures_model->getLectureInfo($lectureID);
-	$thisUserID = $this->users_model->getId($this->session->userdata('email'));
-	// Kick them from this page if they arent a site, course, or lecture admin of this lecture
-	if(!$siteAdmin && !$this->users_model->isCourseAdminOf($thisUserID, $lectureInfo->lectureClass) && !$this->lectures_model->isLecturesAdminOf($thisUserID, $lectureID)){
-		$data['siteAdmin'] = $siteAdmin;
-		$this->load->view('site_admin/unauthorized', $data);
-		return;
-	}
 
 	$data['breadcrumb'] = '<a href="'.base_url().'site_admin/courses/">Courses</a> &raquo; <a href="'.base_url().'site_admin/courses/edit_course/'.$lectureInfo->lectureClass.'/3">'.$this->classes_model->getClassTitle($lectureInfo->lectureClass).'</a> &raquo; Edit Schedule';
 	$this->load->view('site_admin/header', $data); 
@@ -77,6 +70,42 @@
 					$("#selectLectureAdminDialog").dialog("open");
 			}
 		);
+		
+		<?php echo 'var loc = \''.base_url().'uploader\';' ?>
+		new AjaxUpload('uploadResource',{
+		action: loc,
+		onSubmit: function(){
+			this.disable();
+			var text = $("#resource_desc").val();
+			this.setData({
+					'type': 'resource',
+					'desc': text,
+					'lecture': <?php echo $lectureID?>,
+					'course': <?php echo $lectureInfo->lectureClass?>
+			});
+		},
+		onComplete: function(file, response){
+			this.enable();
+			$("#addNewResourceDialog").dialog("close");
+			alert(response);
+		}
+		});
+		
+		$("#addNewResourceDialog").dialog
+		({
+			height: 350,
+			width: 415,
+			autoOpen: false
+		});
+		
+		$('#addNewResource').click
+		(
+			function(data)
+			{
+					$("#addNewResourceDialog").dialog("open");
+			}
+		);
+	
 	});
 </script>
 
@@ -167,7 +196,16 @@
     </div>
     
     <div id="resourceTab">
-		<button type="button" class="addButton" id="addNewResource">Upload New Resource</button>
+	
+		<button type="button" class="addButton" id="addNewResource">Add New Resource</button>
+		
+		<div id="addNewResourceDialog" title="Add New Resource">
+			Description: <textarea name="resource_desc" id="resource_desc" cols="50" rows="10" class="input"></textarea>
+			<br>
+			<br>
+			<button type="button" class="addButton" id="uploadResource">Upload File</button>
+		</div>
+		
 		<?php
 			$dialogData['ID'] = 'resourcesTable';
 			$dialogData['TABLE'] = array(SHOW_ALL_RESOURCES, $lectureID);
