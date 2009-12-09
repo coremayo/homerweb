@@ -143,5 +143,27 @@ class Lectures_model extends Model {
         return false;
     }
   }
+  
+  /**
+   * Updates a lecture to the database.
+   *
+   * @param int lectuere Id
+   * @param String lecture topic
+   * @param int course the lecture belongs to
+   * @param int id of the user serving as the lecture admin
+   * @param String starting timestamp of the lecture in the format 'Y-m-d H:i:s'
+   * @param String ending timestamp of the lecture in the format 'Y-m-d H:i:s'
+   */
+  function updateLecture($lectureId, $topic, $course, $adminID, $stime, $etime){
+	
+	
+	$lecture['lectureTopic'] = $topic;
+    $lecture['lectureClass'] = $course;
+   	if($adminID != NULL) $lecture['lectureAdmin'] = $adminID;
+    $lecture['lectureStartTime'] = date('Y-m-d H:i:s', strtotime("$stime"));
+    $lecture['lectureEndTime'] = date('Y-m-d H:i:s', strtotime("$etime")); 
+    $this->db->where('id', $lectureId);
+    $this->db->update('lecture', $lecture);
+  }
 }
 ?>
