@@ -5,8 +5,10 @@ class Payments_model extends Model {
   }
 
   /**
-    * Checks the details of a payment and adds a subscription if valid.
-    */
+   * Checks the details of a payment and adds a subscription if valid.
+   *
+   * @param Array information about a payment to add to the database
+   */
   function addPayment($payment) {
     if (_validate_payment) {
       $payment['autoApproved'] = 'Y';
@@ -20,16 +22,20 @@ class Payments_model extends Model {
   }
 
   /**
-    * Checks a payment to see if it is valid.
-    */
+   * Checks a payment to see if it is valid.
+   * 
+   * @param Array information about a payment
+   */
   function _validate_payment($payment) {
     // TODO: actually validate stuff
     return true;
   }
 
   /**
-    * Used to notify the site admins when a payment does not pass our checks.
-    */
+   * Used to notify the site admins when a payment does not pass our checks.
+   *
+   * @param Array information about a payment
+   */
   function _notify_admins($payment) {
     // TODO: actually email the site admins
   }
