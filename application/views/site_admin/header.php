@@ -31,13 +31,13 @@
 			<a href="<?php echo base_url();?>site_admin/">Home</a>
 		</li>
 		<li class="headlink">
-			<a href="<?php echo base_url();?>site_admin/users">Users</a>
+			<?php if($siteAdmin){echo '<a href="'.base_url().'site_admin/users">Users</a>';}?>
 		</li>
 		<li class="headlink">
 			<a href="<?php echo base_url();?>site_admin/courses">Courses</a>
 		</li>
 		<li class="headlink">
-			<a href="<?php echo base_url();?>site_admin/settings">Settings</a>
+			<?php if($siteAdmin){echo '<a href="'.base_url().'site_admin/settings">Settings</a>';}?>
 		</li>
 		<li align="right" class="headlink">
 			<a href="<?php echo base_url();?>student">Student View</a>
