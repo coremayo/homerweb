@@ -85,15 +85,23 @@
 			});
 		},
 		onComplete: function(file, response){
+			
+			if (response == "success")
+			{
+				$("#addNewResourceDialog").dialog("close");
+				$("#type_error").hide();
+			}
+			else
+			{
+				$("#type_error").show();
+			}
 			this.enable();
-			$("#addNewResourceDialog").dialog("close");
-			alert(response);
 		}
 		});
 		
 		$("#addNewResourceDialog").dialog
 		({
-			height: 350,
+			height: 375,
 			width: 415,
 			autoOpen: false
 		});
@@ -200,6 +208,7 @@
 		<button type="button" class="addButton" id="addNewResource">Add New Resource</button>
 		
 		<div id="addNewResourceDialog" title="Add New Resource">
+			<div id="type_error" style="display:none">This type of file is not allowed to be uploaded.<br><br></div>
 			Description: <textarea name="resource_desc" id="resource_desc" cols="50" rows="10" class="input"></textarea>
 			<br>
 			<br>
