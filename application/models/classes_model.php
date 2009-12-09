@@ -389,5 +389,25 @@ class Classes_model extends Model {
     $this->db->distinct();
     return $this->db->get()->result();
   }
+
+  /**
+   * Gets information about all the classes the user is subscribed to. Also, 
+   * if the user is a lecture admin or class admin, it will get information 
+   * about those classes as well.
+   *
+   * @param int user id
+   * @return list of course information
+   */
+  function getClassInfoForUser($userId) {
+    $regEx = '/^[0-9]+$/';
+    // first check that the user id only contains numbers
+    if  (!preg_match($regEx, $userId)) {
+      return false;
+    } else {
+      $query = $this->db->query("SELECT class.* FROM class WHERE class.id IN (SELECT s.subscriptionClass FROM subscription s WHERE s.subscriptionStartDate <= CURRENT_DATE AND s.subscriptionEndDate >= CURRENT_DATE AND s.subscriptionUser = $userId) UNION SELECT class.* FROM class WHERE class.classAdmins IN (SELECT g1.group_id FROM group_has_user g1 WHERE g1.user_id = $userId) UNION SELECT class.* FROM class, lecture l WHERE class.id = l.lectureClass AND l.lectureAdmin = $userId GROUP BY id ORDER BY id;");
+
+      return $query->result();
+    }
+  }
 }
 ?>
