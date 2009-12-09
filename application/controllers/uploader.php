@@ -70,20 +70,32 @@ class Uploader extends Controller
          $course = $_POST['course'];
          $lecture = $_POST['lecture'];
          $lectureInfo = $this->lectures_model->getLectureInfo($lecture);
-         
-         // Need to see if dirs exist first if not create them
-         
-         
-         
-         $path = $this->classes_model->getClassTitle($course).'/'.$lectureInfo->lectureTopic.'/';
          $uploaddir  = $_SERVER['DOCUMENT_ROOT']."/homerweb/resources/";
+         $path = $this->classes_model->getClassTitle($course).'/'.$lectureInfo->lectureTopic.'/';
+
+         if(!file_exists($uploaddir.$this->classes_model->getClassTitle($course)))
+         {
+             mkdir($uploaddir.$this->classes_model->getClassTitle($course).'/');
+         }
+         
+         if(!file_exists($uploaddir.$path))
+         {
+             mkdir($uploaddir.$path);
+         }
+         
          $uploadfile = $uploaddir . $path . basename($_FILES['userfile']['name']);
          move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
          $title = explode(".", basename($_FILES['userfile']['name']));
-         $this->lectures_model->addResource($lecture, $title[0], $desc, $uploadfile, $title[1]);
-         //check for error returned by above insert
+         $return = $this->lectures_model->addResource($lecture, $title[0], $desc, $uploadfile, $title[1]);
          
-         echo "success";
+         if ($return)
+         {
+            echo "success";
+         }
+         else
+         {
+            echo "failure";
+         }
     }
   }
 }
