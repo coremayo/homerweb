@@ -4,6 +4,13 @@
 	$lectureID = $this->uri->segment(4, 0);
 	$selected = $this->uri->segment(5, 0);
 	$lectureInfo = $this->lectures_model->getLectureInfo($lectureID);
+	$thisUserID = $this->users_model->getId($this->session->userdata('email'));
+	// Kick them from this page if they arent a site, course, or lecture admin of this lecture
+	if(!$siteAdmin && !$this->users_model->isCourseAdminOf($thisUserID, $lectureInfo->lectureClass) && !$this->lectures_model->isLecturesAdminOf($thisUserID, $lectureID)){
+		$data['siteAdmin'] = $siteAdmin;
+		$this->load->view('site_admin/unauthorized', $data);
+		return;
+	}
 
 	$data['breadcrumb'] = '<a href="'.base_url().'site_admin/courses/">Courses</a> &raquo; <a href="'.base_url().'site_admin/courses/edit_course/'.$lectureInfo->lectureClass.'/3">'.$this->classes_model->getClassTitle($lectureInfo->lectureClass).'</a> &raquo; Edit Schedule';
 	$this->load->view('site_admin/header', $data); 
