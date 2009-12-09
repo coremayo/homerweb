@@ -130,6 +130,30 @@
     	<form name="addItem" action="<?php echo base_url();?>site_admin/db_editCourseItem" method="POST">
         <input type="hidden" name="selected_admins" value="none">
         <input type="hidden" name="id" value="<?php echo $lectureID;?>">
+        <?php
+			$start = $lectureInfo->lectureStartTime;
+			$end = $lectureInfo->lectureEndTime;
+			
+			$startDateTime = explode(" ", $start);
+			$endDateTime = explode(" ", $end);
+			
+			$startDate = $startDateTime[0];
+			$endDate = $endDateTime[0];
+			
+			$startTime = explode(":", $startDateTime[1]);
+			$endTime = explode(":", $endDateTime[1]);
+			
+			$startTimeHours = $startTime[0];
+			$endTimeHours = $endTime[0];
+			$startAM = 'AM';
+			$endAM = 'AM';
+			
+			if($startTimeHours > 12){$startTimeHours = $startTimeHours - 12; $startAM = 'PM';}
+			if($endTimeHours > 12){$endTimeHours = $endTimeHours - 12; $endAM = 'PM';}
+			
+			$startTimeMinutes = $startTime[1];
+			$endTimeMinutes = $endTime[1];
+		?>
         
         <table width="700px" class="outer">
 		<tr>
@@ -161,14 +185,14 @@
 			<tr>
 				<td align="right" bgcolor="#E8E8E8" width="15%">Start Time</td>
 				<td width ="68%">
-                    Date: <input id="sday" type="text" name="sday" size="10" maxlength="10" class="input">
+                    Date: <input id="sday" type="text" name="sday" value="<?php echo $startDate?>"size="10" maxlength="10" class="input">
                     <br>
                     <br>
-                    Time: <input id="stime_hr" type="text" name="stime_hr" size="2" maxlength="2" class="input"> 
-                        : <input id="stime_min" type="text" name="stime_min" size="2" maxlength="2" class="input">
+                    Time: <input id="stime_hr" type="text" name="stime_hr" value="<?php echo $startTimeHours?>" size="2" maxlength="2" class="input"> 
+                        : <input id="stime_min" type="text" name="stime_min" value="<?php echo $startTimeMinutes?>" size="2" maxlength="2" class="input">
     
-                        <select name="stime_am_pm">
-                            <option value="AM" selected>AM</option><option value="PM">PM</option>
+                        <select name="stime_am_pm" value="<?php echo $startAM?>">
+                           <option value="AM" <?php if($startAM == 'AM') echo 'selected';?>>AM</option><option value="PM" <?php if($startAM == 'PM') echo 'selected';?>>PM</option>
                         </select>
 				</td>
 			</tr>
@@ -176,21 +200,30 @@
 			<tr>
 				<td align="right" bgcolor="#E8E8E8" width="15%">End Time</td>
 				<td width ="68%">
-					Date: <input id="eday" type="text" name="eday" size="10" maxlength="10" class="input">
+					Date: <input id="eday" type="text" name="eday" value="<?php echo $endDate?>" size="10" maxlength="10" class="input">
 					<br>
 					<br>
-					Time: <input id="etime_hr" type="text" name="etime_hr" size="2" maxlength="2" class="input"> 
-						: <input id="etime_min" type="text" name="etime_min" size="2" maxlength="2" class="input">
+					Time: <input id="etime_hr" type="text" name="etime_hr" value="<?php echo $endTimeHours?>" size="2" maxlength="2" class="input"> 
+						: <input id="etime_min" type="text" name="etime_min" value="<?php echo $endTimeMinutes?>" size="2" maxlength="2" class="input">
 
 						<select name="etime_am_pm">
-							<option value="AM" selected>AM</option><option value="PM">PM</option>
+							<option value="AM" <?php if($endAM == 'AM') echo 'selected';?>>AM</option><option value="PM" <?php if($endAM == 'PM') echo 'selected';?>>PM</option>
 						</select>
 				</td>
+			</tr>
+            
+            <tr>
+				<td></td>
+				<td height="30">
+                    <button type="submit">Save Changes</button>
+					<button type="button" onclick="window.location.href='<?php echo base_url();?>site_admin/courses/edit_course/<?php echo $lectureInfo->lectureClass;?>/3'">Cancel</button>
+                </td>
 			</tr>
 		</table>
 		</td>
 		</tr>
 		</table>
+        
             
         <div id="selectLectureAdminDialog" title="Select Lecture Admin">
         	<?php
