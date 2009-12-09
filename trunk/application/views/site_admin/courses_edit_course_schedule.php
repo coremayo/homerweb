@@ -1,5 +1,5 @@
 <div id="scheduleTab">
-		<button type="button" class="addButton" id="addItemButton">Add Items</button>
+		<?php if($siteAdmin || $thisCourseAdmin){ echo '<button type="button" class="addButton" id="addItemButton">Add Items</button>';} ?>
 
 		<?php
 			if($siteAdmin || $thisCourseAdmin){
