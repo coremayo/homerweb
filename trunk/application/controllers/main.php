@@ -2,6 +2,9 @@
 
 class Main extends Controller
 {
+	/*
+	 *	Load the main page if the user isnt logged in. If the user is logged in, load the student view.
+	 */
 	function index()
 	{
 		if (!$this->_is_logged_in())
@@ -15,10 +18,15 @@ class Main extends Controller
 		}
 	}
 	
+	/*
+	 *	If the user isnt logged in, query database to see if user id and pass are valid. If they are valid, set session variables
+	 *	and load the student view. If the credentials arent valid, print an error or load an error page (depending if AJAX)
+	 */
 	function login()
 	{	
 		if (!$this->_is_logged_in())
 		{
+			// Query database to see if credentials are valid
 			$result = $this->users_model->authenticate($this->input->post('email'), $this->input->post('password'));
 
 			if ($result)
@@ -62,12 +70,20 @@ class Main extends Controller
 		}
 	}
 
+	/*
+	 *	Destroy this session and redirect to main page
+	 */
 	function logout()
 	{
 		$this->session->destroy();
 		redirect('main');
 	}
 
+	/*
+	 *	Determine if user is already logged in
+	 *
+	 *	@return TRUE if logged in, else FALSE
+	 */
 	function _is_logged_in()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
@@ -83,29 +99,36 @@ class Main extends Controller
 		}
 	}
 	
-	function register()
-	{
-		echo 'ok';
-	}
-	
+	/*
+	 *	Load the About page
+	 */
 	function about()
 	{
 		$data['content'] = 'about';
 		$this->load->view('template', $data);
 	}
 	
+	/*
+	 *	Load the Registration page
+	 */
 	function registration()
 	{
 		$data['content'] = 'register';
 		$this->load->view('template', $data);
 	}
 	
+	/*
+	 *	Load the Courses page
+	 */
 	function courses()
 	{
 		$data['content'] = 'courses';
 		$this->load->view('template', $data);
 	}
 	
+	/*
+	 *	Load the QBank page
+	 */
 	function qbank()
 	{
 		$data['content'] = 'qbank';

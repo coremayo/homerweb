@@ -8,8 +8,14 @@ class Purchase extends Controller {
   function index() {
   }
 
+  /*
+   * If an ID is given, load the purchase view.
+   *
+   * @param int class ID
+   */
   function buy($classId = '') {
     if($classId) {
+//      echo "You are purchasing class #$classId";
       $data['content'] = 'student/purchase';
       $data['classId'] = $classId;
       $this->load->view('student/template', $data);

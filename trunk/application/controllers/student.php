@@ -7,6 +7,11 @@ class Student extends Controller
 		parent::Controller();
 	}
 	
+	/*
+	 * Load the Student index view. If a parameter is given, load an announcement in the right panel.
+	 *
+	 * @param announcment id
+	 */
 	function index($ann = ' ')
 	{
 		if ($this->_is_authorized())
@@ -35,6 +40,11 @@ class Student extends Controller
 		}
 	}
 	
+	/*
+	 * Determin if the user is logged in
+	 *
+	 * @return TRUE if logged in, FALSE otherwise. Load an unauthorized view if the user isnt authorized
+	 */
 	function _is_authorized()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
@@ -61,12 +71,21 @@ class Student extends Controller
 		}
 	}
 	
+	/*
+	 * Destroy session and redirect to main
+	 */
 	function logout()
 	{
 		$this->session->destroy();
 		redirect('main');
 	}
 	
+	/*
+	 * Load the subscriptions view if no id is given. If an id is given, then load the view to buy that subscription
+	 *
+	 * @param String view to be loaded
+	 * @param int id of subscription you want to buy
+	 */
 	function subscriptions($subDir = ' ', $id = ' ')
 	{
 		if ($this->_is_authorized())
@@ -89,6 +108,15 @@ class Student extends Controller
 		}
 	}
 	
+	/*
+	 * Given a subscription, find the extended date of the subscription. If the end date occurs after the current date, then
+	 * the end date should be extended using the end date. If the end date occurs before the current date, the end date should
+	 * be an extension of the current date.
+	 *
+	 * @param String view to be loaded
+	 * @param int id of subscription you want to buy
+	 * @return date
+	 */
 	function _getExtendedDate($sub){
 		$userId = $this->users_model->getId($this->session->userdata('email'));
 		$subClass = $sub->subscriptionClass;
@@ -103,17 +131,22 @@ class Student extends Controller
 		return $newDate;
 	}
 	
-	function extend(){
-		
-	}
-	
+	/*
+	 * Display the user's course list, lecture list, or individual lecture page
+	 *
+	 * @param int id of class
+	 * @param int id of lecture
+	 */
 	function courses($classId = ' ', $lectureId = ' ')
 	{
 		if ($this->_is_authorized())
 		{
+			// If the are no parameters, just load the user's course list
 			$data['content'] = 'student/courses';
 	
+			// If there are parameters...
 			if($classId != ' '){
+				// Get the lectures view information
 				$data = $this->_loadClassId($data, $classId);
 	
 				if($data['content'] == 'student/notFound'){
@@ -121,6 +154,7 @@ class Student extends Controller
 					return;
 				}
 	
+				// If there is a lecture id parameter, load the individual lecture view
 				if($lectureId != ' '){
 					$data = $this->_loadLectureId($data, $lectureId, $classId);		
 				}
@@ -130,6 +164,14 @@ class Student extends Controller
 		}
 	}
 	
+	/*
+	 * Determine if the user has access to this class page that displays lectures. Set the data that determines whether 
+	 * the error page is displayed, or if the class's lectures are displayed.
+	 *
+	 * @param array of data
+	 * @param int class id
+	 * @return array of data
+	 */
 	function _loadClassId($data, $classId)
 	{
 		$id = $this->users_model->getId($this->session->userdata('email'));
@@ -148,6 +190,15 @@ class Student extends Controller
 		return $data;
 	}
 	
+	/*
+	 * Determine if the user has access to this lecture page that displays an individual lecture. 
+	 * Set the data that determines whether the error page is displayed, or if the lecture is displayed.
+	 *
+	 * @param array of data
+	 * @param int lecture id
+	 * @param int class id
+	 * @return array of data
+	 */
 	function _loadLectureId($data, $lectureId, $classId)
 	{
 		$data['lectureId'] = $lectureId;
@@ -177,6 +228,7 @@ class Student extends Controller
 		return $data;
 	}
 	
+	
 	function lecture($lectureNumber='rest')
 	{
 		if ($this->_is_authorized())
@@ -187,6 +239,9 @@ class Student extends Controller
 		}
 	}
 	
+	/*
+	 * Load the settings/ update profile page
+	 */
 	function settings()
 	{
 		if ($this->_is_authorized())
@@ -197,6 +252,9 @@ class Student extends Controller
 		}
 	}
 	
+	/*
+	 * Update a user's information. If the data doesnt validate, print errors.
+	 */
 	function updateProfile()
 	{
 		if ($this->_is_authorized())
@@ -244,6 +302,12 @@ class Student extends Controller
 		}
 	}
 	
+  /*
+   * Verify that the email is not already being used
+   *
+   * @param String email
+   * @return TRUE if the email isnt being used in the database, FALSE if the email is being used.
+   */
 	function email_check($email)
 	{
 		$id = $this->users_model->getId($this->session->userdata('email'));

@@ -4,6 +4,9 @@ include 'application/views/site_admin/table_constants.php';
 
 class Site_admin extends Controller
 {
+	/*
+	 * If the user is an admin and is authorized, load the index. Otherwise load unauthorized page.
+	 */
 	function index()
 	{
 		if ($this->_is_authorized() && ($this->_is_anAdmin()))
@@ -15,6 +18,9 @@ class Site_admin extends Controller
 			$this->_unauthorizedPage();
 	}
 	
+	/*
+	 * If the user is a SITE admin and authorized, load the user views. Otherwise load unauthorized page.
+	 */
 	function users()
 	{
 		$page = $this->uri->segment(3, 'home');
@@ -28,6 +34,9 @@ class Site_admin extends Controller
 			$this->_unauthorizedPage();
 	}
 	
+	/*
+	 * If the user is an admin and is authorized, load the course views. Otherwise load unauthorized page.
+	 */
 	function courses()
 	{
 		$page = $this->uri->segment(3, 'home');
@@ -41,6 +50,9 @@ class Site_admin extends Controller
 			$this->_unauthorizedPage();
 	}
 	
+	/*
+	 * If ther user is a SITE admin and authorized, load the settings views. Otherwise load unauthorized page.
+	 */
 	function settings()
 	{
 		$page = $this->uri->segment(3, 'home');
@@ -54,6 +66,9 @@ class Site_admin extends Controller
 			$this->_unauthorizedPage();
 	}
 	
+	/*
+	 * Add a user if this validation passes, otherwise print errors
+	 */
 	function db_addUser()
 	{
 		$email          = $this->input->post('email');
@@ -152,6 +167,9 @@ class Site_admin extends Controller
 		}
 	}
 	
+	/*
+	 * Edit a user is the validation passes, otherwise print errors.
+	 */
 	function db_editUser()
 	{
 		$id             = $this->input->post('id');
@@ -205,6 +223,9 @@ class Site_admin extends Controller
 		redirect('site_admin/users/');
 	}
 	
+	/*
+	 * Add a course if validation passes, otherwise print errors
+	 */
 	function db_addCourse()
 	{
 		$title       = $this->input->post('title');
@@ -274,6 +295,9 @@ class Site_admin extends Controller
 		}
 	}
 	
+	/*
+	 * Edit course information if validatin passes, otherwise print errors
+	 */
 	function db_editCourseInfo()
 	{
 		$id          = $this->input->post('id');
@@ -314,6 +338,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/0');
 	}
 	
+	/*
+	 * Add course admins to the course.
+	 */
 	function db_editCourseAdmins(){
 		$id          = $this->input->post('id');
 		$classAdminID     = $this->input->post('classID');
@@ -335,6 +362,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/1');
 	}
 	
+	/*
+	 * Remove course admins from the course
+	 */
 	function db_deleteCourseAdmins(){
 		$id          = $this->input->post('id');
 		$classAdminID     = $this->input->post('classID');
@@ -356,6 +386,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/1');
 	}
 	
+	/*
+	 * Add subscriptions to the course
+	 */
 	function db_addCourseSubscriptions()
 	{
 		$id           = $this->input->post('id');
@@ -378,6 +411,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/2');
 	}
 	
+	/*
+	 * Edit subscriptions in a course
+	 */
 	function db_editCourseSubscriptions()
 	{
 		$id           = $this->input->post('id');
@@ -427,6 +463,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/2');
 	}
 	
+	/*
+	 * Delete subscriptions of a course
+	 */
 	function db_deleteCourseSubscriptions()
 	{
 		$id           = $this->input->post('id');
@@ -448,6 +487,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/2');
 	}
 	
+	/*
+	 * Add a course item (lectures) to a course if validation passes, otherwise print errors
+	 */
 	function db_addCourseItem()
 	{
 		$id           = $this->input->post('id');
@@ -502,6 +544,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_course/'.$id.'/3');
 	}
 	
+	/*
+	 * Edit a course item (lecture) if validation passes, otherwise print errors
+	 */
 	function db_editCourseItem()
 	{
 		$lectureId           = $this->input->post('id');
@@ -557,6 +602,9 @@ class Site_admin extends Controller
 		redirect('site_admin/courses/edit_schedule/'.$lectureId);
 	}
 	
+	/*
+	 * Edit the settings (color, banner image, about page text, etc) of the main pages
+	 */
 	function db_editSettingsMain()
 	{
 		$main_banner_image = $this->input->post('banner_image');
@@ -617,6 +665,11 @@ class Site_admin extends Controller
 		redirect('site_admin/settings/');
 	}
 	
+	/*
+	 * Determine if the user is authorized (logged in)
+	 *
+	 * @return TRUE if logged in, or FALSE if not logged in
+	 */
 	function _is_authorized()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
@@ -624,6 +677,11 @@ class Site_admin extends Controller
 		return (isset($is_logged_in) && $is_logged_in == true);
 	}
 	
+	/*
+	 * Determine if the user is a site admin
+	 *
+	 * @return TRUE if site admin, otherwise FALSE if not site admin
+	 */
 	function _is_siteAdmin()
 	{
 
@@ -633,6 +691,11 @@ class Site_admin extends Controller
 
 	}
 	
+	/*
+	 * Determine if the user is any kind of admin (site, lecture, or course admin)
+	 *
+	 * @return TRUE if some kind of admin, or FALSE if not an admin at all
+	 */
 	function _is_anAdmin()
 	{
 
@@ -644,17 +707,20 @@ class Site_admin extends Controller
 
 	}
 	
-	function _is_lectureAdmin()
-	{
-
-	}
-	
+	/*
+	 * Loads the unauthorized page
+	 */
 	function _unauthorizedPage()
 	{
 		$data['siteAdmin'] = $this->_is_siteAdmin();
 		$this->load->view('site_admin/unauthorized', $data);
 	}
 	
+	/*
+	 * Determine if the email is already in use in the database.
+	 *
+	 * @return TRUE if the email is not being used, or FALSE if it is being used
+	 */
 	function email_check($email, $id)
 	{
 		if (!$this->users_model->isValidEmail($id, $email))
@@ -668,6 +734,11 @@ class Site_admin extends Controller
 		}
 	}
 	
+	/*
+	 * Determine if the course title has been used before
+	 *
+	 * @return TRUE if the topic name is available, or FALSE if it is being used
+	 */
 	function title_check($title, $id)
 	{
 		if (!$this->classes_model->isValidTitle($title, $id))
@@ -681,6 +752,11 @@ class Site_admin extends Controller
 		}
 	}
 	
+	/*
+	 * Determine if the end date occurs before the start date
+	 *
+	 * @return TRUE if the dates are valid, or FALSE if the end date occurs before the start date
+	 */
 	function end_check($end, $start)
 	{
 		if (strtotime($start) > strtotime($end))

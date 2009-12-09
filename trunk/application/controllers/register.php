@@ -7,6 +7,9 @@ class Register extends Controller {
     $this->load->library('session');
   }
 
+  /*
+   * Set initial data and load the Register page
+   */
   function index() {
     $data['formData'] = '';
     $data['error'] = '';
@@ -14,6 +17,9 @@ class Register extends Controller {
 		$this->load->view('template', $data);
   }
 
+  /*
+   * Retrieve data from Register view and validate it. If it validates, add the new user. Otherwise, print validation errors.
+   */
   function adduser() {
     $email =  $this->input->post('email');
     $fname =  $this->input->post('fname');
@@ -50,6 +56,12 @@ class Register extends Controller {
 		$this->load->view('template', $data);
   }
 
+  /*
+   * Verify that the email is not already being used
+   *
+   * @param String email
+   * @return TRUE if the email isnt being used in the database, FALSE if the email is being used.
+   */
   function email_check($email)
   {
     $id = $this->users_model->getId($this->session->userdata('email'));
