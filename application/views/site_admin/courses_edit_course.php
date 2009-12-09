@@ -460,9 +460,11 @@
 		 }
 		?>
 
-	<?php // Always display this
+	<?php // Always show this
 			$data['courseID'] = $courseID;
 			$data['courseInfo'] = $courseInfo;
+			$data['siteAdmin'] = $siteAdmin;
+			$data['thisCourseAdmin'] = $thisCourseAdmin;
 			$this->load->view('site_admin/courses_edit_course_schedule', $data);
 		?>
 </div>

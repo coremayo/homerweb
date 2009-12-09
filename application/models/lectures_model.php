@@ -81,5 +81,20 @@ class Lectures_model extends Model {
 
     $this->db->insert('lecture', $lecture);
   }
+  
+  /**
+   * Returns a list of lectures that the given user is admin of in the given course
+   *
+   * @param int id of class
+   * @parama int id of user
+   * @return Array list of lecture information
+   */
+  function getCourseLecturesAdminOf($classId, $userId){	
+	$this->db->select('*');
+    $this->db->from('lecture');
+    $this->db->where('lectureClass', $classId);
+	$this->db->where('lectureAdmin', $userId);
+    return $this->db->get()->result();
+  }
 }
 ?>

@@ -2,10 +2,18 @@
 		<button type="button" class="addButton" id="addItemButton">Add Items</button>
 
 		<?php
-			$data['ID'] = 'scheduleTable';
-			$data['TABLE'] = array(SHOW_SCHEDULE_IN_COURSE, $courseID);
-			$data['FIELDS'] = TOPIC_FIELD | STARTTIME_FIELD | ENDTIME_FIELD;
-			$this->load->view('site_admin/table', $data);
+			if($siteAdmin || $thisCourseAdmin){
+				$data['ID'] = 'scheduleTable';
+				$data['TABLE'] = array(SHOW_SCHEDULE_IN_COURSE, $courseID);
+				$data['FIELDS'] = TOPIC_FIELD | STARTTIME_FIELD | ENDTIME_FIELD;
+				$this->load->view('site_admin/table', $data);
+			}else{
+				$data['ID'] = 'scheduleTable';
+				$data['TABLE'] = array(SHOW_LECTURE_ADMIN_SCHEDULE, $courseID);
+				$data['FIELDS'] = TOPIC_FIELD | STARTTIME_FIELD | ENDTIME_FIELD;
+				$data['userId'] = $this->users_model->getId($this->session->userdata('email'));
+				$this->load->view('site_admin/table', $data);	
+			}
 		?>
 
 		<div id="addItemDialog" title="Add Item">

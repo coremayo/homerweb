@@ -49,6 +49,11 @@
 						$rows = $this->classes_model->getSchedule($optionID);
 						$tableType = SCHEDULE;
 					}
+					else if($display == SHOW_LECTURE_ADMIN_SCHEDULE)
+					{
+						$rows = $this->lectures_model->getCourseLecturesAdminOf($optionID, $userId);
+						$tableType = SCHEDULE;
+					}
 					
 					if ($tableType == USERS)
 					{
