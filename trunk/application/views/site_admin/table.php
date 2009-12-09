@@ -54,6 +54,11 @@
 						$rows = $this->lectures_model->getCourseLecturesAdminOf($optionID, $userId);
 						$tableType = SCHEDULE;
 					}
+					else if($display == SHOW_ALL_RESOURCES)
+					{
+						$rows = $this->lectures_model->getLectureResources($optionID);
+						$tableType = RESOURCES;
+					}
 					
 					if ($tableType == USERS)
 					{
@@ -94,6 +99,13 @@
 						if ($FIELDS & STARTDATE_FIELD) echo '<th>Start Date</th>';
 						if ($FIELDS & ENDDATE_FIELD) echo '<th>End Date</th>';
 						if ($FIELDS & SUB_ACTIVE_FIELD)  echo '<th>Expiration Status</th>';
+					}
+					else if ($tableType == RESOURCES)
+					{
+						if ($FIELDS & SELECT_FIELD)  echo '<th><input type="checkbox" name="select_user_all"></th>';
+						if ($FIELDS & TITLE_FIELD)   echo '<th>Title</th>';
+						if ($FIELDS & DESC_FIELD)   echo '<th>Description</th>';
+						if ($FIELDS & DATE_FIELD)   echo '<th>Date Created</th>';
 					}
 				?>
 			</tr>
@@ -160,7 +172,18 @@
 	
 							echo '<td><img src="'.base_url().'images/site_admin/'.$img.'"/></td>';
 						}
+					}
+					else if ($tableType == RESOURCES)
+					{
+						$resources = $this->lectures_model->getResourceInfo($row->resource_id);
 						
+						foreach ($resources as $resource)
+						{
+							if ($FIELDS & SELECT_FIELD)	echo '<td><input type="checkbox" name="select_user" value="'.$resource->id.'"></td>';
+							if ($FIELDS & TITLE_FIELD) 	echo '<td>'.$resource->resourceTitle.'.'.$resource->resourceType.'</td>';
+							if ($FIELDS & DESC_FIELD)  	echo '<td>'.$resource->resourceDescription.'</td>';
+							if ($FIELDS & DATE_FIELD)  	echo '<td>'.$resource->resourceCreatedDate.'</td>';
+						}
 					}
 	
 					echo '</tr>';

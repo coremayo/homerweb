@@ -46,8 +46,7 @@ class Lectures_model extends Model {
    */
   function getLectureResources($lectureId) {
     $this->db->select('resource_id FROM lecture_has_resource WHERE lecture_id ='.$lectureId);
-    $query = $this->db->get();
-    return $query->result();
+    return $this->db->get()->result();
   }
     
   /**

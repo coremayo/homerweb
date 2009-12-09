@@ -27,6 +27,12 @@
 			"sPaginationType": "full_numbers"
 		});
 		
+		resourcesTable = $('#resourcesTable').dataTable( 
+		{
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+		
 		
 		$("#selectLectureAdminDialog").dialog
 		({
@@ -161,6 +167,13 @@
     </div>
     
     <div id="resourceTab">
+		<button type="button" class="addButton" id="addNewResource">Upload New Resource</button>
+		<?php
+			$dialogData['ID'] = 'resourcesTable';
+			$dialogData['TABLE'] = array(SHOW_ALL_RESOURCES, $lectureID);
+			$dialogData['FIELDS'] = SELECT_FIELD | TITLE_FIELD | DESC_FIELD | DATE_FIELD;
+			$this->load->view('site_admin/table', $dialogData);
+		?>
     </div>
     
     <div id="announcementsTab">
