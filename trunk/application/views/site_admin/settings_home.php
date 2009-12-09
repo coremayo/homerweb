@@ -1,4 +1,5 @@
 <?php 
+
 	$data['breadcrumb'] = 'Settings &raquo; Home';
 	$this->load->view('site_admin/header', $data);
 	
@@ -256,7 +257,6 @@ $(document).ready(function(){
 					<tr height="10px">
 						<td colspan="2"></td>
 					</tr>
-
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Banner image</td>
 						<td width ="68%">
@@ -268,14 +268,14 @@ $(document).ready(function(){
 							<button id="banner_button" type="button">Upload New Image</button>
 							<br>
 							<br>
-							<img id="banner_image" src="<?php echo base_url();?>images/banner.jpg" width="410px" height="84px" style="border:1px solid black"/>
+							<img id="banner_image" src="<?php echo base_url();?>images/<?php echo $this->settings_model->getValue('main_banner_image');?>" width="410px" height="84px" style="border:1px solid black"/>
 						</td>
 					</tr>
 					
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Banner border</td>
 						<td width ="68%">
-							<input type="text" id="banner_border" name="banner_border" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="banner_border" name="banner_border" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_banner_border');?>">
 							<div id="banner_border_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -283,20 +283,20 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Banner text color</td>
 						<td width ="68%">
-							<input type="text" id="banner_text_color" name="banner_text_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="banner_text_color" name="banner_text_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_banner_text_color');?>">
 							<div id="banner_text_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
 					
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Banner text</td>
-						<td width ="68%"><input type="text" name="banner_text" size="35" maxlength"50" class="input"></td>
+						<td width ="68%"><input type="text" name="banner_text" size="35" maxlength"50" class="input" value="<?php echo $this->settings_model->getValue('main_banner_text');?>"></td>
 					</tr>
 					
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Background color</td>
 						<td width ="68%">
-							<input type="text" id="background_color" name="background_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="background_color" name="background_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_background_color');?>">
 							<div id="background_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -304,7 +304,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Header color</td>
 						<td width ="68%">
-							<input type="text" id="header_color" name="header_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="header_color" name="header_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_header_color');?>">
 							<div id="header_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -312,7 +312,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Header text color</td>
 						<td width ="68%">
-							<input type="text" id="header_text_color" name="header_text_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="header_text_color" name="header_text_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_header_text_color');?>">
 							<div id="header_text_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -320,7 +320,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Header border</td>
 						<td width ="68%">
-							<input type="text" id="header_border" name="header_border" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="header_border" name="header_border" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_header_border');?>">
 							<div id="header_border_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -328,7 +328,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Module background color</td>
 						<td width ="68%">
-							<input type="text" id="module_background_color" name="module_background_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="module_background_color" name="module_background_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_module_background_color');?>">
 							<div id="module_background_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -344,14 +344,14 @@ $(document).ready(function(){
 							<button id="module_button" type="button">Upload New Image</button>
 							<br>
 							<br>
-							<img id="module_background_image" src="<?php echo base_url();?>images/module_gradient.png" width="50px" height="50px" style="border:1px solid black"/>
+							<img id="module_background_image" src="<?php echo base_url();?>images/<?php echo $this->settings_model->getValue('main_module_background_image');?>" width="50px" height="50px" style="border:1px solid black"/>
 						</td>
 					</tr>
 					
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Footer border</td>
 						<td width ="68%">
-							<input type="text" id="footer_border" name="footer_border" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="footer_border" name="footer_border" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_footer_border');?>">
 							<div id="footer_border_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -367,7 +367,7 @@ $(document).ready(function(){
 							<button id="footer_button" type="button">Upload New Image</button>
 							<br>
 							<br>
-							<img id="footer_background_image" src="<?php echo base_url();?>images/module_gradient.png" width="50px" height="50px" style="border:1px solid black"/>
+							<img id="footer_background_image" src="<?php echo base_url();?>images/<?php echo $this->settings_model->getValue('main_footer_background_image');?>" width="50px" height="50px" style="border:1px solid black"/>
 						</td>
 					</tr>
 
@@ -390,14 +390,14 @@ $(document).ready(function(){
 							<button id="inactive_tab_button" type="button">Upload New Image</button>
 							<br>
 							<br>
-							<img id="inactive_tab_background_image" src="<?php echo base_url();?>images/tab_gradient.png" width="50px" height="50px" style="border:1px solid black"/>
+							<img id="inactive_tab_background_image" src="<?php echo base_url();?>images/<?php echo $this->settings_model->getValue('main_inactive_tab_background_image');?>" width="50px" height="50px" style="border:1px solid black"/>
 						</td>
 					</tr>
 					
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Inactive tab border</td>
 						<td width ="68%">
-							<input type="text" id="inactive_tab_border" name="inactive_tab_border" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="inactive_tab_border" name="inactive_tab_border" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_inactive_tab_border_color');?>">
 							<div id="inactive_tab_border_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -405,7 +405,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Inactive tab text color</td>
 						<td width ="68%">
-							<input type="text" id="inactive_tab_text_color" name="inactive_tab_text_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="inactive_tab_text_color" name="inactive_tab_text_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_inactive_tab_text_color');?>">
 							<div id="inactive_tab_text_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -413,7 +413,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Inactive tab hover border</td>
 						<td width ="68%">
-							<input type="text" id="inactive_tab_hover_border" name="inactive_tab_hover_border" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="inactive_tab_hover_border" name="inactive_tab_hover_border" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_inactive_tab_hover_border');?>">
 							<div id="inactive_tab_hover_border_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -421,7 +421,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Inactive tab hover background</td>
 						<td width ="68%">
-							<input type="text" id="inactive_tab_hover_background" name="inactive_tab_hover_background" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="inactive_tab_hover_background" name="inactive_tab_hover_background" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_inactive_tab_hover_background');?>">
 							<div id="inactive_tab_hover_background_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -429,7 +429,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Inactive tab hover text color</td>
 						<td width ="68%">
-							<input type="text" id="inactive_tab_hover_text_color" name="inactive_tab_hover_text_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="inactive_tab_hover_text_color" name="inactive_tab_hover_text_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_inactive_tab_hover_text_color');?>">
 							<div id="inactive_tab_hover_text_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -437,7 +437,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Active tab background</td>
 						<td width ="68%">
-							<input type="text" id="active_tab_background" name="active_tab_background" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="active_tab_background" name="active_tab_background" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_active_tab_background');?>">
 							<div id="active_tab_background_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -445,7 +445,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Active tab border</td>
 							<td width ="68%">
-								<input type="text" id="active_tab_border" name="active_tab_border" size="10" maxlength"7" class="input" value="#12345">
+								<input type="text" id="active_tab_border" name="active_tab_border" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_active_tab_border');?>">
 								<div id="active_tab_border_colorpicker" style="display:none;"></div>
 							</td>
 						</td>
@@ -454,7 +454,7 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Active tab text color</td>
 						<td width ="68%">
-							<input type="text" id="active_tab_text_color" name="active_tab_text_color" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="active_tab_text_color" name="active_tab_text_color" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_active_tab_text_color');?>">
 							<div id="active_tab_text_color_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
@@ -462,19 +462,19 @@ $(document).ready(function(){
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">Tab content border</td>
 						<td width ="68%">
-							<input type="text" id="tab_content_border" name="tab_content_border" size="10" maxlength"7" class="input" value="#12345">
+							<input type="text" id="tab_content_border" name="tab_content_border" size="10" maxlength"7" class="input" value="<?php echo $this->settings_model->getValue('main_tab_content_border');?>">
 							<div id="tab_content_border_colorpicker" style="display:none;"></div>
 						</td>
 					</tr>
 
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">About Us Page</td>
-						<td width ="68%"><textarea name="about_us" cols="60" rows="10" class="input"></textarea></td>
+						<td width ="68%"><textarea name="about_us" cols="60" rows="10" class="input"><?php echo $this->settings_model->getValue('main_about_us');?></textarea></td>
 					</tr>
 					
 					<tr>
 						<td bgcolor="#E8E8E8" width="32%">QBank Page</td>
-						<td width ="68%"><textarea name="qbank" cols="60" rows="10" class="input"></textarea></td>
+						<td width ="68%"><textarea name="qbank" cols="60" rows="10" class="input"><?php echo $this->settings_model->getValue('main_qbank');?></textarea></td>
 					</tr>
 					
 					<tr>

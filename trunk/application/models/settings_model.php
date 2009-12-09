@@ -35,11 +35,13 @@ class Settings_model extends Model {
    * @param String value
    */
   function setValue($key, $value) {
-    $data['key'] = $key;
+    
     $data['value'] = $value;
     if ($this->hasKey($key)) {
+      $this->db->where('key', $key);
       $this->db->update('settings', $data);
     } else {
+      $data['key'] = $key;
       $this->db->insert('settings', $data);
     }
   }
