@@ -22,13 +22,14 @@ class Groups_model extends Model {
    */
   function addGroup($groupName) {
     // First, check if group already exists
+    $db_name = $this->db->database;
     $this->db->where('groupName', $groupName);
-    $query = $this->db->get('cs4911.group');
+    $query = $this->db->get($db_name.".group");
     if ($query->num_rows > 0) {
       return "Group '$groupName' already exists.";
     }
     $data['groupName'] = $groupName;
-    $this->db->insert('cs4911.group', $data);
+    $this->db->insert($db_name.'.group', $data);
     return '';
   }
 
@@ -53,9 +54,10 @@ class Groups_model extends Model {
    * @param int user id
    */
   function addToGroup($groupId, $userId) {
+    $db_name = $this->db->database;
     $data['group_id'] = $groupId;
     $data['user_id'] = $userId;
-    $this->db->insert('cs4911.group_has_user', $data);
+    $this->db->insert($db_name . '.group_has_user', $data);
   }
 
   /**
@@ -80,7 +82,8 @@ class Groups_model extends Model {
   function getGroupMembers($groupId) {
     // First check if group exists
     $this->db->where('id', $groupId);
-    $query = $this->db->get('cs4911.group');
+    $db_name = $this->db->database;
+    $query = $this->db->get($db_name . ".group");
     if ($query->num_rows > 0) {
       return FALSE;
     }

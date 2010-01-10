@@ -38,8 +38,8 @@ $active_group = "default";
 $active_record = TRUE;
 
 $db['default']['hostname'] = "localhost";
-$db['default']['username'] = "root";
-$db['default']['password'] = "";
+$db['default']['username'] = "dbuser";
+$db['default']['password'] = "dbuser";
 $db['default']['database'] = "cs4911";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
@@ -49,6 +49,10 @@ $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = "";
 $db['default']['char_set'] = "utf8";
 $db['default']['dbcollat'] = "utf8_general_ci";
+
+
+/* This allows access to the database configuration from the appplication */
+$config['db'] = $db; 
 
 
 /* End of file database.php */
