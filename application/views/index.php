@@ -58,5 +58,22 @@
 			 </table>
 		</div>
 	</div>
+	
+	<br></br>
+	
+	<div id="courses_lvl1">
+	<h2>Video Player</h2>
+	<OBJECT id="VIDEO" width="320" height="240" 
+		style="position:absolute; left:0;top:0;"
+		CLASSID="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6"
+		type="application/x-oleobject">
+	
+		<PARAM NAME="URL" VALUE="<?php echo base_url();?>resources/Neurosurgery Review Course 2009/Introduction/sample_video.wmv">
+		<PARAM NAME="SendPlayStateChangeEvents" VALUE="True">
+		<PARAM NAME="AutoStart" VALUE="True">
+		<PARAM name="uiMode" value="none">
+		<PARAM name="PlayCount" value="9999">
+	</OBJECT>
+	</div>
 </div>
 
