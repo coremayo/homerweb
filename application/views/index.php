@@ -1,13 +1,26 @@
 <div id="main">
 <script type="text/javascript"> javascript:changeClass('mainNav'); </script>
 	<div id="level1">
+	
+			<!--<div id="welcome">
+			<h2>Welcome!</h2>
+			<p>
+				Welcome to the website of the Chicago Review Courses. Chicago Review Courses is the provider of the most thorough and innovative medical reviews for physicians and practitioners at every stage of their careers.
+			</p>
+			<p>
+			For more information about us, <a href="<?php echo base_url();?>main/about">click here.</a>
+			</p>
+			<p>
+			For information about upcoming courses, <a href="<?php echo base_url();?>main/courses">click here.</a>
+			</p>
+		</div>-->
 		<div id="about">
 			<h2>About Us</h2>
 			<p>
 				Chicago Review Course develops the most thorough and innovative medical reviews for physicians and practitioners at every stage of their careers. Our rigorous curriculum covers relevant basic sciences and provides in-depth lectures on the leading-edge diagnostic and therapeutic approaches to your particular specialty.
 			</p>
 			<p>
-			<a href="#">Learn More...</a>
+			<a href="main/about">Learn More...</a>
 			</p>
 		</div>
 
@@ -59,9 +72,9 @@
 		</div>
 	</div>
 	
-	<br></br>
+	<br />
 	
-	<div id="courses_lvl1">
+	<!--<div id="courses_lvl1">
 	<h2>Video Player</h2>
 	<OBJECT id="VIDEO" width="320" height="240" 
 		style="position:absolute; left:0;top:0;"
@@ -74,6 +87,6 @@
 		<PARAM name="uiMode" value="none">
 		<PARAM name="PlayCount" value="9999">
 	</OBJECT>
-	</div>
+	</div>-->
 </div>
 
