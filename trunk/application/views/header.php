@@ -4,20 +4,63 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Chicago Board Review</title>
 		
+		<!--<link rel="stylesheet" href="<?php echo base_url();?>css/style.css" type="text/css" media="screen" />
+		-->
 		<link rel="stylesheet" href="<?php echo base_url();?>css/main.css" media="screen"> 
+		<link rel="stylesheet" href="<?php echo base_url();?>css/slide.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php echo base_url();?>css/jquery-ui-1.7.2.custom.css" type="text/css" media="screen" charset="utf-8">
 		<link rel="stylesheet" href="<?php echo base_url();?>css/demo_table.css" type="text/css" media="screen" charset="utf-8">
+		
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.3.2.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery-ui-1.7.2.custom.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/main.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>js/slide.js" ></script>
 	</head>
-	<body>
 	
-	<div id="container">
+	<body> 
+		<div id="container">
+			<div id="toppanel">
+				<div id="panel">
+					<div class="content clearfix">
+						<div class="left">
+							<!-- Login Form -->
+							<form class="clearfix" action="<?php echo base_url();?>main/login" method="post">
+								<h1>Member Login</h1>
+								<label class="grey" for="log">Email:</label>
+								<input type="text" name="email" id="email" class="required email" />
+								<label class="grey" for="pwd">Password:</label>
+								<input type="password" name="password" id="password" class="required" />
+								<!--<label><input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever" /> &nbsp;Remember me</label>-->
+								<div class="clear"></div>
+								<input type="submit" value="Login" id="login_button" class="bt_login" />
+								<a class="lost-pwd" href="<?php echo base_url();?>forgotPassword">Forgot Password?</a>
+							</form>
+						</div> <!--class="left"-->
+						<div class="left right">			
+								<h1>Not a member yet?</h1>	
+								<p><a href="<?php echo base_url();?>register">Click here to Register!</a></p>			
+						</div> <!--class="left right"-->
+					</div> <!--class="content clearfix"-->
+				</div> <!-- /login (id="panel")-->	
 
-	<div id="banner">
+				<!-- The tab on top -->	
+				<div class="ptab">
+					<ul class="login">
+						<li class="left">&nbsp;</li>
+						<li>Hello Guest!</li>
+						<li class="sep">|</li>
+						<li id="toggle">
+							<a id="open" class="open" href="#">Log In | Register</a>
+							<a id="close" style="display: none;" class="close" href="#">Close Panel</a>			
+						</li>
+						<li class="right">&nbsp;</li>
+					</ul> 
+				</div> <!-- ptab -->
+			</div> <!-- toppanel-->
+			<div id="space"> <br /><br /></div> <!-- break between login and banner -->
+	<div id="banner" text-align="center">
 		<h1>Chicago Review Courses</h1>
 		<p>The Preferred Neurosurgery Review since 1974</p>
 	</div>

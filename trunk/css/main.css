@@ -34,6 +34,8 @@ margin: auto;
 
 #container ul,
 #container ul li {
+font-family: Arial, sans-serif;
+font-size: 8pt;
 }
 
 #header {
@@ -68,11 +70,13 @@ border: 1px solid #d1d1d1;
 -webkit-border-radius: 10px;
 color: #ffffff;
 background: url(../images/banner.jpg) no-repeat 15px 15px;
+text-align: center;
 }
 
 #banner h1 {
-padding: 1em 0 0 6em;
+padding: 1em 0 0 0;
 font-weight: 200;
+
 }
 
 #banner p {
@@ -89,7 +93,7 @@ overflow: hidden;
 }
 
 #level1{
-margin-bottom: 2em;
+/*margin-bottom: 2em;*/
 }
 
 #level1 div, #level2 div, #about_level1 div, #qbank_level1 div, #courses_lvl1{
