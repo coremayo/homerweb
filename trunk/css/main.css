@@ -109,7 +109,7 @@ background: #FFFFFF url(../images/module_gradient.png) repeat-x;
 #level1 div,
 #level2 div {
 float: left;
-width: 45%;
+/*width: 45%;*/
 }
 
 #level1 div p, #level2 div p, #about_level1 div p, #qbank_level1 div p {

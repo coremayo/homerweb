@@ -108,7 +108,7 @@ Date: March 14, 2010
 
 /* sliding panel */
 #toppanel {
-    /*position: absolute;*/   /*Panel will overlap  content */
+    /*position: absolute;   /*Panel will overlap  content */
     position: relative;   /*Panel will "push" the content down */
     top: 0;
     /*width: 75%;*/

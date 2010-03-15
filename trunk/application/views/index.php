@@ -2,7 +2,7 @@
 <script type="text/javascript"> javascript:changeClass('mainNav'); </script>
 	<div id="level1">
 	
-			<!--<div id="welcome">
+			<div id="welcome">
 			<h2>Welcome!</h2>
 			<p>
 				Welcome to the website of the Chicago Review Courses. Chicago Review Courses is the provider of the most thorough and innovative medical reviews for physicians and practitioners at every stage of their careers.
@@ -13,8 +13,8 @@
 			<p>
 			For information about upcoming courses, <a href="<?php echo base_url();?>main/courses">click here.</a>
 			</p>
-		</div>-->
-		<div id="about">
+		</div>
+		<!--<div id="about">
 			<h2>About Us</h2>
 			<p>
 				Chicago Review Course develops the most thorough and innovative medical reviews for physicians and practitioners at every stage of their careers. Our rigorous curriculum covers relevant basic sciences and provides in-depth lectures on the leading-edge diagnostic and therapeutic approaches to your particular specialty.
@@ -69,7 +69,7 @@
 					?> 
 				</tbody>
 			 </table>
-		</div>
+		</div>-->
 	</div>
 	
 	<br />
