@@ -1,3 +1,4 @@
+<script src="flowplayer-3.1.4.min.js"></script>
 <script>
 $(document).ready(function(){
 	$('#videoLink').click(function()
@@ -36,6 +37,12 @@ $(document).ready(function(){
 				echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 				//echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 			}
+			if ($i->resourceType == "flv")
+			{
+				echo '<td><a id="player" style="display:block;width:425px;height:300px;" href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+				echo '<script>flowplayer("player", "flowplayer-3.1.5.swf");</script>';
+				//echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+			}			
 			else
 			{
 				echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';

@@ -18,7 +18,8 @@ INSERT INTO `user` (`id`, `userEmail`, `userFirstName`, `userLastName`, `userPas
 (12, 'rock@gmail.com', 'Susan', 'Rock', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
 (13, 'button@gmail.com', 'Mary', 'Button', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
 (14, 'striker@gmail.com', 'Tom', 'Striker', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
-(15, 'racer@gmail.com', 'Speed', 'Racer', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1);
+(15, 'racer@gmail.com', 'Speed', 'Racer', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2009-11-26', 1),
+(16, 'd@d.com', 'd', 'd', 'a9993e364706816aba3e25717850c26c9cd0d89d', '2010-3-15', 1);
 
 
 INSERT INTO `group` (`id`, `groupName`) VALUES
@@ -82,7 +83,8 @@ INSERT INTO `resource` (`id`, `resourceTitle`, `resourceDescription`, `resourceL
 (1, 'syllabus', 'The syllabus for the class.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/syllabus.pdf', 'pdf', '2009-10-27'),
 (2, 'lecture_notes', 'Notes for this lecture', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/lecture_notes.pdf', 'pdf', '2009-10-27'),
 (3, 'sample_presentation', 'A sample lecture presentation', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_presentation.pptx', 'pptx', '2009-10-28'),
-(4, 'sample_video', 'A test video. See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video.wmv', 'wmv', '2009-10-28');
+(4, 'sample_video', 'A test video. See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video.wmv', 'wmv', '2009-10-28'),
+(5, 'sample_video', 'A test video (FLV version). See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video.flv', 'flv', '2010-3-15');
 
 INSERT INTO `lecture_has_resource` (`lecture_id`, `resource_id`) VALUES
 (1, 1),
