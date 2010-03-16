@@ -72,7 +72,6 @@
 		</div>-->
 	</div>
 	
-	<br />
 	
 	<!--<div id="courses_lvl1">
 	<h2>Video Player</h2>

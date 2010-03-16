@@ -59,7 +59,7 @@
 					</ul> 
 				</div> <!-- ptab -->
 			</div> <!-- toppanel-->
-			<div id="space"> <br /><br /></div> <!-- break between login and banner -->
+			<div id="space"> <br /></div> <!-- break between login and banner -->
 	<div id="banner" text-align="center">
 		<h1>Chicago Review Courses</h1>
 		<p>The Preferred Neurosurgery Review since 1974</p>
