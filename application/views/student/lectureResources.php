@@ -37,13 +37,13 @@ $(document).ready(function(){
 				echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 				//echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 			}
-			if ($i->resourceType == "flv")
+			else if ($i->resourceType == "flv")
 			{
 				echo '<td><a id="player" style="display:block;width:425px;height:300px;" href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 				echo '<script>flowplayer("player", "flowplayer-3.1.5.swf");</script>';
 				//echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 			}			
-			else
+			else 
 			{
 				echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 			}
@@ -56,5 +56,7 @@ $(document).ready(function(){
 			
 	echo '	</tbody>
 		</table>';
+		
+		
 				
 ?>
