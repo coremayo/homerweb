@@ -12,6 +12,7 @@
 		<script type="text/javascript" src="<?php echo base_url();?>js/jquery.validate.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>js/student.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
+	<script src="<?php echo base_url();?>js/flowplayer-3.1.4.min.js"></script>
 	</head>
 	<body>
 	
