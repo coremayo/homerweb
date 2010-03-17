@@ -1,4 +1,3 @@
-<script src="flowplayer-3.1.4.min.js"></script>
 <script>
 $(document).ready(function(){
 	$('#videoLink').click(function()
@@ -14,7 +13,20 @@ $(document).ready(function(){
 
 	$result = $this->lectures_model->getLectureResources($lectureID);
 
-	echo '<table id="user_lecture_resources">
+	echo '
+		<!-- this A tag is where your Flowplayer will be placed. it can be anywhere -->
+		<a  
+			 href="http://e1h13.simplecdn.net/flowplayer/flowplayer.flv"  
+			 style="display:block;width:520px;height:330px"  
+			 id="player"> 
+		</a> 
+	
+		<!-- this will install flowplayer inside previous A- tag. -->
+		<script>
+			flowplayer("player", "../../../flowplayer/flowplayer-3.1.5.swf");
+		</script>
+
+	<table id="user_lecture_resources">
 			<thead>
 				<tr>
 					<th><u> Filename </u></th>
@@ -37,13 +49,7 @@ $(document).ready(function(){
 				echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 				//echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 			}
-			else if ($i->resourceType == "flv")
-			{
-				echo '<td><a id="player" style="display:block;width:425px;height:300px;" href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
-				echo '<script>flowplayer("player", "flowplayer-3.1.5.swf");</script>';
-				//echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
-			}			
-			else 
+			else
 			{
 				echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
 			}
@@ -56,7 +62,5 @@ $(document).ready(function(){
 			
 	echo '	</tbody>
 		</table>';
-		
-		
 				
 ?>
