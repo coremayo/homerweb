@@ -115,7 +115,7 @@ class Lectures_model extends Model {
     
     //make sure type is a vaild type in the enum in db first
     
-    if ($type == "ppt" || $type == "pptx" || $type == "wmv" || $type == "flv"|| $type == "doc" || $type == "docx" || $type == "txt" || $type == "pdf" || $type == "url")
+    if ($type == "ppt" || $type == "pptx" || $type == "wmv" || $type == "flv" || $type == "doc" || $type == "docx" || $type == "txt" || $type == "pdf" || $type == "url")
     {
         $resource['resourceTitle'] = $title;
         $resource['resourceDescription'] = $desc;
