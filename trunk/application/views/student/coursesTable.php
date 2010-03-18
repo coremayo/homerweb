@@ -3,6 +3,4 @@
                             <td>'.$courses->classDesc.'</td>
                             <td>'.$courses->classStartDate.'</td>
                             <td>'.$courses->classEndDate.'</td>
-							<td>'.$courses->distanceLearning.'</td>
-							<td>'.$courses->onSite.'</td>
                         </tr>'; ?>
