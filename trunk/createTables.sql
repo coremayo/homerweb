@@ -158,6 +158,7 @@ CREATE  TABLE IF NOT EXISTS `cs4911`.`resource` (
   `resourceLocation` VARCHAR(300) NULL ,
   `resourceType` ENUM('ppt', 'pptx', 'wmv', 'flv', 'doc', 'docx', 'txt', 'pdf', 'url') NULL ,
   `resourceCreatedDate` DATE NULL ,
+  `download` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
