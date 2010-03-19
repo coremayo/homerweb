@@ -82,7 +82,7 @@
 					'type': 'resource',
 					'desc': text,
 					'lecture': <?php echo $lectureID?>,
-					'course': <?php echo $lectureInfo->lectureClass?>,
+					'course': <?php echo $lectureInfo->lectureClass?>
 					//'download' : 1
 			});
 		},
