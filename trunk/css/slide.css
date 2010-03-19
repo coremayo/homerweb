@@ -120,7 +120,6 @@ Date: March 14, 2010
 
 #panel {
 	width: 100%;
-	height: 270px;
 	color: #999999;
 	background: #272727;
 	overflow: hidden;
@@ -171,14 +170,15 @@ Date: March 14, 2010
 }
 
 #panel .content .left {
-	width: 280px;
 	float: left;
 	padding: 0 15px;
 	border-left: 1px solid #333;
+
 }
 
 #panel .content .right {
-	border-right: 1px solid #333;
+	margin-left: 5%;
+
 }
 
 #panel .content form {
@@ -187,9 +187,9 @@ Date: March 14, 2010
 
 #panel .content label {
 	float: left;
-	padding-top: 8px;
+	/*padding-top: 8px;*/
 	clear: both;
-	width: 280px;
+	/*width: 280px;*/
 	display: block;
 }
 

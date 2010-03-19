@@ -26,6 +26,14 @@ border: 1px solid #2274da;
 -webkit-border-radius: 6px;
 }
 
+h3 {
+color: #ffffff;
+margin: 0;
+text-align: left;
+font-weight: normal;
+font-size: 13pt;
+}
+
 #container {
 text-align: left;
 width: 850px;

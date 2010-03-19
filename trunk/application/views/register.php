@@ -1,11 +1,11 @@
 <div id="main">
 <script type="text/javascript"> javascript:changeClass('mainNav'); </script>
-	<div id="qbank_level1">
+	<!--<div id="qbank_level1">
 		<div id="qbank">
       <h2>Registration</h2>
       <p>Registration provides you with access to the various courses which include lecture notes, a video of the lecture, and any other resources the instructor provides. </p>
     </div>
-  </div>
+  </div>-->
 	<div id="qbank_level1">
 		<div id="qbank">
       <form id="registration_form" action="<?php echo base_url();?>register/adduser" method="post">
