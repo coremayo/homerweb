@@ -91,6 +91,7 @@ INSERT INTO `lecture_has_resource` (`lecture_id`, `resource_id`) VALUES
 (1, 2),
 (1, 3),
 (1, 4);
+(1, 5);
 
 INSERT INTO `settings` (`id`, `key`, `value`) VALUES
 (1, 'main_banner_image', 'back_disabled.jpg'),
