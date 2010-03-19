@@ -32,30 +32,33 @@ $(document).ready(function(){
         
                 foreach($info as $i)
         {
-                        if ($i->resourceType == "wmv")
-                        {
-                                echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
-                                //echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
-                        }
-                        else if ($i->resourceType == "flv")
-                        {
-                                echo '<td>			
-                <a  
-                         href="'.$i->resourceLocation.'"
-                         style="display:block;width:520px;height:330px"  
-                         id="player"> 
-				</a>
-                <script>
-                        flowplayer("player", "../../../flowplayer/flowplayer-3.1.5.swf");
-                </script>
-                <!-- now for the "downloadable" link ..need to add an "if downloadable" tag..-->
+			if($i->download == null)
+			{
+                        	if ($i->resourceType == "wmv")
+                        	{
+                        	        echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+                        	        //echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+                        	}
+                        	else if ($i->resourceType == "flv")
+                        	{
+                        	        echo '<td>			
+                	<a  
+                	         href="'.$i->resourceLocation.'"
+                	         style="display:block;width:520px;height:330px"  
+                	         id="player"> 
+					</a>
+                	<script>
+                	        flowplayer("player", "../../../flowplayer/flowplayer-3.1.5.swf");
+                	</script>
+                	<!-- now for the "downloadable" link ..need to add an "if downloadable" tag..-->
 				<a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a>
 				</td>';
-                        }                       
-                        else 
-                        {
-                                echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
-                        }
+                	        }                       
+                	        else 
+                	        {
+                	                echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+     	     	                }
+			}
                         echo '<td>'.$i->resourceDescription.'</td>';
                         echo '<td>'.$i->resourceCreatedDate.'</td>';
                 }

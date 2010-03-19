@@ -77,11 +77,13 @@
 		onSubmit: function(){
 			this.disable();
 			var text = $("#resource_desc").val();
+			//var downloadable = 1; 
 			this.setData({
 					'type': 'resource',
 					'desc': text,
 					'lecture': <?php echo $lectureID?>,
-					'course': <?php echo $lectureInfo->lectureClass?>
+					'course': <?php echo $lectureInfo->lectureClass?>,
+					//'download' : 1
 			});
 		},
 		onComplete: function(file, response){
@@ -92,7 +94,7 @@
 				$("#type_error").hide();
 			}
 			else
-			{
+			{	
 				$("#type_error").show();
 			}
 			this.enable();
