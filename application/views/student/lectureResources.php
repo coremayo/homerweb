@@ -13,6 +13,8 @@ $(document).ready(function(){
 
         $result = $this->lectures_model->getLectureResources($lectureID);
 
+        
+
         echo '
         <table id="user_lecture_resources">
                         <thead>
@@ -53,7 +55,30 @@ $(document).ready(function(){
                 	<!-- now for the "downloadable" link ..need to add an "if downloadable" tag..-->
 				<a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a>
 				</td>';
-                	        }                       
+                	        }
+                                else if ($i->resourceType == "pdf")
+                                {
+                                        echo '
+                                        <td>
+                                        <!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                                        width="100%" height="100%"
+                                        codebase="http://active.macromedia.com/flash5/cabs/swflash.cab#version=8,0,0,0">
+                                        <param name="MOVIE" value="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.swf">
+                                        <param name="PLAY" value="true">
+                                        <param name="LOOP" value="true">
+                                        <param name="QUALITY" value="high">
+                                        <param name="FLASHVARS" value="zoomtype=3">
+                                        <embed src="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.swf" width="100%" height="100%"
+                                        play="true" ALIGN="" loop="true" quality="high"
+                                        type="application/x-shockwave-flash"
+                                        flashvars="zoomtype=3"
+                                        pluginspage="http://www.macromedia.com/go/getflashplayer">
+                                        </embed>
+                                        </object> -->
+                                        <a href="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.html" target="_blank" >'.$i->resourceTitle.'.'.$i->resourceType.'</a>
+                                        </td>';
+                                        
+                                }      
                 	        else 
                 	        {
                 	                echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
