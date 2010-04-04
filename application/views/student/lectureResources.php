@@ -34,8 +34,8 @@ $(document).ready(function(){
         
                 foreach($info as $i)
         {
-			if($i->download == null)
-			{
+			//if($i->download == null)
+			//{
                         	if ($i->resourceType == "wmv")
                         	{
                         	        echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
@@ -43,6 +43,8 @@ $(document).ready(function(){
                         	}
                         	else if ($i->resourceType == "flv")
                         	{
+							
+                            
                         	        echo '<td>			
                 	<a  
                 	         href="'.$i->resourceLocation.'"
@@ -100,7 +102,7 @@ $(document).ready(function(){
                 	        {
                 	                echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
      	     	                }
-			}
+			//}
                         echo '<td>'.$i->resourceDescription.'</td>';
                         echo '<td>'.$i->resourceCreatedDate.'</td>';
                 }
