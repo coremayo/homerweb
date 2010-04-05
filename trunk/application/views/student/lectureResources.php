@@ -53,8 +53,12 @@ $(document).ready(function(){
                 	        }
                             else if ($i->resourceType == "pdf")
                             {
+								$wow = exec("pdf2swf ".$i->resourceLocation."/".$i->resourceTitle.".pdf -o what.swf");
+								echo "Output pdf2swf: <pre>$wow</pre>";
+								//'pdf2swf '.$i->resourceLocation . ''$i->resourceTitle.".pdf -o ".$i->resourceLocation . $i->resourceTitle.".swf"
                                 echo '
                                         <td>
+										
                                         <!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
                                         width="100%" height="100%"
                                         codebase="http://active.macromedia.com/flash5/cabs/swflash.cab#version=8,0,0,0">
@@ -70,6 +74,8 @@ $(document).ready(function(){
                                         pluginspage="http://www.macromedia.com/go/getflashplayer">
                                         </embed>
                                         </object> -->
+										
+										
                                         <a href="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.html" target="_blank" width="100%" height="">'.$i->resourceTitle.'</a>
                                         </td>';            
                             } 
