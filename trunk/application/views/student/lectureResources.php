@@ -35,7 +35,7 @@ $(document).ready(function(){
         {
                         	if ($i->resourceType == "wmv")
                         	{
-                        	        echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+                        	        echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'</a></td>';
                         	        //echo '<td><a id="videoLink">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
                         	}
                         	else if ($i->resourceType == "flv")
@@ -58,19 +58,19 @@ $(document).ready(function(){
                                         <!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
                                         width="100%" height="100%"
                                         codebase="http://active.macromedia.com/flash5/cabs/swflash.cab#version=8,0,0,0">
-                                        <param name="MOVIE" value="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.swf">
+                                        <param name="MOVIE" value="'.$i->resourceLocation.'">
                                         <param name="PLAY" value="true">
                                         <param name="LOOP" value="true">
                                         <param name="QUALITY" value="high">
                                         <param name="FLASHVARS" value="zoomtype=3">
-                                        <embed src="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.swf" width="100%" height="100%"
+                                        <embed src="'.$i->resourceLocation.'" width="100%" height="100%"
                                         play="true" ALIGN="" loop="true" quality="high"
                                         type="application/x-shockwave-flash"
                                         flashvars="zoomtype=3"
                                         pluginspage="http://www.macromedia.com/go/getflashplayer">
                                         </embed>
                                         </object> -->
-                                        <a href="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.html" target="_blank" width="100%" height="">'.$i->resourceTitle.'.'.$i->resourceType.'</a>
+                                        <a href="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.html" target="_blank" width="100%" height="">'.$i->resourceTitle.'</a>
                                         </td>';            
                             } 
                                 
@@ -87,7 +87,6 @@ $(document).ready(function(){
                                         <param name="allowFullScreen" value="true" />
                                         <embed src="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.swf" quality="high" bgcolor="#ffffff" width="520px" height="330px" name="presentation" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" allowFullScreen="true" />
                                 </object>
-                                <a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a>
                                 </td>';
                                 }     
                 	        else 
