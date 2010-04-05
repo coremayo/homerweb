@@ -12,14 +12,13 @@ $(document).ready(function(){
 <?php
 
         $result = $this->lectures_model->getLectureResources($lectureID);
-
-        
-
+       
         echo '
         <table id="user_lecture_resources">
                         <thead>
                                 <tr>
-                                        <th><u> Filename </u></th>
+                                        <th><u> Media View </u></th>
+										<th><u> Download </u></th>
                                         <th><u> Description </u></th>
                                         <th><u> Date Posted </u></th>
                                 </tr>
@@ -34,8 +33,6 @@ $(document).ready(function(){
         
                 foreach($info as $i)
         {
-			//if($i->download == null)
-			//{
                         	if ($i->resourceType == "wmv")
                         	{
                         	        echo '<td><a href="" onClick="window.open(\''.$i->resourceLocation.'\',\'Video Window\',\'width=500,height=375\')">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
@@ -43,24 +40,20 @@ $(document).ready(function(){
                         	}
                         	else if ($i->resourceType == "flv")
                         	{
-							
-                            
-                        	        echo '<td>			
-                	<a  
-                	         href="'.$i->resourceLocation.'"
-                	         style="display:block;width:520px;height:330px"  
-                	         id="player"> 
-					</a>
-                	<script>
-                	        flowplayer("player", "../../../flowplayer/flowplayer-3.1.5.swf");
-                	</script>
-                	<!-- now for the "downloadable" link ..need to add an "if downloadable" tag..-->
-				<a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a>
-				</td>';
+                        	    echo '<td>			
+								<a  
+									href="'.$i->resourceLocation.'"
+									style="display:block;width:520px;height:330px"  
+									id="player"> 
+								</a>
+								<script>
+									flowplayer("player", "../../../flowplayer/flowplayer-3.1.5.swf");
+								</script>
+								</td>';
                 	        }
-                                else if ($i->resourceType == "pdf")
-                                {
-                                        echo '
+                            else if ($i->resourceType == "pdf")
+                            {
+                                echo '
                                         <td>
                                         <!--<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
                                         width="100%" height="100%"
@@ -78,11 +71,10 @@ $(document).ready(function(){
                                         </embed>
                                         </object> -->
                                         <a href="'.base_url().'resources/Neurosurgery Review Course 2009/Introduction/'.$i->resourceTitle.'.html" target="_blank" width="100%" height="">'.$i->resourceTitle.'.'.$i->resourceType.'</a>
-                                        </td>';
-                                        
-                                } 
+                                        </td>';            
+                            } 
                                 
-                                else if ($i->resourceType == "pptx")
+                            else if ($i->resourceType == "pptx")
                                 {
                                 echo '<td>
                                 <object id="presentation" width="520px" height="330px" 
@@ -100,10 +92,16 @@ $(document).ready(function(){
                                 }     
                 	        else 
                 	        {
-                	                echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
-     	     	                }
-			//}
-                        echo '<td>'.$i->resourceDescription.'</td>';
+                	            echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+     	     	            }
+						if($i->download == null)
+						{
+							echo '<td><a href="'.$i->resourceLocation.'">'.$i->resourceTitle.'.'.$i->resourceType.'</a></td>';
+                        }
+						else{
+							echo '<td>File not downloadable.</td>';
+						}
+						echo '<td>'.$i->resourceDescription.'</td>';
                         echo '<td>'.$i->resourceCreatedDate.'</td>';
                 }
         
