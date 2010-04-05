@@ -84,14 +84,16 @@ INSERT INTO `resource` (`id`, `resourceTitle`, `resourceDescription`, `resourceL
 (2, 'lecture_notes', 'Notes for this lecture', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/lecture_notes.pdf', 'pdf', '2009-10-27'),
 (3, 'sample_presentation', 'A sample lecture presentation', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_presentation.pptx', 'pptx', '2009-10-28'),
 (4, 'sample_video(FLV)', 'A test video (FLV version). See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video(FLV).flv', 'flv', '2010-3-15'),
-(5, 'sample_video', 'A test video. See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video.wmv', 'wmv', '2009-10-28');
+(5, 'sample_video', 'A test video. See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video.wmv', 'wmv', '2009-10-28'),
+(6, 'M2', 'Dereks M2 (multipage) pdf.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/m2.pdf', 'pdf', '2010-4-10');
 
 INSERT INTO `lecture_has_resource` (`lecture_id`, `resource_id`) VALUES
 (1, 1),
 (1, 2),
 (1, 3),
 (1, 4),
-(1, 5);
+(1, 5),
+(1, 6);
 
 INSERT INTO `settings` (`id`, `key`, `value`) VALUES
 (1, 'main_banner_image', 'back_disabled.jpg'),
