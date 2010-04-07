@@ -37,6 +37,8 @@
 						<th>Start Date</th>
 						<th>End Date</th>
 						<th>Price</th>
+                        <th>Distance Learning</th>
+                        <th>On Site</th>
 					 </tr>
 				 </thead>
 				 <tbody>
@@ -71,6 +73,8 @@
 						<th>Start Date</th>
 						<th>End Date</th>
 						<th>Price</th>
+                        <th>Distance Learning</th>
+                        <th>On Site</th>
 					 </tr>
 				 </thead>
 				 <tbody>
@@ -105,6 +109,8 @@
 						<th>Start Date</th>
 						<th>End Date</th>
 						<th>Price</th>
+                        <th>Distance Learning</th>
+                        <th>On Site</th>
 					 </tr>
 				 </thead>
 				 <tbody>
