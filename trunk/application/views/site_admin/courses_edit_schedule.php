@@ -10,6 +10,10 @@
 ?>
 
 <script>
+		function timedRefresh(timeoutPeriod) {
+			setTimeout("location.reload(true);",timeoutPeriod);
+		}
+
 	$(document).ready(function() 
 	{
 		$('#tabs').tabs({ selected: <?php echo $selected ?> });
@@ -92,6 +96,7 @@
 			{
 				$("#addNewResourceDialog").dialog("close");
 				$("#type_error").hide();
+				timedRefresh(500);
 			}
 			else
 			{	
