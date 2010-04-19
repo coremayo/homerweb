@@ -11,7 +11,10 @@
 |	http://example.com/
 |
 */
-$config['base_url']	= "http://localhost/homerweb/";
+$make_it_work_4_online = FALSE;
+if($make_it_work_4_online == TRUE)
+{$config['base_url']	= "http://www.dvlholdings.com/cbr2/";}
+else $config['base_url']	= "http://localhost/homerweb/";
 
 /*
 |--------------------------------------------------------------------------
