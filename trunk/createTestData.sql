@@ -80,20 +80,18 @@ VALUES ('1', 'Introduction', '1', '2009-01-29 07:30:00', '2009-01-29 07:45:00', 
 ('14', 'Dusty Brain', '3', '2006-12-19 07:15:09', '2006-12-19 08:50:14', '1');
 
 INSERT INTO `resource` (`id`, `resourceTitle`, `resourceDescription`, `resourceLocation`, `resourceType`, `resourceCreatedDate`) VALUES
-(1, 'syllabus', 'The syllabus for the class.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/syllabus.pdf', 'pdf', '2009-10-27'),
-(2, 'lecture_notes', 'Notes for this lecture', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/lecture_notes.pdf', 'pdf', '2009-10-27'),
-(3, 'sample_presentation', 'A sample lecture presentation', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_presentation.pptx', 'pptx', '2009-10-28'),
-(4, 'sample_video(FLV)', 'A test video (FLV version). See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video(FLV).flv', 'flv', '2010-3-15'),
-(5, 'sample_video', 'A test video. See if it plays embedded in a web browser.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/sample_video.wmv', 'wmv', '2009-10-28'),
-(6, 'M2', 'Dereks M2 (multipage) pdf.', 'http://localhost/homerweb/resources/Neurosurgery Review Course 2009/Introduction/m2.pdf', 'pdf', '2010-4-10');
+(1, 'syllabus', 'The syllabus for the class.', 'resources/Neurosurgery Review Course 2009/Introduction/syllabus.pdf', 'pdf', '2009-10-27'),
+(2, 'lecture_notes', 'Notes for this lecture', 'resources/Neurosurgery Review Course 2009/Introduction/lecture_notes.pdf', 'pdf', '2009-10-27'),
+(3, 'sample_presentation', 'A sample lecture presentation', 'resources/Neurosurgery Review Course 2009/Introduction/sample_presentation.pptx', 'pptx', '2009-10-28'),
+(4, 'sample_video(FLV)', 'A test video (FLV version). See if it plays embedded in a web browser.', 'resources/Neurosurgery Review Course 2009/Introduction/sample_video(FLV).flv', 'flv', '2010-3-15'),
+(5, 'sample_video', 'A test video. See if it plays embedded in a web browser.', 'resources/Neurosurgery Review Course 2009/Introduction/sample_video.wmv', 'wmv', '2009-10-28');
 
 INSERT INTO `lecture_has_resource` (`lecture_id`, `resource_id`) VALUES
 (1, 1),
 (1, 2),
 (1, 3),
 (1, 4),
-(1, 5),
-(1, 6);
+(1, 5);
 
 INSERT INTO `settings` (`id`, `key`, `value`) VALUES
 (1, 'main_banner_image', 'back_disabled.jpg'),

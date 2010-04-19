@@ -15,7 +15,7 @@ class Uploader extends Controller
     
     if ($uploadType == "images")
     {
-        $uploaddir  = $_SERVER['DOCUMENT_ROOT']."/homerweb/images/";
+        $uploaddir  = echo base_url();."images/";
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
     
         if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) 
@@ -29,7 +29,7 @@ class Uploader extends Controller
     }
     elseif ($uploadType == "excel")
     {
-        $uploaddir  = $_SERVER['DOCUMENT_ROOT']."/homerweb/tmp/";
+        $uploaddir  = echo base_url();."tmp/";
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
         move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
         $objPHPExcel = PHPExcel_IOFactory::load($uploadfile);
@@ -70,7 +70,7 @@ class Uploader extends Controller
          $course = $_POST['course'];
          $lecture = $_POST['lecture'];
          $lectureInfo = $this->lectures_model->getLectureInfo($lecture);
-         $uploaddir  = $_SERVER['DOCUMENT_ROOT']."/homerweb/resources/";
+         $uploaddir  = echo base_url();."resources/";
          $path = $this->classes_model->getClassTitle($course).'/'.$lectureInfo->lectureTopic.'/';
 
          if(!file_exists($uploaddir.$this->classes_model->getClassTitle($course)))
