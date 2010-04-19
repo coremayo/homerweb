@@ -1,6 +1,7 @@
 <div id="main">
 <script type="text/javascript"> javascript:changeClass('courseNav'); </script>
 	<?php
+		$url = base_url().'/resources/moreInfo.html';
 		$result = $this->classes_model->getAllClasses();
 		$currentDate = date('Y-m-d');
 		
@@ -48,7 +49,7 @@
 							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "UPCOMING")
 							{
 								echo	'<tr>      
-										<td><a href="moreInfo.html">'.$classInfo->classTitle.'</a></td>
+										<td><a href="http://localhost/homerweb/resources/moreInfo.html">'.$classInfo->classTitle.'</a></td>
 										<td>'.$classInfo->classDesc.'</td>
 										<td>'.$classInfo->classStartDate.'</td>
 										<td>'.$classInfo->classEndDate.'</td>
@@ -84,7 +85,7 @@
 							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "CURRENT")
 							{
 								echo	'<tr>      
-										<td><a href="moreInfo.html">'.$classInfo->classTitle.'</a></td>
+										<td><a href="http://localhost/homerweb/resources/moreInfo.html">'.$classInfo->classTitle.'</a></td>
 										<td>'.$classInfo->classDesc.'</td>
 										<td>'.$classInfo->classStartDate.'</td>
 										<td>'.$classInfo->classEndDate.'</td>
@@ -120,7 +121,7 @@
 							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "ARCHIVE")
 							{
 								echo	'<tr>      
-										<td><a href="moreInfo.html">'.$classInfo->classTitle.'</a></td>
+										<td><a href="http://localhost/homerweb/resources/moreInfo.html">'.$classInfo->classTitle.'</a></td>
 										<td>'.$classInfo->classDesc.'</td>
 										<td>'.$classInfo->classStartDate.'</td>
 										<td>'.$classInfo->classEndDate.'</td>
