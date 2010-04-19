@@ -48,7 +48,7 @@
 							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "UPCOMING")
 							{
 								echo	'<tr>      
-										<td><a href="/moreInfo.php">'.$classInfo->classTitle.'</a></td>
+										<td><a href="/main/moreInfo.php">'.$classInfo->classTitle.'</a></td>
 										<td>'.$classInfo->classDesc.'</td>
 										<td>'.$classInfo->classStartDate.'</td>
 										<td>'.$classInfo->classEndDate.'</td>
@@ -84,7 +84,7 @@
 							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "CURRENT")
 							{
 								echo	'<tr>      
-										<td><a href="/moreInfo.php">'.$classInfo->classTitle.'</a></td>
+										<td><a href="/main/moreInfo.php">'.$classInfo->classTitle.'</a></td>
 										<td>'.$classInfo->classDesc.'</td>
 										<td>'.$classInfo->classStartDate.'</td>
 										<td>'.$classInfo->classEndDate.'</td>
@@ -120,7 +120,7 @@
 							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "ARCHIVE")
 							{
 								echo	'<tr>      
-										<td><a href="/moreInfo.php">'.$classInfo->classTitle.'</a></td>
+										<td><a href="/main/moreInfo.php">'.$classInfo->classTitle.'</a></td>
 										<td>'.$classInfo->classDesc.'</td>
 										<td>'.$classInfo->classStartDate.'</td>
 										<td>'.$classInfo->classEndDate.'</td>
