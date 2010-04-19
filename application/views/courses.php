@@ -120,7 +120,7 @@
 							if (compare_Dates($currentDate, date('Y-m-d', strtotime($classInfo->classStartDate)), date('Y-m-d', strtotime($classInfo->classEndDate))) == "ARCHIVE")
 							{
 								echo	'<tr>      
-										<td><a href="/moreInfo.php" onclick="window.open("/moreInfo.php","popup","width=500,height=500,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0"); return false">'.$classInfo->classTitle.'</a></td>
+										<td><a href="homerweb/main/courses/moreInfo.php" onclick="window.open("/moreInfo.php","popup","width=500,height=500,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0"); return false">'.$classInfo->classTitle.'</a></td>
 										<td>'.$classInfo->classDesc.'</td>
 										<td>'.$classInfo->classStartDate.'</td>
 										<td>'.$classInfo->classEndDate.'</td>
