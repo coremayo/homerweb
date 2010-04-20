@@ -378,7 +378,7 @@ DROP TABLE IF EXISTS `cs4911`.`settings` ;
 CREATE TABLE IF NOT EXISTS `cs4911`.`settings` (
     `id` INT NOT NULL AUTO_INCREMENT ,
     `key` VARCHAR(45) NOT NULL UNIQUE ,
-    `value` VARCHAR (500) ,
+    `value` LONGTEXT ,
     PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
