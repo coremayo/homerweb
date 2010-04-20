@@ -2,7 +2,7 @@
 <script type="text/javascript"> javascript:changeClass('aboutNav'); </script>
 	<div id="about_level1">
 		<div id="about">
-			<h2>Quality - Relevancy - Expertise </h2>
+			<!--<h2>Quality - Relevancy - Expertise </h2>
 			<p>
 				Chicago Review Course develops the most thorough and innovative medical reviews for physicians and practitioners at every stage of their careers. Our rigorous curriculum covers relevant basic sciences and provides in-depth lectures on the leading-edge diagnostic and therapeutic approaches to your particular specialty.
              </p>
@@ -11,7 +11,8 @@ From state-of-the-art clinical developments to innovative management of complica
 			</p>
             <p>
 Whether you are still a resident in training, a newly established practitioner, or a seasoned physician, you will find our courses to be a worthwhile investment of your time and an advance towards your professional development.
-			</p>
+			</p>-->
+			<?php echo $this->settings_model->getValue('main_about_us');?>
 		</div>
 	</div>
 </div>

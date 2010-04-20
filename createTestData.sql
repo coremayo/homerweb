@@ -117,5 +117,5 @@ INSERT INTO `settings` (`id`, `key`, `value`) VALUES
 (21, 'main_active_tab_border', '#12345'),
 (22, 'main_active_tab_text_color', '#12345'),
 (23, 'main_tab_content_border', '#12345'),
-(24, 'main_about_us', ''),
+(24, 'main_about_us', '<h2>Quality - Relevancy - Expertise </h2>\n   <p>\n    Chicago Review Course develops the most thorough and innovative medical reviews for physicians and practitioners at every stage of their careers. Our rigorous curriculum covers relevant basic sciences and provides in-depth lectures on the leading-edge diagnostic and therapeutic approaches to your particular specialty.\n             </p>\n   <p>\nFrom state-of-the-art clinical developments to innovative management of complications, Chicago Review Courses<sup>TM</sup>. provides a spectrum of knowledge that you can immediately incorporate into your daily practice.\n   </p>\n            <p>\nWhether you are still a resident in training, a newly established practitioner, or a seasoned physician, you will find our courses to be a worthwhile investment of your time and an advance towards your professional development.\n   </p>'),
 (25, 'main_qbank', '');
