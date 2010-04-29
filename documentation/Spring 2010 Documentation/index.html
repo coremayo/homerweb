@@ -1,0 +1,1002 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<base target="_top">
+<style type="text/css">
+  
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+  border-collapse: collapse;
+}
+
+
+tr {
+  
+  text-align: left;
+  
+}
+
+
+div, address, ol, ul, li, option, select {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+
+pre {
+  font-family: Courier New;
+  white-space: pre-wrap;
+  margin:0;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+  color: #000;
+}
+
+
+img {
+  -moz-force-broken-image-icon: 1;
+}
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  
+
+  body {
+    min-height: 1100px;
+    
+    counter-reset: __goog_page__;
+  }
+  
+  * html body {
+    height: 1100px;
+  }
+  /* Prevent repaint errors when scrolling in Safari. This "Star-7" css hack
+     targets Safari 3.1, but not WebKit nightlies and presumably Safari 4.
+     That's OK because this bug is fixed in WebKit nightlies/Safari 4 :-). */
+  html*#wys_frame::before {
+    content: '\A0';
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+  }
+  
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px;
+    padding: 40px 50px;
+  }
+  /* IE6 */
+  * html {
+    overflow-y: scroll;
+  }
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  
+
+  
+    
+    
+    .writely-callout-data {
+      display: inline-block;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin-left: -1px;
+    }
+    
+
+    .writely-footnote-marker {
+      background-image: url('MISSING');
+      background-color: transparent;
+      background-repeat: no-repeat;
+      width: 7px;
+      overflow: hidden;
+      height: 16px;
+      vertical-align: top;
+
+      
+      -moz-user-select: none;
+    }
+    .editor .writely-footnote-marker {
+      cursor: move;
+    }
+    .writely-footnote-marker-highlight {
+      background-position: -15px 0;
+      -moz-user-select: text;
+    }
+    .writely-footnote-hide-selection ::-moz-selection, .writely-footnote-hide-selection::-moz-selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection ::selection, .writely-footnote-hide-selection::selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection {
+      cursor: move;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+
+  
+
+
+  
+  .br_fix span+br:not(:-moz-last-node) {
+    
+    position:relative;
+    
+    left: -1ex
+    
+  }
+
+  
+  #cb-p-tgt {
+    font-size: 8pt;
+    padding: .4em;
+    background-color: #ddd;
+    color: #333;
+  }
+  #cb-p-tgt-can {
+    text-decoration: underline;
+    color: #36c;
+    font-weight: bold;
+    margin-left: 2em;
+  }
+  #cb-p-tgt .spin {
+    width: 16px;
+    height: 16px;
+    background: url(//ssl.gstatic.com/docs/clipboard/spin_16o.gif) no-repeat;
+  }
+}
+
+h6 { font-size: 8pt }
+h5 { font-size: 8pt }
+h4 { font-size: 10pt }
+h3 { font-size: 12pt }
+h2 { font-size: 14pt }
+h1 { font-size: 18pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+.webkit-indent-blockquote { border: none; }
+
+a img {border: 0}
+
+.pb {
+  border-width: 0;
+  page-break-after: always;
+  /* We don't want this to be resizeable, so enforce a width and height
+     using !important */
+  height: 1px !important;
+  width: 100% !important;
+}
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0;
+  border-bottom: 1px dashed #C0C0C0;
+}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 3em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+/* IE6 only */
+* html writely-toc ol {
+  list-style-position: inside;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* Ordered lists converted to numbered lists can preserve ordered types, and
+   vice versa. This is confusing, so disallow it */
+ul[type="i"], ul[type="I"], ul[type="1"], ul[type="a"], ul[type="A"] {
+  list-style-type: disc;
+}
+
+ol[type="disc"], ol[type="circle"], ol[type="square"] {
+  list-style-type: decimal;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  @media print {
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+    .endnotes {
+      page: endnote;
+    }
+
+    /* MLA specifies that endnotes title should be 1" margin from the top of the page. */
+    @page endnote {
+      margin-top: 1in;
+    }
+
+    callout.google_footnote {
+      
+      display: prince-footnote;
+      footnote-style-position: inside;
+      /* These styles keep the footnote from taking on the style of the text
+         surrounding the footnote marker. They can be overridden in the
+         document CSS. */
+      color: #000;
+      font-family: Verdana;
+      font-size: 18.0pt;
+      font-weight: normal;
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+    }
+
+    #WritelyTableOfContents a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+    @footnotes {
+      border-top: solid black thin;
+      padding-top: 8pt;
+    }
+  }
+  /* end default print css */
+
+
+/* custom css */
+
+
+/* end custom css */
+
+/* ui edited css */
+
+body {
+  font-family: Verdana;
+  
+  font-size: 18.0pt;
+  line-height: normal;
+  background-color: #ffffff;
+}
+/* end ui edited css */
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+.editor .writely-comment {
+  font-size: 9pt;
+  line-height: 1.4;
+  padding: 1px;
+  border: 1px dashed #C0C0C0
+}
+
+
+/* end editor CSS */
+
+</style>
+
+  
+  <title>BoardsReview Design Document</title>
+
+</head>
+
+<body 
+    
+    >
+    
+    
+    
+<h1 style=TEXT-ALIGN:center>
+  <font face="'Times New Roman'"><font size=5>Team BoardsReview - CM Capstone Spring 2010</font></font>
+</h1>
+<h1 style=TEXT-ALIGN:center>
+  <font face="'Times New Roman'"><font size=5>Chicago Board of Review Course Site</font></font>
+</h1>
+<h1 style=TEXT-ALIGN:center>
+  <u><font face="'Times New Roman'"><font size=5>Design Document</font></font></u>
+</h1>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<br>
+<br>
+<h1 style=TEXT-ALIGN:center>
+  <font size=6><span style=FONT-WEIGHT:normal>Static Architecture</span></font>
+</h1>
+<div style=TEXT-ALIGN:center>
+  <div id=bwu5 style=TEXT-ALIGN:center>
+    <img src="images/df9dns6k_71hhzx4thn_b.png" style=HEIGHT:546.069px;WIDTH:1024px>
+  </div>
+  <div style=TEXT-ALIGN:center>
+    <br>
+  </div>
+  <div style=TEXT-ALIGN:center>
+    <font size=3>This architecture view shows the general communication between the models, views, and controllers. The model handles communication with the database. The view and controller can talk with the models to obtain database information. At runtime, the controllers build the views and display them to the user.&nbsp;</font>
+  </div>
+  <div style=TEXT-ALIGN:center>
+    <br>
+  </div>
+  <div style=TEXT-ALIGN:center>
+    <font size=3>We have added the following parts to the static architecture: Lecture Resources (Student), Add Lecture Resources (Admin).</font>
+  </div>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=6><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=6>Dynamic Architecture</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div id=aahm style=TEXT-ALIGN:center>
+  <img src="images/df9dns6k_59cdb66dd4_b.png" style=HEIGHT:1337.84px;WIDTH:1000px>
+</div>
+<div id=lnhs style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div id=zbeh style=TEXT-ALIGN:center>
+  <font size=3>This is a dynamic architecture view which shows specific method calls between views, controllers, and models. We have added the steps of viewing a specific resource and downloading a specific resource.</font>
+</div>
+<div id=y9ma style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div id=d_i6 style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=5><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=5>Rationale</font>
+</div>
+<p class=NoSpacing style=TEXT-ALIGN:left>
+  <font size=3>We are using a Client-Server architecture style with a Model-View-Controller (MVC) design pattern. The main reason we are using these is that they were both implemented when the project was started last semester. Because we are performing more of a face-lift of an existing application rather than creating a completely new site, we thought that we would keep the same style and design pattern in order to not create any problems within the system as well as make it faster to implement the site enhancements.</font>
+</p>
+<p class=NoSpacing style=TEXT-ALIGN:left>
+  <font size=3><br>
+  </font>
+</p>
+<p class=NoSpacing style=TEXT-ALIGN:left>
+  <font size=3>Both the style and design pattern are ideal for the web application we are improving. MVC allows the user interface to easily be changed, or to have multiple views. One of our requirements is customizability, and MVC will allow the user to change the appearance of the pages. Also, multiple pages may be able to use the same model objects. Client-Server will allow us to store all data on a server, which will give us more control over the security of the data. Only designated users should be able to view the material associated with a course, and those users should not be able to easily download the video and slide shows unless otherwise allowed. Client-Server also allows for the server to be replaced/upgraded without the clients knowing, and data updates are fairly simple. The design will function with clients of different capabilities. </font>
+</p>
+<p class=NoSpacing style=TEXT-ALIGN:left>
+  &nbsp;
+</p>
+<p class=NoSpacing style=TEXT-ALIGN:left>
+  <font size=3>However, there are some disadvantages. MVC adds some additional complexity to the coding, and frequent model changes could result in a lot of view updates, which in turn slows down the system. Client-server could be problematic if the server fails or if there is congestion on the network.</font>
+</p>
+<p class=NoSpacing style=TEXT-ALIGN:left>
+  &nbsp;
+</p>
+<p class=NoSpacing style=TEXT-ALIGN:left>
+  <font size=3>We also considered using a layered architecture plan with 3 layers: presentation, business, and data. This architecture plan has many of the same benefits of MVC. However, layered models are typically very linear, so a presentation layer would go through the business layer to get to the data level, and then the response would go through the business layer once again. With MVC, the view can query the model directly and get a response directly.&nbsp;</font>
+</p>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=6>Data Design: ER Diagram</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <div id=y40j style=TEXT-ALIGN:center>
+    <img src="images/df9dns6k_70cpvvbbfn_b.jpg" style=HEIGHT:1195.83px;WIDTH:1024px>
+  </div>
+  <div id=r0wh style=TEXT-ALIGN:center>
+    <font size=3>This view shows the entries of the database that is used for the website and shows how they interact with each other.&nbsp;</font>
+  </div>
+  <div id=mqbv style=TEXT-ALIGN:center>
+    <font size=3>We have added:&nbsp;<u>Resource</u> - downloadable INT(11); <u>Class</u> - onsite INT(11) &amp; distanceLearning INT(11)</font>
+  </div>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div id=tytg style=TEXT-ALIGN:left>
+  <div style=TEXT-ALIGN:center>
+    <font size=6><br>
+    </font>
+  </div>
+  <div style=TEXT-ALIGN:center>
+    <font size=6>Detailed Design: Navigation Chart</font>
+  </div>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div id=ap.i style=TEXT-ALIGN:center>
+  <img src="images/df53gvfn_78cvv2ptfj_b.jpg" style=HEIGHT:840px;WIDTH:1188px>
+</div>
+<div id=ae4x style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div id=ozvs style=TEXT-ALIGN:center>
+  <p class=NoSpacing>
+    <font size=3>This navigation chart depicts our website. From each of the major nodes (Home, User, Lecture admin, etc), users can see what pages each nodes have access to and how one would get to a certain page.</font>
+  </p>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=6><b>Current GUI</b></font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=5>Home</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <div id=gctk style=TEXT-ALIGN:center>
+    <img src="images/df9dns6k_61d8jbc7jg_b.png" style=HEIGHT:572.989px;WIDTH:800px>
+  </div>
+  <font size=4>&nbsp;<br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <div id=g0:_ style=TEXT-ALIGN:center>
+    <div id=qcdf style=TEXT-ALIGN:center>
+      <img src="images/df9dns6k_74g9fstpft_b.png" style=HEIGHT:543.012px;WIDTH:800px>
+    </div>
+    <br>
+  </div>
+  <div id=r7e8 style=TEXT-ALIGN:center>
+    <br>
+  </div>
+  <div id=co6x style=TEXT-ALIGN:center>
+    <font size=3>This is the home page that everyone with an Internet connection will have access to. The home page will contain a little information about Chicago Review Courses, and allow you to log in via a dropdown form. You can also learn more by going to the About tab, which will have more in-depth information on Chicago Review Courses. The QBank tab will talk about QBank, which is a resource that users of this system may be able to use. The Courses tab will list the current courses and previous courses. Forgot password will allow you to reset your password, and register will allow you to register.</font><br>
+  </div>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=3><font size=5>Lectures</font><br>
+  <br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <div id=k55y style=TEXT-ALIGN:center>
+    <div id=t6ua style=TEXT-ALIGN:center>
+      <img src="images/df9dns6k_75c9vwnrcx_b.png" style=HEIGHT:530.12px;WIDTH:800px>
+    </div>
+    <div id=tg:f style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=i:l3 style=TEXT-ALIGN:center>
+      <p class=NoSpacing>
+        <font size=3>This is the normal user (student) view once you log in. The pages in this section are only accessible to registered users. This view right here is showing a list of lectures for the Neurosurgery Course. If you click on one of those rows, you will be taken to the next page. You can filter and sort the table. This table also shows whether a class will be available online (Distance Learning) or at the site of the class (On Site).</font>
+      </p>
+      <br>
+    </div>
+    <br>
+  </div>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=5>Subscriptions</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <div id=hpsh style=TEXT-ALIGN:center>
+    <img src="images/df9dns6k_65g5xxcdfq_b.png" style=HEIGHT:697.995px;WIDTH:800px>
+  </div>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><font size=3>This is the view of subscriptions that the current user is subscribed to. This page is also only accessible to registered users. The user can choose to purchase a new course or extend current subscriptions.</font><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=5>Video</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div id=vbdm style=TEXT-ALIGN:center>
+  <div id=cwp1 style=TEXT-ALIGN:center>
+    <img src="images/df9dns6k_90f3h43z7b_b.png" style=HEIGHT:716.522px;WIDTH:800px>
+  </div>
+  <br>
+</div>
+<div id=pipv style=TEXT-ALIGN:center>
+  <font size=3>This view shows the resources page for a specific lecture in a course. Users would be able to scroll down to see the different embedded resources.</font>
+</div>
+<div id=mywc style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div id=ry1q style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div id=q84v style=TEXT-ALIGN:center>
+  <font size=3><br>
+  </font>
+</div>
+<div id=iuwl style=TEXT-ALIGN:center>
+  Admin Main View
+</div>
+<div id=ojc_ style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div id=k95d style=TEXT-ALIGN:center>
+  <div id=cl25 style=TEXT-ALIGN:center>
+    <img src="images/df9dns6k_76hjkxf9cq_b.png" style=HEIGHT:459.528px;WIDTH:800px>
+  </div>
+  <div id=dlo- style=TEXT-ALIGN:center>
+    <font size=3>This view shows the main view that an administrator sees when they enter the administration panel. Admins can then choose to go to different sections including "Users", "Courses", &amp; "Settings".</font>
+  </div>
+  <br>
+</div>
+<div id=t-wf style=TEXT-ALIGN:center>
+  <div id=rbsd style=TEXT-ALIGN:center>
+    Admin Users
+  </div>
+  <div id=oasd style=TEXT-ALIGN:center>
+    <br>
+  </div>
+  <div id=zvr_ style=TEXT-ALIGN:center>
+    <div id=jujw style=TEXT-ALIGN:center>
+      <img src="images/df9dns6k_67dmbdhrdc_b.png" style=HEIGHT:755.904px;WIDTH:1024px>
+    </div>
+    <div id=xqzx style=TEXT-ALIGN:center>
+      <font size=3>This shows the "Users" panel view for the administrator. Admins can add new users and also view all the users registered.</font><br>
+    </div>
+    <div id=xv4c style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=rxmd style=TEXT-ALIGN:center>
+      Admin Courses
+    </div>
+    <div id=w_m- style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=izvh style=TEXT-ALIGN:center>
+      <div id=wviu style=TEXT-ALIGN:center>
+        <img src="images/df9dns6k_68hr3dzv52_b.png" style=HEIGHT:750.4px;WIDTH:1024px>
+      </div>
+      <div id=ujn_ style=TEXT-ALIGN:center>
+        <br>
+      </div>
+      <div id=r-fd style=TEXT-ALIGN:center>
+        <font size=3>This shows the "Courses" section for the Administrators. Admins can add a new course, edit a course, and see user statistics for each course.</font><br>
+      </div>
+      <br>
+    </div>
+    <div id=sbb4 style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=harv style=TEXT-ALIGN:center>
+      Admin Settings
+    </div>
+    <div id=to.n style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=xqyb style=TEXT-ALIGN:center>
+      <img src="images/df9dns6k_69gmnwqsgf_b.png" style=HEIGHT:1848.24px;WIDTH:1024px>
+    </div>
+    <div id=qbc3 style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=r_8c style=TEXT-ALIGN:center>
+      <font size=3>This shows the "Settings" section for the Administrator. Admins can edit individual entries that will update the CSS files accordingly as well as some text fields (About Us &amp; QBank).</font><br>
+    </div>
+  </div>
+</div>
+<font size=6><br>
+</font>
+<div style=TEXT-ALIGN:center>
+  <font size=6><b>GUI Mockups</b></font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=5>Marketing Site - Home</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <div id=u6p7 style=TEXT-ALIGN:center>
+    <div id=gz5b style=TEXT-ALIGN:center>
+      <img src="images/dhdnkqdc_25hck7mmhs_b.png" style=HEIGHT:507.688px;WIDTH:648px>
+    </div>
+    <div id=so5_ style=TEXT-ALIGN:center>
+      <font size=3><br>
+      </font>
+    </div>
+    <div id=h.py style=TEXT-ALIGN:center>
+      <font size=3>This shows the main view of the potential marketing site for DVL Holdings.</font><br>
+    </div>
+    <br>
+  </div>
+  <div id=cqtt style=TEXT-ALIGN:center>
+    <br>
+  </div>
+  <div id=e_j2 style=TEXT-ALIGN:center>
+    Marketing Site - Features
+  </div>
+  <div id=zfah style=TEXT-ALIGN:center>
+    <div id=vxux style=TEXT-ALIGN:center>
+      <div id=e-9t style=TEXT-ALIGN:center>
+        <img src="images/dhdnkqdc_26fbjkv8hg_b.png" style=HEIGHT:507.688px;WIDTH:648px>
+      </div>
+      <div id=q.nc style=TEXT-ALIGN:center>
+        <br>
+      </div>
+      <div id=g-jv style=TEXT-ALIGN:center>
+        <font size=3>This shows the Features view of the potential marketing site for DVL Holdings.</font><br>
+      </div>
+      <div id=bl.z style=TEXT-ALIGN:center>
+        <font size=3><br>
+        </font>
+      </div>
+      <div style=TEXT-ALIGN:center>
+        <br>
+        Marketing Site- Tour<br>
+        <div id=fwjr style=TEXT-ALIGN:center>
+          <div id=pmlz style=TEXT-ALIGN:center>
+            <img src="images/dhdnkqdc_28fw64s45z_b.png" style=HEIGHT:507.688px;WIDTH:648px>
+          </div>
+          <div style=TEXT-ALIGN:center>
+            <br>
+          </div>
+        </div>
+        <div id=fzdg style=TEXT-ALIGN:center>
+          <br>
+        </div>
+        <div id=sfdd style=TEXT-ALIGN:center>
+          <font size=3>This shows the Tour view of the potential marketing site for DVL Holdings.</font><br>
+          <font size=3><br>
+          <i>(See rest of Marketing Site Mock-ups in delivery documentation)</i></font><br>
+        </div>
+        <br>
+      </div>
+    </div>
+    <br>
+  </div>
+  <div id=l76- style=TEXT-ALIGN:center>
+    <font size=5><br>
+    </font>
+  </div>
+  <div id=wmle style=TEXT-ALIGN:center>
+    <font size=5>Login Screen</font>
+  </div>
+  <div id=b8wz style=TEXT-ALIGN:center>
+    <div id=h.bj style=TEXT-ALIGN:center>
+      <img src="images/df9dns6k_92hq448xdd_b.png" style=HEIGHT:476.853px;WIDTH:800px>
+    </div>
+    <div id=lrta style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=n3xl style=TEXT-ALIGN:center>
+      <font size=3>This is a mock-up of a potential scenario of a user logging into the site.&nbsp;</font><br>
+    </div>
+    <div id=pmmj style=TEXT-ALIGN:center>
+      <font size=3><br>
+      </font>
+    </div>
+    <font size=5><br>
+    </font>
+  </div>
+  <div id=s_5: style=TEXT-ALIGN:center>
+    <font size=5>Resources - Mockup 1</font>
+  </div>
+  <div id=oni2 style=TEXT-ALIGN:center>
+    <div id=h6iy style=TEXT-ALIGN:center>
+      <img src="images/df9dns6k_93hs2sd4d6_b.png" style=HEIGHT:616.727px;WIDTH:800px>
+    </div>
+    <div id=uq-d style=TEXT-ALIGN:center>
+      <br>
+    </div>
+    <div id=u8_u style=TEXT-ALIGN:center>
+      <font size=3>This is a mock-up of a potential scenario of a user viewing resources on the site.&nbsp;</font><br>
+    </div>
+    <div id=v5t2 style=TEXT-ALIGN:center>
+      <font size=5><br>
+      </font>
+    </div>
+    <div id=bti0 style=TEXT-ALIGN:center>
+      <font size=5>Resources - Mockup 2</font>
+    </div>
+    <div id=r5xt style=TEXT-ALIGN:center>
+      <div id=fwup style=TEXT-ALIGN:center>
+        <img src="images/df9dns6k_95d2qjc5dc_b.png" style=HEIGHT:504.892px;WIDTH:800px>
+      </div>
+      <div id=ld3x style=TEXT-ALIGN:center>
+        <br>
+      </div>
+      <div id=u1kt style=TEXT-ALIGN:center>
+        <font size=3>This is a mock-up of a potential scenario of a user viewing resources on the site.&nbsp;</font><br>
+      </div>
+      <div id=x81j style=TEXT-ALIGN:center>
+        <font size=3><br>
+        </font>
+      </div>
+      <div id=endz style=TEXT-ALIGN:center>
+        <font size=3><br>
+        </font>
+      </div>
+      <div id=yxk0 style=TEXT-ALIGN:center>
+        <font size=2><u>*</u></font><i><font size=2><u>To view more mockups, please see the images in the delivery documentation.</u></font></i>
+      </div>
+      <font size=5><br>
+      </font>
+    </div>
+    <font size=5><br>
+    </font>
+  </div>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=5>Validation</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <font size=4><br>
+  </font>
+</div>
+<div style=TEXT-ALIGN:left>
+  <font size=3>Proposed features were validated in a long meeting with the customer. &nbsp;One agreed upon feature was an implementation of an embedded media player which prioritizes the ability to secure video content. Finally, numerous fixes to the existing architecture were proposed such as the revision of administrator actions as well as the level at which the site operates. The customer would like the ability to administer entire review courses as opposed to a single review course. Our team created an early design of the marketing website which only partially completes this ability. More work on the database and functionality must be done to completely create this ability.</font>
+</div>
+<div style=TEXT-ALIGN:center>
+  <br>
+</div>
+<br></body>
+</html>
