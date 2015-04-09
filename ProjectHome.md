@@ -1,0 +1,1 @@
+A web based course management system. Written in PHP using the codeigniter framework and MySQL database.
